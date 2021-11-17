@@ -1,0 +1,29 @@
+lockfileVersion: 5.3
+
+importers:
+
+  .:
+    specifiers:
+      prettier: ^2.4.1
+    devDependencies:
+      prettier: 2.4.1
+
+  packages/server:
+    specifiers:
+      '@ragemp/types-shared': file:..\shared\ragemp-types-shared-1.0.0.tgz
+    devDependencies:
+      '@ragemp/types-shared': file:packages/shared/ragemp-types-shared-1.0.0.tgz
+
+packages:
+
+  /prettier/2.4.1:
+    resolution: {integrity: sha512-9fbDAXSBcc6Bs1mZrDYb3XKzDLm4EXXL9sC1LqKP5rZkT6KRr/rf9amVUcODVXgguK/isJz0d0hP72WeaKWsvA==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
+  file:packages/shared/ragemp-types-shared-1.0.0.tgz:
+    resolution: {integrity: sha512-cT8yI6aSCH/tm/+3e8ZYsHs7BNcr3TZRpaGCVPxvWcl12nvIET9s1BbTp7WHckLTRpQOXH3Bv20swE/kI+0OxA==, tarball: file:packages/shared/ragemp-types-shared-1.0.0.tgz}
+    name: '@ragemp/types-shared'
+    version: 1.0.0
+    dev: true

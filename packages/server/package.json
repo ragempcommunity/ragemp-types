@@ -1,0 +1,21 @@
+{
+	"name": "@ragemp/types-server",
+	"version": "1.0.0",
+	"description": "Types definitions for RAGE:MP server-side module",
+	"main": "index.d.ts",
+	"files": [
+		"index.d.ts",
+		"enums.d.ts",
+		"enums/colshape.d.ts",
+		"enums/entity.d.ts",
+		"enums/player.d.ts",
+		"enums/vehicle.d.ts",
+		"enums/weather.d.ts",
+		"enums/weapon.d.ts"
+	],
+	"author": "LeonardSSH <leonardssh22@gmail.com> (https://leonard.sh)",
+	"license": "MIT",
+	"devDependencies": {
+		"@ragemp/types-shared": "file:..\\shared\\ragemp-types-shared-1.0.0.tgz"
+	}
+}
