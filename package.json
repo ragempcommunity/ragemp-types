@@ -1,7 +1,7 @@
 {
-	"name": "@ragemp/types-shared",
+	"name": "@ragemp/types-cef",
 	"version": "1.0.0",
-	"description": "Shared types definitions for RAGE:MP server/client module",
+	"description": "Types definitions for RAGE:MP CEF module",
 	"main": "index.d.ts",
 	"files": [
 		"index.d.ts"
