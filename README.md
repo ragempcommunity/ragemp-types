@@ -4,7 +4,7 @@ Remember to 🌟 this Github if you 💖 it.
 
 ## 📥 Installation
 
-#### [`SERVER-SIDE`](<(https://github.com/LeonardSSH/ragemp-types/tree/main/packages/server)>)
+#### [`SERVER-SIDE`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/server)
 
 ```bash
 # With npm
