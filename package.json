@@ -16,6 +16,6 @@
 	"author": "LeonardSSH <leonardssh22@gmail.com> (https://leonard.sh)",
 	"license": "MIT",
 	"devDependencies": {
-		"@ragemp/types-shared": "file:..\\shared\\ragemp-types-shared-1.0.0.tgz"
+		"@ragemp/types-shared": "github:leonardssh/ragemp-types#types-shared"
 	}
 }
