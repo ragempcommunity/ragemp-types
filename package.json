@@ -1,0 +1,11 @@
+{
+	"name": "@ragemp/types-shared",
+	"version": "1.0.0",
+	"description": "Shared types definitions for RAGE:MP server/client module",
+	"main": "index.d.ts",
+	"files": [
+		"index.d.ts"
+	],
+	"author": "LeonardSSH <leonardssh22@gmail.com> (https://leonard.sh)",
+	"license": "MIT"
+}
