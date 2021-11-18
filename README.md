@@ -4,7 +4,7 @@ Remember to 🌟 this Github if you 💖 it.
 
 ## 📥 Installation
 
-#### `SERVER-SIDE`
+#### [`SERVER-SIDE`](<(https://github.com/LeonardSSH/ragemp-types/tree/main/packages/server)>)
 
 ```bash
 # With npm
@@ -17,7 +17,7 @@ yarn add -D github:leonardssh/ragemp-types#types-server
 pnpm add -D github:leonardssh/ragemp-types#types-server
 ```
 
-#### `CLIENT-SIDE`
+#### [`CLIENT-SIDE`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/client)
 
 ```bash
 # With npm
@@ -30,7 +30,7 @@ yarn add -D github:leonardssh/ragemp-types#types-client
 pnpm add -D github:leonardssh/ragemp-types#types-client
 ```
 
-#### `CEF`
+#### [`CEF`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/cef)
 
 ```bash
 # With npm
@@ -55,7 +55,7 @@ pnpm add -D github:leonardssh/ragemp-types#types-cef
 
 ## 🤓 Usage
 
-### [`SERVER-SIDE`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/server) - [`CLIENT-SIDE`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/client) - [`CEF`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/cef)
+#### [`SERVER-SIDE`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/server) - [`CLIENT-SIDE`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/client) - [`CEF`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/cef)
 
 ## 👨‍💻 Contributing
 
