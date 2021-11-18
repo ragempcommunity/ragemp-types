@@ -15,7 +15,7 @@
 	],
 	"author": "LeonardSSH <leonardssh22@gmail.com> (https://leonard.sh)",
 	"license": "MIT",
-	"devDependencies": {
+	"peerDependencies": {
 		"@ragemp/types-shared": "github:leonardssh/ragemp-types#types-shared"
 	}
 }
