@@ -1,5 +1,5 @@
 declare module 'rage-shared' {
-	export type Maybe<T> = T | number | string;
+	export type MaybeHash<T> = T | number | string;
 
 	export type Array2d = [number, number];
 	export type Array3d = [number, number, number];
