@@ -1,4 +1,4 @@
-declare module 'rage-server' {
+declare module 'rage-shared' {
 	export const enum EntityType {
 		BLIP = 'blip',
 		CHECKPOINT = 'checkpoint',
@@ -8,6 +8,8 @@ declare module 'rage-server' {
 		OBJECT = 'object',
 		PICKUP = 'pickup',
 		PLAYER = 'player',
-		VEHICLE = 'vehicle'
+		VEHICLE = 'vehicle',
+		PED = 'ped',
+		TEXT_LABEL = 'textlabel'
 	}
 }

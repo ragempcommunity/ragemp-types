@@ -4,7 +4,9 @@
 	"description": "Shared types definitions for RAGE:MP server/client module",
 	"main": "index.d.ts",
 	"files": [
-		"index.d.ts"
+		"index.d.ts",
+		"enums.d.ts",
+		"enums/entity.d.ts"
 	],
 	"author": "LeonardSSH <leonardssh22@gmail.com> (https://leonard.sh)",
 	"license": "MIT"

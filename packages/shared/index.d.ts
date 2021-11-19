@@ -1,3 +1,5 @@
+/// <reference path="enums.d.ts"/>
+
 declare module 'rage-shared' {
 	export type MaybeHash<T> = T | number | string;
 
