@@ -1,0 +1,14 @@
+{
+	"name": "@ragemp/types-client",
+	"version": "1.0.0",
+	"description": "Types definitions for RAGE:MP client-side module",
+	"main": "index.d.ts",
+	"files": [
+		"index.d.ts"
+	],
+	"author": "LeonardSSH <leonardssh22@gmail.com> (https://leonard.sh)",
+	"license": "MIT",
+	"peerDependencies": {
+		"@ragemp/types-shared": "github:leonardssh/ragemp-types#types-shared"
+	}
+}
