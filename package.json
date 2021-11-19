@@ -6,12 +6,11 @@
 	"files": [
 		"index.d.ts",
 		"enums.d.ts",
-		"enums/colshape.d.ts",
-		"enums/entity.d.ts",
-		"enums/player.d.ts",
-		"enums/vehicle.d.ts",
-		"enums/weather.d.ts",
-		"enums/weapon.d.ts"
+		"./enums/colshape.d.ts",
+		"./enums/player.d.ts",
+		"./enums/vehicle.d.ts",
+		"./enums/weather.d.ts",
+		"./enums/weapon.d.ts"
 	],
 	"author": "LeonardSSH <leonardssh22@gmail.com> (https://leonard.sh)",
 	"license": "MIT",

@@ -19,7 +19,7 @@ declare module 'rage-server' {
 		/**
 		 * Property used for getting an entity type.
 		 */
-		public readonly type: EntityType;
+		public readonly type: shared.EntityType;
 
 		/**
 		 * Property used to gets/sets the entity's alpha.
@@ -146,6 +146,15 @@ declare module 'rage-server' {
 		 * @param callingFunction Function what will be called
 		 */
 		public forEach(callingFunction: (entity: T) => void): void;
+
+		/**
+		 * Calling for each entity in a pool.
+		 *
+		 * Same as forEach except faster at lookups. Do not use this for destroying entities..
+		 *
+		 * @param callingFunction Function what will be called
+		 */
+		public forEachFast(callingFunction: (entity: T) => void): void;
 
 		/**
 		 * Used to call a function for each elements in the pool.
