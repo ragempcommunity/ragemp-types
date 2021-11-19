@@ -66,6 +66,8 @@ jobs:
           rsync -vaI README.md out/
           rsync -vaI LICENSE out/
           rsync -vaI index.d.ts out/
+          rsync -vaI enums.d.ts out/
+          rsync -vaI enums/ out/enums
 
           echo -e "\n# Commit and push"
           cd out
