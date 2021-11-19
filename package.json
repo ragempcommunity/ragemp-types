@@ -4,7 +4,11 @@
 	"description": "Types definitions for RAGE:MP client-side module",
 	"main": "index.d.ts",
 	"files": [
-		"index.d.ts"
+		"index.d.ts",
+		"enums.d.ts",
+		"./enums/markers.d.ts",
+		"./enums/peds.d.ts",
+		"./enums/weapons.d.ts"
 	],
 	"author": "LeonardSSH <leonardssh22@gmail.com> (https://leonard.sh)",
 	"license": "MIT",
