@@ -495,7 +495,7 @@ declare module 'rage-server' {
 		 *
 		 * @param weapon Weapon Hash
 		 */
-		public getWeaponAmmo(weapon: shared.Maybe<Weapon>): number;
+		public getWeaponAmmo(weapon: shared.MaybeHash<Weapon>): number;
 
 		/**
 		 * Gives a weapon(see) for the player.
@@ -503,8 +503,8 @@ declare module 'rage-server' {
 		 * @param weaponHash Weapon Hash
 		 * @param ammo Ammo
 		 */
-		public giveWeapon(weaponHash: shared.Maybe<Weapon>, ammo: number): void;
-		public giveWeapon(weaponHashes: shared.Maybe<Weapon>[], ammo: number): void;
+		public giveWeapon(weaponHash: shared.MaybeHash<Weapon>, ammo: number): void;
+		public giveWeapon(weaponHashes: shared.MaybeHash<Weapon>[], ammo: number): void;
 
 		/**
 		 * TODO: docs
@@ -598,7 +598,7 @@ declare module 'rage-server' {
 		 *
 		 * @param weaponHash [Weapon Hash](https://wiki.rage.mp/index.php?title=Weapons)
 		 */
-		public removeWeapon(weaponHash: shared.Maybe<Weapon>): void;
+		public removeWeapon(weaponHash: shared.MaybeHash<Weapon>): void;
 
 		/**
 		 * Sets clothing for player.
@@ -692,7 +692,7 @@ declare module 'rage-server' {
 		 * @param weapon Weapon Hash
 		 * @param ammo Ammo
 		 */
-		public setWeaponAmmo(weapon: shared.Maybe<Weapon>, ammo: number): void;
+		public setWeaponAmmo(weapon: shared.MaybeHash<Weapon>, ammo: number): void;
 
 		/**
 		 * Spawns the player.
@@ -1111,7 +1111,7 @@ declare module 'rage-server' {
 
 	export interface VehiclePool extends EntityPool<Vehicle> {
 		'new'(
-			model: shared.Maybe<VehicleHash>,
+			model: shared.MaybeHash<VehicleHash>,
 			position: shared.Vector3,
 			options?: {
 				alpha?: number;
@@ -1570,7 +1570,7 @@ declare module 'rage-server' {
 
 	export interface ObjectPool extends EntityPool<ObjectMp> {
 		'new'(
-			model: shared.Maybe<string>,
+			model: shared.MaybeHash<string>,
 			position: shared.Vector3,
 			options?: {
 				alpha?: number;
