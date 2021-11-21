@@ -32,7 +32,6 @@ function switchVersion(version) {
 	if (typeof version === 'string' && !versions.includes(version)) {
 		console.warn(`[rage-types] expecting version "classic" or "module" but got "${version}"`);
 		process.exit(1);
-		return;
 	}
 
 	console.log(`[rage-types] Switched for ${version} types`);
@@ -41,13 +40,7 @@ function switchVersion(version) {
 
 	const parsedRageCfg = readRageCfg();
 
-	if (parsedRageCfg === null) {
-		const newRageCfg = {
-			types: version
-		};
-
-		fs.writeFileSync(rageCfgPath, JSON.stringify(newRageCfg), 'utf-8');
-	} else {
+	if (parsedRageCfg !== null) {
 		parsedRageCfg.types = version;
 		fs.writeFileSync(rageCfgPath, JSON.stringify(parsedRageCfg), 'utf-8');
 	}
