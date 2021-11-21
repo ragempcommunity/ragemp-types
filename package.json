@@ -6,14 +6,21 @@
 	"files": [
 		"index.d.ts",
 		"enums.d.ts",
-		"./enums/colshape.d.ts",
-		"./enums/player.d.ts",
-		"./enums/vehicle.d.ts",
-		"./enums/weather.d.ts",
-		"./enums/weapon.d.ts"
+		"classic",
+		"module",
+		"bin",
+		"scripts",
+		"enums"
 	],
 	"author": "LeonardSSH <leonardssh22@gmail.com> (https://leonard.sh)",
 	"license": "MIT",
+	"bin": {
+		"rage-types-switch": "bin/rage-types-switch.js",
+		"rage-types-fix": "bin/rage-types-fix.js"
+	},
+	"scripts": {
+		"postinstall": "node ./scripts/postinstall.js"
+	},
 	"peerDependencies": {
 		"@ragemp/types-shared": "github:leonardssh/ragemp-types#types-shared"
 	}
