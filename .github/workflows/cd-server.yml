@@ -69,12 +69,8 @@ jobs:
           rsync -vaI README.md out/
           rsync -vaI LICENSE out/
           rsync -vaI index.d.ts out/
-          # rsync -vaI enums.d.ts out/
-          # rsync -vaI enums/ out/enums
-          rsync -vaI bin/ out/bin
-          rsync -vaI scripts/ out/scripts
-          rsync -vaI classic/ out/classic
-          rsync -vaI module/ out/module
+          rsync -vaI enums.d.ts out/
+          rsync -vaI hashes/ out/hashes
 
           echo -e "\n# Commit and push"
           cd out
