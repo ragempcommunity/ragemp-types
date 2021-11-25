@@ -1,34 +1,5 @@
-declare module 'rage-server' {
-	export const enum VehicleNumberPlateType {
-		BLUE_WHITE = 0,
-		YELLOW_BLACK = 1,
-		YELLOW_BLUE = 2,
-		BLUE_WHITE2 = 3,
-		BLUE_WHITE3 = 4,
-		YANKTON = 5
-	}
-
-	export const enum VehicleSeat {
-		DRIVER,
-		PASSENGER_1,
-		PASSENGER_2,
-		PASSENGER_3,
-		PASSENGER_4,
-		PASSENGER_5,
-		PASSENGER_6,
-		PASSENGER_7,
-		PASSENGER_8,
-		PASSENGER_9,
-		PASSENGER_10,
-		PASSENGER_11,
-		PASSENGER_12,
-		PASSENGER_13,
-		PASSENGER_14,
-		PASSENGER_15,
-		PASSENGER_16
-	}
-
-	export const enum VehicleHash {
+declare namespace RageEnums.Hashes {
+	const enum Vehicle {
 		ADDER = 0xb779a091,
 		AIRBUS = 0x4c80eb0e,
 		AIRTUG = 0x5d0aac8f,

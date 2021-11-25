@@ -6,21 +6,10 @@
 	"files": [
 		"index.d.ts",
 		"enums.d.ts",
-		"classic",
-		"module",
-		"bin",
-		"scripts",
-		"enums"
+		"hashes"
 	],
 	"author": "LeonardSSH <leonardssh22@gmail.com> (https://leonard.sh)",
 	"license": "MIT",
-	"bin": {
-		"rage-types-switch": "bin/rage-types-switch.js",
-		"rage-types-fix": "bin/rage-types-fix.js"
-	},
-	"scripts": {
-		"postinstall": "node ./scripts/postinstall.js"
-	},
 	"peerDependencies": {
 		"@ragemp/types-shared": "github:leonardssh/ragemp-types#types-shared"
 	}

@@ -49,6 +49,9 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
 
+      - name: Set classic types enabled by default
+        run: yarn make-classic-default
+
       - name: Publish Types
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
@@ -67,11 +70,7 @@ jobs:
           rsync -vaI LICENSE out/
           rsync -vaI index.d.ts out/
           rsync -vaI enums.d.ts out/
-          rsync -vaI enums/ out/enums
-          rsync -vaI bin/ out/bin
-          rsync -vaI scripts/ out/scripts
-          rsync -vaI classic/ out/classic
-          rsync -vaI module/ out/module
+          rsync -vaI hashes/ out/hashes
 
           echo -e "\n# Commit and push"
           cd out

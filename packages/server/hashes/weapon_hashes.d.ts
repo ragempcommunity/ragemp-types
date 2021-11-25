@@ -1,5 +1,5 @@
-declare module 'rage-server' {
-	export const enum Weapon {
+declare namespace RageEnums.Hashes {
+	const enum Weapon {
 		ADVANCEDRIFLE = 0xaf113f99,
 		APPISTOL = 0x22d8fe39,
 		ASSAULTRIFLE = 0xbfefff6d,
