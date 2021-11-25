@@ -5,21 +5,11 @@
 	"main": "index.d.ts",
 	"files": [
 		"index.d.ts",
-		"classic",
-		"module",
-		"bin",
-		"scripts"
+		"enums.d.ts",
+		"hashes"
 	],
 	"author": "LeonardSSH <leonardssh22@gmail.com> (https://leonard.sh)",
 	"license": "MIT",
-	"bin": {
-		"rage-types-switch": "bin/rage-types-switch.js",
-		"rage-types-fix": "bin/rage-types-fix.js"
-	},
-	"scripts": {
-		"postinstall": "node ./scripts/postinstall.js",
-		"make-classic-default": "node ./scripts/make-classic-default.js"
-	},
 	"peerDependencies": {
 		"@ragemp/types-shared": "github:leonardssh/ragemp-types#types-shared"
 	}
