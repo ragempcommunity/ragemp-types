@@ -77,14 +77,14 @@ npm i --save-dev github:leonardssh/ragemp-types#types-client
 │    	   # Server - Contains code relating to the database, player spawning, etc.
 │    	   # Client - Contains code to display things to the user and do things to them.
 │     	   ├───client
-│		   │   ├───@types
-│ 		   │   │   └───index.d.ts
+│          │   ├───@types
+│          │   │   └───index.d.ts
 │          │   ├───src
 │          │   └───tsconfig.json
 │          │
 │     	   server
-│		   │   ├───@types
-│ 		   │   │   └───index.d.ts
+│	   │   ├───@types
+│ 	   │   │   └───index.d.ts
 │          │   ├───src
 │          │   └───tsconfig.json
 │          └───
