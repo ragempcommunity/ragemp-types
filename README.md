@@ -41,13 +41,6 @@ pnpm add -D github:leonardssh/ragemp-types#types-server
 1. By extend the prototype of the object:
 
 ```ts
-// which augments the interface of the current PlayerMp object
-interface PlayerMp {
-	myProperty: number;
-
-	myMethod(): void;
-}
-
 mp.Player.prototype.myMethod = function myMethod() {
 	// my method logic
 };
@@ -60,16 +53,22 @@ mp.events.add('playerReady', (player) => {
 });
 ```
 
+```ts
+// @types/index.d.ts
+declare global {
+	interface PlayerMp {
+		myProperty: number;
+
+		myMethod(): void;
+	}
+}
+
+export {};
+```
+
 2. By extend the object itself:
 
 ```ts
-// which augments the interface of the current PlayerMp object
-interface PlayerMp {
-	myProperty: number;
-
-	myMethod(): void;
-}
-
 mp.events.add('playerReady', (player) => {
 	player.myProperty = 1;
 
@@ -79,7 +78,20 @@ mp.events.add('playerReady', (player) => {
 });
 ```
 
-See: [Typescript Module Augmentation](https://www.digitalocean.com/community/tutorials/typescript-module-augmentation)
+```ts
+// @types/index.d.ts
+declare global {
+	interface PlayerMp {
+		myProperty: number;
+
+		myMethod(): void;
+	}
+}
+
+export {};
+```
+
+See: [RAGEMP Typescript Boilerplate](https://github.com/LeonardSSH/ragemp-typescript)
 
 ## 👨‍💻 Contributing
 
