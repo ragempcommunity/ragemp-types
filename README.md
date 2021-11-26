@@ -62,27 +62,32 @@ pnpm add -D github:leonardssh/ragemp-types#types-cef
 
 To avoid conflicts between server and client types, they must be installed and set as follows:
 
-> Step #1: *install the types in package.json from the project root*
+> Step #1: _install the types in package.json from the project root_
+
 ```ts
 npm i --save-dev github:leonardssh/ragemp-types#types-server
 npm i --save-dev github:leonardssh/ragemp-types#types-client
 ```
 
-> Step #2: *for this step, your project should be structured as follows:*
+> Step #2: _for this step, your project should be structured as follows:_
 
 ```sh
 ├───my-awesome-ragemp-server
 │   └───src
 │    	   # Server - Contains code relating to the database, player spawning, etc.
 │    	   # Client - Contains code to display things to the user and do things to them.
-│    	   ├───client
-│          │   ├───src
-│          │   └───tsconfig.json 
-│          │
-│          ├───server
+│     	   ├───client
+│		   │   ├───@types
+│ 		   │   │   └───index.d.ts
 │          │   ├───src
 │          │   └───tsconfig.json
-│          └───   
+│          │
+│     	   server
+│		   │   ├───@types
+│ 		   │   │   └───index.d.ts
+│          │   ├───src
+│          │   └───tsconfig.json
+│          └───
 ├───package.json
 └───tsconfig.base.json
 ```
@@ -90,8 +95,10 @@ npm i --save-dev github:leonardssh/ragemp-types#types-client
 Now that we know what our server structure should look like, let's start setting the types properly.
 
 1. `tsconfig.base.json` - this is our base tsconfig, from which we extend the client/server part (to avoid making redundant code)
+
 ```json
-{ // NOTE: This is my config that I use everywhere, it is optimized for the cleanest and best code.
+{
+	// NOTE: This is my config that I use everywhere, it is optimized for the cleanest and best code.
 	"exclude": ["node_modules", "dist"],
 	"compileOnSave": true,
 	"compilerOptions": {
@@ -130,30 +137,33 @@ Now that we know what our server structure should look like, let's start setting
 		"baseUrl": "./"
 	}
 }
-
 ```
 
 2. `client/tsconfig.json` - this is our tsconfig for the client side, extended from the basic tsconfig and containing the types for the client
+
 ```json
-{ // NOTE: This tsconfig will work assuming your project is structured as described above.
+{
+	// NOTE: This tsconfig will work assuming your project is structured as described above.
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
-	 	// [RELATIVE_PATH_TO_NODE_MODULES]/@ragemp/types-client
-		"types": ["../../node_modules/@ragemp/types-client"],
+		// [RELATIVE_PATH_TO_NODE_MODULES]/@ragemp/types-client
+		"types": ["../../node_modules/@ragemp/types-client", "./@types"]
 	},
-	"include": ["./**/*.ts"],
+	"include": ["./**/*.ts"]
 }
 ```
 
 3. `server/tsconfig.json` - this is our tsconfig for the server side, extended from the basic tsconfig and containing the types for the server
+
 ```json
-{ // NOTE: This tsconfig will work assuming your project is structured as described above.
+{
+	// NOTE: This tsconfig will work assuming your project is structured as described above.
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
 		// [RELATIVE_PATH_TO_NODE_MODULES]/@ragemp/types-server
-		"types": ["../../node_modules/@ragemp/types-server"], 
+		"types": ["../../node_modules/@ragemp/types-server", "./@types"]
 	},
-	"include": ["./**/*.ts"],
+	"include": ["./**/*.ts"]
 }
 ```
 
