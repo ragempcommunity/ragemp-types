@@ -948,7 +948,7 @@ declare interface IClientEvents {
 	playerDeath: (player: PlayerMp, reason: number, killer: PlayerMp) => void;
 	playerJoin: (player: PlayerMp) => void;
 	playerQuit: (player: PlayerMp) => void;
-	playerReady: (player: PlayerMp) => void;
+	playerReady: () => void;
 	playerResurrect: () => void;
 	playerRuleTriggered: (rule: string, counter: number) => void;
 	playerSpawn: (player: PlayerMp) => void;
