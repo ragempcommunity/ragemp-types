@@ -1,6 +1,6 @@
-declare module 'rage-client' {
+declare namespace RageEnums {
 	/** [https://wiki.rage.mp/index.php?title=Markers](https://wiki.rage.mp/index.php?title=Markers) */
-	export const enum Markers {
+	const enum Markers {
 		/**
 		 * ![](https://wiki.rage.mp//images/thumb/6/60/Markers_0.png/200px-Markers_0.png)
 		 */
