@@ -1,5 +1,6 @@
 /// <reference path="enums.d.ts" />
 /// <reference path="game.d.ts" />
+/// <reference path="natives.d.ts" />
 
 declare type Handle = number; // TODO: Temp type. Replace to the Entity, when methods are updated
 declare type Hash = number; // TODO: Temp type. Replace to HashOrString, when methods are updated
