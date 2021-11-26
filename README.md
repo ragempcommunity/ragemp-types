@@ -17,75 +17,15 @@ yarn add -D github:leonardssh/ragemp-types#types-server
 pnpm add -D github:leonardssh/ragemp-types#types-server
 ```
 
-> To make these types detectable, you've to add `typeRoots` property below to your project's `tsconfig.json`
+> To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
 
 ```json
+// e.g server-side
 {
 	"compilerOptions": {
-		"typeRoots": ["./node_modules/@types", "./node_modules/@ragemp"]
+		"types": ["{RELATIVE_PATH_TO_NODE_MODULES}/@ragemp/types-server"]
 	}
 }
-```
-
-## 🤓 Usage
-
-🔴 **These types must be used together with the [rollup](https://rollupjs.org/guide/en/), because you'll need the [rollup-plugin-external-globals](https://www.npmjs.com/package/rollup-plugin-external-globals) to be able to remove the module in order to run the server.**
-
-```js
-// rollup.config.js
-
-// your imports
-import externalGlobalsPlugin from 'rollup-plugin-external-globals';
-
-export default [
-	{
-		// your config
-		plugins: [
-			// your plugins
-			externalGlobalsPlugin({
-				'rage-server': 'mp'
-			})
-		]
-	}
-];
-```
-
-```ts
-// index.ts
-import mp, { Player } from 'rage-server'; // this module will be replaced on build using rollup
-
-interface CustomMp {
-	myMethod(player: Player): any;
-}
-
-declare module 'rage-server' {
-	export interface Mp {
-		custom: CustomMp;
-	}
-}
-
-mp.custom = {
-	myMethod: (player) => {
-		// your code
-	}
-};
-
-mp.events.add('playerReady', (player) => {
-	mp.custom.myMethod(player);
-});
-```
-
-```js
-// index.js
-mp.custom = {
-	myMethod: (player) => {
-		// your code
-	}
-};
-
-mp.events.add('playerReady', (player) => {
-	mp.custom.myMethod(player);
-});
 ```
 
 ## 👨‍💻 Contributing
