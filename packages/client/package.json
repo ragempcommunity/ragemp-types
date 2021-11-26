@@ -6,6 +6,8 @@
 	"files": [
 		"index.d.ts",
 		"enums.d.ts",
+		"game.d.ts",
+		"game",
 		"enums"
 	],
 	"author": "LeonardSSH <leonardssh22@gmail.com> (https://leonard.sh)",

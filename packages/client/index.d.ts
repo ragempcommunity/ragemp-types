@@ -1,3 +1,6 @@
+/// <reference path="enums.d.ts" />
+/// <reference path="game.d.ts" />
+
 declare type Handle = number; // TODO: Temp type. Replace to the Entity, when methods are updated
 declare type Hash = number; // TODO: Temp type. Replace to HashOrString, when methods are updated
 declare type HashOrString = Hash;
@@ -3106,6 +3109,7 @@ declare interface Mp {
 	labels: TextLabelMpPool;
 	markers: MarkerMpPool;
 	objects: ObjectMpPool;
+	game: GameMp;
 
 	Vector3: typeof Vector3;
 }
