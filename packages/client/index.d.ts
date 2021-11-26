@@ -984,6 +984,8 @@ declare interface IClientEvents {
 	playerReachWaypoint: (player: PlayerMp) => void;
 }
 
+declare type MultiEventHandlers = Partial<IClientEvents> & Record<string, (...args: any) => void>;
+
 declare interface EventMpPool {
 	/**
 	 * Alerts client-side with entity's data change for a specified variable
@@ -1002,6 +1004,7 @@ declare interface EventMpPool {
 	 * @param callback The function that you want the event to trigger, which has to be defined before you add the handler
 	 */
 	add<K extends keyof IClientEvents>(eventName: K, callback: IClientEvents[K]): void;
+	add(eventHandlers: MultiEventHandlers): void;
 	add(eventName: string, callback: (...args: any[]) => void): void;
 
 	/**

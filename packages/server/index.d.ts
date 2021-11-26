@@ -1325,6 +1325,8 @@ declare class EventMp {
 	public destroy(): void;
 }
 
+declare type MultiEventHandlers = Partial<IServerEvents> & Record<string, (...args: any) => void>;
+
 declare class EventMpPool {
 	/**
 	 * Delays server's shutdown till you finish all your async tasks.
@@ -1345,8 +1347,8 @@ declare class EventMpPool {
 	 * @param callback The function that you want the event to trigger, which has to be defined before you add the handler
 	 */
 	public add<K extends keyof IServerEvents>(eventName: K, callback: IServerEvents[K]): void;
+	public add(eventHandlers: MultiEventHandlers): void;
 	public add(eventName: string, callback: (this: EventMpThis, ...args: any[]) => void): void;
-	public add(eventHandlers: any): void;
 
 	/**
 	 * Registers a command handler.
