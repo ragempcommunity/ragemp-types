@@ -1,6 +1,6 @@
-declare module 'rage-client' {
+declare namespace RageEnums.Ped {
 	/** [https://wiki.rage.mp/index.php?title=Peds](https://wiki.rage.mp/index.php?title=Peds) */
-	export const enum PedsKey {
+	const enum Key {
 		/** ![ig_abigail](https://wiki.rage.mp//images/thumb/8/88/Abigail.png/58px-Abigail.png) */
 		IG_ABIGAIL = 'ig_abigail',
 		/** ![csb_abigail](https://wiki.rage.mp//images/thumb/6/69/AbigailCutscene.png/58px-AbigailCutscene.png) */
@@ -1788,7 +1788,7 @@ declare module 'rage-client' {
 	}
 
 	/** [https://wiki.rage.mp/index.php?title=Peds](https://wiki.rage.mp/index.php?title=Peds) */
-	export const enum PedsHash {
+	const enum Hash {
 		/** ![ig_abigail](https://wiki.rage.mp//images/thumb/8/88/Abigail.png/58px-Abigail.png) */
 		IG_ABIGAIL = 0x400aec41,
 		/** ![csb_abigail](https://wiki.rage.mp//images/thumb/6/69/AbigailCutscene.png/58px-AbigailCutscene.png) */
@@ -3576,7 +3576,7 @@ declare module 'rage-client' {
 	}
 
 	/** [https://wiki.rage.mp/index.php?title=Bones](https://wiki.rage.mp/index.php?title=Bones) */
-	export const enum PedsBones {
+	const enum Bones {
 		SKEL_ROOT = 0,
 		FB_R_BROW_OUT_000 = 1356,
 		SKEL_L_TOE0 = 2108,
@@ -3676,4 +3676,8 @@ declare module 'rage-client' {
 		FACIAL_FACIALROOT = 65068,
 		IK_L_FOOT = 65245
 	}
+}
+
+declare namespace RageEnums.Hashes {
+	export import Ped = RageEnums.Ped.Hash;
 }
