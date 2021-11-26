@@ -157,7 +157,7 @@ Now that we know what our server structure should look like, let's start setting
 }
 ```
 
-For those who didn't understand, I made a gamemode from which you can better orient yourself: [ragemp-typescript](https://github.com/LeonardSSH/ragemp-typescript) (not ready yet)
+For those who didn't understand, I made a gamemode from which you can better orient yourself: [ragemp-typescript](https://github.com/LeonardSSH/ragemp-typescript)
 
 ## 👨‍💻 Contributing
 
