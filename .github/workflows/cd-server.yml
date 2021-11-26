@@ -49,9 +49,6 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
 
-      - name: Set classic types enabled by default
-        run: yarn make-classic-default
-
       - name: Publish Types
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
