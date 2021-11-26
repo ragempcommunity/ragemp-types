@@ -43,12 +43,13 @@ yarn add -D github:leonardssh/ragemp-types#types-cef
 pnpm add -D github:leonardssh/ragemp-types#types-cef
 ```
 
-> To make these types detectable, you've to add `typeRoots` property below to your project's `tsconfig.json`
+> To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
 
 ```json
+// e.g server-side
 {
 	"compilerOptions": {
-		"typeRoots": ["./node_modules/@types", "./node_modules/@ragemp"]
+		"types": ["{RELATIVE_PATH_TO_NODE_MODULES}/@ragemp/types-server"]
 	}
 }
 ```
