@@ -3087,9 +3087,9 @@ declare interface ObjectMpPool extends EntityMpPool<ObjectMp> {
 
 declare interface Mp {
 	discord: DiscordMp;
-	console: Console;
+	console: ConsoleMp;
 	keys: KeysMp;
-	storage: Storage;
+	storage: StorageMp;
 	gui: GuiMp;
 	user: UserMp;
 	nametags: NametagsMp;
