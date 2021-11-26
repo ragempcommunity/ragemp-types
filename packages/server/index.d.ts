@@ -1346,6 +1346,7 @@ declare class EventMpPool {
 	 */
 	public add<K extends keyof IServerEvents>(eventName: K, callback: IServerEvents[K]): void;
 	public add(eventName: string, callback: (this: EventMpThis, ...args: any[]) => void): void;
+	public add(eventHandlers: any): void;
 
 	/**
 	 * Registers a command handler.
