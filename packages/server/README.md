@@ -28,6 +28,59 @@ pnpm add -D github:leonardssh/ragemp-types#types-server
 }
 ```
 
+## 🤓 Usage
+
+### Full type-safe and auto-complete
+
+![](https://i.imgur.com/o2JB3Jx.gif)
+
+---
+
+### To extend a Mp object, there are 2 ways:
+
+1. By extend the prototype of the object:
+
+```ts
+// which augments the interface of the current PlayerMp object
+interface PlayerMp {
+	myProperty: number;
+
+	myMethod(): void;
+}
+
+mp.Player.prototype.myMethod = function myMethod() {
+	// my method logic
+};
+
+// Usage
+mp.events.add('playerReady', (player) => {
+	player.myProperty = 1;
+
+	player.myMethod();
+});
+```
+
+2. By extend the object itself:
+
+```ts
+// which augments the interface of the current PlayerMp object
+interface PlayerMp {
+	myProperty: number;
+
+	myMethod(): void;
+}
+
+mp.events.add('playerReady', (player) => {
+	player.myProperty = 1;
+
+	player.myMethod = function myMethod() {
+		// my method logic
+	};
+});
+```
+
+See: [Typescript Module Augmentation](https://www.digitalocean.com/community/tutorials/typescript-module-augmentation)
+
 ## 👨‍💻 Contributing
 
 To contribute to this repository, feel free to create a new fork of the repository and submit a pull request.
