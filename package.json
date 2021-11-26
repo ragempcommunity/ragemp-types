@@ -5,6 +5,7 @@
 	"main": "index.d.ts",
 	"files": [
 		"index.d.ts",
+		"natives.d.ts",
 		"enums.d.ts",
 		"game.d.ts",
 		"game",
