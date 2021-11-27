@@ -1,6 +1,6 @@
 Remember to 🌟 this Github if you 💖 it.
 
-> Types definitions for RAGE:MP
+> Types definitions for RAGE:MP (1.1+)
 
 ## 📥 Installation
 
