@@ -180,4 +180,17 @@ declare interface GameWeapon extends GameWeaponLegacy {
 	unk: GameWeaponUnk;
 }
 
-declare interface GameWeaponMp extends GameWeapon {}
+declare interface GameWeaponEventRelated {
+    /**
+     * Can be used only in outgoingDamage or incomingDamage events.
+     * Unlike "return true" in the event, it only cancels damage locally.
+     */
+    cancelCurrentDamageEvent(): void;
+
+    /** 
+     * Can be used only in outgoingDamage or incomingDamage events.
+    */
+    setCurrentDamageEventAmount(amount: number): void;
+}
+
+declare interface GameWeaponMp extends GameWeapon, GameWeaponEventRelated {}
