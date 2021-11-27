@@ -25,9 +25,9 @@ declare type PlayerWeaponCollection = {
 };
 
 declare class Vector3 {
-	public readonly x: number;
-	public readonly y: number;
-	public readonly z: number;
+	public x: number;
+	public y: number;
+	public z: number;
 
 	constructor(x: number, y: number, z: number);
 	constructor(arr: Array3d);
@@ -1872,7 +1872,8 @@ declare interface Mp {
 
 	Vector3: typeof Vector3;
 
-	joaat(str: string | string[]): number | number[];
+	joaat(str: string): number;
+	joaat(strs: string[]): number[];
 }
 
 declare const mp: Mp;
