@@ -6,41 +6,47 @@ Remember to 🌟 this Github if you 💖 it.
 
 #### [`SERVER-SIDE`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/server)
 
+> Use `github:leonardssh/ragemp-types#types-server` to latest build
+
 ```bash
 # With npm
-npm i --save-dev github:leonardssh/ragemp-types#types-server
+npm i --save-dev github:leonardssh/ragemp-types#types-server@v1.0.0
 
 # With yarn
-yarn add -D github:leonardssh/ragemp-types#types-server
+yarn add -D github:leonardssh/ragemp-types#types-server@v1.0.0
 
 # With pnpm
-pnpm add -D github:leonardssh/ragemp-types#types-server
+pnpm add -D github:leonardssh/ragemp-types#types-server@v1.0.0
 ```
 
 #### [`CLIENT-SIDE`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/client)
 
+> Use `github:leonardssh/ragemp-types#types-client` to latest build
+
 ```bash
 # With npm
-npm i --save-dev github:leonardssh/ragemp-types#types-client
+npm i --save-dev github:leonardssh/ragemp-types#types-client@v1.0.0
 
 # With yarn
-yarn add -D github:leonardssh/ragemp-types#types-client
+yarn add -D github:leonardssh/ragemp-types#types-client@v1.0.0
 
 # With pnpm
-pnpm add -D github:leonardssh/ragemp-types#types-client
+pnpm add -D github:leonardssh/ragemp-types#types-client@v1.0.0
 ```
 
 #### [`CEF`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/cef)
 
+> Use `github:leonardssh/ragemp-types#types-cef` to latest build
+
 ```bash
 # With npm
-npm i --save-dev github:leonardssh/ragemp-types#types-cef
+npm i --save-dev github:leonardssh/ragemp-types#types-cef@v1.0.0
 
 # With yarn
-yarn add -D github:leonardssh/ragemp-types#types-cef
+yarn add -D github:leonardssh/ragemp-types#types-cef@v1.0.0
 
 # With pnpm
-pnpm add -D github:leonardssh/ragemp-types#types-cef
+pnpm add -D github:leonardssh/ragemp-types#types-cef@v1.0.0
 ```
 
 > To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
