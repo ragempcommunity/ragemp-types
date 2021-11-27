@@ -92,8 +92,8 @@ declare interface GameMp {
 	invokeString(hash: string, ...args: any[]): any;
 	invokeVector3(hash: string, ...args: any[]): any;
 
-	joaat(text: string): Hash;
-	joaat(textArray: string[]): Hash[];
+	joaat(text: string): number;
+	joaat(textArray: string[]): number[];
 
 	wait(ms: number): void;
 	waitAsync(ms: number): Promise<void>;
