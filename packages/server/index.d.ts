@@ -1872,7 +1872,8 @@ declare interface Mp {
 
 	Vector3: typeof Vector3;
 
-	joaat(str: string | string[]): number | number[];
+	joaat(str: string): number;
+	joaat(strs: string[]): number[];
 }
 
 declare const mp: Mp;
