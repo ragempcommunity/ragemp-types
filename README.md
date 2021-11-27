@@ -6,15 +6,17 @@ Remember to 🌟 this Github if you 💖 it.
 
 #### `SERVER-SIDE`
 
+> Use `github:leonardssh/ragemp-types#types-server` to latest build
+
 ```bash
 # With npm
-npm i --save-dev github:leonardssh/ragemp-types#types-server
+npm i --save-dev github:leonardssh/ragemp-types#types-server@v1.0.1
 
 # With yarn
-yarn add -D github:leonardssh/ragemp-types#types-server
+yarn add -D github:leonardssh/ragemp-types#types-server@v1.0.1
 
 # With pnpm
-pnpm add -D github:leonardssh/ragemp-types#types-server
+pnpm add -D github:leonardssh/ragemp-types#types-server@v1.0.1
 ```
 
 > To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
