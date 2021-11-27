@@ -14,9 +14,9 @@ declare type RGBA = Array4d;
 declare type KeyValueCollection = { [key: string]: any };
 
 declare interface IVector3 {
-	readonly x: number;
-	readonly y: number;
-	readonly z: number;
+	x: number;
+	y: number;
+	z: number;
 }
 
 declare type PlayerWeaponCollection = {
