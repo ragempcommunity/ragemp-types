@@ -1292,7 +1292,7 @@ declare interface IServerEvents {
 	playerDeath: (this: EventMpThis, player: PlayerMp, reason: number, killer?: PlayerMp) => void;
 	playerEnterCheckpoint: (this: EventMpThis, player: PlayerMp, checkpoint: CheckpointMp) => void;
 	playerEnterColshape: (this: EventMpThis, player: PlayerMp, colshape: ColshapeMp) => void;
-	playerEnterVehicle: (this: EventMpThis) => void;
+	playerEnterVehicle: (this: EventMpThis, player: PlayerMp, vehicle: VehicleMp, seat: RageEnums.VehicleSeat) => void;
 	playerExitCheckpoint: (this: EventMpThis, player: PlayerMp, checkpoint: CheckpointMp) => void;
 	playerExitColshape: (this: EventMpThis, player: PlayerMp, colshape: ColshapeMp) => void;
 	playerExitVehicle: (this: EventMpThis, player: PlayerMp, vehicle: VehicleMp, seat: number) => void;
@@ -1301,7 +1301,7 @@ declare interface IServerEvents {
 	playerReachWaypoint: (this: EventMpThis, player: PlayerMp) => void;
 	playerReady: (this: EventMpThis, player: PlayerMp) => void;
 	playerSpawn: (this: EventMpThis, player: PlayerMp) => void;
-	playerStartEnterVehicle: (this: EventMpThis, player: PlayerMp, vehicle: VehicleMp) => void;
+	playerStartEnterVehicle: (this: EventMpThis, player: PlayerMp, vehicle: VehicleMp, seat: RageEnums.VehicleSeat) => void;
 	playerStartExitVehicle: (this: EventMpThis, player: PlayerMp) => void;
 	playerStreamIn: (this: EventMpThis, player: PlayerMp, forPlayer: PlayerMp) => void;
 	playerStreamOut: (this: EventMpThis, player: PlayerMp, forPlayer: PlayerMp) => void;
