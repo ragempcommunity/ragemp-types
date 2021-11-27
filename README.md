@@ -190,6 +190,7 @@ To contribute to this repository, feel free to create a new fork of the reposito
 ## 🎉 Thanks
 
 -   [CocaColaBear](https://github.com/CocaColaBear/) - Creator of [types-ragemp-s](https://github.com/CocaColaBear/types-ragemp-s) & [types-ragemp-c](https://github.com/CocaColaBear/types-ragemp-c)
+-   [KsenonAdv](https://github.com/ksenonadv) - moral support
 
 ## 📋 License
 
