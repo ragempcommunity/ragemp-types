@@ -12,15 +12,15 @@ declare type RGB = Array3d;
 declare type RGBA = Array4d;
 
 declare interface IVector3 {
-	readonly x: number;
-	readonly y: number;
-	readonly z: number;
+	x: number;
+	y: number;
+	z: number;
 }
 
 declare class Vector3 {
-	public readonly x: number;
-	public readonly y: number;
-	public readonly z: number;
+	public x: number;
+	public y: number;
+	public z: number;
 
 	constructor(x: number, y: number, z: number);
 	constructor(arr: Array3d);
