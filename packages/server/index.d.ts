@@ -25,9 +25,9 @@ declare type PlayerWeaponCollection = {
 };
 
 declare class Vector3 {
-	public readonly x: number;
-	public readonly y: number;
-	public readonly z: number;
+	public x: number;
+	public y: number;
+	public z: number;
 
 	constructor(x: number, y: number, z: number);
 	constructor(arr: Array3d);
