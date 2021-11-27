@@ -96,7 +96,6 @@ declare interface GameMp {
 	/**
 	 * Invokes a specified [Native](https://cdn.rage.mp/public/natives/) that returns a float value.
 	 */
-
 	invokeFloat(hash: string, ...args: any[]): number;
 
 	/**
@@ -112,8 +111,8 @@ declare interface GameMp {
 	/** 
 	 * This function generates hashes/arrays of hashes (hash is integer) using strings/arrays of strings. Those hashes could be used to set entity model.
 	*/
-	joaat(text: string): Hash;
-	joaat(textArray: string[]): Hash[];
+	joaat(text: string): number;
+    joaat(textArray: string[]): number[];
 
 	wait(ms: number): void;
 	waitAsync(ms: number): Promise<void>;
