@@ -86,4 +86,15 @@ declare interface GameMp {
 	rope: GamePhysicsMp;
 	controls: GamePadMp;
 	ui: GameHudMp;
+
+	invoke(hash: string, ...args: any[]): any;
+	invokeFloat(hash: string, ...args: any[]): any;
+	invokeString(hash: string, ...args: any[]): any;
+	invokeVector3(hash: string, ...args: any[]): any;
+
+	joaat(text: string): Hash;
+	joaat(textArray: string[]): Hash[];
+
+	wait(ms: number): void;
+	waitAsync(ms: number): Promise<void>;
 }
