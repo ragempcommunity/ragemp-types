@@ -1204,6 +1204,25 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	 */
 	screen2dToWorld3d(coords2d: Vector3): Vector3;
 
+	drawText(
+		text: string,
+		pos: Array2d | Array3d,
+		data?: {
+			font: number;
+			color: RGBA;
+			scale: Array2d;
+			outline: boolean;
+			centre?: boolean;
+		}
+	): void;
+
+	/**
+	 * This function sends a notification message to the player.
+	 *
+	 * You can also use the colour codes seen here: Fonts and colors
+	 */
+	notify(message: string): void;
+
 	unk: GameGraphicsUnk;
 }
 
