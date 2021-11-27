@@ -777,6 +777,19 @@ declare interface NametagsMp {
 	 * It does not need to be called every frame.
 	 */
 	set(style: NametagsStyle): void;
+
+	/**
+	 * This is a client-side function and only needs to be excuted once.
+	 *
+	 * true by default; when false, passes 3D world coords to render event (so it can be used with set/clearDrawOrigin)
+	 */
+	useScreen2dCoords(state: boolean): void;
+
+	/**
+	 * This is a client-side function and only needs to be excuted once.
+	 * false by default; you might want to draw nametags in reverse order when enabled
+	 */
+	orderByDistance(state: boolean): void;
 }
 
 declare interface NametagsStyle {
