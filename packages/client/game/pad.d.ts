@@ -1,4 +1,13 @@
 declare interface GamePadLegacy {
+	/**
+	 * Enable/Disable RageMP's controls for entering a vehicle.
+	 *
+	 *  False = Holding F and pressing F both go to the driver's seat
+	 *
+	 *  True = Holding F will go to the passenger seat, pressing F will go to the driver's seat.
+	 */
+	useDefaultVehicleEntering: boolean;
+
 	isInputDisabled(padIndex: number): boolean;
 	isInputJustDisabled(padIndex: number): boolean;
 	getControlActionName(padIndex: number, control: number, p2: boolean): string;
