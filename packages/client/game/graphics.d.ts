@@ -1186,6 +1186,24 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	animpostfxStopAll(): void;
 	animpostfxStopAndDoUnk(effectName: string): void;
 
+	/**
+	 * Convert a world coordinate into its relative screen coordinate. (WorldToScreen)
+	 *
+	 * Inverted function [Graphics::screen2dToWorld3d](https://wiki.rage.mp/index.php?title=Graphics::screen2dToWorld3d)
+	 *
+	 * @param coords3d Vector3
+	 */
+	world3dToScreen2d(coords3d: Vector3): { x: number; y: number };
+
+	/**
+	 * Returns world position from screen position
+	 *
+	 * Inverted function: [Graphics::world3dToScreen2d](https://wiki.rage.mp/index.php?title=Graphics::world3dToScreen2d)
+	 *
+	 * @param coords2d Vector3 only { x, y }
+	 */
+	screen2dToWorld3d(coords2d: Vector3): Vector3;
+
 	unk: GameGraphicsUnk;
 }
 
