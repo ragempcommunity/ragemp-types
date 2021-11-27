@@ -87,13 +87,33 @@ declare interface GameMp {
 	controls: GamePadMp;
 	ui: GameHudMp;
 
-	invoke(hash: string, ...args: any[]): any;
-	invokeFloat(hash: string, ...args: any[]): any;
-	invokeString(hash: string, ...args: any[]): any;
-	invokeVector3(hash: string, ...args: any[]): any;
 
-	joaat(text: string): number;
-	joaat(textArray: string[]): number[];
+	/**
+	 * Invokes a specified [Native](https://cdn.rage.mp/public/natives/) function.
+	 */
+	invoke(hash: string, ...args: any[]): any;
+
+	/**
+	 * Invokes a specified [Native](https://cdn.rage.mp/public/natives/) that returns a float value.
+	 */
+
+	invokeFloat(hash: string, ...args: any[]): number;
+
+	/**
+	 * Invokes a specified [Native](https://cdn.rage.mp/public/natives/) that returns a string value.
+	 */
+	invokeString(hash: string, ...args: any[]): string;
+
+	/**
+	 * Invokes a specified [Native](https://cdn.rage.mp/public/natives/) that returns a Vector3 object.
+	 */
+	invokeVector3(hash: string, ...args: any[]): Vector3;
+
+	/** 
+	 * This function generates hashes/arrays of hashes (hash is integer) using strings/arrays of strings. Those hashes could be used to set entity model.
+	*/
+	joaat(text: string): Hash;
+	joaat(textArray: string[]): Hash[];
 
 	wait(ms: number): void;
 	waitAsync(ms: number): Promise<void>;
