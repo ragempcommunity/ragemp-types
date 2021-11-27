@@ -10,13 +10,13 @@ Remember to 🌟 this Github if you 💖 it.
 
 ```bash
 # With npm
-npm i --save-dev github:leonardssh/ragemp-types#types-server@v1.0.0
+npm i --save-dev github:leonardssh/ragemp-types#types-server@v1.0.1
 
 # With yarn
-yarn add -D github:leonardssh/ragemp-types#types-server@v1.0.0
+yarn add -D github:leonardssh/ragemp-types#types-server@v1.0.1
 
 # With pnpm
-pnpm add -D github:leonardssh/ragemp-types#types-server@v1.0.0
+pnpm add -D github:leonardssh/ragemp-types#types-server@v1.0.1
 ```
 
 #### [`CLIENT-SIDE`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/client)
@@ -25,13 +25,13 @@ pnpm add -D github:leonardssh/ragemp-types#types-server@v1.0.0
 
 ```bash
 # With npm
-npm i --save-dev github:leonardssh/ragemp-types#types-client@v1.0.0
+npm i --save-dev github:leonardssh/ragemp-types#types-client@v1.0.1
 
 # With yarn
-yarn add -D github:leonardssh/ragemp-types#types-client@v1.0.0
+yarn add -D github:leonardssh/ragemp-types#types-client@v1.0.1
 
 # With pnpm
-pnpm add -D github:leonardssh/ragemp-types#types-client@v1.0.0
+pnpm add -D github:leonardssh/ragemp-types#types-client@v1.0.1
 ```
 
 #### [`CEF`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/cef)
