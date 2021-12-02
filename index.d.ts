@@ -1330,6 +1330,8 @@ declare type MultiEventHandlers = Partial<IServerEvents> & Record<string, (...ar
 declare class EventMpPool {
 	/**
 	 * Delays server's shutdown till you finish all your async tasks.
+	 *
+	 * HINT: use [delayTermination](https://wiki.rage.mp/index.php?title=Events::delayTermination) instead.
 	 */
 	public delayShutdown: boolean;
 
