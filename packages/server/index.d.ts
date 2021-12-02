@@ -1334,6 +1334,11 @@ declare class EventMpPool {
 	public delayShutdown: boolean;
 
 	/**
+	 * Same as [delayShutdown](https://wiki.rage.mp/index.php?title=Events::delayTermination), but it seems to work over [delayShutdown](https://wiki.rage.mp/index.php?title=Events::delayTermination).
+	 */
+	public delayTermination: boolean;
+
+	/**
 	 * Delays server's initialization of packages to run early functions.
 	 */
 	public delayInitialization: boolean;
