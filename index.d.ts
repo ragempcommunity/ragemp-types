@@ -3096,7 +3096,7 @@ declare interface ObjectMpPool extends EntityMpPool<ObjectMp> {
 			dimension?: number;
 			rotation?: Vector3;
 		}
-	): Object;
+	): ObjectMp;
 
 	newWeak(handle: number): ObjectMp;
 }
