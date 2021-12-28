@@ -923,7 +923,12 @@ declare interface BrowserMpPool extends EntityMpPool<BrowserMp> {
 	'new'(url: string): BrowserMp;
 }
 
-declare interface CheckpointMp extends EntityMp {}
+declare interface CheckpointMp extends EntityMp {
+	/**
+	 * This property gets/sets the checkpoint visibility.
+	 */
+	visible: boolean;
+}
 
 declare interface CheckpointMpPool extends EntityMpPool<CheckpointMp> {
 	'new'(
@@ -3040,7 +3045,12 @@ declare interface VehicleMpPool extends EntityMpPool<VehicleMp> {
 	): VehicleMp;
 }
 
-declare interface MarkerMp extends EntityMp {}
+declare interface MarkerMp extends EntityMp {
+	/**
+	 * This property gets/sets the marker visibility.
+	 */
+	visible: boolean;
+}
 
 declare interface MarkerMpPool extends EntityMpPool<MarkerMp> {
 	'new'(
