@@ -25,13 +25,13 @@ pnpm add -D github:leonardssh/ragemp-types#types-server@v1.0.1
 
 ```bash
 # With npm
-npm i --save-dev github:leonardssh/ragemp-types#types-client@v1.0.2
+npm i --save-dev github:leonardssh/ragemp-types#types-client@v1.1.0
 
 # With yarn
-yarn add -D github:leonardssh/ragemp-types#types-client@v1.0.2
+yarn add -D github:leonardssh/ragemp-types#types-client@v1.1.0
 
 # With pnpm
-pnpm add -D github:leonardssh/ragemp-types#types-client@v1.0.2
+pnpm add -D github:leonardssh/ragemp-types#types-client@v1.1.0
 ```
 
 #### [`CEF`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/cef)
