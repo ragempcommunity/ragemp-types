@@ -10,13 +10,13 @@ Remember to 🌟 this Github if you 💖 it.
 
 ```bash
 # With npm
-npm i --save-dev github:leonardssh/ragemp-types#types-server@v1.0.1
+npm i --save-dev github:leonardssh/ragemp-types#types-server@v1.0.2
 
 # With yarn
-yarn add -D github:leonardssh/ragemp-types#types-server@v1.0.1
+yarn add -D github:leonardssh/ragemp-types#types-server@v1.0.2
 
 # With pnpm
-pnpm add -D github:leonardssh/ragemp-types#types-server@v1.0.1
+pnpm add -D github:leonardssh/ragemp-types#types-server@v1.0.2
 ```
 
 > To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
