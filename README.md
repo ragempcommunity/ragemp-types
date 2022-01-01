@@ -21,7 +21,7 @@ pnpm add -D github:leonardssh/ragemp-types#types-server@v1.0.2
 
 > To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
 
-```json
+```jsonc
 // e.g server-side
 {
 	"compilerOptions": {
