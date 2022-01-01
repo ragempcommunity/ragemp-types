@@ -51,7 +51,7 @@ pnpm add -D github:leonardssh/ragemp-types#types-cef@v1.0.1
 
 > To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
 
-```json
+```jsonc
 // e.g server-side
 {
 	"compilerOptions": {
@@ -102,7 +102,7 @@ Now that we know what our server structure should look like, let's start setting
 
 1. `tsconfig.base.json` - this is our base tsconfig, from which we extend the client/server part (to avoid making redundant code)
 
-```json
+```jsonc
 {
 	// NOTE: This is my config that I use everywhere, it is optimized for the cleanest and best code.
 	"exclude": ["node_modules", "dist"],
@@ -147,7 +147,7 @@ Now that we know what our server structure should look like, let's start setting
 
 2. `client/tsconfig.json` - this is our tsconfig for the client side, extended from the basic tsconfig and containing the types for the client
 
-```json
+```jsonc
 {
 	// NOTE: This tsconfig will work assuming your project is structured as described above.
 	"extends": "../../tsconfig.base.json",
@@ -161,7 +161,7 @@ Now that we know what our server structure should look like, let's start setting
 
 3. `server/tsconfig.json` - this is our tsconfig for the server side, extended from the basic tsconfig and containing the types for the server
 
-```json
+```jsonc
 {
 	// NOTE: This tsconfig will work assuming your project is structured as described above.
 	"extends": "../../tsconfig.base.json",
