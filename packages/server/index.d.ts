@@ -315,21 +315,35 @@ declare class EntityMpPool<T> {
 	public forEachInRange(position: Vector3, range: number, dimension: number, callingFunction: (entity: T) => void): void;
 
 	/**
-	 * Sorts the closest entities to a certain specified point in the entities pool.
+	 * Gets the closest set of entities to a position.
 	 *
 	 * @param position Vector3
-	 * @param limit The limit (Default is 1)
+	 * @param limit Limit of results
+	 * @returns Array of entities sorted by distance to given position
+	 *
+	 * @example
+	 * ```
+	 * const [closestVehicle] = mp.vehicles.getClosest(player.position, 1);
+	 * closestVehicle.locked = true;
+	 * ```
 	 */
-	public getClosest(position: Vector3, limit?: number): T | T[];
+	public getClosest(position: Vector3, limit: number): T[];
 
-	/**
-	 * Gets the closest set of entities to a position in the defined dimension.
-	 *
-	 * @param position Vector3
-	 * @param dimension The Dimension
-	 * @param limit The Limit
-	 */
-	public getClosestInDimension(position: Vector3, dimension: number, limit?: number): T | T[];
+	 /**
+	  * Gets the closest set of entities to a position in the defined dimension.
+	  *
+	  * @param position Vector3
+	  * @param dimension The Dimension
+	  * @param limit Limit of results
+	  * @returns Array of entities sorted by distance to given position
+	  *
+	  * @example
+	  * ```
+	  * const [closestVehicle] = mp.vehicles.getClosestInDimension(player.position, player.dimension, 1);
+	  * closestVehicle.locked = true;
+	  * ```
+	  */
+	public getClosestInDimension(position: Vector3, dimension: number, limit: number): T[];
 
 	/**
 	 * Converts a pool to an array.

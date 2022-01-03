@@ -656,12 +656,18 @@ declare class EntityMpPool<T> {
 	public forEachInStreamRange(callingFunction: (entity: T) => void): void;
 
 	/**
-	 * Sorts the closest entities to a certain specified point in the entities pool.
+	 * Gets the closest set of entities to a position.
 	 *
 	 * @param position Vector3
-	 * @param limit The limit (Default is 1)
+	 * @param limit Limit of results
+	 * @returns Array of entities sorted by distance to given position
+	 *
+	 * @example
+	 * ```
+	 * const [closestVehicle] = mp.vehicles.getClosest(mp.players.local.position, 1);
+	 * ```
 	 */
-	public getClosest(position: Vector3, limit?: number): T | T[];
+	public getClosest(position: Vector3, limit: number): T[];
 
 	/**
 	 * Converts a pool to an array.
