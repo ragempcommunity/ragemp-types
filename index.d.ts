@@ -11,6 +11,7 @@ declare interface EventMpPool {
 	 *
 	 * @param eventName Client name event you want to call.
 	 * @param args Data you want to send to client.
+	 * @returns Returns a promise
 	 *
 	 * @example
 	 * ```js
