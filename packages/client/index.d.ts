@@ -865,12 +865,12 @@ declare interface RaycastingMp {
 	 *
 	 * Raycasts that intersect with mission_entites (flag = 2) has limited range and will not register for far away entites. The range seems to be about 30 metres.
 	 */
-	testPointToPoint(startPos: Vector3, endPos: Vector3, ignoreEntity?: EntityMp, flags?: number): RaycastResult;
+	testPointToPoint(startPos: Vector3, endPos: Vector3, ignoreEntity?: EntityMp, flags?: number | number[]): RaycastResult;
 
 	/**
 	 * Raycast from point to point, where the ray has a radius.
 	 */
-	testCapsule(startPos: Vector3, endPos: Vector3, radius: number, ignoreEntity?: EntityMp, flags?: number[]): RaycastResult;
+	testCapsule(startPos: Vector3, endPos: Vector3, radius: number, ignoreEntity?: EntityMp, flags?: number | number[]): RaycastResult;
 }
 
 declare interface RaycastResult {
