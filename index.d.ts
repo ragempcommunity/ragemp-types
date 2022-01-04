@@ -5,7 +5,7 @@ interface Mp {
 	invoke(name: string, ...args: any[]): void;
 }
 
-declare interface EventMpPool {
+interface EventMpPool {
 	/**
 	 * This function calls registered Remote Prodecure Call (RPC) from browser to client-side and expects a callback.
 	 *
@@ -20,7 +20,7 @@ declare interface EventMpPool {
 	 *
 	 *
 	 */
-	callProc<PromiseType, ArgsType>(eventName: string, args: ArgsType): Promise<PromiseType>;
+	callProc<T, K>(eventName: string, args: K): Promise<T>;
 }
 
 interface Window {
