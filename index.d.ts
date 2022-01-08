@@ -1,4 +1,4 @@
-type primitiveTypes = string | number | undefined | boolean | bigint | null | symbol;
+type PrimitiveTypes = string | number | undefined | boolean | bigint | null | symbol;
 interface Mp {
     events: EventMpPool;
 
@@ -21,7 +21,7 @@ interface EventMpPool {
      *
      *
      */
-    callProc<T>(eventName: string, args: primitiveTypes): Promise<T>;
+    callProc<T>(eventName: string, args: PrimitiveTypes): Promise<T>;
 }
 
 interface Window {
