@@ -176,21 +176,26 @@ declare interface GameWeapon extends GameWeaponLegacy {
 	doesAirDefenseZoneExist(zoneId: number): boolean;
 	setCanPedEquip(ped: number, weaponHash: number, toggle: boolean): void;
 	setCanPedEquipAllS(ped: number, toggle: boolean): void;
+	/**
+	 * Enables outgoingDamage event calls when issuing weapon damage on local player, peds and vehicles
+	 */
+	setEnableLocalOutgoingDamage(toggle: boolean);
+	setCurrentDamageEventCritical(toggle: boolean);
 
 	unk: GameWeaponUnk;
 }
 
 declare interface GameWeaponEventRelated {
-    /**
-     * Can be used only in outgoingDamage or incomingDamage events.
-     * Unlike "return true" in the event, it only cancels damage locally.
-     */
-    cancelCurrentDamageEvent(): void;
+	/**
+	 * Can be used only in outgoingDamage or incomingDamage events.
+	 * Unlike "return true" in the event, it only cancels damage locally.
+	 */
+	cancelCurrentDamageEvent(): void;
 
-    /** 
-     * Can be used only in outgoingDamage or incomingDamage events.
-    */
-    setCurrentDamageEventAmount(amount: number): void;
+	/**
+	 * Can be used only in outgoingDamage or incomingDamage events.
+	 */
+	setCurrentDamageEventAmount(amount: number): void;
 }
 
 declare interface GameWeaponMp extends GameWeapon, GameWeaponEventRelated {}
