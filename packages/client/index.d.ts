@@ -3101,7 +3101,11 @@ declare interface ObjectMp extends EntityMp {
 	): void;
 	setTargettable(targettable: boolean): void;
 	slide(toX: number, toY: number, toZ: number, speedX: number, speedY: number, speedZ: number, collision: boolean): boolean;
-	newWeaponObject(weaponHash: number, position: Vector3, options?: { ammo: number; scale: number; showWorldObject: boolean; rotation: Vector3 });
+	newWeaponObject(
+		weaponHash: number,
+		position: Vector3,
+		options?: { ammo?: number; scale?: number; showWorldObject?: boolean; rotation?: Vector3 }
+	);
 	getAllByHash(hash: number);
 }
 
