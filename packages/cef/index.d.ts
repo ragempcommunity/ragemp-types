@@ -3,13 +3,6 @@ interface Mp {
 
 	trigger(name: string, ...args: any[]): void;
 	invoke(name: string, ...args: any[]): void;
-
-	/**
-	 * Adds browser event that can be called from client side
-	 * @param name Event name
-	 * @param args Event arguments
-	 */
-	add(name: string, ...args: any[]): void;
 }
 
 interface EventMpPool {
@@ -28,6 +21,14 @@ interface EventMpPool {
 	 *
 	 */
 	callProc<T, K>(eventName: string, args: K): Promise<T>;
+
+	/**
+	 * Adds browser event that can be called from client side
+	 * @param name Event name
+	 * @param args Event arguments
+	 */
+	add(name: string, ...args: any[]): void;
+	add(names: { [name: string]: (...args: any[]) => void }): void;
 }
 
 interface Window {
