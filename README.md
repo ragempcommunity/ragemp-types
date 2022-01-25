@@ -40,13 +40,13 @@ pnpm add -D github:leonardssh/ragemp-types#types-client@v1.1.2
 
 ```bash
 # With npm
-npm i --save-dev github:leonardssh/ragemp-types#types-cef@v1.0.2
+npm i --save-dev github:leonardssh/ragemp-types#types-cef@v1.0.3
 
 # With yarn
-yarn add -D github:leonardssh/ragemp-types#types-cef@v1.0.2
+yarn add -D github:leonardssh/ragemp-types#types-cef@v1.0.3
 
 # With pnpm
-pnpm add -D github:leonardssh/ragemp-types#types-cef@v1.0.2
+pnpm add -D github:leonardssh/ragemp-types#types-cef@v1.0.3
 ```
 
 > To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
