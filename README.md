@@ -10,28 +10,28 @@ Remember to 🌟 this Github if you 💖 it.
 
 ```bash
 # With npm
-npm i --save-dev github:leonardssh/ragemp-types#types-server@v1.0.3
+> npm i --save-dev github:leonardssh/ragemp-types#types-server@v1.0.3
 
 # With yarn
-yarn add -D github:leonardssh/ragemp-types#types-server@v1.0.3
+> yarn add -D github:leonardssh/ragemp-types#types-server@v1.0.3
 
 # With pnpm
-pnpm add -D github:leonardssh/ragemp-types#types-server@v1.0.3
+> pnpm add -D github:leonardssh/ragemp-types#types-server@v1.0.3
 ```
 
 #### [`CLIENT-SIDE`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/client)
 
 > Use `github:leonardssh/ragemp-types#types-client` to latest build
 
-```bash
+```sh
 # With npm
-npm i --save-dev github:leonardssh/ragemp-types#types-client@v1.1.2
+> npm i --save-dev github:leonardssh/ragemp-types#types-client@v1.1.3
 
 # With yarn
-yarn add -D github:leonardssh/ragemp-types#types-client@v1.1.2
+> yarn add -D github:leonardssh/ragemp-types#types-client@v1.1.3
 
 # With pnpm
-pnpm add -D github:leonardssh/ragemp-types#types-client@v1.1.2
+> pnpm add -D github:leonardssh/ragemp-types#types-client@v1.1.3
 ```
 
 #### [`CEF`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/cef)
@@ -40,13 +40,13 @@ pnpm add -D github:leonardssh/ragemp-types#types-client@v1.1.2
 
 ```bash
 # With npm
-npm i --save-dev github:leonardssh/ragemp-types#types-cef@v1.0.3
+> npm i --save-dev github:leonardssh/ragemp-types#types-cef@v1.0.3
 
 # With yarn
-yarn add -D github:leonardssh/ragemp-types#types-cef@v1.0.3
+> yarn add -D github:leonardssh/ragemp-types#types-cef@v1.0.3
 
 # With pnpm
-pnpm add -D github:leonardssh/ragemp-types#types-cef@v1.0.3
+> pnpm add -D github:leonardssh/ragemp-types#types-cef@v1.0.3
 ```
 
 > To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
@@ -70,9 +70,9 @@ To avoid conflicts between server and client types, they must be installed and s
 
 > Step #1: _install the types in package.json from the project root_
 
-```ts
-npm i --save-dev github:leonardssh/ragemp-types#types-server
-npm i --save-dev github:leonardssh/ragemp-types#types-client
+```sh
+> npm i --save-dev github:leonardssh/ragemp-types#types-server
+> npm i --save-dev github:leonardssh/ragemp-types#types-client
 ```
 
 > Step #2: _for this step, your project should be structured as follows:_
