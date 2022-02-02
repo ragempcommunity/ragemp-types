@@ -250,7 +250,7 @@ declare interface GameObject extends GameObjectLegacy {
 	setEnableArenaPropPhysics(object: number, toggle: boolean, p2: number): void;
 	setEnableArenaPropPhysicsOnPed(object: number, toggle: boolean, p2: number, ped: number): void;
 	getIsArenaPropPhysicsDisabled(object: number, p1: number): boolean;
-	getAllInRange(position: Vector3, range?: number, includeDistance?: boolean, sortByDistance?: boolean);
+	getAllInRange(position: Vector3, range?: number, includeDistance?: boolean, sortByDistance?: boolean): void;
 
 	unk: GameObjectUnk;
 }
