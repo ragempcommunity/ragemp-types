@@ -8,15 +8,15 @@ Remember to 🌟 this Github if you 💖 it.
 
 #### `CLIENT-SIDE`
 
-```bash
+```sh
 # With npm
-npm i --save-dev github:leonardssh/ragemp-types#types-client@v1.1.2
+> npm i --save-dev github:leonardssh/ragemp-types#types-client@v1.1.3
 
 # With yarn
-yarn add -D github:leonardssh/ragemp-types#types-client@v1.1.2
+> yarn add -D github:leonardssh/ragemp-types#types-client@v1.1.3
 
 # With pnpm
-pnpm add -D github:leonardssh/ragemp-types#types-client@v1.1.2
+> pnpm add -D github:leonardssh/ragemp-types#types-client@v1.1.3
 ```
 
 > To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
