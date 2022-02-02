@@ -3105,8 +3105,8 @@ declare interface ObjectMp extends EntityMp {
 		weaponHash: number,
 		position: Vector3,
 		options?: { ammo?: number; scale?: number; showWorldObject?: boolean; rotation?: Vector3 }
-	);
-	getAllByHash(hash: number);
+	): void;
+	getAllByHash(hash: number): void;
 }
 
 declare interface ObjectMpPool extends EntityMpPool<ObjectMp> {
