@@ -2075,6 +2075,11 @@ declare interface PedMpBase extends EntityMp {
 
 declare interface PedMp extends PedMpBase {
 	spawnPosition: Vector3;
+	/**
+	 * Returns the player set as the peds controller.
+	 */
+	readonly controller: PlayerMp;
+
 	taskPlayAnim(
 		animDictionary: string,
 		animationName: string,
