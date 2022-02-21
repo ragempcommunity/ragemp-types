@@ -1223,6 +1223,14 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	 */
 	notify(message: string): void;
 
+	/**
+	 * This function allows you to disable the state of an artificial lightId (granular control over lights instead of e.g. setBlackout turning all on/off)
+	 * 
+	 * @param lightId The lightId (valid 0 through 16) to change the state of
+	 * @param disable true to disable; false to enable (defaults to false)
+	 */
+	setLightsState(lightId: number, disable: boolean): void
+
 	unk: GameGraphicsUnk;
 }
 
