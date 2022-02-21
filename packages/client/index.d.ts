@@ -590,6 +590,11 @@ declare class EntityMpPool<T> {
 	public readonly streamed: T[];
 
 	/**
+	 * Gets or sets the maximum amount of streamed entities of a pool
+	 */
+	public maxStreamed: number;
+
+	/**
 	 * TODO: docs
 	 */
 	public apply(callingFunction: (...args: any[]) => void, ...args: any[]): void;
