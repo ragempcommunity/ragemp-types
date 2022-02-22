@@ -44,6 +44,14 @@ declare interface GameWeaponUnk {
 }
 
 declare interface GameWeapon extends GameWeaponLegacy {
+	/**
+	 * Toggle if you want to stop the player from putting away a weapon when it runs out of ammo (defaults to true)
+	 * 
+	 * true: allow empty weapon auto-unequip
+	 * false: prevent empty weapon auto-unequip
+	 */
+	unequipEmptyWeapons: number;
+
 	enableLaserSightRendering(toggle: boolean): void;
 	getComponentTypeModel(componentHash: number): number;
 	getTypeModel(weaponHash: number): number;
