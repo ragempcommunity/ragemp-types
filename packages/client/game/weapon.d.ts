@@ -50,7 +50,7 @@ declare interface GameWeapon extends GameWeaponLegacy {
 	 * true: allow empty weapon auto-unequip
 	 * false: prevent empty weapon auto-unequip
 	 */
-	unequipEmptyWeapons: number;
+	unequipEmptyWeapons: boolean;
 
 	enableLaserSightRendering(toggle: boolean): void;
 	getComponentTypeModel(componentHash: number): number;
