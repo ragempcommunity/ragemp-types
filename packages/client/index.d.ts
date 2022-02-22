@@ -511,7 +511,7 @@ declare class EntityMp {
 	playSynchronizedAnim(syncedScene: number, animation: string, propName: string, p3: number, p4: number, p5: any, p6: number): boolean;
 	processAttachments(): void;
 	resetAlpha(): void;
-	setAlpha(alphaLevel: number, skin: boolean): void;
+	setAlpha(alphaLevel: number): void;
 	setAlwaysPrerender(toggle: boolean): void;
 	setAnimCurrentTime(animDict: string, animName: string, time: number): void;
 	setAnimSpeed(animDict: string, animName: string, speedMultiplier: number): void;
@@ -2115,6 +2115,7 @@ declare interface PedMp extends PedMpBase {
 		isParent: boolean
 	): void;
 	setFaceFeature(index: number, scale: number): void;
+	setAlpha(alphaLevel: number, skin?: boolean): void;
 }
 
 declare interface PedMpPool extends EntityMpPool<PedMp> {
