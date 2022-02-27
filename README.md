@@ -3,6 +3,7 @@ Remember to 🌟 this Github if you 💖 it.
 > Types definitions for RAGE:MP (1.1+)
 
 ## 📥 Installation
+> ⚠️ **WARNING** - To use these types, you need [git](https://git-scm.com/) installed on your machine.
 
 #### [`SERVER-SIDE`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/server)
 
