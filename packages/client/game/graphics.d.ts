@@ -1231,6 +1231,11 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	 */
 	setLightsState(lightId: number, disable: boolean): void
 
+	/**
+	 * @param layer Only layer 4 works
+	 */
+	set2dLayer(layer: number): void
+
 	unk: GameGraphicsUnk;
 }
 
