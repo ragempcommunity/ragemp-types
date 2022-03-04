@@ -292,7 +292,7 @@ declare class EntityMp {
 	public readonly handle: any;
 
 	/**
-	 * This property using for setting or getting entity alpha.
+	 * This property is used for setting or getting entity alpha.
 	 */
 	alpha: number;
 
@@ -302,7 +302,7 @@ declare class EntityMp {
 	data: any;
 
 	/**
-	 * This property used for setting or getting an entity's dimension. The dimension determines who the entity is visible to.
+	 * This property is used for setting or getting an entity's dimension. The dimension determines who the entity is visible to.
 	 */
 	dimension: number;
 
@@ -590,7 +590,7 @@ declare class EntityMpPool<T> {
 	public readonly streamed: T[];
 
 	/**
-	 * Gets or sets the maximum amount of streamed entities of a pool
+	 * Gets or sets the maximum amount of streamed entities of a given pool
 	 */
 	public maxStreamed: number;
 
@@ -647,7 +647,7 @@ declare class EntityMpPool<T> {
 	public forEachInRange(position: Vector3, range: number, dimension: number, callingFunction: (entity: T) => void): void;
 
 	/**
-	 * Used to call a function for each elements in the pool.
+	 * Used to call a function for each element in the pool.
 	 *
 	 * @param dimension Dimension
 	 * @param callingFunction Function, what will be called.
@@ -780,6 +780,9 @@ declare interface UserMpPreferences {
 }
 
 declare interface NametagsMp {
+	/**
+	 * Specifies whether nametags are enabled or disabled.
+	 */
 	enabled: boolean;
 
 	/**
