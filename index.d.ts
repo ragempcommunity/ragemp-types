@@ -20,7 +20,7 @@ interface EventMpPool {
 	 *
 	 *
 	 */
-	callProc<T, K>(eventName: string, args: K): Promise<T>;
+	callProc<T = any>(procName: string, ...args: any[]): Promise<T>;
 
 	/**
 	 * Adds browser event that can be called from client side
