@@ -929,7 +929,7 @@ declare interface BrowserMp {
 	reload(ignoreCache: boolean): void;
 
 	call(eventName: string, ...args: any[]): void;
-	callProc(procName: string, ...args: any[]): Promise<any>;
+	callProc<T = any>(procName: string, ...args: any[]): Promise<T>;
 	executeCached(code: string): void;
 }
 
