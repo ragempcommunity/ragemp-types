@@ -1014,6 +1014,8 @@ declare interface IClientEvents {
 	render: (nametags: [PlayerMp, number, number, number][]) => void;
 	playerCreateWaypoint: (position: Vector3) => void;
 	playerReachWaypoint: (player: PlayerMp) => void;
+	playerEnterColshape: (shape: ColshapeMp) => void;
+	playerExitColshape: (shape: ColshapeMp) => void;
 }
 
 declare type MultiEventHandlers = Partial<IClientEvents> & Record<string, (...args: any) => void>;
