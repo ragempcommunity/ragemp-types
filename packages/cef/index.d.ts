@@ -29,6 +29,9 @@ interface EventMpPool {
 	 */
 	add(name: string, ...args: any[]): void;
 	add(names: { [name: string]: (...args: any[]) => void }): void;
+	remove(name: string): void;
+	call(name: string): void;
+	reset(): void;
 }
 
 interface Window {
