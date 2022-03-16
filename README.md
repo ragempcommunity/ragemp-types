@@ -4,19 +4,19 @@ Remember to 🌟 this Github if you 💖 it.
 
 ## 📥 Installation
 
-> Use `github:leonardssh/ragemp-types#types-client` to latest build
+> Use `github:ragempcommunity/ragemp-types#types-client` to latest build
 
 #### `CLIENT-SIDE`
 
 ```sh
 # With npm
-> npm i --save-dev github:leonardssh/ragemp-types#types-client@v1.1.3
+> npm i --save-dev github:ragempcommunity/ragemp-types#types-client@v1.1.3
 
 # With yarn
-> yarn add -D github:leonardssh/ragemp-types#types-client@v1.1.3
+> yarn add -D github:ragempcommunity/ragemp-types#types-client@v1.1.3
 
 # With pnpm
-> pnpm add -D github:leonardssh/ragemp-types#types-client@v1.1.3
+> pnpm add -D github:ragempcommunity/ragemp-types#types-client@v1.1.3
 ```
 
 > To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
@@ -44,7 +44,7 @@ To contribute to this repository, feel free to create a new fork of the reposito
 2. Create a new branch in your fork.
 3. Make your changes.
 4. Commit your changes, and push them.
-5. Submit a Pull Request [here](https://github.com/leonardssh/ragemp-types/pulls)!
+5. Submit a Pull Request [here](https://github.com/ragempcommunity/ragemp-types/pulls)!
 
 ## 🎉 Thanks
 
