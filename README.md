@@ -1,6 +1,18 @@
-Remember to 🌟 this Github if you 💖 it.
+<h1 align="center">RAGE Multiplayer - Types Definitions</h1>
 
-> Types definitions for RAGE:MP (1.1+)
+<p align="center">
+	<a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-server.yml" target="__blank"><img alt="Continuous Delivery - Server" src="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-server.yml/badge.svg?branch=main"></a>
+	<a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-client.yml" target="__blank"><img alt="Continuous Delivery - Client" src="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-client.yml/badge.svg?branch=main"></a>
+	<a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-cef.yml" target="__blank"><img alt="Continuous Delivery - Cef" src="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-cef.yml/badge.svg?branch=main"></a>
+</p>
+
+<p align="center">
+	<a href="https://github.com/inversify/InversifyJS" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ragempcommunity/ragemp-types?style=social"></a>
+	<a href="https://twitter.com/ragemultiplayer" target="__blank"><img alt="Twitter" src="https://img.shields.io/twitter/follow/ragemultiplayer.svg?maxAge=86400&style=social"></a>
+	<a href="https://discord.com/invite/tChBaeu" target="__blank"><img alt="Discord Server" src="https://img.shields.io/discord/183979885788659713?style=social&logo=discord"></a>
+</p>
+
+Remember to 🌟 this Github if you 💖 it.
 
 ## 📥 Installation
 > ⚠️ **WARNING** - To use these types, you need [git](https://git-scm.com/) installed on your machine.
