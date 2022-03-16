@@ -3,14 +3,14 @@
 	"description": "Types definitions for RAGE:MP",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/leonardssh/ragemp-types.git"
+		"url": "git+https://github.com/ragempcommunity/ragemp-types.git"
 	},
-	"author": "LeonardSSH <leonardssh22@gmail.com> (https://leonard.sh)",
+	"author": "@ragempcommunity",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/leonardssh/ragemp-types/issues"
+		"url": "https://github.com/ragempcommunity/ragemp-types/issues"
 	},
-	"homepage": "https://github.com/leonardssh/ragemp-types#readme",
+	"homepage": "https://github.com/ragempcommunity/ragemp-types#readme",
 	"devDependencies": {
 		"prettier": "^2.4.1"
 	},

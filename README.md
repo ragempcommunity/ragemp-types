@@ -5,49 +5,49 @@ Remember to 🌟 this Github if you 💖 it.
 ## 📥 Installation
 > ⚠️ **WARNING** - To use these types, you need [git](https://git-scm.com/) installed on your machine.
 
-#### [`SERVER-SIDE`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/server)
+#### [`SERVER-SIDE`](https://github.com/ragempcommunity/ragemp-types/tree/main/packages/server)
 
-> Use `github:leonardssh/ragemp-types#types-server` to latest build
+> Use `github:ragempcommunity/ragemp-types#types-server` to latest build
 
 ```bash
 # With npm
-> npm i --save-dev github:leonardssh/ragemp-types#types-server@v1.0.3
+> npm i --save-dev github:ragempcommunity/ragemp-types#types-server@v1.0.3
 
 # With yarn
-> yarn add -D github:leonardssh/ragemp-types#types-server@v1.0.3
+> yarn add -D github:ragempcommunity/ragemp-types#types-server@v1.0.3
 
 # With pnpm
-> pnpm add -D github:leonardssh/ragemp-types#types-server@v1.0.3
+> pnpm add -D github:ragempcommunity/ragemp-types#types-server@v1.0.3
 ```
 
-#### [`CLIENT-SIDE`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/client)
+#### [`CLIENT-SIDE`](https://github.com/ragempcommunity/ragemp-types/tree/main/packages/client)
 
-> Use `github:leonardssh/ragemp-types#types-client` to latest build
+> Use `github:ragempcommunity/ragemp-types#types-client` to latest build
 
 ```sh
 # With npm
-> npm i --save-dev github:leonardssh/ragemp-types#types-client@v1.1.3
+> npm i --save-dev github:ragempcommunity/ragemp-types#types-client@v1.1.3
 
 # With yarn
-> yarn add -D github:leonardssh/ragemp-types#types-client@v1.1.3
+> yarn add -D github:ragempcommunity/ragemp-types#types-client@v1.1.3
 
 # With pnpm
-> pnpm add -D github:leonardssh/ragemp-types#types-client@v1.1.3
+> pnpm add -D github:ragempcommunity/ragemp-types#types-client@v1.1.3
 ```
 
-#### [`CEF`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/cef)
+#### [`CEF`](https://github.com/ragempcommunity/ragemp-types/tree/main/packages/cef)
 
-> Use `github:leonardssh/ragemp-types#types-cef` to latest build
+> Use `github:ragempcommunity/ragemp-types#types-cef` to latest build
 
 ```bash
 # With npm
-> npm i --save-dev github:leonardssh/ragemp-types#types-cef@v1.0.3
+> npm i --save-dev github:ragempcommunity/ragemp-types#types-cef@v1.0.3
 
 # With yarn
-> yarn add -D github:leonardssh/ragemp-types#types-cef@v1.0.3
+> yarn add -D github:ragempcommunity/ragemp-types#types-cef@v1.0.3
 
 # With pnpm
-> pnpm add -D github:leonardssh/ragemp-types#types-cef@v1.0.3
+> pnpm add -D github:ragempcommunity/ragemp-types#types-cef@v1.0.3
 ```
 
 > To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
@@ -63,7 +63,7 @@ Remember to 🌟 this Github if you 💖 it.
 
 ## 🤓 Usage
 
-#### [`SERVER-SIDE`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/server) - [`CLIENT-SIDE`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/client) - [`CEF`](https://github.com/LeonardSSH/ragemp-types/tree/main/packages/cef)
+#### [`SERVER-SIDE`](https://github.com/ragempcommunity/ragemp-types/tree/main/packages/server) - [`CLIENT-SIDE`](https://github.com/ragempcommunity/ragemp-types/tree/main/packages/client) - [`CEF`](https://github.com/ragempcommunity/ragemp-types/tree/main/packages/cef)
 
 ## ❌ Avoiding Conflict between Server <-> Client Types
 
@@ -72,8 +72,8 @@ To avoid conflicts between server and client types, they must be installed and s
 > Step #1: _install the types in package.json from the project root_
 
 ```sh
-> npm i --save-dev github:leonardssh/ragemp-types#types-server
-> npm i --save-dev github:leonardssh/ragemp-types#types-client
+> npm i --save-dev github:ragempcommunity/ragemp-types#types-server
+> npm i --save-dev github:ragempcommunity/ragemp-types#types-client
 ```
 
 > Step #2: _for this step, your project should be structured as follows:_
@@ -176,7 +176,7 @@ Now that we know what our server structure should look like, let's start setting
 
 For those who didn't understand, I made a gamemode from which you can better orient yourself:
 
-[ragemp-typescript](https://github.com/LeonardSSH/ragemp-typescript) & [ragemp-javascript](https://github.com/LeonardSSH/ragemp-javascript)
+[ragemp-typescript](https://github.com/ragempcommunity/ragemp-typescript) & [ragemp-javascript](https://github.com/LeonardSSH/ragemp-javascript)
 
 ## 👨‍💻 Contributing
 
@@ -186,7 +186,7 @@ To contribute to this repository, feel free to create a new fork of the reposito
 2. Create a new branch in your fork.
 3. Make your changes.
 4. Commit your changes, and push them.
-5. Submit a Pull Request [here](https://github.com/leonardssh/ragemp-types/pulls)!
+5. Submit a Pull Request [here](https://github.com/ragempcommunity/ragemp-types/pulls)!
 
 ## 🎉 Thanks
 
