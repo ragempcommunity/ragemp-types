@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/inversify/InversifyJS" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ragempcommunity/ragemp-types?style=social"></a>
+	<a href="https://github.com/ragempcommunity/ragemp-types" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ragempcommunity/ragemp-types?style=social"></a>
 	<a href="https://twitter.com/ragemultiplayer" target="__blank"><img alt="Twitter" src="https://img.shields.io/twitter/follow/ragemultiplayer.svg?maxAge=86400&style=social"></a>
 	<a href="https://discord.com/invite/tChBaeu" target="__blank"><img alt="Discord Server" src="https://img.shields.io/discord/183979885788659713?style=social&logo=discord"></a>
 </p>
