@@ -43,7 +43,7 @@ declare class Vector3 {
 	/**
 	 * Get the angle (in radians) between two vectors.
 	 *
-	 * @param otherVec the other vector to calcuate the angle to.
+	 * @param otherVec the other vector to calculate the angle to.
 	 * @returns The angle (in radians) between two vectors.
 	 */
 	angleTo(otherVec: Vector3): number;
@@ -558,7 +558,7 @@ declare class PlayerMp extends EntityMp {
 	public call(eventName: string, args?: any[]): void;
 
 	/**
-	 * Calls the specified player's clientside Remote prodecure call (RPC) event and expects a callback.
+	 * Calls the specified player's clientside Remote procedure call (RPC) event and expects a callback.
 	 *
 	 * @param eventProcName Procedure Name
 	 * @param args Args
@@ -1381,7 +1381,7 @@ declare class EventMpPool {
 	public addCommand(commands: { [commandName: string]: (player: PlayerMp, fullText: string, ...args: string[]) => void }): void;
 
 	/**
-	 * Register the specified player's Remote Prodecure Call (RPC) event and expects a callback.
+	 * Register the specified player's Remote Procedure Call (RPC) event and expects a callback.
 	 *
 	 * @param procedureName The name of the procedure you wish to attach a handler to
 	 * @param callback The function that you want the RPC to trigger, which has to be defined before you add the handler
