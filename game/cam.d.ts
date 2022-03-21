@@ -1,4 +1,8 @@
 declare interface GameCamLegacy {
+	/**
+	 * @deprecated Native DB added sixth parameter, just set it to 0.
+	 */
+	renderScriptCams(render: boolean, ease: boolean, easeTime: number, p3: boolean, p4: boolean): void;
 	renderScriptCams(render: boolean, ease: boolean, easeTime: number, p3: boolean, p4: boolean, p5: number): void;
 	createCam(camName: string, p1: boolean): number;
 	createCamWithParams(
