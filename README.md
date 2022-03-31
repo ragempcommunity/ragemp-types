@@ -2,9 +2,9 @@ Remember to 🌟 this Github if you 💖 it.
 
 > This package contains types definitions for RAGE:MP client-side module.
 
-## 📥 Installation
+### 📥 Installation
 
-> Use `github:ragempcommunity/ragemp-types#types-client` to latest build
+:fire: Use `github:ragempcommunity/ragemp-types#types-client` to latest build
 
 #### `CLIENT-SIDE`
 
@@ -19,6 +19,8 @@ Remember to 🌟 this Github if you 💖 it.
 > pnpm add -D @ragempcommunity/types-client
 ```
 
+## 🤓 Usage
+
 > To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
 
 ```jsonc
@@ -29,8 +31,6 @@ Remember to 🌟 this Github if you 💖 it.
 	}
 }
 ```
-
-## 🤓 Usage
 
 ### Full type-safe and auto-complete
 
