@@ -1,8 +1,10 @@
 name: NPM Publish
+
+# Testing
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - npm-publish
 
 jobs:
   publish:
