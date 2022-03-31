@@ -3,6 +3,7 @@ Remember to 🌟 this Github if you 💖 it.
 > Types definitions for RAGE:MP (1.1+)
 
 ## 📥 Installation
+
 > ⚠️ **WARNING** - To use these types, you need [git](https://git-scm.com/) installed on your machine.
 
 #### [`SERVER-SIDE`](https://github.com/ragempcommunity/ragemp-types/tree/main/packages/server)
@@ -11,13 +12,13 @@ Remember to 🌟 this Github if you 💖 it.
 
 ```bash
 # With npm
-> npm i --save-dev github:ragempcommunity/ragemp-types#types-server@v1.0.3
+> npm i --save-dev @ragempcommunity/types-server
 
 # With yarn
-> yarn add -D github:ragempcommunity/ragemp-types#types-server@v1.0.3
+> yarn add -D @ragempcommunity/types-server
 
 # With pnpm
-> pnpm add -D github:ragempcommunity/ragemp-types#types-server@v1.0.3
+> pnpm add -D @ragempcommunity/types-server
 ```
 
 #### [`CLIENT-SIDE`](https://github.com/ragempcommunity/ragemp-types/tree/main/packages/client)
@@ -26,13 +27,13 @@ Remember to 🌟 this Github if you 💖 it.
 
 ```sh
 # With npm
-> npm i --save-dev github:ragempcommunity/ragemp-types#types-client@v1.1.3
+> npm i --save-dev @ragempcommunity/types-client
 
 # With yarn
-> yarn add -D github:ragempcommunity/ragemp-types#types-client@v1.1.3
+> yarn add -D @ragempcommunity/types-client
 
 # With pnpm
-> pnpm add -D github:ragempcommunity/ragemp-types#types-client@v1.1.3
+> pnpm add -D @ragempcommunity/types-client
 ```
 
 #### [`CEF`](https://github.com/ragempcommunity/ragemp-types/tree/main/packages/cef)
@@ -41,13 +42,13 @@ Remember to 🌟 this Github if you 💖 it.
 
 ```bash
 # With npm
-> npm i --save-dev github:ragempcommunity/ragemp-types#types-cef@v1.0.3
+> npm i --save-dev @ragempcommunity/types-cef
 
 # With yarn
-> yarn add -D github:ragempcommunity/ragemp-types#types-cef@v1.0.3
+> yarn add -D @ragempcommunity/types-cef
 
 # With pnpm
-> pnpm add -D github:ragempcommunity/ragemp-types#types-cef@v1.0.3
+> pnpm add -D @ragempcommunity/types-cef
 ```
 
 > To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
@@ -56,7 +57,7 @@ Remember to 🌟 this Github if you 💖 it.
 // e.g server-side
 {
 	"compilerOptions": {
-		"types": ["{RELATIVE_PATH_TO_NODE_MODULES}/@ragemp/types-server"]
+		"types": ["{RELATIVE_PATH_TO_NODE_MODULES}/@ragempcommunity/types-server"]
 	}
 }
 ```
@@ -153,8 +154,8 @@ Now that we know what our server structure should look like, let's start setting
 	// NOTE: This tsconfig will work assuming your project is structured as described above.
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
-		// [RELATIVE_PATH_TO_NODE_MODULES]/@ragemp/types-client
-		"types": ["../../node_modules/@ragemp/types-client", "./@types"]
+		// [RELATIVE_PATH_TO_NODE_MODULES]/@ragempcommunity/types-client
+		"types": ["../../node_modules/@ragempcommunity/types-client", "./@types"]
 	},
 	"include": ["./**/*.ts"]
 }
@@ -167,8 +168,8 @@ Now that we know what our server structure should look like, let's start setting
 	// NOTE: This tsconfig will work assuming your project is structured as described above.
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
-		// [RELATIVE_PATH_TO_NODE_MODULES]/@ragemp/types-server
-		"types": ["../../node_modules/@ragemp/types-server", "./@types"]
+		// [RELATIVE_PATH_TO_NODE_MODULES]/@ragempcommunity/types-server
+		"types": ["../../node_modules/@ragempcommunity/types-server", "./@types"]
 	},
 	"include": ["./**/*.ts"]
 }

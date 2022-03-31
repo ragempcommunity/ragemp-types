@@ -1,0 +1,37 @@
+name: NPM Publish
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  publish:
+    name: publish
+    runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2.4.0
+
+      - name: Install pnpm v6
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.32.3
+
+      - name: Install Node.js v16 with NPM Registry
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: 'pnpm'
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install Dependencies
+        run: |
+          pnpm install
+          pnpm add --global lerna
+
+      - name: Publish
+        run: lerna publish from-package --no-git-tag-version --no-push --no-verify-access --yes

@@ -1,11 +1,14 @@
 {
-	"name": "@ragemp/types-cef",
-	"version": "1.0.3",
+	"name": "@ragempcommunity/types-cef",
+	"version": "2.0.1",
 	"description": "Types definitions for RAGE:MP CEF module",
 	"main": "index.d.ts",
 	"files": [
 		"index.d.ts"
 	],
 	"author": "@ragempcommunity",
-	"license": "MIT"
+	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	}
 }

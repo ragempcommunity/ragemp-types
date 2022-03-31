@@ -10,13 +10,13 @@ Remember to 🌟 this Github if you 💖 it.
 
 ```sh
 # With npm
-> npm i --save-dev github:ragempcommunity/ragemp-types#types-client@v1.1.3
+> npm i --save-dev @ragempcommunity/types-client
 
 # With yarn
-> yarn add -D github:ragempcommunity/ragemp-types#types-client@v1.1.3
+> yarn add -D @ragempcommunity/types-client
 
 # With pnpm
-> pnpm add -D github:ragempcommunity/ragemp-types#types-client@v1.1.3
+> pnpm add -D @ragempcommunity/types-client
 ```
 
 > To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
@@ -25,7 +25,7 @@ Remember to 🌟 this Github if you 💖 it.
 // e.g client-side
 {
 	"compilerOptions": {
-		"types": ["{RELATIVE_PATH_TO_NODE_MODULES}/@ragemp/types-client"]
+		"types": ["{RELATIVE_PATH_TO_NODE_MODULES}/@ragempcommunity/types-client"]
 	}
 }
 ```
