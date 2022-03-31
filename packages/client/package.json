@@ -1,5 +1,5 @@
 {
-	"name": "@ragemp/types-client",
+	"name": "@ragempcommunity/types-client",
 	"version": "2.0.0",
 	"description": "Types definitions for RAGE:MP client-side module",
 	"main": "index.d.ts",
@@ -12,5 +12,8 @@
 		"enums"
 	],
 	"author": "@ragempcommunity",
-	"license": "MIT"
+	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	}
 }
