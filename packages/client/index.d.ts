@@ -36,7 +36,7 @@ declare class Vector3 {
 	/**
 	 * Get the angle (in radians) between two vectors.
 	 *
-	 * @param otherVec the other vector to calcuate the angle to.
+	 * @param otherVec the other vector to calculate the angle to.
 	 * @returns The angle (in radians) between two vectors.
 	 */
 	angleTo(otherVec: Vector3): number;
@@ -208,8 +208,8 @@ declare interface KeysMp {
 	/**
 	 * Binds the key
 	 *
-	 * @param keyCode Bexadecimal code of [key](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731).
-	 * @param keyHold True trigges on keydown, false triggers on keyup (bool)
+	 * @param keyCode Hexadecimal code of [key](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731).
+	 * @param keyHold True triggers on keydown, false triggers on keyup (bool)
 	 * @param handler Function Handler
 	 */
 	bind(keyCode: number, keyHold: boolean, handler: Function): void;
@@ -217,22 +217,22 @@ declare interface KeysMp {
 	/**
 	 * Check if specific key is released
 	 *
-	 * @param keyCode Bexadecimal code of [key](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731).
+	 * @param keyCode Hexadecimal code of [key](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731).
 	 */
 	isUp(keyCode: number): boolean;
 
 	/**
 	 * Checks if specific key is pressed down
 	 *
-	 * @param keyCode Bexadecimal code of [key](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731).
+	 * @param keyCode Hexadecimal code of [key](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731).
 	 */
 	isDown(keyCode: number): boolean;
 
 	/**
 	 * Unbinds the key
 	 *
-	 * @param keyCode Bexadecimal code of [key](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731).
-	 * @param keyHold True trigges on keydown, false triggers on keyup (bool)
+	 * @param keyCode Hexadecimal code of [key](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731).
+	 * @param keyHold True triggers on keydown, false triggers on keyup (bool)
 	 * @param handler Only unbind this function handler
 	 */
 	unbind(keyCode: number, keyHold: boolean, handler?: Function): void;
@@ -257,7 +257,7 @@ declare interface StorageMp {
 	/**
 	 * Flushes storage.data.
 	 *
-	 * It isn't neccessary to flush it after every change since it will be flushed on disconnect, but recommended.
+	 * It isn't necessary to flush it after every change since it will be flushed on disconnect, but recommended.
 	 *
 	 * Data is saved in <path to RAGEMP>/client_resources/<server ip>/.storage
 	 */
@@ -786,21 +786,21 @@ declare interface NametagsMp {
 	enabled: boolean;
 
 	/**
-	 * This is a client-side function and only needs to be excuted once.
+	 * This is a client-side function and only needs to be executed once.
 	 *
 	 * It does not need to be called every frame.
 	 */
 	set(style: NametagsStyle): void;
 
 	/**
-	 * This is a client-side function and only needs to be excuted once.
+	 * This is a client-side function and only needs to be executed once.
 	 *
 	 * true by default; when false, passes 3D world coords to render event (so it can be used with set/clearDrawOrigin)
 	 */
 	useScreen2dCoords(state: boolean): void;
 
 	/**
-	 * This is a client-side function and only needs to be excuted once.
+	 * This is a client-side function and only needs to be executed once.
 	 * false by default; you might want to draw nametags in reverse order when enabled
 	 */
 	orderByDistance(state: boolean): void;
@@ -877,7 +877,7 @@ declare interface RaycastingMp {
 	 *
 	 * Passing -1 will intersect with everything, presumably.
 	 *
-	 * Raycasts that intersect with mission_entites (flag = 2) has limited range and will not register for far away entites. The range seems to be about 30 metres.
+	 * Raycasts that intersect with mission_entities (flag = 2) has limited range and will not register for far away entities. The range seems to be about 30 metres.
 	 */
 	testPointToPoint(startPos: Vector3, endPos: Vector3, ignoreEntity?: EntityMp, flags?: number | number[]): RaycastResult;
 
@@ -1042,7 +1042,7 @@ declare interface EventMpPool {
 	add(eventName: string, callback: (...args: any[]) => void): void;
 
 	/**
-	 * Register the specified player's Remote Prodecure Call (RPC) event and expects a callback.
+	 * Register the specified player's Remote Procedure Call (RPC) event and expects a callback.
 	 *
 	 * @param procedureName The name of the procedure you wish to attach a handler to
 	 * @param callback The function that you want the RPC to trigger, which has to be defined before you add the handler
@@ -2728,7 +2728,7 @@ declare interface VehicleMp extends EntityMp {
 	doesHaveWeapon(): boolean;
 	ejectJb700Roof(x: number, y: number, z: number): void;
 	enableCargobobHook(state: number): void;
-	explode(isAudible: boolean, isInvisble: boolean): void;
+	explode(isAudible: boolean, isInvisible: boolean): void;
 	explodeInCutscene(p0: boolean): void;
 	fixWindow(index: number): void;
 	getAcceleration(): number;
@@ -2864,7 +2864,7 @@ declare interface VehicleMp extends EntityMp {
 	getPlateType(): number;
 	getSuspensionHeight(): number;
 	getTrailer(vehicle: Handle): Handle;
-	getTrainCarriage(cariage: number): Handle;
+	getTrainCarriage(carriage: number): Handle;
 	getTyresCanBurst(): boolean;
 	getTyreSmokeColor(
 		r: number,
