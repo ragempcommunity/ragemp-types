@@ -2,22 +2,24 @@ Remember to 🌟 this Github if you 💖 it.
 
 > This package contains types definitions for RAGE:MP server-side module.
 
-## 📥 Installation
+### 📥 Installation
 
 #### `SERVER-SIDE`
 
-> Use `github:ragempcommunity/ragemp-types#types-server` to latest build
+:fire: Use `github:ragempcommunity/ragemp-types#types-server` to latest build
 
 ```bash
 # With npm
-npm i --save-dev ragempcommunity/types-server
+npm i --save-dev @ragempcommunity/types-server
 
 # With yarn
-yarn add -D ragempcommunity/types-server
+yarn add -D @ragempcommunity/types-server
 
 # With pnpm
-pnpm add -D ragempcommunity/types-server
+pnpm add -D @ragempcommunity/types-server
 ```
+
+## 🤓 Usage
 
 > To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
 
@@ -29,8 +31,6 @@ pnpm add -D ragempcommunity/types-server
 	}
 }
 ```
-
-## 🤓 Usage
 
 ### Full type-safe and auto-complete
 
