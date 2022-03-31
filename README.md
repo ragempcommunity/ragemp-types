@@ -4,9 +4,9 @@ Remember to 🌟 this Github if you 💖 it.
 
 ### 📥 Installation
 
-:fire: Use `github:ragempcommunity/ragemp-types#types-client` to latest build
-
 #### `CLIENT-SIDE`
+
+:fire: Use `github:ragempcommunity/ragemp-types#types-client` to latest build
 
 ```sh
 # With npm
