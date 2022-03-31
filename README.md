@@ -1,14 +1,38 @@
+<p align="center">
+	<img src="https://i.imgur.com/1DbTFYi.png" width="600"/><br>
+	Community-driven types definitions for <strong>RAGE Multiplayer</strong>
+</p>
+
+<p align="center">
+    <a href="https://www.npmjs.com/package/@ragempcommunity/types-server" target="__blank"><img src="https://img.shields.io/npm/v/@ragempcommunity/types-server?color=efc75a&label=Server" alt="NPM version"></a>
+    <a href="https://www.npmjs.com/package/@ragempcommunity/types-server" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@ragempcommunity/types-server?color=50a36f&label="></a>
+    <a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-server.yml" target="__blank"><img alt="Continuous Delivery - Server" src="https://img.shields.io/github/workflow/status/ragempcommunity/ragemp-types/Continuous%20Delivery%20-%20Server"></a>
+</p>
+
+<p align="center">
+	<a href="https://www.npmjs.com/package/@ragempcommunity/types-client" target="__blank"><img src="https://img.shields.io/npm/v/@ragempcommunity/types-client?color=efc75a&label=Client" alt="NPM version"></a>
+	<a href="https://www.npmjs.com/package/@ragempcommunity/types-client" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@ragempcommunity/types-client?color=50a36f&label="></a>
+	<a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-client.yml" target="__blank"><img alt="Continuous Delivery - Client" src="https://img.shields.io/github/workflow/status/ragempcommunity/ragemp-types/Continuous%20Delivery%20-%20Client"></a>
+</p>
+
+<p align="center">
+	<a href="https://www.npmjs.com/package/@ragempcommunity/types-cef" target="__blank"><img src="https://img.shields.io/npm/v/@ragempcommunity/types-cef?color=efc75a&label=CEF" alt="NPM version"></a>
+	<a href="https://www.npmjs.com/package/@ragempcommunity/types-cef" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@ragempcommunity/types-cef?color=50a36f&label="></a>
+	<a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-cef.yml" target="__blank"><img alt="Continuous Delivery - CEF" src="https://img.shields.io/github/workflow/status/ragempcommunity/ragemp-types/Continuous%20Delivery%20-%20Cef"></a>
+</p>
+
+<p align="center">
+	<a href="https://twitter.com/ragemultiplayer" target="__blank"><img alt="Twitter" src="https://img.shields.io/twitter/follow/ragemultiplayer.svg?maxAge=86400"></a>
+	<a href="https://discord.com/invite/tChBaeu" target="__blank"><img alt="Discord Server" src="https://img.shields.io/discord/183979885788659713?label=discord&color=7289da"></a>
+</p>
+
 Remember to 🌟 this Github if you 💖 it.
 
-> Types definitions for RAGE:MP (1.1+)
-
-## 📥 Installation
-
-> ⚠️ **WARNING** - To use these types, you need [git](https://git-scm.com/) installed on your machine.
+### 📥 Installation
 
 #### [`SERVER-SIDE`](https://github.com/ragempcommunity/ragemp-types/tree/main/packages/server)
 
-> Use `github:ragempcommunity/ragemp-types#types-server` to latest build
+:fire: Use `github:ragempcommunity/ragemp-types#types-server` to latest build
 
 ```bash
 # With npm
@@ -21,9 +45,11 @@ Remember to 🌟 this Github if you 💖 it.
 > pnpm add -D @ragempcommunity/types-server
 ```
 
+---
+
 #### [`CLIENT-SIDE`](https://github.com/ragempcommunity/ragemp-types/tree/main/packages/client)
 
-> Use `github:ragempcommunity/ragemp-types#types-client` to latest build
+:fire: Use `github:ragempcommunity/ragemp-types#types-client` to latest build
 
 ```sh
 # With npm
@@ -36,9 +62,11 @@ Remember to 🌟 this Github if you 💖 it.
 > pnpm add -D @ragempcommunity/types-client
 ```
 
+---
+
 #### [`CEF`](https://github.com/ragempcommunity/ragemp-types/tree/main/packages/cef)
 
-> Use `github:ragempcommunity/ragemp-types#types-cef` to latest build
+:fire: Use `github:ragempcommunity/ragemp-types#types-cef` to latest build
 
 ```bash
 # With npm
@@ -51,6 +79,8 @@ Remember to 🌟 this Github if you 💖 it.
 > pnpm add -D @ragempcommunity/types-cef
 ```
 
+## 🤓 Usage
+
 > To make these types detectable, you need to add the `types` property below to `tsconfig.json` on each side of your project.
 
 ```jsonc
@@ -62,8 +92,6 @@ Remember to 🌟 this Github if you 💖 it.
 }
 ```
 
-## 🤓 Usage
-
 #### [`SERVER-SIDE`](https://github.com/ragempcommunity/ragemp-types/tree/main/packages/server) - [`CLIENT-SIDE`](https://github.com/ragempcommunity/ragemp-types/tree/main/packages/client) - [`CEF`](https://github.com/ragempcommunity/ragemp-types/tree/main/packages/cef)
 
 ## ❌ Avoiding Conflict between Server <-> Client Types
@@ -73,8 +101,8 @@ To avoid conflicts between server and client types, they must be installed and s
 > Step #1: _install the types in package.json from the project root_
 
 ```sh
-> npm i --save-dev github:ragempcommunity/ragemp-types#types-server
-> npm i --save-dev github:ragempcommunity/ragemp-types#types-client
+> npm i --save-dev @ragempcommunity/types-server
+> npm i --save-dev @ragempcommunity/types-client
 ```
 
 > Step #2: _for this step, your project should be structured as follows:_
@@ -106,42 +134,15 @@ Now that we know what our server structure should look like, let's start setting
 
 ```jsonc
 {
-	// NOTE: This is my config that I use everywhere, it is optimized for the cleanest and best code.
 	"exclude": ["node_modules", "dist"],
 	"compileOnSave": true,
 	"compilerOptions": {
-		"skipLibCheck": false,
 		"target": "esnext",
 		"module": "esnext",
 		"moduleResolution": "node",
 		"lib": ["es6", "esnext", "DOM"],
 		"rootDir": ".",
 		"outDir": "dist",
-		"strict": true,
-		"removeComments": false,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noImplicitReturns": true,
-		"noFallthroughCasesInSwitch": true,
-		"allowSyntheticDefaultImports": true,
-		"importHelpers": true,
-		"esModuleInterop": true,
-		"resolveJsonModule": true,
-		"forceConsistentCasingInFileNames": true,
-		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true,
-		"allowJs": true,
-		"declaration": false,
-		"declarationMap": false,
-		"sourceMap": false,
-		"alwaysStrict": true,
-		"importsNotUsedAsValues": "remove",
-		"incremental": true,
-		"newLine": "lf",
-		"noEmitHelpers": true,
-		"preserveConstEnums": true,
-		"pretty": true,
-		"useDefineForClassFields": true,
 		"baseUrl": "./"
 	}
 }
