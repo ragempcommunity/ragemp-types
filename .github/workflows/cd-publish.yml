@@ -1,0 +1,40 @@
+name: NPM Publish
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  publish:
+    name: publish
+    runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+
+    steps:
+      - name: Checkout Repository
+      - uses: actions/checkout@v2.4.0
+
+      - name: Install Node.js v16 with NPM Registry
+        uses: actions/setup-node@v2.4.1
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+
+      - name: Restore dependency cache
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          yarn --frozen-lockfile
+          yarn global add lerna
+
+      - name: Publish
+        run: lerna publish from-package --no-git-tag-version --no-push --no-verify-access --yes
