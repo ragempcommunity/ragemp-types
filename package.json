@@ -1,6 +1,6 @@
 {
 	"name": "@ragempcommunity/types-client",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "Types definitions for RAGE:MP client-side module",
 	"main": "index.d.ts",
 	"files": [
