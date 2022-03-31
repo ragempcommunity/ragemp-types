@@ -1,15 +1,30 @@
 <h1 align="center">RAGE Multiplayer - Types Definitions</h1>
 
 <p align="center">
-	<a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-server.yml" target="__blank"><img alt="Continuous Delivery - Server" src="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-server.yml/badge.svg?branch=main"></a>
-	<a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-client.yml" target="__blank"><img alt="Continuous Delivery - Client" src="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-client.yml/badge.svg?branch=main"></a>
-	<a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-cef.yml" target="__blank"><img alt="Continuous Delivery - Cef" src="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-cef.yml/badge.svg?branch=main"></a>
+	<a href="https://www.npmjs.com/package/@ragempcommunity/types-server" target="__blank"><img src="https://img.shields.io/static/v1?message=Server&label=&color=50504f" alt="Label"></a>
+    <a href="https://www.npmjs.com/package/@ragempcommunity/types-server" target="__blank"><img src="https://img.shields.io/npm/v/@ragempcommunity/types-server?color=efc75a&label=" alt="NPM version"></a>
+    <a href="https://www.npmjs.com/package/@ragempcommunity/types-server" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@ragempcommunity/types-server?color=50a36f&label="></a>
+    <a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-server.yml" target="__blank"><img alt="Continuous Delivery - Server" src="https://img.shields.io/github/workflow/status/ragempcommunity/ragemp-types/Continuous%20Delivery%20-%20Server"></a>
 </p>
 
 <p align="center">
-	<a href="https://github.com/ragempcommunity/ragemp-types" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ragempcommunity/ragemp-types?style=social"></a>
-	<a href="https://twitter.com/ragemultiplayer" target="__blank"><img alt="Twitter" src="https://img.shields.io/twitter/follow/ragemultiplayer.svg?maxAge=86400&style=social"></a>
-	<a href="https://discord.com/invite/tChBaeu" target="__blank"><img alt="Discord Server" src="https://img.shields.io/discord/183979885788659713?style=social&logo=discord"></a>
+	<a href="https://www.npmjs.com/package/@ragempcommunity/types-client" target="__blank"><img src="https://img.shields.io/static/v1?message=Client&label=&color=50504f" alt="Label"></a>
+	<a href="https://www.npmjs.com/package/@ragempcommunity/types-client" target="__blank"><img src="https://img.shields.io/npm/v/@ragempcommunity/types-client?color=efc75a&label=" alt="NPM version"></a>
+	<a href="https://www.npmjs.com/package/@ragempcommunity/types-client" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@ragempcommunity/types-client?color=50a36f&label="></a>
+	<a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-client.yml" target="__blank"><img alt="Continuous Delivery - Client" src="https://img.shields.io/github/workflow/status/ragempcommunity/ragemp-types/Continuous%20Delivery%20-%20Client"></a>
+</p>
+
+<p align="center">
+	<a href="https://www.npmjs.com/package/@ragempcommunity/types-cef" target="__blank"><img src="https://img.shields.io/static/v1?message=CEF&label=&color=50504f" alt="Label"></a>
+	<a href="https://www.npmjs.com/package/@ragempcommunity/types-cef" target="__blank"><img src="https://img.shields.io/npm/v/@ragempcommunity/types-cef?color=efc75a&label=" alt="NPM version"></a>
+	<a href="https://www.npmjs.com/package/@ragempcommunity/types-cef" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@ragempcommunity/types-cef?color=50a36f&label="></a>
+	<a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-cef.yml" target="__blank"><img alt="Continuous Delivery - CEF" src="https://img.shields.io/github/workflow/status/ragempcommunity/ragemp-types/Continuous%20Delivery%20-%20Cef"></a>
+</p>
+
+<p align="center">
+	<a href="https://github.com/ragempcommunity/ragemp-types" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ragempcommunity/ragemp-types"></a>
+	<a href="https://twitter.com/ragemultiplayer" target="__blank"><img alt="Twitter" src="https://img.shields.io/twitter/follow/ragemultiplayer.svg?maxAge=86400"></a>
+	<a href="https://discord.com/invite/tChBaeu" target="__blank"><img alt="Discord Server" src="https://img.shields.io/discord/183979885788659713?logo=discord"></a>
 </p>
 
 Remember to 🌟 this Github if you 💖 it.
