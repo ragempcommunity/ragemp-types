@@ -1,6 +1,6 @@
 <p align="center">
 	<img src="https://i.imgur.com/1DbTFYi.png" width="600"/><br>
-	Community-driven type definitions for <strong>RAGE Multiplayer</strong>
+	Community-driven types definitions for <strong>RAGE Multiplayer</strong>
 </p>
 
 <p align="center">
