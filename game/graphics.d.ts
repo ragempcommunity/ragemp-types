@@ -489,8 +489,8 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 		faceCamera: boolean,
 		p19: number,
 		rotate: boolean,
-		textureDict: string,
-		textureName: string,
+		textureDict: string | null,
+		textureName: string | null,
 		drawOnEnts: boolean
 	): void;
 	drawMarker2(
@@ -515,8 +515,8 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 		faceCamera: boolean,
 		p19: number,
 		rotate: boolean,
-		textureDict: string,
-		textureName: string,
+		textureDict: string | null,
+		textureName: string | null,
 		drawOnEnts: boolean,
 		p24: boolean,
 		p25: boolean

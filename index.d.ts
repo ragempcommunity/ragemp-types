@@ -1018,17 +1018,6 @@ declare interface IClientEvents {
 	playerExitColshape: (shape: ColshapeMp) => void;
 }
 
-declare class EventMp {
-	// @ts-ignore
-	constructor<K extends keyof IClientEvents>(eventName: K, callback: IClientEvents[K]);
-	constructor(eventName: string, callback: (...args: any[]) => void);
-
-	/**
-	 * Destroys the event
-	 */
-	public destroy(): void;
-}
-
 declare type MultiEventHandlers = Partial<IClientEvents> & Record<string, (...args: any) => void>;
 
 declare interface EventMpPool {
@@ -3161,7 +3150,6 @@ declare interface Mp {
 	system: SystemMp;
 	voiceChat: VoiceChatMp;
 	raycasting: RaycastingMp;
-	Event: typeof EventMp;
 	events: EventMpPool;
 	browsers: BrowserMpPool;
 	checkpoints: CheckpointMpPool;
