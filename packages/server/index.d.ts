@@ -1296,7 +1296,6 @@ declare interface EventMpThis {
 
 declare interface IServerEvents {
 	entityCreated: (this: EventMpThis, entity: EntityMp) => void;
-	entityDestroyed: (this: EventMpThis, entity: EntityMp) => void;
 	entityModelChange: (this: EventMpThis, entity: EntityMp, oldModel: number) => void;
 	incomingConnection: (this: EventMpThis, ip: string, serial: string, rgscName: string, rgscId: string, gameType: string) => void;
 	packagesLoaded: (this: EventMpThis) => void;
