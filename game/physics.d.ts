@@ -57,7 +57,7 @@ declare interface GamePhysics extends GamePhysicsLegacy {
 		p14: number,
 		breakWhenShot: boolean
 	): AddRopeResult;
-	deleteRope(): number;
+	deleteRope(ropeId: number): void;
 	deleteChildRope(ropeId: number): void;
 	doesRopeExist(): number;
 	ropeDrawShadowEnabled(toggle: boolean): number;
