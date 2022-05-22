@@ -884,7 +884,7 @@ declare interface RaycastingMp {
 	/**
 	 * Raycast from point to point, where the ray has a radius.
 	 */
-	testCapsule(startPos: Vector3, endPos: Vector3, radius: number, ignoreEntity?: EntityMp, flags?: number | number[]): RaycastResult;
+	testCapsule(startPos: Vector3, endPos: Vector3, radius: number, ignoreEntity?: EntityMp | EntityMp[], flags?: number | number[]): RaycastResult;
 }
 
 declare interface RaycastResult {
