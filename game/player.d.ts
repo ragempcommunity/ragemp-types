@@ -206,6 +206,7 @@ declare interface GamePlayer extends GamePlayerLegacy {
 	stopTeleport(): void;
 	isTeleportActive(): boolean;
 	getCurrentStealthNoise(): number;
+	getEntityIsFreeAimingAt(): EntityMp | number | undefined;
 	setHealthRechargeMultiplier(regenRate: number): void;
 	getHealthRechargeLimit(): number;
 	setHealthRechargeLimit(limit: number): void;
