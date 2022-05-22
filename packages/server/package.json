@@ -1,6 +1,6 @@
 {
 	"name": "@ragempcommunity/types-server",
-	"version": "2.0.5",
+	"version": "2.0.6",
 	"description": "Types definitions for RAGE:MP server-side module",
 	"main": "index.d.ts",
 	"files": [
