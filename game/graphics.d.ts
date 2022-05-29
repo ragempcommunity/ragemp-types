@@ -1053,6 +1053,22 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 		scaleZ: number,
 		p13: number
 	): void;
+	drawScaleformMovie3DNonAdditive(
+		scaleform: number,
+		posX: number,
+		posY: number,
+		posZ: number,
+		rotX: number,
+		rotY: number,
+		rotZ: number,
+		p7: number,
+		p8: number,
+		p9: number,
+		scaleX: number,
+		scaleY: number,
+		scaleZ: number,
+		p13: number
+	): void;
 	drawScaleformMovie3DSolid(
 		scaleform: number,
 		posX: number,
