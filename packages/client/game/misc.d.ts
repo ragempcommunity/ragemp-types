@@ -249,9 +249,9 @@ interface GameMisc extends GameMiscLegacy {
 	getRandomFloatInRange(startRange: number, endRange: number): number;
 	getRandomIntInRange(startRange: number, endRange: number): number;
 	getRandomIntInRange2(startRange: number, endRange: number): number;
-	getGroundZFor3DCoord(x: number, y: number, z: number, ignoreWater: boolean, p5: boolean): number;
+	getGroundZFor3dCoord(x: number, y: number, z: number, ignoreWater: boolean, p5: boolean): number;
 	getGroundZAndNormalFor3DCoord(x: number, y: number, z: number): GetGroundZAndNormalFor3DCoordResult;
-	getGroundZFor3DCoord2(x: number, y: number, z: number, p4: boolean, p5: boolean): number;
+	getGroundZFor3dCoord2(x: number, y: number, z: number, p4: boolean, p5: boolean): number;
 	asin(p0: number): number;
 	acos(p0: number): number;
 	tan(p0: number): number;
