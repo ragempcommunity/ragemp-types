@@ -316,6 +316,11 @@ declare class EntityMp {
 	 */
 	position: Vector3;
 
+	/**
+	 * This property gets/sets the entity rotation.
+	 */
+	rotation: Vector3;
+	
 	applyForceTo(
 		forceType: number,
 		x: number,
@@ -879,7 +884,7 @@ declare interface RaycastingMp {
 	 *
 	 * Raycasts that intersect with mission_entities (flag = 2) has limited range and will not register for far away entities. The range seems to be about 30 metres.
 	 */
-	testPointToPoint(startPos: Vector3, endPos: Vector3, ignoreEntity?: EntityMp, flags?: number | number[]): RaycastResult;
+	testPointToPoint(startPos: Vector3, endPos: Vector3, ignoreEntity?: EntityMp | EntityMp[], flags?: number | number[]): RaycastResult;
 
 	/**
 	 * Raycast from point to point, where the ray has a radius.
@@ -1105,6 +1110,7 @@ declare interface EventMpPool {
 
 declare interface BlipMp {
 	dimension: number;
+	position: number;
 	handle: number;
 	id: number;
 	remoteId: number;
@@ -1285,6 +1291,11 @@ declare interface CameraMp {
 	shake(type: string, amplitude: number): void;
 	stopPointing(): void;
 	stopShaking(p0: boolean): void;
+	
+	// Silent Update
+	gameplay: {
+		pointAtCoord: (x: number, y: number, z: number) => void;
+	}
 }
 
 declare interface CameraMpPool extends EntityMpPool<CameraMp> {
