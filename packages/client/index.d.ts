@@ -1110,7 +1110,7 @@ declare interface EventMpPool {
 
 declare interface BlipMp {
 	dimension: number;
-	position: number;
+	position: Vector3;
 	handle: number;
 	id: number;
 	remoteId: number;
