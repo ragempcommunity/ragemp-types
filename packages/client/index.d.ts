@@ -1291,15 +1291,11 @@ declare interface CameraMp {
 	shake(type: string, amplitude: number): void;
 	stopPointing(): void;
 	stopShaking(p0: boolean): void;
-	
-	// Silent Update
-	gameplay: {
-		pointAtCoord: (x: number, y: number, z: number) => void;
-	}
 }
 
 declare interface CameraMpPool extends EntityMpPool<CameraMp> {
 	'new'(name: string, position?: Vector3, rotation?: Vector3, fov?: number): CameraMp;
+	gameplay: CameraMp;
 }
 
 declare interface PedMpBase extends EntityMp {
