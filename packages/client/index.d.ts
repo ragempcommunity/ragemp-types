@@ -1043,7 +1043,7 @@ declare interface EventMpPool {
 	 * @param keyName Shared data key's name
 	 * @param callback Handler function with parameters
 	 */
-	addDataHandler(keyName: string, callback: (entity: EntityMp, value: any, oldValue: any) => void): void;
+	addDataHandler<T extends EntityMp>(keyName: string, callback: (entity: T, value: any, oldValue: any) => void): void;
 
 	/**
 	 * Registers event handlers.
