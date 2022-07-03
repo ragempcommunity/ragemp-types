@@ -1367,7 +1367,7 @@ declare class EventMpPool {
 	 * @param eventName The name of the event you wish to attach a handler to
 	 * @param callback The function that you want the event to trigger, which has to be defined before you add the handler
 	 */
-	public add<K extends keyof IServerEvents>(this: EventMpThis, eventName: K, callback: IServerEvents[K]): void;
+	public add<K extends keyof IServerEvents>(eventName: K, callback: IServerEvents[K]): void;
 	public add(eventHandlers: MultiEventHandlers): void;
 	public add(eventName: string, callback: (this: EventMpThis, ...args: any[]) => void): void;
 
