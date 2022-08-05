@@ -1410,8 +1410,8 @@ declare class EventMpPool {
 	 * @param eventName Name of the event you want to gets all handlers
 	 * @returns An array of specified event
 	 */
-	public getAllOf<K extends keyof IServerEvents>(eventName: K): Event[];
-	public getAllOf(eventName: string): Event[];
+	public getAllOf<K extends keyof IServerEvents>(eventName: K): Function[];
+	public getAllOf(eventName: string): Function[];
 
 	/**
 	 * Removes the specified event from events tree.
