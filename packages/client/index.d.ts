@@ -2169,7 +2169,6 @@ declare interface PlayerMp extends PedMpBase {
 	readonly aimTarget: boolean;
 	readonly ip: string;
 	readonly isAiming: boolean;
-	readonly isClimbing: boolean;
 	readonly isEnteringVehicle: boolean;
 	readonly isInCover: boolean;
 	readonly isJumping: boolean;
@@ -2235,6 +2234,7 @@ declare interface PlayerMp extends PedMpBase {
 	hasTeleportFinished(): boolean;
 	hasUseScenarioTask(): boolean;
 	hideBloodDamageByZone(p1: any, p2: boolean): void;
+	isClimbing(): boolean;
 	isControlOn(): boolean;
 	isFreeAiming(): boolean;
 	isFreeForAmbientTask(): boolean;
