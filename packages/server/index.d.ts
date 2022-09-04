@@ -1295,7 +1295,7 @@ declare interface EventMpThis {
 }
 
 declare interface IServerEvents {
-	entityCreated: (entity: EntityMp) => void;;
+	entityCreated: (entity: EntityMp) => void;
 	/*
  	 * @deprecated Broken/Removed in RageMP 1.1 DP1
 	 */
