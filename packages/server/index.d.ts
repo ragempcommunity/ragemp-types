@@ -1296,6 +1296,9 @@ declare interface EventMpThis {
 
 declare interface IServerEvents {
 	entityCreated: (entity: EntityMp) => void;
+	/*
+ 	 * @deprecated Broken/Removed in RageMP 1.1 DP1
+	 */
 	entityDestroyed: (entity: EntityMp) => void;
 	entityModelChange: (entity: EntityMp, oldModel: number) => void;
 	incomingConnection: (ip: string, serial: string, rgscName: string, rgscId: string, gameType: string) => void;
