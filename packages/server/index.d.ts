@@ -1295,40 +1295,40 @@ declare interface EventMpThis {
 }
 
 declare interface IServerEvents {
-	entityCreated: (this: EventMpThis, entity: EntityMp) => void;
+	entityCreated: (entity: EntityMp) => void;;
 	/*
-         * @deprecated Broken/Removed in RageMP 1.1 DP1
-         */
-	entityDestroyed: (this: EventMpThis, entity: EntityMp) => void;
-	entityModelChange: (this: EventMpThis, entity: EntityMp, oldModel: number) => void;
-	incomingConnection: (this: EventMpThis, ip: string, serial: string, rgscName: string, rgscId: string, gameType: string) => void;
-	packagesLoaded: (this: EventMpThis) => void;
-	playerChat: (this: EventMpThis, player: PlayerMp, text: string) => void;
-	playerCommand: (this: EventMpThis, player: PlayerMp, command: string) => void;
-	playerDamage: (this: EventMpThis, player: PlayerMp, healthLoss: number, armorLoss: number) => void;
-	playerDeath: (this: EventMpThis, player: PlayerMp, reason: number, killer?: PlayerMp) => void;
-	playerEnterCheckpoint: (this: EventMpThis, player: PlayerMp, checkpoint: CheckpointMp) => void;
-	playerEnterColshape: (this: EventMpThis, player: PlayerMp, colshape: ColshapeMp) => void;
-	playerEnterVehicle: (this: EventMpThis, player: PlayerMp, vehicle: VehicleMp, seat: RageEnums.VehicleSeat) => void;
-	playerExitCheckpoint: (this: EventMpThis, player: PlayerMp, checkpoint: CheckpointMp) => void;
-	playerExitColshape: (this: EventMpThis, player: PlayerMp, colshape: ColshapeMp) => void;
-	playerExitVehicle: (this: EventMpThis, player: PlayerMp, vehicle: VehicleMp, seat: number) => void;
-	playerJoin: (this: EventMpThis, player: PlayerMp) => void;
-	playerQuit: (this: EventMpThis, player: PlayerMp, exitType: string, reason: string) => void;
-	playerReachWaypoint: (this: EventMpThis, player: PlayerMp) => void;
-	playerReady: (this: EventMpThis, player: PlayerMp) => void;
-	playerSpawn: (this: EventMpThis, player: PlayerMp) => void;
-	playerStartEnterVehicle: (this: EventMpThis, player: PlayerMp, vehicle: VehicleMp, seat: RageEnums.VehicleSeat) => void;
-	playerStartExitVehicle: (this: EventMpThis, player: PlayerMp) => void;
-	playerStreamIn: (this: EventMpThis, player: PlayerMp, forPlayer: PlayerMp) => void;
-	playerStreamOut: (this: EventMpThis, player: PlayerMp, forPlayer: PlayerMp) => void;
-	playerWeaponChange: (this: EventMpThis, player: PlayerMp, oldWeapon: number, newWeapon: number) => void;
-	serverShutdown: (this: EventMpThis) => void;
-	trailerAttached: (this: EventMpThis, vehicle: VehicleMp, trailer: VehicleMp) => void;
-	vehicleDamage: (this: EventMpThis, vehicle: VehicleMp, bodyHealthLoss: number, engineHealthLoss: number) => void;
-	vehicleDeath: (this: EventMpThis, vehicle: VehicleMp) => void;
-	vehicleHornToggle: (this: EventMpThis, vehicle: VehicleMp, toggle: boolean) => void;
-	vehicleSirenToggle: (this: EventMpThis, vehicle: VehicleMp, toggle: boolean) => void;
+ 	 * @deprecated Broken/Removed in RageMP 1.1 DP1
+	 */
+	entityDestroyed: (entity: EntityMp) => void;
+	entityModelChange: (entity: EntityMp, oldModel: number) => void;
+	incomingConnection: (ip: string, serial: string, rgscName: string, rgscId: string, gameType: string) => void;
+	packagesLoaded: () => void;
+	playerChat: (player: PlayerMp, text: string) => void;
+	playerCommand: (player: PlayerMp, command: string) => void;
+	playerDamage: (player: PlayerMp, healthLoss: number, armorLoss: number) => void;
+	playerDeath: (player: PlayerMp, reason: number, killer?: PlayerMp) => void;
+	playerEnterCheckpoint: (player: PlayerMp, checkpoint: CheckpointMp) => void;
+	playerEnterColshape: (player: PlayerMp, colshape: ColshapeMp) => void;
+	playerEnterVehicle: (player: PlayerMp, vehicle: VehicleMp, seat: RageEnums.VehicleSeat) => void;
+	playerExitCheckpoint: (player: PlayerMp, checkpoint: CheckpointMp) => void;
+	playerExitColshape: (player: PlayerMp, colshape: ColshapeMp) => void;
+	playerExitVehicle: (player: PlayerMp, vehicle: VehicleMp, seat: number) => void;
+	playerJoin: (player: PlayerMp) => void;
+	playerQuit: (player: PlayerMp, exitType: string, reason: string) => void;
+	playerReachWaypoint: (player: PlayerMp) => void;
+	playerReady: (player: PlayerMp) => void;
+	playerSpawn: (player: PlayerMp) => void;
+	playerStartEnterVehicle: (player: PlayerMp, vehicle: VehicleMp, seat: RageEnums.VehicleSeat) => void;
+	playerStartExitVehicle: (player: PlayerMp) => void;
+	playerStreamIn: (player: PlayerMp, forPlayer: PlayerMp) => void;
+	playerStreamOut: (player: PlayerMp, forPlayer: PlayerMp) => void;
+	playerWeaponChange: (player: PlayerMp, oldWeapon: number, newWeapon: number) => void;
+	serverShutdown: () => void;
+	trailerAttached: (vehicle: VehicleMp, trailer: VehicleMp) => void;
+	vehicleDamage: (vehicle: VehicleMp, bodyHealthLoss: number, engineHealthLoss: number) => void;
+	vehicleDeath: (vehicle: VehicleMp) => void;
+	vehicleHornToggle: (vehicle: VehicleMp, toggle: boolean) => void;
+	vehicleSirenToggle: (vehicle: VehicleMp, toggle: boolean) => void;
 }
 
 declare class EventMp {
@@ -1343,6 +1343,10 @@ declare class EventMp {
 }
 
 declare type MultiEventHandlers = Partial<IServerEvents> & Record<string, (...args: any) => void>;
+
+declare type ThisifyServerEvents = {
+	[P in keyof IServerEvents]: (this: EventMpThis, ...args: Parameters<IServerEvents[P]>) => void;
+}
 
 declare class EventMpPool {
 	/**
@@ -1370,7 +1374,7 @@ declare class EventMpPool {
 	 * @param eventName The name of the event you wish to attach a handler to
 	 * @param callback The function that you want the event to trigger, which has to be defined before you add the handler
 	 */
-	public add<K extends keyof IServerEvents>(eventName: K, callback: IServerEvents[K]): void;
+	public add<K extends keyof IServerEvents>(eventName: K, callback: ThisifyServerEvents[K]): void;
 	public add(eventHandlers: MultiEventHandlers): void;
 	public add(eventName: string, callback: (this: EventMpThis, ...args: any[]) => void): void;
 
@@ -1409,8 +1413,8 @@ declare class EventMpPool {
 	 * @param eventName Name of the event you want to gets all handlers
 	 * @returns An array of specified event
 	 */
-	public getAllOf<K extends keyof IServerEvents>(eventName: K): Event[];
-	public getAllOf(eventName: string): Event[];
+	public getAllOf<K extends keyof IServerEvents>(eventName: K): Function[];
+	public getAllOf(eventName: string): Function[];
 
 	/**
 	 * Removes the specified event from events tree.

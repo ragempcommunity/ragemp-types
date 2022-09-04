@@ -316,6 +316,11 @@ declare class EntityMp {
 	 */
 	position: Vector3;
 
+	/**
+	 * This property gets/sets the entity rotation.
+	 */
+	rotation: Vector3;
+	
 	applyForceTo(
 		forceType: number,
 		x: number,
@@ -879,12 +884,12 @@ declare interface RaycastingMp {
 	 *
 	 * Raycasts that intersect with mission_entities (flag = 2) has limited range and will not register for far away entities. The range seems to be about 30 metres.
 	 */
-	testPointToPoint(startPos: Vector3, endPos: Vector3, ignoreEntity?: EntityMp, flags?: number | number[]): RaycastResult;
+	testPointToPoint(startPos: Vector3, endPos: Vector3, ignoreEntity?: EntityMp | EntityMp[], flags?: number | number[]): RaycastResult;
 
 	/**
 	 * Raycast from point to point, where the ray has a radius.
 	 */
-	testCapsule(startPos: Vector3, endPos: Vector3, radius: number, ignoreEntity?: EntityMp, flags?: number | number[]): RaycastResult;
+	testCapsule(startPos: Vector3, endPos: Vector3, radius: number, ignoreEntity?: EntityMp | EntityMp[], flags?: number | number[]): RaycastResult;
 }
 
 declare interface RaycastResult {
@@ -1018,6 +1023,17 @@ declare interface IClientEvents {
 	playerExitColshape: (shape: ColshapeMp) => void;
 }
 
+declare class EventMp {
+	// @ts-ignore
+	constructor<K extends keyof IClientEvents>(eventName: K, callback: IClientEvents[K]);
+	constructor(eventName: string, callback: (...args: any[]) => void);
+
+	/**
+	 * Destroys the event
+	 */
+	public destroy(): void;
+}
+
 declare type MultiEventHandlers = Partial<IClientEvents> & Record<string, (...args: any) => void>;
 
 declare interface EventMpPool {
@@ -1027,7 +1043,7 @@ declare interface EventMpPool {
 	 * @param keyName Shared data key's name
 	 * @param callback Handler function with parameters
 	 */
-	addDataHandler(keyName: string, callback: (entity: EntityMp, value: any, oldValue: any) => void): void;
+	addDataHandler<T extends EntityMp>(keyName: string, callback: (entity: T, value: any, oldValue: any) => void): void;
 
 	/**
 	 * Registers event handlers.
@@ -1094,6 +1110,7 @@ declare interface EventMpPool {
 
 declare interface BlipMp {
 	dimension: number;
+	position: Vector3;
 	handle: number;
 	id: number;
 	remoteId: number;
@@ -1278,6 +1295,7 @@ declare interface CameraMp {
 
 declare interface CameraMpPool extends EntityMpPool<CameraMp> {
 	'new'(name: string, position?: Vector3, rotation?: Vector3, fov?: number): CameraMp;
+	gameplay: CameraMp;
 }
 
 declare interface PedMpBase extends EntityMp {
@@ -2151,7 +2169,6 @@ declare interface PlayerMp extends PedMpBase {
 	readonly aimTarget: boolean;
 	readonly ip: string;
 	readonly isAiming: boolean;
-	readonly isClimbing: boolean;
 	readonly isEnteringVehicle: boolean;
 	readonly isInCover: boolean;
 	readonly isJumping: boolean;
@@ -2217,6 +2234,7 @@ declare interface PlayerMp extends PedMpBase {
 	hasTeleportFinished(): boolean;
 	hasUseScenarioTask(): boolean;
 	hideBloodDamageByZone(p1: any, p2: boolean): void;
+	isClimbing(): boolean;
 	isControlOn(): boolean;
 	isFreeAiming(): boolean;
 	isFreeForAmbientTask(): boolean;
@@ -2617,6 +2635,7 @@ declare interface VehicleMp extends EntityMp {
 	setSearchlight(toggle: boolean, canBeUsedByAI: boolean): void;
 	setSilent(toggle: boolean): void;
 	setSiren(toggle: boolean): void;
+	setSirenSound(toggle: boolean): void;
 	setSteerBias(value: number): void;
 	setStrong(toggle: boolean): void;
 	setTaxiLights(state: boolean): void;
@@ -3150,6 +3169,7 @@ declare interface Mp {
 	system: SystemMp;
 	voiceChat: VoiceChatMp;
 	raycasting: RaycastingMp;
+	Event: typeof EventMp;
 	events: EventMpPool;
 	browsers: BrowserMpPool;
 	checkpoints: CheckpointMpPool;

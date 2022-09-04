@@ -49,6 +49,7 @@ declare interface GameStreamingUnk {
 }
 
 declare interface GameStreaming extends GameStreamingLegacy {
+	forceStreamingUpdate(): void;
 	loadAllObjectsNow(): void;
 	loadScene(x: number, y: number, z: number): void;
 	networkUpdateLoadScene(): boolean;

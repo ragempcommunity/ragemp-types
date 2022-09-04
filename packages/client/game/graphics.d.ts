@@ -489,8 +489,8 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 		faceCamera: boolean,
 		p19: number,
 		rotate: boolean,
-		textureDict: string,
-		textureName: string,
+		textureDict: string | null,
+		textureName: string | null,
 		drawOnEnts: boolean
 	): void;
 	drawMarker2(
@@ -515,8 +515,8 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 		faceCamera: boolean,
 		p19: number,
 		rotate: boolean,
-		textureDict: string,
-		textureName: string,
+		textureDict: string | null,
+		textureName: string | null,
 		drawOnEnts: boolean,
 		p24: boolean,
 		p25: boolean
@@ -1038,6 +1038,22 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	drawScaleformMovieFullscreen(scaleform: number, red: number, green: number, blue: number, alpha: number, unk: number): void;
 	drawScaleformMovieFullscreenMasked(scaleform1: number, scaleform2: number, red: number, green: number, blue: number, alpha: number): void;
 	drawScaleformMovie3D(
+		scaleform: number,
+		posX: number,
+		posY: number,
+		posZ: number,
+		rotX: number,
+		rotY: number,
+		rotZ: number,
+		p7: number,
+		p8: number,
+		p9: number,
+		scaleX: number,
+		scaleY: number,
+		scaleZ: number,
+		p13: number
+	): void;
+	drawScaleformMovie3DNonAdditive(
 		scaleform: number,
 		posX: number,
 		posY: number,

@@ -558,7 +558,7 @@ declare interface GameHud extends GameHudLegacy {
 	setBlipPriority(blip: number, priority: number): void;
 	setBlipDisplay(blip: number, displayId: number): void;
 	setBlipCategory(blip: number, index: number): void;
-	removeBlip(): number;
+	removeBlip(blip: number): number;
 	setBlipAsFriendly(blip: number, toggle: boolean): void;
 	pulseBlip(blip: number): void;
 	showNumberOnBlip(blip: number, number: number): void;
