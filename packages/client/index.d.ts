@@ -2575,6 +2575,7 @@ declare interface VehicleMp extends EntityMp {
 	setDoorsLockedForPlayer(player: Handle, toggle: boolean): void;
 	setDoorsLockedForTeam(team: number, toggle: boolean): void;
 	setDoorsShut(closeInstantly: boolean): void;
+	setDriftTyresEnabled(toggle: boolean): void;
 	setEngineCanDegrade(toggle: boolean): void;
 	setEngineHealth(health: number): void;
 	setEngineOn(value: boolean, instantly: boolean, otherwise: boolean): void;
