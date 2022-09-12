@@ -136,7 +136,7 @@ declare class Vector3 {
 	 *
 	 * @returns Normalized copy of a Vector3- one that has the same direction but with a magnitude of 1.
 	 */
-	unit(): Array3d;
+	unit(): Vector3;
 }
 
 declare interface DiscordMp {
@@ -973,8 +973,8 @@ declare interface IClientEvents {
 	click: (
 		absoluteX: number,
 		absoluteY: number,
-		upOrDown: string,
-		leftOrRight: string,
+		upOrDown: 'up' | 'down',
+		leftOrRight: 'left' | 'right',
 		relativeX: number,
 		relativeY: number,
 		worldPosition: Vector3,

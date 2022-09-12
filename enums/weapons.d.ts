@@ -197,7 +197,16 @@ declare namespace RageEnums {
 			/** ![FireExtinguisher](https://wiki.rage.mp//images/thumb/1/13/Fire2.png/51px-Fire2.png) */
 			FIREEXTINGUISHER = 'weapon_fireextinguisher',
 			/** ![HazardousJerryCan](https://wiki.rage.mp//images/thumb/2/2b/Petrolcan-icon.png/94px-Petrolcan-icon.png) */
-			HAZARDCAN = 'weapon_hazardcan'
+			HAZARDCAN = 'weapon_hazardcan',
+			/** ![TacticalRifle](https://wiki.rage.mp/images/e/e8/Tactical-rifle-icon.png) */
+			TACTICALRIFLE = 'weapon_tacticalrifle',
+			/** ![HeavyRifle](https://wiki.rage.mp/images/2/20/Heavy-rifle-icon.png) */
+			HEAVYRIFLE = 'weapon_heavyrifle',
+			/** ![Parachute](https://wiki.rage.mp/images/2/24/Parachute-icon.png) */
+			PARACHUTE = 'gadget_parachute',
+			/** MetalDetector - Has no image */
+			METALDETECTOR = 'weapon_metaldetector'
+
 		}
 
 		const enum Hash {
@@ -396,7 +405,15 @@ declare namespace RageEnums {
 			/** ![FireExtinguisher](https://wiki.rage.mp//images/thumb/1/13/Fire2.png/51px-Fire2.png) */
 			FIREEXTINGUISHER = 0x060ec506,
 			/** ![HazardousJerryCan](https://wiki.rage.mp//images/thumb/2/2b/Petrolcan-icon.png/94px-Petrolcan-icon.png) */
-			HAZARDCAN = 0xba536372
+			HAZARDCAN = 0xba536372,
+			/** ![TacticalRifle](https://wiki.rage.mp/images/e/e8/Tactical-rifle-icon.png) */
+			TACTICALRIFLE = 0xD1D5F52B,
+			/** ![HeavyRifle](https://wiki.rage.mp/images/2/20/Heavy-rifle-icon.png) */
+			HEAVYRIFLE = 0xC78D71B4,
+			/** ![Parachute](https://wiki.rage.mp/images/2/24/Parachute-icon.png) */
+			PARACHUTE = 0xfbab5776,
+			/** MetalDetector - Has no image */
+			METALDETECTOR = 0xDBA2E809
 		}
 	}
 }
