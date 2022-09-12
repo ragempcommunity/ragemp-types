@@ -143,7 +143,7 @@ declare class Vector3 {
 	 *
 	 * @returns Normalized copy of a Vector3- one that has the same direction but with a magnitude of 1.
 	 */
-	unit(): Array3d;
+	unit(): Vector3;
 }
 
 declare class EntityMp {
@@ -1731,6 +1731,11 @@ declare interface TextLabelMpPool extends EntityMpPool<TextLabelMp> {
 
 declare class PedMp extends EntityMp {
 	controller: PlayerMp;
+
+	/**
+   * Property used to gets/sets the ped's heading.
+   */
+	public heading: number;
 }
 
 declare interface PedMpPool extends EntityMpPool<PedMp> {
@@ -1742,12 +1747,15 @@ declare interface PedMpPool extends EntityMpPool<PedMp> {
 			frozen?: boolean;
 			invincible?: boolean;
 			lockController?: boolean;
+			heading?: number;
+			dimension?: number;
 		}
 	): PedMp;
 }
 
 declare class ObjectMp extends EntityMp {
 	rotation: Vector3;
+	notifyStreaming: boolean;
 }
 
 declare interface ObjectMpPool extends EntityMpPool<ObjectMp> {
@@ -1855,6 +1863,7 @@ declare interface ConfigMp {
 	'allow-voice-chat-input': number;
 	'voice-chat-sample-rate': number;
 	'fastdl-host': string;
+	'create-fastdl-snapshot': boolean;
 }
 
 declare interface NetworkMp {
