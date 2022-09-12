@@ -1224,10 +1224,10 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 		text: string,
 		pos: Array2d | Array3d,
 		data?: {
-			font: number;
-			color: RGBA;
-			scale: Array2d;
-			outline: boolean;
+			font?: number;
+			color?: RGBA;
+			scale?: Array2d;
+			outline?: boolean;
 			centre?: boolean;
 		}
 	): void;
