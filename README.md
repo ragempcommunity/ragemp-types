@@ -1,6 +1,6 @@
 <p align="center">
-	<img src="https://i.imgur.com/XN2rFqw.png" width="600"/><br>
-	Community-driven type definitions for <strong>RAGE Multiplayer</strong>
+ <img src="https://i.imgur.com/XN2rFqw.png" width="600"/><br>
+ Community-driven type definitions for <strong>RAGE Multiplayer</strong>
 </p>
 
 <p align="center">
@@ -10,20 +10,20 @@
 </p>
 
 <p align="center">
-	<a href="https://www.npmjs.com/package/@ragempcommunity/types-client" target="__blank"><img src="https://img.shields.io/npm/v/@ragempcommunity/types-client?color=efc75a&label=Client" alt="NPM version"></a>
-	<a href="https://www.npmjs.com/package/@ragempcommunity/types-client" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@ragempcommunity/types-client?color=50a36f&label="></a>
-	<a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-client.yml" target="__blank"><img alt="Continuous Delivery - Client" src="https://img.shields.io/github/workflow/status/ragempcommunity/ragemp-types/Continuous%20Delivery%20-%20Client"></a>
+ <a href="https://www.npmjs.com/package/@ragempcommunity/types-client" target="__blank"><img src="https://img.shields.io/npm/v/@ragempcommunity/types-client?color=efc75a&label=Client" alt="NPM version"></a>
+ <a href="https://www.npmjs.com/package/@ragempcommunity/types-client" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@ragempcommunity/types-client?color=50a36f&label="></a>
+ <a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-client.yml" target="__blank"><img alt="Continuous Delivery - Client" src="https://img.shields.io/github/workflow/status/ragempcommunity/ragemp-types/Continuous%20Delivery%20-%20Client"></a>
 </p>
 
 <p align="center">
-	<a href="https://www.npmjs.com/package/@ragempcommunity/types-cef" target="__blank"><img src="https://img.shields.io/npm/v/@ragempcommunity/types-cef?color=efc75a&label=CEF" alt="NPM version"></a>
-	<a href="https://www.npmjs.com/package/@ragempcommunity/types-cef" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@ragempcommunity/types-cef?color=50a36f&label="></a>
-	<a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-cef.yml" target="__blank"><img alt="Continuous Delivery - CEF" src="https://img.shields.io/github/workflow/status/ragempcommunity/ragemp-types/Continuous%20Delivery%20-%20Cef"></a>
+ <a href="https://www.npmjs.com/package/@ragempcommunity/types-cef" target="__blank"><img src="https://img.shields.io/npm/v/@ragempcommunity/types-cef?color=efc75a&label=CEF" alt="NPM version"></a>
+ <a href="https://www.npmjs.com/package/@ragempcommunity/types-cef" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@ragempcommunity/types-cef?color=50a36f&label="></a>
+ <a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-cef.yml" target="__blank"><img alt="Continuous Delivery - CEF" src="https://img.shields.io/github/workflow/status/ragempcommunity/ragemp-types/Continuous%20Delivery%20-%20Cef"></a>
 </p>
 
 <p align="center">
-	<a href="https://twitter.com/ragemultiplayer" target="__blank"><img alt="Twitter" src="https://img.shields.io/twitter/follow/ragemultiplayer.svg?maxAge=86400"></a>
-	<a href="https://discord.com/invite/tChBaeu" target="__blank"><img alt="Discord Server" src="https://img.shields.io/discord/183979885788659713?label=discord&color=7289da"></a>
+ <a href="https://twitter.com/ragemultiplayer" target="__blank"><img alt="Twitter" src="https://img.shields.io/twitter/follow/ragemultiplayer.svg?maxAge=86400"></a>
+ <a href="https://discord.com/invite/tChBaeu" target="__blank"><img alt="Discord Server" src="https://img.shields.io/discord/183979885788659713?label=discord&color=7289da"></a>
 </p>
 
 Remember to 🌟 this Github if you 💖 it.
@@ -86,9 +86,9 @@ Remember to 🌟 this Github if you 💖 it.
 ```jsonc
 // e.g server-side
 {
-	"compilerOptions": {
-		"types": ["{RELATIVE_PATH_TO_NODE_MODULES}/@ragempcommunity/types-server"]
-	}
+ "compilerOptions": {
+  "types": ["{RELATIVE_PATH_TO_NODE_MODULES}/@ragempcommunity/types-server"]
+ }
 }
 ```
 
@@ -110,17 +110,17 @@ To avoid conflicts between server and client types, they must be installed and s
 ```sh
 ├───my-awesome-ragemp-server
 │   └───src
-│    	   # Server - Contains code relating to the database, player spawning, etc.
-│    	   # Client - Contains code to display things to the user and do things to them.
-│     	   ├───client
+│        # Server - Contains code relating to the database, player spawning, etc.
+│        # Client - Contains code to display things to the user and do things to them.
+│         ├───client
 │          │   ├───@types
 │          │   │   └───index.d.ts
 │          │   ├───src
 │          │   └───tsconfig.json
 │          │
-│     	   server
-│	   │   ├───@types
-│ 	   │   │   └───index.d.ts
+│         server
+│    │   ├───@types
+│     │   │   └───index.d.ts
 │          │   ├───src
 │          │   └───tsconfig.json
 │          └───
@@ -134,17 +134,17 @@ Now that we know what our server structure should look like, let's start setting
 
 ```jsonc
 {
-	"exclude": ["node_modules", "dist"],
-	"compileOnSave": true,
-	"compilerOptions": {
-		"target": "esnext",
-		"module": "esnext",
-		"moduleResolution": "node",
-		"lib": ["es6", "esnext", "DOM"],
-		"rootDir": ".",
-		"outDir": "dist",
-		"baseUrl": "./"
-	}
+ "exclude": ["node_modules", "dist"],
+ "compileOnSave": true,
+ "compilerOptions": {
+  "target": "esnext",
+  "module": "esnext",
+  "moduleResolution": "node",
+  "lib": ["es6", "esnext", "DOM"],
+  "rootDir": ".",
+  "outDir": "dist",
+  "baseUrl": "./"
+ }
 }
 ```
 
@@ -152,13 +152,13 @@ Now that we know what our server structure should look like, let's start setting
 
 ```jsonc
 {
-	// NOTE: This tsconfig will work assuming your project is structured as described above.
-	"extends": "../../tsconfig.base.json",
-	"compilerOptions": {
-		// [RELATIVE_PATH_TO_NODE_MODULES]/@ragempcommunity/types-client
-		"types": ["../../node_modules/@ragempcommunity/types-client", "./@types"]
-	},
-	"include": ["./**/*.ts"]
+ // NOTE: This tsconfig will work assuming your project is structured as described above.
+ "extends": "../../tsconfig.base.json",
+ "compilerOptions": {
+  // [RELATIVE_PATH_TO_NODE_MODULES]/@ragempcommunity/types-client
+  "types": ["../../node_modules/@ragempcommunity/types-client", "./@types"]
+ },
+ "include": ["./**/*.ts"]
 }
 ```
 
@@ -166,19 +166,19 @@ Now that we know what our server structure should look like, let's start setting
 
 ```jsonc
 {
-	// NOTE: This tsconfig will work assuming your project is structured as described above.
-	"extends": "../../tsconfig.base.json",
-	"compilerOptions": {
-		// [RELATIVE_PATH_TO_NODE_MODULES]/@ragempcommunity/types-server
-		"types": ["../../node_modules/@ragempcommunity/types-server", "./@types"]
-	},
-	"include": ["./**/*.ts"]
+ // NOTE: This tsconfig will work assuming your project is structured as described above.
+ "extends": "../../tsconfig.base.json",
+ "compilerOptions": {
+  // [RELATIVE_PATH_TO_NODE_MODULES]/@ragempcommunity/types-server
+  "types": ["../../node_modules/@ragempcommunity/types-server", "./@types"]
+ },
+ "include": ["./**/*.ts"]
 }
 ```
 
 For those who didn't understand, I made a gamemode from which you can better orient yourself:
 
-[ragemp-typescript](https://github.com/ragempcommunity/ragemp-typescript) & [ragemp-javascript](https://github.com/LeonardSSH/ragemp-javascript)
+[ragemp-typescript](https://github.com/LeonardSSH/ragemp-typescript) & [ragemp-javascript](https://github.com/LeonardSSH/ragemp-javascript)
 
 ## 👨‍💻 Contributing
 
@@ -192,8 +192,8 @@ To contribute to this repository, feel free to create a new fork of the reposito
 
 ## 🎉 Thanks
 
--   [CocaColaBear](https://github.com/CocaColaBear/) - Creator of [types-ragemp-s](https://github.com/CocaColaBear/types-ragemp-s) & [types-ragemp-c](https://github.com/CocaColaBear/types-ragemp-c)
--   [KsenonAdv](https://github.com/ksenonadv) - moral support
+- [CocaColaBear](https://github.com/CocaColaBear/) - Creator of [types-ragemp-s](https://github.com/CocaColaBear/types-ragemp-s) & [types-ragemp-c](https://github.com/CocaColaBear/types-ragemp-c)
+- [KsenonAdv](https://github.com/ksenonadv) - moral support
 
 ## 📋 License
 
