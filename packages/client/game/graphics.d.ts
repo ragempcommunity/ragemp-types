@@ -132,7 +132,7 @@ declare interface GameGraphicsUnk {
 
 declare interface GameGraphicsLegacy {
 	setScreenDrawPosition(horizontalAlign: number, verticalAlign: number): void;
-	getScreenActiveResolution(): GetActiveScreenResolutionResult;
+	getScreenActiveResolution(x: number, y: number): GetActiveScreenResolutionResult;
 	getScreenAspectRatio(b: boolean): number;
 	setBlackout(state: boolean): void;
 	setFarShadowsSuppressed(toggle: boolean): void;
