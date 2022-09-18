@@ -3155,7 +3155,7 @@ declare interface ObjectMpPool extends EntityMpPool<ObjectMp> {
 	newWeaponObject(
 		weaponHash: number,
 		position: Vector3,
-		options?: { ammo?: number; scale?: number; showWorldObject?: boolean; rotation?: Vector3 }
+		options?: { ammo?: number; scale?: number; showWorldObject?: boolean; rotation?: Vector3; dimension?: number }
 	): ObjectMp;
 }
 
