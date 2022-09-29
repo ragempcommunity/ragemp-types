@@ -1091,7 +1091,7 @@ declare interface EventMpPool {
 	 * @param procName The name of the procedure name you wish to call
 	 * @param args The arguments
 	 */
-	callRemoteProc(procName: string, ...args: any[]): Promise<any>;
+	callRemoteProc<T = any>(procName: string, ...args: any[]): Promise<T>;
 
 	callRemoteUnreliable(eventName: string, ...args: any[]): void;
 	cancelPendingRpc(procName?: string): void;

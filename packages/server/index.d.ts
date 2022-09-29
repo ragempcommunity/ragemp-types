@@ -563,7 +563,7 @@ declare class PlayerMp extends EntityMp {
 	 * @param eventProcName Procedure Name
 	 * @param args Args
 	 */
-	public callProc(eventName: string, args?: any[]): Promise<any>;
+	public callProc<T = any>(eventName: string, args?: any[]): Promise<T>;
 
 	/**
 	 * Triggers a client-side event for the selected player unreliably, which means it will be affected by potential packet loss, but it will be triggered way more faster, useful for when you need frequent triggers.
