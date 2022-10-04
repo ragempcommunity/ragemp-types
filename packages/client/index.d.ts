@@ -2139,6 +2139,14 @@ declare interface PedMp extends PedMpBase {
 	): void;
 	setFaceFeature(index: number, scale: number): void;
 	setAlpha(alphaLevel: number, skin?: boolean): void;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @returns boolean
+	 */
+	isPositionFrozen: boolean;
+
 }
 
 declare interface PedMpPool extends EntityMpPool<PedMp> {
@@ -2302,6 +2310,14 @@ declare interface PlayerMp extends PedMpBase {
 	): void;
 	taskVehicleShootAt(target: Handle, p2: number): void;
 	updateTaskSweepAim(entity: Handle): void;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @returns boolean
+	 */
+	isPositionFrozen: boolean;
+
 }
 
 declare interface PlayerMpPool extends EntityMpPool<PlayerMp> {
@@ -2660,6 +2676,177 @@ declare interface VehicleMp extends EntityMp {
 	toggleMod(modType: number, toggle: boolean): void;
 	trackVisibility(): void;
 	wasCounterActivated(p0: any): boolean;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @returns boolean
+	 */
+	isPositionFrozen: boolean;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @returns number
+	 */
+	wheelCount: number;
+
+	 /**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @params wheelId
+	 * @returns number
+	 */
+	getWheelCamber(wheelId: number): number;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @params wheelId - use 255 to apply all wheel
+	 * @params value
+	 * 
+	 * @returns void
+	 */
+	setWheelCamber(wheelId: number, value: number): void;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @params wheelId - use 255 to apply all wheel
+	 * 
+	 * @returns number
+	 */
+	getWheelTrackWidth(wheelId: number): number;
+
+	 /**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @params wheelId - use 255 to apply all wheel
+	 * @params value
+	 * 
+	 * @returns void
+	 */
+	setWheelTrackWidth(wheelId: number, value: number): void;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @params wheelId
+	 * 
+	 * @returns number
+	 */
+	getWheelHeight(wheelId: number): number;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @params wheelId - use 255 to apply all wheel
+	 * @params value
+	 * 
+	 * @returns void
+	 */
+	setWheelHeight(wheelId: number, value: number): void;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @params wheelId
+	 * 
+	 * @returns number
+	 */
+	getTyreWidth(wheelId: number): number;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @params wheelId - use 255 to apply all wheel
+	 * @params value
+	 * 
+	 * @returns void
+	 */
+	setTyreWidth(wheelId: number, value: number): void;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @params wheelId
+	 * 
+	 * @returns number
+	 */
+	getTyreRadius(wheelId: number): number;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @params wheelId - use 255 to apply all wheel
+	 * @params value
+	 * 
+	 * @returns void
+	 */
+	setTyreRadius(wheelId: number, value: number): void;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @params wheelId
+	 * 
+	 * @returns number
+	 */
+	getRimRadius(wheelId: number): number;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @params wheelId - use 255 to apply all wheel
+	 * @params value
+	 * 
+	 * @returns void
+	 */
+	setRimRadius(wheelId: number, value: number): void;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * 
+	 * @returns number
+	 */
+	getWheelRadius(): number;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @params value
+	 * 
+	 * @returns void
+	 */
+	setWheelRadius(value: number): void;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * 
+	 * @returns number
+	 */
+	getWheelWidth(): number;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @params value
+	 * 
+	 * @returns void
+	 */
+	setWheelWidth(value: number): void;
+
+	/**
+	 * ⚠️ test branch: 10_test_oct22.
+	 *
+	 * @params height
+	 * 
+	 * @returns void
+	 */
+	setSuspensionHeight(height: number): void;
+
 }
 
 declare interface VehicleMpPool extends EntityMpPool<VehicleMp> {
