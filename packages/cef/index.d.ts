@@ -27,7 +27,7 @@ interface EventMpPool {
 	 * @param name Event name
 	 * @param args Event arguments
 	 */
-	add(name: string, ...args: any[]): void;
+	add(name: string, callback: (...args: any[]) => void) : void;
 	add(names: { [name: string]: (...args: any[]) => void }): void;
 	remove(name: string): void;
 	call(name: string): void;
