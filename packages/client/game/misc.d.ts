@@ -130,7 +130,7 @@ interface GameMiscLegacy {
 	setCloudHatTransition(name: string, transitionTime: number): void;
 	clearAreaOfEverything(x: number, y: number, z: number, radius: number, p4: boolean, p5: boolean, p6: boolean, p7: boolean): void;
 	disableAutomaticRespawn(toggle: boolean): void;
-	enableMpDlcMaps(p0: number): void;
+	enableMpDlcMaps(toggle: boolean): void;
 	setUnkMapFlag(flag: number): void;
 	startSaveStruct(size: number, structName: string): number;
 	startSaveArray(size: number, arrayName: string): number;
