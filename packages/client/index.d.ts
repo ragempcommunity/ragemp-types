@@ -320,7 +320,7 @@ declare class EntityMp {
 	 * This property gets/sets the entity rotation.
 	 */
 	rotation: Vector3;
-	
+
 	applyForceTo(
 		forceType: number,
 		x: number,
@@ -1021,6 +1021,8 @@ declare interface IClientEvents {
 	playerReachWaypoint: (player: PlayerMp) => void;
 	playerEnterColshape: (shape: ColshapeMp) => void;
 	playerExitColshape: (shape: ColshapeMp) => void;
+	explosion: (sourcePlayer: PlayerMp, type: RageEnums.Explosions, position: Vector3) => boolean;
+	projectile: (sourcePlayer: PlayerMp, weaponHash: number, ammoType: number, position: Vector3, direction: Vector3) => boolean;
 }
 
 declare class EventMp {
@@ -2141,8 +2143,6 @@ declare interface PedMp extends PedMpBase {
 	setAlpha(alphaLevel: number, skin?: boolean): void;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
 	 * @returns boolean
 	 */
 	isPositionFrozen: boolean;
@@ -2153,7 +2153,7 @@ declare interface PedMpPool extends EntityMpPool<PedMp> {
 	'new'(model: RageEnums.Hashes.Ped | Hash, position: Vector3, heading: number, dimension?: number): PedMp;
 }
 
-declare interface PickupMp extends EntityMp {}
+declare interface PickupMp extends EntityMp { }
 
 declare interface PickupMpPool extends EntityMpPool<PickupMp> {
 	'new'(...args: any[]): PickupMp;
@@ -2312,8 +2312,7 @@ declare interface PlayerMp extends PedMpBase {
 	updateTaskSweepAim(entity: Handle): void;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * @returns boolean
 	 */
 	isPositionFrozen: boolean;
@@ -2678,30 +2677,24 @@ declare interface VehicleMp extends EntityMp {
 	wasCounterActivated(p0: any): boolean;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * @returns boolean
 	 */
 	isPositionFrozen: boolean;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
 	 * @returns number
 	 */
 	wheelCount: number;
 
-	 /**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
-	 * @params wheelId
-	 * @returns number
-	 */
+	/**
+	* @params wheelId
+	* @returns number
+	*/
 	getWheelCamber(wheelId: number): number;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * @params wheelId - use 255 to apply all wheel
 	 * @params value
 	 * 
@@ -2710,27 +2703,24 @@ declare interface VehicleMp extends EntityMp {
 	setWheelCamber(wheelId: number, value: number): void;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * @params wheelId - use 255 to apply all wheel
 	 * 
 	 * @returns number
 	 */
 	getWheelTrackWidth(wheelId: number): number;
 
-	 /**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
-	 * @params wheelId - use 255 to apply all wheel
-	 * @params value
-	 * 
-	 * @returns void
-	 */
+	/**
+	
+	* @params wheelId - use 255 to apply all wheel
+	* @params value
+	* 
+	* @returns void
+	*/
 	setWheelTrackWidth(wheelId: number, value: number): void;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * @params wheelId
 	 * 
 	 * @returns number
@@ -2738,8 +2728,7 @@ declare interface VehicleMp extends EntityMp {
 	getWheelHeight(wheelId: number): number;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * @params wheelId - use 255 to apply all wheel
 	 * @params value
 	 * 
@@ -2748,8 +2737,7 @@ declare interface VehicleMp extends EntityMp {
 	setWheelHeight(wheelId: number, value: number): void;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * @params wheelId
 	 * 
 	 * @returns number
@@ -2757,8 +2745,7 @@ declare interface VehicleMp extends EntityMp {
 	getTyreWidth(wheelId: number): number;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * @params wheelId - use 255 to apply all wheel
 	 * @params value
 	 * 
@@ -2767,8 +2754,7 @@ declare interface VehicleMp extends EntityMp {
 	setTyreWidth(wheelId: number, value: number): void;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * @params wheelId
 	 * 
 	 * @returns number
@@ -2776,8 +2762,7 @@ declare interface VehicleMp extends EntityMp {
 	getTyreRadius(wheelId: number): number;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * @params wheelId - use 255 to apply all wheel
 	 * @params value
 	 * 
@@ -2786,8 +2771,7 @@ declare interface VehicleMp extends EntityMp {
 	setTyreRadius(wheelId: number, value: number): void;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * @params wheelId
 	 * 
 	 * @returns number
@@ -2795,8 +2779,7 @@ declare interface VehicleMp extends EntityMp {
 	getRimRadius(wheelId: number): number;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * @params wheelId - use 255 to apply all wheel
 	 * @params value
 	 * 
@@ -2805,16 +2788,14 @@ declare interface VehicleMp extends EntityMp {
 	setRimRadius(wheelId: number, value: number): void;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * 
 	 * @returns number
 	 */
 	getWheelRadius(): number;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * @params value
 	 * 
 	 * @returns void
@@ -2822,16 +2803,14 @@ declare interface VehicleMp extends EntityMp {
 	setWheelRadius(value: number): void;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * 
 	 * @returns number
 	 */
 	getWheelWidth(): number;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * @params value
 	 * 
 	 * @returns void
@@ -2839,8 +2818,7 @@ declare interface VehicleMp extends EntityMp {
 	setWheelWidth(value: number): void;
 
 	/**
-	 * ⚠️ test branch: 10_test_oct22.
-	 *
+
 	 * @params height
 	 * 
 	 * @returns void
