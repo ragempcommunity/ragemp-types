@@ -889,7 +889,7 @@ declare interface RaycastingMp {
 	/**
 	 * Same as testPointToPoint but async
 	 */
-	testPointToPointAsync(startPos: Vector3, endPos: Vector3, ignoreHandle?: EntityMp | EntityMp[], flags?: number | number[]): Promise<RaycastResult>;
+	testPointToPointAsync(startPos: Vector3, endPos: Vector3, ignoreEntity?: EntityMp | EntityMp[], flags?: number | number[]): Promise<RaycastResult>;
 
 	/**
 	 * Raycast from point to point, where the ray has a radius.
