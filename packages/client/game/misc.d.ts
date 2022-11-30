@@ -186,6 +186,110 @@ interface CopyMemoryResult {
 	src: number;
 }
 
+interface VoiceFxChorus {
+	fWetDryMix: number;
+	fDepth: number;
+	fFeedback: number;
+	fFrequency: number;
+	lWaveform: number;
+	fDelay: number;
+	lPhase: number;
+}
+
+interface VoiceFxCompressor {
+	fGain: number;
+	fAttack: number;
+	fRelease: number;
+	fThreshold: number;
+	fRatio: number;
+	fPredelay: number;
+}
+
+interface VoiceFxDistortion {
+	fGain: number;
+	fEdge: number;
+	fPostEQCenterFrequency: number;
+	fPostEQBandwidth: number;
+	fPreLowpassCutoff: number;
+}
+
+interface VoiceFxEcho {
+	fWetDryMix: number;
+	fFeedback: number;
+	fLeftDelay: number;
+	fRightDelay: number;
+	lPanDelay: number;
+}
+
+interface VoiceFxFlanger {
+	fWetDryMix: number;
+	fDepth: number;
+	fFeedback: number;
+	fFrequency: number;
+	lWaveform: number;
+	fDelay: number;
+	lPhase: number;
+}
+
+interface VoiceFxGargle {
+	dwRateHz: number;
+	dwWaveShape: number;
+}
+
+interface VoiceFxI3DL2Reverb { 
+	lRoom: number;
+	lRoomHF: number;
+	flRoomRolloffFactor: number;
+	flDecayTime: number;
+	flDecayHFRatio: number;
+	lReflections: number;
+	flReflectionsDelay: number;
+	lReverb: number;
+	flReverbDelay: number;
+	flDiffusion: number;
+	flDensity: number;
+	flHFReference: number;
+}
+
+interface VoiceFxParamEq { 
+	fCenter: number;
+	fBandwidth: number;
+	fGain: number;
+}
+
+interface VoiceFxReverb {
+	fInGain: number;
+	fReverbMix: number;
+	fReverbTime: number;
+	fHighFreqRTRatio: number;
+}
+
+interface VoiceFxVolume {
+	fTarget: number;
+	fCurrent: number;
+	fTime: number;
+	lCurve: number;
+}
+
+interface VoiceFxPeakEq {
+	lBand: number;
+	fBandwidth: number;
+	fQ: number;
+	fCenter: number;
+	fGain: number;
+	lChannel: number;
+}
+
+interface VoiceFxBQF {
+	lFilter: number;
+	fCenter: number;
+	fGain: number;
+	fBandwidth: number;
+	fQ: number;
+	fS: number;
+	lChannel: number;
+}
+
 interface GameMisc extends GameMiscLegacy {
 	getAllocatedStackSize(): number;
 	getNumberOfFreeStacksOfThisSize(stackSize: number): number;
@@ -676,6 +780,38 @@ interface GameMisc extends GameMiscLegacy {
 	setPlayerIsInAnimalForm(toggle: boolean): void;
 	getIsPlayerInAnimalForm(): boolean;
 	setPlayerRockstarEditorDisabled(toggle: boolean): void;
+
+	/*  + Added: client-side player.setVoiceFx(fxType, priority)
+		+ Added: client-side player.removeVoiceFx(fxHandle)
+		+ Added: client-side player.resetVoiceFx(fxHandle)
+		+ Added: client-side player.setVoiceFxChorus(fxHandle, { fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase })
+		+ Added: client-side player.setVoiceFxCompressor(fxHandle, { fGain, fAttack, fRelease, fThreshold, fRatio, fPredelay })
+		+ Added: client-side player.setVoiceFxDistortion(fxHandle, { fGain, fEdge, fPostEQCenterFrequency, fPostEQBandwidth, fPreLowpassCutoff })
+		+ Added: client-side player.setVoiceFxEcho(fxHandle, { fWetDryMix, fFeedback, fLeftDelay, fRightDelay, lPanDelay })
+		+ Added: client-side player.setVoiceFxFlanger(fxHandle, { fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase })
+		+ Added: client-side player.setVoiceFxGargle(fxHandle, { dwRateHz, dwWaveShape })
+		+ Added: client-side player.setVoiceFxI3DL2Reverb(fxHandle, { lRoom, lRoomHF, flRoomRolloffFactor, flDecayTime, flDecayHFRatio, lReflections, flReflectionsDelay, lReverb, flReverbDelay, flDiffusion, flDensity, flHFReference })
+		+ Added: client-side player.setVoiceFxParamEq(fxHandle, { fCenter, fBandwidth, fGain })
+		+ Added: client-side player.setVoiceFxReverb(fxHandle, { fInGain, fReverbMix, fReverbTime, fHighFreqRTRatio })
+		+ Added: client-side player.setVoiceFxVolume(fxHandle, { fTarget, fCurrent, fTime, lCurve })
+		+ Added: client-side player.setVoiceFxPeakEq(fxHandle, { lBand, fBandwidth, fQ, fCenter, fGain, lChannel })
+		+ Added: client-side player.setVoiceFxBQF(fxHandle, { lFilter, fCenter, fGain, fBandwidth, fQ, fS, lChannel }) */
+	setVoiceFx(fxType: number, priority: number): void;
+	removeVoiceFx(fxHandle: number): void;
+	resetVoiceFx(fxHandle: number): void;
+
+	setVoiceFxChorus(fxHandle: number, { fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase }: VoiceFxChorus): void;
+	setVoiceFxCompressor(fxHandle: number, { fGain, fAttack, fRelease, fThreshold, fRatio, fPredelay }: VoiceFxCompressor): void;
+	setVoiceFxDistortion(fxHandle: number, { fGain, fEdge, fPostEQCenterFrequency, fPostEQBandwidth, fPreLowpassCutoff }: VoiceFxDistortion): void;
+	setVoiceFxEcho(fxHandle: number, { fWetDryMix, fFeedback, fLeftDelay, fRightDelay, lPanDelay }: VoiceFxEcho): void;
+	setVoiceFxFlanger(fxHandle: number, { fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase }: VoiceFxFlanger): void;
+	setVoiceFxGargle(fxHandle: number, { dwRateHz, dwWaveShape }: VoiceFxGargle): void;
+	setVoiceFxI3DL2Reverb(fxHandle: number, { lRoom, lRoomHF, flRoomRolloffFactor, flDecayTime, flDecayHFRatio, lReflections, flReflectionsDelay, lReverb, flReverbDelay, flDiffusion, flDensity, flHFReference }: VoiceFxI3DL2Reverb): void;
+	setVoiceFxParamEq(fxHandle: number, { fCenter, fBandwidth, fGain }: VoiceFxParamEq): void;
+	setVoiceFxReverb(fxHandle: number, { fInGain, fReverbMix, fReverbTime, fHighFreqRTRatio }: VoiceFxReverb): void;
+	setVoiceFxVolume(fxHandle: number, { fTarget, fCurrent, fTime, lCurve }: VoiceFxVolume): void;
+	setVoiceFxPeakEq(fxHandle: number, { lBand, fBandwidth, fQ, fCenter, fGain, lChannel }: VoiceFxPeakEq): void;
+	setVoiceFxBQF(fxHandle: number, { lFilter, fCenter, fGain, fBandwidth, fQ, fS, lChannel }: VoiceFxBQF): void;
 
 	/**
 	 * Overrides snow value set by server setter
