@@ -677,6 +677,12 @@ interface GameMisc extends GameMiscLegacy {
 	getIsPlayerInAnimalForm(): boolean;
 	setPlayerRockstarEditorDisabled(toggle: boolean): void;
 
+	/**
+	 * Overrides snow value set by server setter
+	 * - ⚠️ mp.game1.gameplay.enableSnow is a temporary workaround, "game" setter to be fixed later
+	 */
+	enableSnow(toggle: boolean): void;
+
 	unk: GameMiscUnk;
 }
 

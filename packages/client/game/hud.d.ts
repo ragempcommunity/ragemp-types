@@ -841,6 +841,7 @@ declare interface GameHud extends GameHudLegacy {
 	 */
 	setMinimapComponentValues(name: string, alignX: number, alignY: number, posX: number, posY: number, sizeX: number, sizeY: number): void; 
 	resetMinimapComponentValues(names: string[]): void;
+	getMinimapComponentValues(componentName: string): number | string;
 
 	unk: GameHudUnk;
 }
