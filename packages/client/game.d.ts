@@ -118,4 +118,9 @@ declare interface GameMp {
 
 	wait(ms: number): void;
 	waitAsync(ms: number): Promise<void>;
+
+	/**
+	 * Returns a BigInt pointer to be used with native invoker whenever you need to use it in ArrayBuffer
+	 */
+	allocateString(string: string): number;
 }
