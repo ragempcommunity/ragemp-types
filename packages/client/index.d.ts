@@ -10,6 +10,7 @@ declare type Array3d = [number, number, number];
 declare type Array4d = [number, number, number, number];
 declare type RGB = Array3d;
 declare type RGBA = Array4d;
+declare type VoiceHandle = number; 
 
 declare interface IVector3 {
 	x: number;

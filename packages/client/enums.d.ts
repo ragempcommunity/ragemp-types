@@ -15,6 +15,7 @@
 /// <reference path="enums/vehicle.d.ts" />
 /// <reference path="enums/weapons.d.ts" />
 /// <reference path="enums/weather.d.ts" />
+/// <reference path="enums/voice.d.ts" />
 
 declare namespace RageEnums {
 	const enum EntityType {

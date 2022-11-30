@@ -193,7 +193,7 @@ interface VoiceFxChorus {
 	fFrequency: number;
 	lWaveform: number;
 	fDelay: number;
-	lPhase: number;
+	lPhase: RageEnums.Voice.BASSFXPhase;
 }
 
 interface VoiceFxCompressor {
@@ -228,7 +228,7 @@ interface VoiceFxFlanger {
 	fFrequency: number;
 	lWaveform: number;
 	fDelay: number;
-	lPhase: number;
+	lPhase: RageEnums.Voice.BASSFXPhase;
 }
 
 interface VoiceFxGargle {
@@ -277,7 +277,7 @@ interface VoiceFxPeakEq {
 	fQ: number;
 	fCenter: number;
 	fGain: number;
-	lChannel: number;
+	lChannel: RageEnums.Voice.BASSFXChan;
 }
 
 interface VoiceFxBQF {
@@ -287,7 +287,7 @@ interface VoiceFxBQF {
 	fBandwidth: number;
 	fQ: number;
 	fS: number;
-	lChannel: number;
+	lChannel: RageEnums.Voice.BASSFXChan;
 }
 
 interface GameMisc extends GameMiscLegacy {
@@ -780,23 +780,27 @@ interface GameMisc extends GameMiscLegacy {
 	setPlayerIsInAnimalForm(toggle: boolean): void;
 	getIsPlayerInAnimalForm(): boolean;
 	setPlayerRockstarEditorDisabled(toggle: boolean): void;
-	setVoiceFx(fxType: number, priority: number): void;
-	removeVoiceFx(fxHandle: number): void;
-	resetVoiceFx(fxHandle: number): void;
+
+	/**
+	 * https://wiki.rage.mp/index.php?title=Player::setVoiceFx
+	 */
+	setVoiceFx(fxType: RageEnums.Voice.BASSFXType, priority: number): void;
+	removeVoiceFx(fxHandle: VoiceHandle): void;
+	resetVoiceFx(fxHandle: VoiceHandle): void;
 
 	/* ToDo: check for optional parameters in voice arguments interfaces */
-	setVoiceFxChorus(fxHandle: number, { fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase }: VoiceFxChorus): void;
-	setVoiceFxCompressor(fxHandle: number, { fGain, fAttack, fRelease, fThreshold, fRatio, fPredelay }: VoiceFxCompressor): void;
-	setVoiceFxDistortion(fxHandle: number, { fGain, fEdge, fPostEQCenterFrequency, fPostEQBandwidth, fPreLowpassCutoff }: VoiceFxDistortion): void;
-	setVoiceFxEcho(fxHandle: number, { fWetDryMix, fFeedback, fLeftDelay, fRightDelay, lPanDelay }: VoiceFxEcho): void;
-	setVoiceFxFlanger(fxHandle: number, { fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase }: VoiceFxFlanger): void;
-	setVoiceFxGargle(fxHandle: number, { dwRateHz, dwWaveShape }: VoiceFxGargle): void;
-	setVoiceFxI3DL2Reverb(fxHandle: number, { lRoom, lRoomHF, flRoomRolloffFactor, flDecayTime, flDecayHFRatio, lReflections, flReflectionsDelay, lReverb, flReverbDelay, flDiffusion, flDensity, flHFReference }: VoiceFxI3DL2Reverb): void;
-	setVoiceFxParamEq(fxHandle: number, { fCenter, fBandwidth, fGain }: VoiceFxParamEq): void;
-	setVoiceFxReverb(fxHandle: number, { fInGain, fReverbMix, fReverbTime, fHighFreqRTRatio }: VoiceFxReverb): void;
-	setVoiceFxVolume(fxHandle: number, { fTarget, fCurrent, fTime, lCurve }: VoiceFxVolume): void;
-	setVoiceFxPeakEq(fxHandle: number, { lBand, fBandwidth, fQ, fCenter, fGain, lChannel }: VoiceFxPeakEq): void;
-	setVoiceFxBQF(fxHandle: number, { lFilter, fCenter, fGain, fBandwidth, fQ, fS, lChannel }: VoiceFxBQF): void;
+	setVoiceFxChorus(fxHandle: VoiceHandle, { fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase }: VoiceFxChorus): void;
+	setVoiceFxCompressor(fxHandle: VoiceHandle, { fGain, fAttack, fRelease, fThreshold, fRatio, fPredelay }: VoiceFxCompressor): void;
+	setVoiceFxDistortion(fxHandle: VoiceHandle, { fGain, fEdge, fPostEQCenterFrequency, fPostEQBandwidth, fPreLowpassCutoff }: VoiceFxDistortion): void;
+	setVoiceFxEcho(fxHandle: VoiceHandle, { fWetDryMix, fFeedback, fLeftDelay, fRightDelay, lPanDelay }: VoiceFxEcho): void;
+	setVoiceFxFlanger(fxHandle: VoiceHandle, { fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase }: VoiceFxFlanger): void;
+	setVoiceFxGargle(fxHandle: VoiceHandle, { dwRateHz, dwWaveShape }: VoiceFxGargle): void;
+	setVoiceFxI3DL2Reverb(fxHandle: VoiceHandle, { lRoom, lRoomHF, flRoomRolloffFactor, flDecayTime, flDecayHFRatio, lReflections, flReflectionsDelay, lReverb, flReverbDelay, flDiffusion, flDensity, flHFReference }: VoiceFxI3DL2Reverb): void;
+	setVoiceFxParamEq(fxHandle: VoiceHandle, { fCenter, fBandwidth, fGain }: VoiceFxParamEq): void;
+	setVoiceFxReverb(fxHandle: VoiceHandle, { fInGain, fReverbMix, fReverbTime, fHighFreqRTRatio }: VoiceFxReverb): void;
+	setVoiceFxVolume(fxHandle: VoiceHandle, { fTarget, fCurrent, fTime, lCurve }: VoiceFxVolume): void;
+	setVoiceFxPeakEq(fxHandle: VoiceHandle, { lBand, fBandwidth, fQ, fCenter, fGain, lChannel }: VoiceFxPeakEq): void;
+	setVoiceFxBQF(fxHandle: VoiceHandle, { lFilter, fCenter, fGain, fBandwidth, fQ, fS, lChannel }: VoiceFxBQF): void;
 
 	/**
 	 * Overrides snow value set by server setter
