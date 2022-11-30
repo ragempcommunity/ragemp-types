@@ -2316,11 +2316,15 @@ declare interface PlayerMp extends PedMpBase {
 	taskVehicleShootAt(target: Handle, p2: number): void;
 	updateTaskSweepAim(entity: Handle): void;
 
+	getCurrentScriptedAnim(): string;
+	getCurrentScenarioId(): number;
+	
 	/**
 
 	 * @returns boolean
 	 */
 	isPositionFrozen: boolean;
+	
 
 }
 
