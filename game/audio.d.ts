@@ -161,6 +161,7 @@ declare interface GameAudio extends GameAudioLegacy {
 	getSoundId(): number;
 	releaseSoundId(soundId: number): void;
 	playSound(soundId: number, audioName: string, audioRef: string, p3: boolean, p4: number, p5: boolean): void;
+	playSoundHash(soundId: number, audioNameHash: number, audioRef: string, p3: boolean, p4: number, p5: boolean): void;
 	playSoundFrontend(soundId: number, audioName: string, audioRef: string, p3: boolean): void;
 	playDeferredSoundFrontend(soundName: string, soundsetName: string): void;
 	playSoundFromEntity(soundId: number, audioName: string, entity: number, audioRef: string, isNetwork: boolean, p5: number): void;
