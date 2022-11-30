@@ -783,6 +783,8 @@ interface GameMisc extends GameMiscLegacy {
 	setVoiceFx(fxType: number, priority: number): void;
 	removeVoiceFx(fxHandle: number): void;
 	resetVoiceFx(fxHandle: number): void;
+
+	/* ToDo: check for optional parameters in voice arguments interfaces */
 	setVoiceFxChorus(fxHandle: number, { fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase }: VoiceFxChorus): void;
 	setVoiceFxCompressor(fxHandle: number, { fGain, fAttack, fRelease, fThreshold, fRatio, fPredelay }: VoiceFxCompressor): void;
 	setVoiceFxDistortion(fxHandle: number, { fGain, fEdge, fPostEQCenterFrequency, fPostEQBandwidth, fPreLowpassCutoff }: VoiceFxDistortion): void;
