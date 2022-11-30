@@ -787,8 +787,6 @@ interface GameMisc extends GameMiscLegacy {
 	setVoiceFx(fxType: RageEnums.Voice.BASSFXType, priority: number): void;
 	removeVoiceFx(fxHandle: VoiceHandle): void;
 	resetVoiceFx(fxHandle: VoiceHandle): void;
-
-	/* ToDo: check for optional parameters in voice arguments interfaces */
 	setVoiceFxChorus(fxHandle: VoiceHandle, { fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase }: VoiceFxChorus): void;
 	setVoiceFxCompressor(fxHandle: VoiceHandle, { fGain, fAttack, fRelease, fThreshold, fRatio, fPredelay }: VoiceFxCompressor): void;
 	setVoiceFxDistortion(fxHandle: VoiceHandle, { fGain, fEdge, fPostEQCenterFrequency, fPostEQBandwidth, fPreLowpassCutoff }: VoiceFxDistortion): void;
