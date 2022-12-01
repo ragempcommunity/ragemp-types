@@ -10,6 +10,7 @@ declare type Array3d = [number, number, number];
 declare type Array4d = [number, number, number, number];
 declare type RGB = Array3d;
 declare type RGBA = Array4d;
+declare type VoiceHandle = number; 
 
 declare interface IVector3 {
 	x: number;
@@ -1984,7 +1985,7 @@ declare interface PedMpBase extends EntityMp {
 	taskRappelFromHeli(p1: number): void;
 	taskReactAndFlee(fleeTarget: Handle): void;
 	taskReloadWeapon(doReload: boolean): void;
-	taskScriptedAnimation(p1: any, p2: any, p3: any, p4: number, p5: number): void;
+	taskScriptedAnimation(lowData: number, midData: number, highData: number, blendIn: number, blendOut: number): void;
 	taskSeekCoverFrom(target: Handle, duration: number, p3: boolean): void;
 	taskSeekCoverToCoords(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, p7: any, p8: boolean): void;
 	taskSetBlockingOfNonTemporaryEvents(toggle: boolean): void;
@@ -2316,11 +2317,15 @@ declare interface PlayerMp extends PedMpBase {
 	taskVehicleShootAt(target: Handle, p2: number): void;
 	updateTaskSweepAim(entity: Handle): void;
 
+	getCurrentScriptedAnim(): string;
+	getCurrentScenarioId(): number;
+	
 	/**
 
 	 * @returns boolean
 	 */
 	isPositionFrozen: boolean;
+	
 
 }
 
