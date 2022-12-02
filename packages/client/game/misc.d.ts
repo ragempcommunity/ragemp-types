@@ -186,110 +186,6 @@ interface CopyMemoryResult {
 	src: number;
 }
 
-interface VoiceFxChorus {
-	fWetDryMix: number;
-	fDepth: number;
-	fFeedback: number;
-	fFrequency: number;
-	lWaveform: number;
-	fDelay: number;
-	lPhase: RageEnums.Voice.BASSFXPhase;
-}
-
-interface VoiceFxCompressor {
-	fGain: number;
-	fAttack: number;
-	fRelease: number;
-	fThreshold: number;
-	fRatio: number;
-	fPredelay: number;
-}
-
-interface VoiceFxDistortion {
-	fGain: number;
-	fEdge: number;
-	fPostEQCenterFrequency: number;
-	fPostEQBandwidth: number;
-	fPreLowpassCutoff: number;
-}
-
-interface VoiceFxEcho {
-	fWetDryMix: number;
-	fFeedback: number;
-	fLeftDelay: number;
-	fRightDelay: number;
-	lPanDelay: number;
-}
-
-interface VoiceFxFlanger {
-	fWetDryMix: number;
-	fDepth: number;
-	fFeedback: number;
-	fFrequency: number;
-	lWaveform: number;
-	fDelay: number;
-	lPhase: RageEnums.Voice.BASSFXPhase;
-}
-
-interface VoiceFxGargle {
-	dwRateHz: number;
-	dwWaveShape: number;
-}
-
-interface VoiceFxI3DL2Reverb { 
-	lRoom: number;
-	lRoomHF: number;
-	flRoomRolloffFactor: number;
-	flDecayTime: number;
-	flDecayHFRatio: number;
-	lReflections: number;
-	flReflectionsDelay: number;
-	lReverb: number;
-	flReverbDelay: number;
-	flDiffusion: number;
-	flDensity: number;
-	flHFReference: number;
-}
-
-interface VoiceFxParamEq { 
-	fCenter: number;
-	fBandwidth: number;
-	fGain: number;
-}
-
-interface VoiceFxReverb {
-	fInGain: number;
-	fReverbMix: number;
-	fReverbTime: number;
-	fHighFreqRTRatio: number;
-}
-
-interface VoiceFxVolume {
-	fTarget: number;
-	fCurrent: number;
-	fTime: number;
-	lCurve: number;
-}
-
-interface VoiceFxPeakEq {
-	lBand: number;
-	fBandwidth: number;
-	fQ: number;
-	fCenter: number;
-	fGain: number;
-	lChannel: RageEnums.Voice.BASSFXChan;
-}
-
-interface VoiceFxBQF {
-	lFilter: number;
-	fCenter: number;
-	fGain: number;
-	fBandwidth: number;
-	fQ: number;
-	fS: number;
-	lChannel: RageEnums.Voice.BASSFXChan;
-}
-
 interface GameMisc extends GameMiscLegacy {
 	getAllocatedStackSize(): number;
 	getNumberOfFreeStacksOfThisSize(stackSize: number): number;
@@ -780,25 +676,6 @@ interface GameMisc extends GameMiscLegacy {
 	setPlayerIsInAnimalForm(toggle: boolean): void;
 	getIsPlayerInAnimalForm(): boolean;
 	setPlayerRockstarEditorDisabled(toggle: boolean): void;
-
-	/**
-	 * https://wiki.rage.mp/index.php?title=Player::setVoiceFx
-	 */
-	setVoiceFx(fxType: RageEnums.Voice.BASSFXType, priority: number): void;
-	removeVoiceFx(fxHandle: VoiceHandle): void;
-	resetVoiceFx(fxHandle: VoiceHandle): void;
-	setVoiceFxChorus(fxHandle: VoiceHandle, { fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase }: VoiceFxChorus): void;
-	setVoiceFxCompressor(fxHandle: VoiceHandle, { fGain, fAttack, fRelease, fThreshold, fRatio, fPredelay }: VoiceFxCompressor): void;
-	setVoiceFxDistortion(fxHandle: VoiceHandle, { fGain, fEdge, fPostEQCenterFrequency, fPostEQBandwidth, fPreLowpassCutoff }: VoiceFxDistortion): void;
-	setVoiceFxEcho(fxHandle: VoiceHandle, { fWetDryMix, fFeedback, fLeftDelay, fRightDelay, lPanDelay }: VoiceFxEcho): void;
-	setVoiceFxFlanger(fxHandle: VoiceHandle, { fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase }: VoiceFxFlanger): void;
-	setVoiceFxGargle(fxHandle: VoiceHandle, { dwRateHz, dwWaveShape }: VoiceFxGargle): void;
-	setVoiceFxI3DL2Reverb(fxHandle: VoiceHandle, { lRoom, lRoomHF, flRoomRolloffFactor, flDecayTime, flDecayHFRatio, lReflections, flReflectionsDelay, lReverb, flReverbDelay, flDiffusion, flDensity, flHFReference }: VoiceFxI3DL2Reverb): void;
-	setVoiceFxParamEq(fxHandle: VoiceHandle, { fCenter, fBandwidth, fGain }: VoiceFxParamEq): void;
-	setVoiceFxReverb(fxHandle: VoiceHandle, { fInGain, fReverbMix, fReverbTime, fHighFreqRTRatio }: VoiceFxReverb): void;
-	setVoiceFxVolume(fxHandle: VoiceHandle, { fTarget, fCurrent, fTime, lCurve }: VoiceFxVolume): void;
-	setVoiceFxPeakEq(fxHandle: VoiceHandle, { lBand, fBandwidth, fQ, fCenter, fGain, lChannel }: VoiceFxPeakEq): void;
-	setVoiceFxBQF(fxHandle: VoiceHandle, { lFilter, fCenter, fGain, fBandwidth, fQ, fS, lChannel }: VoiceFxBQF): void;
 
 	/**
 	 * Overrides snow value set by server setter
