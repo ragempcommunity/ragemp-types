@@ -681,7 +681,7 @@ interface GameMisc extends GameMiscLegacy {
 	 * Overrides snow value set by server setter
 	 * - ⚠️ mp.game1.gameplay.enableSnow is a temporary workaround, "game" setter to be fixed later
 	 */
-	enableSnow(toggle: boolean): void;
+	enableSnow: boolean;
 
 	unk: GameMiscUnk;
 }
