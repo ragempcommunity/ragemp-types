@@ -842,6 +842,15 @@ declare interface GameHud extends GameHudLegacy {
 	setMinimapComponentValues(name: string, alignX: number, alignY: number, posX: number, posY: number, sizeX: number, sizeY: number): void; 
 	resetMinimapComponentValues(names: string[]): void;
 	getMinimapComponentValues(componentName: string): number | string;
+	getCurrentAreaNameString(): string;
+	getCurrentAreaNameHash(): number;
+	getCurrentAreaNameLabel(): string;
+	getCurrentStreetNameString(): string;
+	
+	/**
+	 * Way, way faster than GET_STREET_NAME_AT_COORD native function as it uses the street HUD component cached value.
+	 */
+	getCurrentStreetNameHash(): number;
 
 	unk: GameHudUnk;
 }
