@@ -69,6 +69,12 @@ declare interface GamePad extends GamePadLegacy {
 	switchToInputMappingScheme2(name: string): boolean;
 	resetInputMappingScheme(): void;
 
+	/**
+	 * Doesn’t just improve performance by batch calls but has the new optimized implementation of DISABLE_CONTROL_ACTION algorithm under the hood as well. Batch is hold between frames.
+	 */
+	setDisableControlActionBatch(isMoveOrLookInputGroup: boolean, controlActions: number[]): void;
+	applyDisableControlActionBatch(): void;
+
 	unk: GamePadUnk;
 }
 
