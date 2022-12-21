@@ -857,7 +857,4 @@ declare interface GameHud extends GameHudLegacy {
 	unk: GameHudUnk;
 }
 
-/* + Added: client-side mp.game.hud.setShowHudComponentsThisFrameBatch(Boolean show, Array hudComponents)
-+ Added: client-side mp.game.hud.applyShowHudComponentsThisFrameBatch() */
-
 interface GameHudMp extends GameHud {}
