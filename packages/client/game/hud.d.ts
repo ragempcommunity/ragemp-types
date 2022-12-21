@@ -851,7 +851,7 @@ declare interface GameHud extends GameHudLegacy {
 	 * Way, way faster than GET_STREET_NAME_AT_COORD native function as it uses the street HUD component cached value.
 	 */
 	getCurrentStreetNameHash(): number;
-	setShowHudComponentsThisFrameBatch(show: boolean, hudComponents: string[]): void;
+	setShowHudComponentsThisFrameBatch(show: boolean, hudComponents: RageEnums.Hud.Component[]): void;
 	applyShowHudComponentsThisFrameBatch(): void;
 
 	unk: GameHudUnk;
