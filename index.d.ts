@@ -809,6 +809,11 @@ declare interface GuiMp {
 	cursor: GuiCursorMp;
 
 	/**
+	 * Gui getter for checking if GPU Rendering is enabled
+	 */
+	readonly isGpuRenderingEnabled: boolean;
+
+	/**
 	 * Takes screenshot of game screen and puts at /screenshots/ip_port folder.
 	 *
 	 * Accessible in CEF via screenshots:// scheme. (Will be available in 0.4)
