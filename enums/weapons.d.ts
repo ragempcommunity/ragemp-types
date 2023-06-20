@@ -205,7 +205,19 @@ declare namespace RageEnums {
 			/** ![Parachute](https://wiki.rage.mp/images/2/24/Parachute-icon.png) */
 			PARACHUTE = 'gadget_parachute',
 			/** MetalDetector - Has no image */
-			METALDETECTOR = 'weapon_metaldetector'
+			METALDETECTOR = 'weapon_metaldetector',
+			/** PrecisionRifle - Has no image */
+			PRECISIONRIFLE = 'weapon_precisionrifle',
+			/** CandyCane - Has no image */
+			CANDYCANE = 'weapon_candycane',
+			/** AcidPackager - Has no image */
+			ACIDPACKAGE = 'weapon_acidpackage',
+			/** PistolXM3 - Has no image */
+			PISTOLXM3 = 'weapon_pistolxm3',
+			/** RailgunXM3 - Has no image */
+			RAILGUNXM3 = 'weapon_railgunxm3',
+			/** TecPistol - Has no image */
+			TECPISTOL = 'weapon_tecpistol'
 
 		}
 
@@ -413,7 +425,19 @@ declare namespace RageEnums {
 			/** ![Parachute](https://wiki.rage.mp/images/2/24/Parachute-icon.png) */
 			PARACHUTE = 0xfbab5776,
 			/** MetalDetector - Has no image */
-			METALDETECTOR = 0xDBA2E809
+			METALDETECTOR = 0xDBA2E809,
+			/** PrecisionRifle - Has no image */
+			PRECISIONRIFLE = 0x6E7DDDEC,
+			/** CandyCane - Has no image */
+			CANDYCANE = 0x6589186A,
+			/** AcidPackager - Has no image */
+			ACIDPACKAGE = 0xF7F1E25E,
+			/** PistolXM3 - Has no image */
+			PISTOLXM3 = 0x1BC4FDB9,
+			/** RailgunXM3 - Has no image */
+			RAILGUNXM3 = 0xFEA23564,
+			/** TecPistol - Has no image */
+			TECPISTOL = 0x14E5AFD5
 		}
 	}
 }
@@ -1634,5 +1658,16 @@ declare namespace RageEnums.Weapons.Components {
 		COMPONENT_AT_AR_AFGRIP = 0xc164f53,
 		/** Scope */
 		COMPONENT_AT_SCOPE_SMALL = 0xaa2c45b4
+	}
+
+	const enum Tec_Pistol {
+		/** Default Clip */
+		COMPONENT_TECPISTOL_CLIP_01 = 0x383664ee,
+		/** Extended Clip */
+		COMPONENT_TECPISTOL_CLIP_02 = 0x1286198e,
+		/** Suppressor */
+		COMPONENT_AT_AR_SUPP_02 = 0xa73d4664,
+		/** Scope */
+		COMPONENT_AT_SCOPE_MACRO = 0x9D2fBf29
 	}
 }
