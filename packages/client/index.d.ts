@@ -4,7 +4,7 @@
 
 declare type Handle = number; // TODO: Temp type. Replace to the Entity, when methods are updated
 declare type Hash = number; // TODO: Temp type. Replace to HashOrString, when methods are updated
-declare type HashOrString = Hash;
+declare type HashOrString = Hash | string;
 declare type Array2d = [number, number];
 declare type Array3d = [number, number, number];
 declare type Array4d = [number, number, number, number];
