@@ -2291,10 +2291,6 @@ declare interface PlayerMp extends PedMpBase {
 	readonly action: string;
 	readonly aimTarget: boolean;
 	readonly ip: string;
-	readonly isAiming: boolean;
-	readonly isEnteringVehicle: boolean;
-	readonly isInCover: boolean;
-	readonly isLeavingVehicle: boolean;
 	readonly isTypingInTextChat: boolean;
 	readonly isVoiceActive: boolean;
 	readonly ping: number;
@@ -2358,6 +2354,7 @@ declare interface PlayerMp extends PedMpBase {
 	hideBloodDamageByZone(p1: any, p2: boolean): void;
 	isClimbing(): boolean;
 	isJumping(): boolean;
+	isInCover(): boolean; // broken (throws callback invoke error at client) since 2020
 	isControlOn(): boolean;
 	isFreeAiming(): boolean;
 	isFreeForAmbientTask(): boolean;
