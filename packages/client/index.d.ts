@@ -2294,7 +2294,6 @@ declare interface PlayerMp extends PedMpBase {
 	readonly isAiming: boolean;
 	readonly isEnteringVehicle: boolean;
 	readonly isInCover: boolean;
-	readonly isJumping: boolean;
 	readonly isLeavingVehicle: boolean;
 	readonly isTypingInTextChat: boolean;
 	readonly isVoiceActive: boolean;
@@ -2358,6 +2357,7 @@ declare interface PlayerMp extends PedMpBase {
 	hasUseScenarioTask(): boolean;
 	hideBloodDamageByZone(p1: any, p2: boolean): void;
 	isClimbing(): boolean;
+	isJumping(): boolean;
 	isControlOn(): boolean;
 	isFreeAiming(): boolean;
 	isFreeForAmbientTask(): boolean;
