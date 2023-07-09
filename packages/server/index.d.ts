@@ -1755,7 +1755,6 @@ declare interface PedMpPool extends EntityMpPool<PedMp> {
 
 declare class ObjectMp extends EntityMp {
 	rotation: Vector3;
-	notifyStreaming: boolean;
 }
 
 declare interface ObjectMpPool extends EntityMpPool<ObjectMp> {
