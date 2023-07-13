@@ -672,7 +672,6 @@ declare class EntityMp {
 	setRenderScorched(toggle: boolean): void;
 	setRotation(pitch: number, roll: number, yaw: number, rotationOrder: number, p4: boolean): void;
 	setTrafficlightOverride(state: number): void;
-	setVariable(key: string, value: any): any;
 	setVelocity(x: number, y: number, z: number): void;
 	setVisible(toggle: boolean, p1: boolean): void;
 	stopAnim(animation: string, animGroup: string, p2: number): void;
