@@ -10,7 +10,7 @@ declare type Array3d = [number, number, number];
 declare type Array4d = [number, number, number, number];
 declare type RGB = Array3d;
 declare type RGBA = Array4d;
-declare type VoiceHandle = number; 
+declare type VoiceHandle = number;
 
 interface VoiceFxChorus {
 	fWetDryMix: number;
@@ -62,7 +62,7 @@ interface VoiceFxGargle {
 	dwWaveShape: number;
 }
 
-interface VoiceFxI3DL2Reverb { 
+interface VoiceFxI3DL2Reverb {
 	lRoom: number;
 	lRoomHF: number;
 	flRoomRolloffFactor: number;
@@ -77,7 +77,7 @@ interface VoiceFxI3DL2Reverb {
 	flHFReference: number;
 }
 
-interface VoiceFxParamEq { 
+interface VoiceFxParamEq {
 	fCenter: number;
 	fBandwidth: number;
 	fGain: number;
@@ -2354,7 +2354,7 @@ declare interface PlayerMp extends PedMpBase {
 	hideBloodDamageByZone(p1: any, p2: boolean): void;
 	isClimbing(): boolean;
 	isJumping(): boolean;
-	isInCover(): boolean; // broken (throws callback invoke error at client) since 2020
+	isInCover(exceptUseWeapon: boolean): boolean;
 	isControlOn(): boolean;
 	isFreeAiming(): boolean;
 	isFreeForAmbientTask(): boolean;
@@ -2425,13 +2425,13 @@ declare interface PlayerMp extends PedMpBase {
 
 	getCurrentScriptedAnim(): string;
 	getCurrentScenarioId(): number;
-	
+
 	/**
 
 	 * @returns boolean
 	 */
 	isPositionFrozen: boolean;
-	
+
 	/**
 	 * https://wiki.rage.mp/index.php?title=Player::setVoiceFx
 	 */
