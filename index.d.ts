@@ -4,13 +4,13 @@
 
 declare type Handle = number; // TODO: Temp type. Replace to the Entity, when methods are updated
 declare type Hash = number; // TODO: Temp type. Replace to HashOrString, when methods are updated
-declare type HashOrString = Hash;
+declare type HashOrString = Hash | string;
 declare type Array2d = [number, number];
 declare type Array3d = [number, number, number];
 declare type Array4d = [number, number, number, number];
 declare type RGB = Array3d;
 declare type RGBA = Array4d;
-declare type VoiceHandle = number; 
+declare type VoiceHandle = number;
 
 interface VoiceFxChorus {
 	fWetDryMix: number;
@@ -62,7 +62,7 @@ interface VoiceFxGargle {
 	dwWaveShape: number;
 }
 
-interface VoiceFxI3DL2Reverb { 
+interface VoiceFxI3DL2Reverb {
 	lRoom: number;
 	lRoomHF: number;
 	flRoomRolloffFactor: number;
@@ -77,7 +77,7 @@ interface VoiceFxI3DL2Reverb {
 	flHFReference: number;
 }
 
-interface VoiceFxParamEq { 
+interface VoiceFxParamEq {
 	fCenter: number;
 	fBandwidth: number;
 	fGain: number;
@@ -2291,11 +2291,6 @@ declare interface PlayerMp extends PedMpBase {
 	readonly action: string;
 	readonly aimTarget: boolean;
 	readonly ip: string;
-	readonly isAiming: boolean;
-	readonly isEnteringVehicle: boolean;
-	readonly isInCover: boolean;
-	readonly isJumping: boolean;
-	readonly isLeavingVehicle: boolean;
 	readonly isTypingInTextChat: boolean;
 	readonly isVoiceActive: boolean;
 	readonly ping: number;
@@ -2358,6 +2353,8 @@ declare interface PlayerMp extends PedMpBase {
 	hasUseScenarioTask(): boolean;
 	hideBloodDamageByZone(p1: any, p2: boolean): void;
 	isClimbing(): boolean;
+	isJumping(): boolean;
+	isInCover(exceptUseWeapon: boolean): boolean;
 	isControlOn(): boolean;
 	isFreeAiming(): boolean;
 	isFreeForAmbientTask(): boolean;
@@ -2428,13 +2425,13 @@ declare interface PlayerMp extends PedMpBase {
 
 	getCurrentScriptedAnim(): string;
 	getCurrentScenarioId(): number;
-	
+
 	/**
 
 	 * @returns boolean
 	 */
 	isPositionFrozen: boolean;
-	
+
 	/**
 	 * https://wiki.rage.mp/index.php?title=Player::setVoiceFx
 	 */
