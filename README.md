@@ -6,19 +6,19 @@
 <p align="center">
     <a href="https://www.npmjs.com/package/@ragempcommunity/types-server" target="__blank"><img src="https://img.shields.io/npm/v/@ragempcommunity/types-server?color=efc75a&label=Server" alt="NPM version"></a>
     <a href="https://www.npmjs.com/package/@ragempcommunity/types-server" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@ragempcommunity/types-server?color=50a36f&label="></a>
-    <a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-server.yml" target="__blank"><img alt="Continuous Delivery - Server" src="https://img.shields.io/github/workflow/status/ragempcommunity/ragemp-types/Continuous%20Delivery%20-%20Server"></a>
+    <a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-server.yml" target="__blank"><img alt="Continuous Delivery - Server" src="https://img.shields.io/github/actions/workflow/status/ragempcommunity/ragemp-types/cd-server.yml?branch=main&label=Continuous Delivery - Server"></a>
 </p>
 
 <p align="center">
  <a href="https://www.npmjs.com/package/@ragempcommunity/types-client" target="__blank"><img src="https://img.shields.io/npm/v/@ragempcommunity/types-client?color=efc75a&label=Client" alt="NPM version"></a>
  <a href="https://www.npmjs.com/package/@ragempcommunity/types-client" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@ragempcommunity/types-client?color=50a36f&label="></a>
- <a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-client.yml" target="__blank"><img alt="Continuous Delivery - Client" src="https://img.shields.io/github/workflow/status/ragempcommunity/ragemp-types/Continuous%20Delivery%20-%20Client"></a>
+ <a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-client.yml" target="__blank"><img alt="Continuous Delivery - Client" src="https://img.shields.io/github/actions/workflow/status/ragempcommunity/ragemp-types/cd-client.yml?branch=main&label=Continuous Delivery - Client"></a>
 </p>
 
 <p align="center">
  <a href="https://www.npmjs.com/package/@ragempcommunity/types-cef" target="__blank"><img src="https://img.shields.io/npm/v/@ragempcommunity/types-cef?color=efc75a&label=CEF" alt="NPM version"></a>
  <a href="https://www.npmjs.com/package/@ragempcommunity/types-cef" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@ragempcommunity/types-cef?color=50a36f&label="></a>
- <a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-cef.yml" target="__blank"><img alt="Continuous Delivery - CEF" src="https://img.shields.io/github/workflow/status/ragempcommunity/ragemp-types/Continuous%20Delivery%20-%20Cef"></a>
+ <a href="https://github.com/ragempcommunity/ragemp-types/actions/workflows/cd-cef.yml" target="__blank"><img alt="Continuous Delivery - CEF" src="https://img.shields.io/github/actions/workflow/status/ragempcommunity/ragemp-types/cd-cef.yml?branch=main&label=Continuous Delivery - CEF"></a>
 </p>
 
 <p align="center">
