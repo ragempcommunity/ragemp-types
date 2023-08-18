@@ -250,7 +250,15 @@ declare interface GameObject extends GameObjectLegacy {
 	setEnableArenaPropPhysics(object: number, toggle: boolean, p2: number): void;
 	setEnableArenaPropPhysicsOnPed(object: number, toggle: boolean, p2: number, ped: number): void;
 	getIsArenaPropPhysicsDisabled(object: number, p1: number): boolean;
-	getAllInRange(position: Vector3, range?: number, includeDistance?: boolean, sortByDistance?: boolean): void;
+
+	/**
+	 * Returns data of world objects within specified range.
+	 *
+	 * Each element in the array that is returned will contain:
+	 * [Number model, Vector3 position, Vector3 rotation, Number distanceSquared(if includeDistance is set to true)]
+	 * [RAGE:MP Wiki article](https://wiki.rage.mp/index.php?title=Object::getAllInRange)
+	 */
+	getAllInRange(position: Vector3, range?: number, includeDistance?: boolean, sortByDistance?: boolean) : [number, Vector3, Vector3, number?][] | undefined;
 	getAllByHash(hash: number): Vector3[];
 
 	unk: GameObjectUnk;
