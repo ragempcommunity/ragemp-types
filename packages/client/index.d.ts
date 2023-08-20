@@ -2102,7 +2102,7 @@ declare interface PedMpBase extends EntityMp {
 	taskShootAtCoord(x: number, y: number, z: number, duration: number, firingPattern: Hash): void;
 	taskShuffleToNextVehicleSeat(vehicle: Handle): void;
 	taskSkyDive(): void;
-	taskSlideToCoord(x: number, y: number, z: number, heading: number, p5: number): void;
+	taskSlideToCoord(x: number, y: number, z: number, heading: number, speed: number): void;
 	taskSlideToCoordHdgRate(x: number, y: number, z: number, heading: number, p5: number, p6: number): void;
 	taskSmartFlee(fleeTarget: Handle, distance: number, fleeTime: any, preferPavements: boolean, updateToNearestHatedPed: boolean): void;
 	taskSmartFleeCoord(x: number, y: number, z: number, distance: number, time: number, preferPavements: boolean, quitIfOutOfRange: boolean): void;
