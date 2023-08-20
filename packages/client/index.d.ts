@@ -2104,8 +2104,8 @@ declare interface PedMpBase extends EntityMp {
 	taskSkyDive(): void;
 	taskSlideToCoord(x: number, y: number, z: number, heading: number, p5: number): void;
 	taskSlideToCoordHdgRate(x: number, y: number, z: number, heading: number, p5: number, p6: number): void;
-	taskSmartFlee(fleeTarget: Handle, distance: number, fleeTime: any, p4: boolean, p5: boolean): void;
-	taskSmartFleeCoord(x: number, y: number, z: number, distance: number, time: number, p6: boolean, p7: boolean): void;
+	taskSmartFlee(fleeTarget: Handle, distance: number, fleeTime: any, preferPavements: boolean, updateToNearestHatedPed: boolean): void;
+	taskSmartFleeCoord(x: number, y: number, z: number, distance: number, time: number, preferPavements: boolean, quitIfOutOfRange: boolean): void;
 	taskStandGuard(x: number, y: number, z: number, heading: number, scenarioName: string): void;
 	taskStandStill(time: number): void;
 	taskStartScenarioAtPosition(scenarioName: string, x: number, y: number, z: number, heading: number, p6: any, p7: boolean, p8: boolean): void;
