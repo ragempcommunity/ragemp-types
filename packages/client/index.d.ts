@@ -621,6 +621,10 @@ declare class EntityMp {
 	playSynchronizedAnim(syncedScene: number, animation: string, propName: string, p3: number, p4: number, p5: any, p6: number): boolean;
 	processAttachments(): void;
 	resetAlpha(): void;
+	/**
+	 * - If you are applying alpha to an ObjectMp, use mp.game.entity.setAlpha
+	 * @param alphaLevel 
+	 */
 	setAlpha(alphaLevel: number): void;
 	setAlwaysPrerender(toggle: boolean): void;
 	setAnimCurrentTime(animDict: string, animName: string, time: number): void;
