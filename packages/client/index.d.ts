@@ -2108,7 +2108,7 @@ declare interface PedMpBase extends EntityMp {
 	taskSmartFleeCoord(x: number, y: number, z: number, distance: number, time: number, preferPavements: boolean, quitIfOutOfRange: boolean): void;
 	taskStandGuard(x: number, y: number, z: number, heading: number, scenarioName: string): void;
 	taskStandStill(time: number): void;
-	taskStartScenarioAtPosition(scenarioName: string, x: number, y: number, z: number, heading: number, p6: any, p7: boolean, p8: boolean): void;
+	taskStartScenarioAtPosition(scenarioName: string, x: number, y: number, z: number, heading: number, duration: number, sittingScenario: boolean, teleport: boolean): void;
 	taskStartScenarioInPlace(scenarioName: string, unkDelay: number, playEnterAnim: boolean): void;
 	taskStayInCover(): void;
 	taskStealthKill(target: Handle, killType: Hash, p3: number, p4: boolean): void;
