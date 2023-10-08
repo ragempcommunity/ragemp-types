@@ -564,6 +564,7 @@ declare class EntityMp {
 	getType(): number;
 	getUprightValue(): number;
 	getVariable(value: string): any;
+	hasVariable(value: string): boolean;
 	getVehicleIndexFromIndex(): Handle;
 	getVelocity(): Vector3;
 	getWorldPositionOfBone(boneIndex: number): Vector3;
@@ -2460,6 +2461,7 @@ declare interface PlayerMpPool extends EntityMpPool<PlayerMp> {
 }
 
 declare interface VehicleMp extends EntityMp {
+	readonly controller: PlayerMp;
 	gear: number;
 	rpm: number;
 	steeringAngle: number;
