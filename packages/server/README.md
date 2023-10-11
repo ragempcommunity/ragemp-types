@@ -40,7 +40,7 @@ pnpm add -D @ragempcommunity/types-server
 
 ### To extend a Mp object, there are 2 ways:
 
-1. By extend the prototype of the object:
+1. By extending the prototype of the object:
 
 ```ts
 mp.Player.prototype.myMethod = function myMethod() {
@@ -68,7 +68,7 @@ declare global {
 export {};
 ```
 
-2. By extend the object itself:
+2. By extending the object itself:
 
 ```ts
 mp.events.add('playerReady', (player) => {
@@ -102,7 +102,7 @@ To contribute to this repository, feel free to create a new fork of the reposito
 1. Fork / Clone and select the `main` branch.
 2. Create a new branch in your fork.
 3. Make your changes.
-4. Commit your changes, and push them.
+4. Commit your changes and push them.
 5. Submit a Pull Request [here](https://github.com/ragempcommunity/ragemp-types/pulls)!
 
 ## 🎉 Thanks
@@ -111,4 +111,4 @@ To contribute to this repository, feel free to create a new fork of the reposito
 
 ## 📋 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
