@@ -26,7 +26,7 @@
  <a href="https://discord.com/invite/tChBaeu" target="__blank"><img alt="Discord Server" src="https://img.shields.io/discord/183979885788659713?label=discord&color=7289da"></a>
 </p>
 
-Remember to 🌟 this Github if you 💖 it.
+Remember to 🌟 this GitHub if you 💖 it.
 
 ### 📥 Installation
 
@@ -198,3 +198,4 @@ To contribute to this repository, feel free to create a new fork of the reposito
 ## 📋 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+

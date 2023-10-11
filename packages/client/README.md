@@ -1,4 +1,4 @@
-Remember to 🌟 this Github if you 💖 it.
+Remember to 🌟 this GitHub if you 💖 it.
 
 > This package contains types definitions for RAGE:MP client-side module.
 
