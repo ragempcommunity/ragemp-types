@@ -355,7 +355,7 @@ declare interface StorageMp {
 	 *
 	 * Data is saved in <path to RAGEMP>/client_resources/<server ip>/.storage
 	 *
-	 * Thus it is wiped when player deletes client folder.
+	 * Thus, it is wiped when player deletes client folder.
 	 */
 	data: { [key: string]: any };
 
@@ -640,7 +640,7 @@ declare class EntityMp {
 	setIsTargetPriority(p0: boolean, p1: number): void;
 	setLights(toggle: boolean): void;
 	/**
-		 * Loads collision grid for an entity spawned outside of a player's loaded area. This allows peds to execute tasks rather than sit dormant because of a lack of a physics grid.
+		 * Loads collision grid for an entity spawned outside a player's loaded area. This allows peds to execute tasks rather than sit dormant because of a lack of a physics grid.
 		 *
 		 * Certainly not the main usage of this native but when set to true for a Vehicle, it will prevent the vehicle to explode if it is spawned far away from the player.
 
@@ -735,7 +735,7 @@ declare class EntityMpPool<T> {
 	/**
 	 * Used for check, exists entity with ID in pool or not.
 	 *
-	 * @param entity Entity ID or the entity itself, what you wanna check in pool.
+	 * @param entity Entity ID or the entity itself, what you want to check in pool.
 	 */
 	public exists(entity: T | number): boolean;
 
@@ -818,7 +818,7 @@ declare interface GuiMp {
 	 *
 	 * Accessible in CEF via screenshots:// scheme. (Will be available in 0.4)
 	 *
-	 * You can also use http://screenshots/name.png as a fetcher for your screen shot in CEF
+	 * You can also use http://screenshots/name.png as a fetcher for your screenshot in CEF
 	 *
 	 * @param name Screenshot name
 	 * @param type Type of screenshot (0 - JPG, 1 - PNG, 2 - BMP)
@@ -2221,7 +2221,7 @@ declare interface PedMpBase extends EntityMp {
 declare interface PedMp extends PedMpBase {
 	spawnPosition: Vector3;
 	/**
-	 * Returns the player set as the peds controller.
+	 * Returns the player set as the ped's controller.
 	 */
 	readonly controller: PlayerMp;
 
