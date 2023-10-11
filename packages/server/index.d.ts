@@ -56,8 +56,8 @@ declare class Vector3 {
 	clone(): Vector3;
 
 	/**
-	 * Calculate the cross product of two vectors.
-	 * The cross product is a vector that is perpendicular to both input vectors.
+	 * Calculate the cross-product of two vectors.
+	 * The cross-product is a vector that is perpendicular to both input vectors.
 	 *
 	 * @param otherVec The other vector.
 	 */
@@ -139,9 +139,9 @@ declare class Vector3 {
 	toArray(): Array3d;
 
 	/**
-	 * Normalized copy of a Vector3- one that has the same direction but with a magnitude of 1.
+	 * Normalized copy of a Vector3 that has the same direction but with a magnitude of 1.
 	 *
-	 * @returns Normalized copy of a Vector3- one that has the same direction but with a magnitude of 1.
+	 * @returns Normalized copy of a Vector3 that has the same direction but with a magnitude of 1.
 	 */
 	unit(): Vector3;
 }
@@ -251,7 +251,7 @@ declare class EntityMp {
 
 declare class EntityMpPool<T> {
 	/**
-	 * Property used to get the element count of a pool.
+	 * Property used to get the element to count of a pool.
 	 */
 	public readonly length: number;
 
@@ -278,7 +278,7 @@ declare class EntityMpPool<T> {
 	/**
 	 * Used for check, exists entity with ID in pool or not.
 	 *
-	 * @param entity Entity ID or the entity itself, what you wanna check in pool.
+	 * @param entity Entity ID or the entity itself, what you want to check in pool.
 	 */
 	public exists(entity: T | number): boolean;
 
@@ -292,14 +292,15 @@ declare class EntityMpPool<T> {
 	/**
 	 * Calling for each entity in a pool.
 	 *
-	 * Same as forEach except faster at lookups. Do not use this for destroying entities..
+	 * Same as forEach except faster at lookups.
+	 * Do not use this for destroying entities.
 	 *
 	 * @param callingFunction Function what will be called
 	 */
 	public forEachFast(callingFunction: (entity: T) => void): void;
 
 	/**
-	 * Used to call a function for each elements in the pool.
+	 * Used to call a function for each element in the pool.
 	 *
 	 * @param dimension Dimension
 	 * @param callingFunction Function, what will be called.
@@ -309,7 +310,9 @@ declare class EntityMpPool<T> {
 	/**
 	 * Used for calling a function for each element in a pool, but only if it in range of position.
 	 *
-	 * @param callingFunction Function, what will be called.
+	 * @param {Vector3} position - The position to check against.
+	 * @param {number} range - The range within which elements will be processed.
+	 * @param {function} callingFunction - The function to be called for each element.
 	 */
 	public forEachInRange(position: Vector3, range: number, callingFunction: (entity: T) => void): void;
 	public forEachInRange(position: Vector3, range: number, dimension: number, callingFunction: (entity: T) => void): void;
@@ -484,12 +487,13 @@ declare class PlayerMp extends EntityMp {
 	/**
 	 * Property used for getting the player's voice listeners.
 	 *
-	 * @returns All active voice listeners as array, which got added by [Player::enableVoiceTo](https://wiki.rage.mp/index.php?title=Player::enableVoiceTo).
+	 * @returns {PlayerMp[]} All active voice listeners as an array,
+	 * which got added by [Player::enableVoiceTo](https://wiki.rage.mp/index.php?title=Player::enableVoiceTo).
 	 */
 	public readonly voiceListeners: PlayerMp[];
 
 	/**
-	 * Property used to gets/sets the player's armour.
+	 * Property used to gets/sets the player's armor.
 	 */
 	public armour: number;
 
@@ -550,23 +554,27 @@ declare class PlayerMp extends EntityMp {
 	 *
 	 * `FROM CLIENT` For Peer 2 Peer connections.
 	 *
-	 * The current client can call an event on another client's scriptside and that other client can handle that event.
+	 * The current client can call an event on another client's scriptside, and that other client can handle that event.
 	 *
 	 * @param eventName The event name that will be called
-	 * @param args Any arguments, what should be sent to client. Supports entities, strings, numbers and booleans. (Objects and Arrays should be packed to JSON format.) Arguments has to be packed in an array.
+	 * @param args Any arguments, what should be sent to the client.
+	 * Supports entities, strings, numbers and booleans.
+	 * (Objects and Arrays should be packed to JSON format.) Arguments has to be packed in an array.
 	 */
 	public call(eventName: string, args?: any[]): void;
 
 	/**
 	 * Calls the specified player's clientside Remote procedure call (RPC) event and expects a callback.
 	 *
-	 * @param eventProcName Procedure Name
+	 * @param eventName
 	 * @param args Args
 	 */
 	public callProc<T = any>(eventName: string, args?: any[]): Promise<T>;
 
 	/**
-	 * Triggers a client-side event for the selected player unreliably, which means it will be affected by potential packet loss, but it will be triggered way more faster, useful for when you need frequent triggers.
+	 * Triggers a client-side event for the selected player unreliably,
+	 * which means it will be affected by potential packet loss,
+	 * but it will be triggered way faster, useful for when you need frequent triggers.
 	 *
 	 * @param eventName Event Name
 	 * @param args Args
@@ -605,7 +613,7 @@ declare class PlayerMp extends EntityMp {
 	/**
 	 * Gets a hash of player clothes.
 	 *
-	 * @param component [Components](https://wiki.rage.mp/index.php?title=Player::getClothes)
+	 * @param {RageEnums.ClothesComponent | number} component - [Components](https://wiki.rage.mp/index.php?title=Player::getClothes)
 	 * @returns A hash of player clothes
 	 */
 	public getClothes(component: RageEnums.ClothesComponent | number): {
@@ -617,14 +625,16 @@ declare class PlayerMp extends EntityMp {
 	/**
 	 * Gets the tattoo (decoration) from a collection specified.
 	 *
-	 * @param collection [Collections](https://github.com/root-cause/v-tattoos)
+	 * @param collection - [Collections](https://github.com/root-cause/v-tattoos)
 	 */
 	public getDecoration(collection: number): number;
 
 	/**
-	 * Gets the various freemode face features, e.g. nose length, chin shape. Scale ranges from -1.0 to 1.0. Index can be 0 - 19.
+	 * Gets the various freemode face features, e.g., nose length, chin shape.
+	 * Scale ranges from -1.0 to 1.0.
+	 * Index can be 0 - 19.
 	 *
-	 * @param index [Index](https://wiki.rage.mp/index.php?title=Player::getFaceFeature)
+	 * @param {number} index - [Index](https://wiki.rage.mp/index.php?title=Player::getFaceFeature)
 	 */
 	public getFaceFeature(index: number): number;
 
@@ -647,7 +657,7 @@ declare class PlayerMp extends EntityMp {
 	/**
 	 * Gets a prop of player from ID.
 	 *
-	 * @param prop [Props](https://wiki.rage.mp/index.php?title=Player::getProp)
+	 * @param prop - [Props](https://wiki.rage.mp/index.php?title=Player::getProp)
 	 * @returns A prop of player from ID
 	 */
 	public getProp(prop: RageEnums.PlayerProp | number): {
@@ -701,7 +711,7 @@ declare class PlayerMp extends EntityMp {
 	/**
 	 * Silently kicks the player which will then reconnect them back to the server.
 	 *
-	 * Useful for quick reconnects without going through the UI.
+	 * Useful for quick reconnecting without going through the UI.
 	 *
 	 * The client will act as if it has timed out.
 	 */
@@ -710,7 +720,7 @@ declare class PlayerMp extends EntityMp {
 	/**
 	 * Sends a notification to the player.
 	 *
-	 * You can use the colour codes found here: [Fonts and colors](https://wiki.rage.mp/index.php?title=Fonts_and_Colors)
+	 * You can use the color codes found here: [Fonts and colors](https://wiki.rage.mp/index.php?title=Fonts_and_Colors)
 	 *
 	 * @param message Message
 	 */
@@ -726,10 +736,10 @@ declare class PlayerMp extends EntityMp {
 	/**
 	 * Starts animation
 	 *
-	 * @param dict [Animation List](https://wiki.rage.mp/index.php?title=Animations)
+	 * @param dict - [Animation List](https://wiki.rage.mp/index.php?title=Animations)
 	 * @param name Animation Name
 	 * @param speed Animation Speed
-	 * @param flag [Animation Flags](https://wiki.rage.mp/index.php?title=Player::playAnimation)
+	 * @param flag - [Animation Flags](https://wiki.rage.mp/index.php?title=Player::playAnimation)
 	 */
 	public playAnimation(dict: string, name: string, speed: number, flag: number): void;
 
@@ -761,7 +771,7 @@ declare class PlayerMp extends EntityMp {
 	/**
 	 * Removes a weapon of player. Weapon's hashes list
 	 *
-	 * @param weaponHash [Weapon Hash](https://wiki.rage.mp/index.php?title=Weapons)
+	 * @param weaponHash - [Weapon Hash](https://wiki.rage.mp/index.php?title=Weapons)
 	 */
 	public removeWeapon(weaponHash: HashOrNumberOrString<RageEnums.Hashes.Weapon>): void;
 
@@ -808,7 +818,9 @@ declare class PlayerMp extends EntityMp {
 	public setDecoration(collection: number, overlay: number): void;
 
 	/**
-	 * Sets the various freemode face features, e.g. nose length, chin shape. Scale ranges from -1.0 to 1.0. Index can be 0 - 19.
+	 * Sets the various freemode face features, e.g., nose length, chin shape.
+	 * Scale ranges from -1.0 to 1.0.
+	 * Index can be 0 - 19.
 	 */
 	public setFaceFeature(index: number, scale: number): void;
 
@@ -842,7 +854,7 @@ declare class PlayerMp extends EntityMp {
 	 *
 	 * [List of colors](https://wiki.gtanet.work/index.php?title=Hair_Colors)
 	 *
-	 * To disable any overlay use 255 as index.
+	 * To disable any overlay, use 255 as index.
 	 */
 	public setHeadOverlay(overlay: RageEnums.HeadOverlay | number, value: Array4d): void;
 
@@ -874,7 +886,7 @@ declare class PlayerMp extends EntityMp {
 	/**
 	 * Makes the player play a scenario.
 	 *
-	 * @param scenario [Scenario List](https://wiki.rage.mp/index.php?title=Scenarios)
+	 * @param scenario - [Scenario List](https://wiki.rage.mp/index.php?title=Scenarios)
 	 */
 	public playScenario(scenario: string): void;
 
@@ -914,7 +926,9 @@ declare class PlayerMpPool extends EntityMpPool<PlayerMp> {
 	 * - specified players array
 	 *
 	 * @param eventName Event name, what will be called
-	 * @param args Any arguments, what should be sended to client. Supports entities, strings, numbers and booleans. (Objects and Arrays should be packed to JSON format.)
+	 * @param args Any arguments, what should be sent to the client.
+	 * Supports entities, strings, numbers and booleans.
+	 * (Objects and Arrays should be packed to JSON format.)
 	 */
 	public call(eventName: string, args?: any[]): void;
 	public call(players: PlayerMp[], eventName: string, args?: any[]): void;
@@ -924,7 +938,9 @@ declare class PlayerMpPool extends EntityMpPool<PlayerMp> {
 	 *
 	 * @param dimension The dimension in which the event will be sent
 	 * @param eventName Event name, what will be called
-	 * @param args Any arguments, what should be sended to client. Supports entities, strings, numbers and booleans. (Objects and Arrays should be packed to JSON format.)
+	 * @param args Any arguments, what should be sent to the client.
+	 * Supports entities, strings, numbers and booleans.
+	 * (Objects and Arrays should be packed to JSON format.)
 	 */
 	public callInDimension(dimension: number, eventName: string, args?: any[]): void;
 
@@ -934,7 +950,9 @@ declare class PlayerMpPool extends EntityMpPool<PlayerMp> {
 	 * @param position The position from which the broadcast will be sent
 	 * @param range The range from position
 	 * @param eventName Event name, what will be called
-	 * @param args Any arguments, what should be sended to client. Supports entities, strings, numbers and booleans. (Objects and Arrays should be packed to JSON format.)
+	 * @param args Any arguments, what should be sent to the client.
+	 * Supports entities, strings, numbers and booleans.
+	 * (Objects and Arrays should be packed to JSON format.)
 	 */
 	public callInRange(position: Vector3, range: number, eventName: string, args?: any[]): void;
 	public callInRange(position: Vector3, range: number, dimension: number, eventName: string, args?: any[]): void;
@@ -1166,7 +1184,7 @@ declare class VehicleMp extends EntityMp {
 	/**
 	 * Get the extra currently applied on vehicle in the target extra id.
 	 *
-	 * @param extraId Extra Id
+	 * @param index - Extra Id
 	 */
 	public getExtra(index: number): boolean;
 
@@ -1190,7 +1208,7 @@ declare class VehicleMp extends EntityMp {
 	public getOccupant(seat: number): PlayerMp;
 
 	/**
-	 * Gets the occupants inside of a vehicle.
+	 * Gets the occupants inside a vehicle.
 	 */
 	public getOccupants(): PlayerMp[];
 
@@ -1202,7 +1220,7 @@ declare class VehicleMp extends EntityMp {
 	public getPaint(id: number): number;
 
 	/**
-	 * Used for check, vehicle is located in stream distance for player or not.
+	 * Used for check, the vehicle is located in stream distance for player or not.
 	 *
 	 * @param player Player object
 	 */
@@ -1224,12 +1242,12 @@ declare class VehicleMp extends EntityMp {
 	/**
 	 * Sets vehicle RGB body color.
 	 *
-	 * @param red1 Primary Red Colour [0 - 255]
-	 * @param green1 Primary Green Colour [0 - 255]
-	 * @param blue1 Primary Blue Colour [0 - 255]
-	 * @param red2 Secondary Red Colour [0 - 255]
-	 * @param green2 Secondary Green Colour [0 - 255]
-	 * @param blue2 Secondary Blue Colour [0 - 255]
+	 * @param red1 Primary Red Color [0 - 255]
+	 * @param green1 Primary Green Color [0 - 255]
+	 * @param blue1 Primary Blue Color [0 - 255]
+	 * @param red2 Secondary Red Color [0 - 255]
+	 * @param green2 Secondary Green Color [0 - 255]
+	 * @param blue2 Secondary Blue Color [0 - 255]
 	 */
 	public setColorRGB(red1: number, green1: number, blue1: number, red2: number, green2: number, blue2: number): void;
 
@@ -1369,7 +1387,7 @@ declare class EventMpPool {
 	/**
 	 * Registers event handlers.
 	 *
-	 * Returning true will destroy automatically the event handler.
+	 * Returning true will automatically destroy the event handler.
 	 *
 	 * @param eventName The name of the event you wish to attach a handler to
 	 * @param callback The function that you want the event to trigger, which has to be defined before you add the handler
@@ -1399,7 +1417,7 @@ declare class EventMpPool {
 	/**
 	 * Calls registered event handlers. This function can call serverside events from serverside and clientside events from clientside.
 	 *
-	 * 1.1 - If you're sending number more than 2^31 to client, you need to arg.toString() transform your number on server and parseInt(arg) on client.
+	 * 1.1 - If you're sending number more than 2^31 to the client, you need to arg.toString() transform your number on server and parseInt(arg) on the client.
 	 *
 	 * @param eventName The name of the event you wish to call
 	 * @param args The arguments
@@ -1410,7 +1428,7 @@ declare class EventMpPool {
 	/**
 	 * Gets all handlers of the specified event.
 	 *
-	 * @param eventName Name of the event you want to gets all handlers
+	 * @param eventName Name of the event you want to get all handlers
 	 * @returns An array of specified event
 	 */
 	public getAllOf<K extends keyof IServerEvents>(eventName: K): Function[];
@@ -1798,7 +1816,9 @@ declare interface WorldMp {
 		locked: boolean;
 
 		/**
-		 * This property set the traffic lights state. (If you want to make your own traffic lights system, make sure of locking the traffic lights to avoid the game to change them by itself)
+		 * This property set the traffic lights state.
+		 * (If you want to make your own traffic lights system,
+		 * make sure of locking the traffic lights to avoid the game to change them by itself.)
 		 */
 		state: number;
 	};
@@ -1806,7 +1826,7 @@ declare interface WorldMp {
 	/**
 	 * Removes an IPL and sync it to every client
 	 *
-	 * @param ipl [IPLs](https://wiki.rage.mp/index.php?title=Interiors_and_Locations)
+	 * @param ipl - [IPLs](https://wiki.rage.mp/index.php?title=Interiors_and_Locations)
 	 */
 	removeIpl(ipl: string): void;
 
@@ -1820,7 +1840,7 @@ declare interface WorldMp {
 	/**
 	 * Starts a weather transition to the weather specified and sync it to all clients.
 	 *
-	 * @param weather [Weather](https://wiki.rage.mp/index.php?title=Weather)
+	 * @param weather - [Weather](https://wiki.rage.mp/index.php?title=Weather)
 	 * @param duration Weather transitioning time
 	 */
 	setWeatherTransition(weather: HashOrString<RageEnums.Weather>, duration?: number): void;
