@@ -3,7 +3,7 @@ declare namespace RageEnums.CausesOfDeath {
 	const enum Key {
 		WEAPON_ELECTRIC_FENCE = 'weapon_electric_fence',
 		WEAPON_HIT_BY_WATER_CANNON = 'weapon_hit_by_water_cannon',
-		/** Death from world after exiting (or being exited from) vehicle (high speed exit/flying out of windscreen) */
+		/** Death from the world after exiting (or being exited from) vehicle (high-speed exit/flying out of windshield) */
 		WEAPON_RAMMED_BY_CAR = 'weapon_rammed_by_car',
 		WEAPON_RUN_OVER_BY_CAR = 'weapon_run_over_by_car',
 		WEAPON_FALL = 'weapon_fall',
@@ -143,7 +143,7 @@ declare namespace RageEnums.CausesOfDeath {
 	const enum Hex {
 		WEAPON_ELECTRIC_FENCE = 0x92bd4ebb,
 		WEAPON_HIT_BY_WATER_CANNON = 0xcc34325e,
-		/** Death from world after exiting (or being exited from) vehicle (high speed exit/flying out of windscreen) */
+		/** Death from the world after exiting (or being exited from) vehicle (high-speed exit/flying out of windshield) */
 		WEAPON_RAMMED_BY_CAR = 0x7fc7d7a,
 		WEAPON_RUN_OVER_BY_CAR = 0xa36d413e,
 		WEAPON_FALL = 0xcdc174b0,

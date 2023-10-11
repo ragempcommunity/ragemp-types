@@ -237,9 +237,9 @@ declare class Vector3 {
 	toArray(): Array3d;
 
 	/**
-	 * Normalized copy of a Vector3- one that has the same direction but with a magnitude of 1.
+	 * Normalized copy of a Vector3 that has the same direction but with a magnitude of 1.
 	 *
-	 * @returns Normalized copy of a Vector3- one that has the same direction but with a magnitude of 1.
+	 * @returns Normalized copy of a Vector3 that has the same direction but with a magnitude of 1.
 	 */
 	unit(): Vector3;
 }
@@ -698,7 +698,7 @@ declare class EntityMpPool<T> {
 	public readonly streamed: T[];
 
 	/**
-	 * Gets or sets the maximum amount of streamed entities of a given pool
+	 * Gets or sets the maximum number of streamed entities of a given pool
 	 */
 	public maxStreamed: number;
 
@@ -728,7 +728,8 @@ declare class EntityMpPool<T> {
 	 * This is important to know, because the client-side entity.id may be different to the entity.id server-side.
 	 *
 	 * @param remoteId Entity remote ID (entity.remoteId)
-	 * @returns An entity with the selected remote ID from a pool, or undefined if entity with this remote ID does not exists.
+	 * @returns An entity with the selected remote ID from a pool,
+	 * or undefined if entity with this remote ID does not exist.
 	 */
 	public atRemoteId(remoteId: number): T;
 
