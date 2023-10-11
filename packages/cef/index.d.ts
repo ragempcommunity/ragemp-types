@@ -7,9 +7,9 @@ interface Mp {
 
 interface EventMpPool {
 	/**
-	 * This function calls registered Remote Prodecure Call (RPC) from browser to client-side and expects a callback.
+	 * This function calls registered Remote Procedure Call (RPC) from browser to client-side and expects a callback.
 	 *
-	 * @param eventName Client name event you want to call.
+	 * @param procName
 	 * @param args Data you want to send to client.
 	 * @returns Returns a promise
 	 *
@@ -25,7 +25,7 @@ interface EventMpPool {
 	/**
 	 * Adds browser event that can be called from client side
 	 * @param name Event name
-	 * @param args Event arguments
+	 * @param callback
 	 */
 	add(name: string, callback: (...args: any[]) => void) : void;
 	add(names: { [name: string]: (...args: any[]) => void }): void;
