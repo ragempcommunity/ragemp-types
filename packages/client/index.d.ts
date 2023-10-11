@@ -541,8 +541,7 @@ declare class EntityMp {
 	};
 	getRoll(): number;
 	/**
-	 * @param {number} - Int (specifies which axis rotates before the other axis in a certain order)
-	 *
+	 * @param rotationOrder
 	 * Rotation Orders
 	 * <pre>
 	 * 0: ZYX
@@ -748,9 +747,11 @@ declare class EntityMpPool<T> {
 	public forEach(callingFunction: (entity: T) => void): void;
 
 	/**
-	 * Used for calling a function for each element in a pool, but only if it in range of position.
+	 * Used for calling a function for each element in a pool, but only if it is in range of the given position.
 	 *
-	 * @param callingFunction Function, what will be called.
+	 * @param {Vector3} position The position to check range against.
+	 * @param {number} range The range within which the elements should be considered in range of the position.
+	 * @param {function} callingFunction The function that will be called for each element in range.
 	 */
 	public forEachInRange(position: Vector3, range: number, callingFunction: (entity: T) => void): void;
 	public forEachInRange(position: Vector3, range: number, dimension: number, callingFunction: (entity: T) => void): void;
@@ -2829,7 +2830,7 @@ declare interface VehicleMp extends EntityMp {
 
 	 * @params wheelId - use 255 to apply all wheel
 	 * @params value
-	 * 
+	 *
 	 * @returns void
 	 */
 	setWheelCamber(wheelId: number, value: number): void;
@@ -2837,16 +2838,16 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params wheelId - use 255 to apply all wheel
-	 * 
+	 *
 	 * @returns number
 	 */
 	getWheelTrackWidth(wheelId: number): number;
 
 	/**
-	
+
 	* @params wheelId - use 255 to apply all wheel
 	* @params value
-	* 
+	*
 	* @returns void
 	*/
 	setWheelTrackWidth(wheelId: number, value: number): void;
@@ -2854,7 +2855,7 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params wheelId
-	 * 
+	 *
 	 * @returns number
 	 */
 	getWheelHeight(wheelId: number): number;
@@ -2863,7 +2864,7 @@ declare interface VehicleMp extends EntityMp {
 
 	 * @params wheelId - use 255 to apply all wheel
 	 * @params value
-	 * 
+	 *
 	 * @returns void
 	 */
 	setWheelHeight(wheelId: number, value: number): void;
@@ -2871,7 +2872,7 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params wheelId
-	 * 
+	 *
 	 * @returns number
 	 */
 	getTyreWidth(wheelId: number): number;
@@ -2880,7 +2881,7 @@ declare interface VehicleMp extends EntityMp {
 
 	 * @params wheelId - use 255 to apply all wheel
 	 * @params value
-	 * 
+	 *
 	 * @returns void
 	 */
 	setTyreWidth(wheelId: number, value: number): void;
@@ -2888,7 +2889,7 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params wheelId
-	 * 
+	 *
 	 * @returns number
 	 */
 	getTyreRadius(wheelId: number): number;
@@ -2897,7 +2898,7 @@ declare interface VehicleMp extends EntityMp {
 
 	 * @params wheelId - use 255 to apply all wheel
 	 * @params value
-	 * 
+	 *
 	 * @returns void
 	 */
 	setTyreRadius(wheelId: number, value: number): void;
@@ -2905,7 +2906,7 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params wheelId
-	 * 
+	 *
 	 * @returns number
 	 */
 	getRimRadius(wheelId: number): number;
@@ -2914,14 +2915,14 @@ declare interface VehicleMp extends EntityMp {
 
 	 * @params wheelId - use 255 to apply all wheel
 	 * @params value
-	 * 
+	 *
 	 * @returns void
 	 */
 	setRimRadius(wheelId: number, value: number): void;
 
 	/**
 
-	 * 
+	 *
 	 * @returns number
 	 */
 	getWheelRadius(): number;
@@ -2929,14 +2930,14 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params value
-	 * 
+	 *
 	 * @returns void
 	 */
 	setWheelRadius(value: number): void;
 
 	/**
 
-	 * 
+	 *
 	 * @returns number
 	 */
 	getWheelWidth(): number;
@@ -2944,7 +2945,7 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params value
-	 * 
+	 *
 	 * @returns void
 	 */
 	setWheelWidth(value: number): void;
@@ -2952,7 +2953,7 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params height
-	 * 
+	 *
 	 * @returns void
 	 */
 	setSuspensionHeight(height: number): void;
