@@ -10,7 +10,7 @@ interface EventMpPool {
 	 * This function calls registered Remote Procedure Call (RPC) from browser to client-side and expects a callback.
 	 *
 	 * @param procName
-	 * @param args Data you want to send to client.
+	 * @param args Data you want to send to the client.
 	 * @returns Returns a promise
 	 *
 	 * @example
