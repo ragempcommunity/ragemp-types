@@ -237,9 +237,9 @@ declare class Vector3 {
 	toArray(): Array3d;
 
 	/**
-	 * Normalized copy of a Vector3- one that has the same direction but with a magnitude of 1.
+	 * Normalized copy of a Vector3 that has the same direction but with a magnitude of 1.
 	 *
-	 * @returns Normalized copy of a Vector3- one that has the same direction but with a magnitude of 1.
+	 * @returns Normalized copy of a Vector3 that has the same direction but with a magnitude of 1.
 	 */
 	unit(): Vector3;
 }
@@ -355,7 +355,7 @@ declare interface StorageMp {
 	 *
 	 * Data is saved in <path to RAGEMP>/client_resources/<server ip>/.storage
 	 *
-	 * Thus it is wiped when player deletes client folder.
+	 * Thus, it is wiped when player deletes client folder.
 	 */
 	data: { [key: string]: any };
 
@@ -541,8 +541,7 @@ declare class EntityMp {
 	};
 	getRoll(): number;
 	/**
-	 * @param {number} - Int (specifies which axis rotates before the other axis in a certain order)
-	 *
+	 * @param rotationOrder
 	 * Rotation Orders
 	 * <pre>
 	 * 0: ZYX
@@ -646,7 +645,7 @@ declare class EntityMp {
 	setIsTargetPriority(p0: boolean, p1: number): void;
 	setLights(toggle: boolean): void;
 	/**
-		 * Loads collision grid for an entity spawned outside of a player's loaded area. This allows peds to execute tasks rather than sit dormant because of a lack of a physics grid.
+		 * Loads collision grid for an entity spawned outside a player's loaded area. This allows peds to execute tasks rather than sit dormant because of a lack of a physics grid.
 		 *
 		 * Certainly not the main usage of this native but when set to true for a Vehicle, it will prevent the vehicle to explode if it is spawned far away from the player.
 
@@ -704,7 +703,7 @@ declare class EntityMpPool<T> {
 	public readonly streamed: T[];
 
 	/**
-	 * Gets or sets the maximum amount of streamed entities of a given pool
+	 * Gets or sets the maximum number of streamed entities of a given pool
 	 */
 	public maxStreamed: number;
 
@@ -734,14 +733,15 @@ declare class EntityMpPool<T> {
 	 * This is important to know, because the client-side entity.id may be different to the entity.id server-side.
 	 *
 	 * @param remoteId Entity remote ID (entity.remoteId)
-	 * @returns An entity with the selected remote ID from a pool, or undefined if entity with this remote ID does not exists.
+	 * @returns An entity with the selected remote ID from a pool,
+	 * or undefined if entity with this remote ID does not exist.
 	 */
 	public atRemoteId(remoteId: number): T;
 
 	/**
 	 * Used for check, exists entity with ID in pool or not.
 	 *
-	 * @param entity Entity ID or the entity itself, what you wanna check in pool.
+	 * @param entity Entity ID or the entity itself, what you want to check in pool.
 	 */
 	public exists(entity: T | number): boolean;
 
@@ -753,9 +753,11 @@ declare class EntityMpPool<T> {
 	public forEach(callingFunction: (entity: T) => void): void;
 
 	/**
-	 * Used for calling a function for each element in a pool, but only if it in range of position.
+	 * Used for calling a function for each element in a pool, but only if it is in range of the given position.
 	 *
-	 * @param callingFunction Function, what will be called.
+	 * @param {Vector3} position The position to check range against.
+	 * @param {number} range The range within which the elements should be considered in range of the position.
+	 * @param {function} callingFunction The function that will be called for each element in range.
 	 */
 	public forEachInRange(position: Vector3, range: number, callingFunction: (entity: T) => void): void;
 	public forEachInRange(position: Vector3, range: number, dimension: number, callingFunction: (entity: T) => void): void;
@@ -822,7 +824,7 @@ declare interface GuiMp {
 	 *
 	 * Accessible in CEF via screenshots:// scheme. (Will be available in 0.4)
 	 *
-	 * You can also use http://screenshots/name.png as a fetcher for your screen shot in CEF
+	 * You can also use http://screenshots/name.png as a fetcher for your screenshot in CEF
 	 *
 	 * @param name Screenshot name
 	 * @param type Type of screenshot (0 - JPG, 1 - PNG, 2 - BMP)
@@ -2225,7 +2227,7 @@ declare interface PedMpBase extends EntityMp {
 declare interface PedMp extends PedMpBase {
 	spawnPosition: Vector3;
 	/**
-	 * Returns the player set as the peds controller.
+	 * Returns the player set as the ped's controller.
 	 */
 	readonly controller: PlayerMp;
 
@@ -2835,7 +2837,7 @@ declare interface VehicleMp extends EntityMp {
 
 	 * @params wheelId - use 255 to apply all wheel
 	 * @params value
-	 * 
+	 *
 	 * @returns void
 	 */
 	setWheelCamber(wheelId: number, value: number): void;
@@ -2843,16 +2845,16 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params wheelId - use 255 to apply all wheel
-	 * 
+	 *
 	 * @returns number
 	 */
 	getWheelTrackWidth(wheelId: number): number;
 
 	/**
-	
+
 	* @params wheelId - use 255 to apply all wheel
 	* @params value
-	* 
+	*
 	* @returns void
 	*/
 	setWheelTrackWidth(wheelId: number, value: number): void;
@@ -2860,7 +2862,7 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params wheelId
-	 * 
+	 *
 	 * @returns number
 	 */
 	getWheelHeight(wheelId: number): number;
@@ -2869,7 +2871,7 @@ declare interface VehicleMp extends EntityMp {
 
 	 * @params wheelId - use 255 to apply all wheel
 	 * @params value
-	 * 
+	 *
 	 * @returns void
 	 */
 	setWheelHeight(wheelId: number, value: number): void;
@@ -2877,7 +2879,7 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params wheelId
-	 * 
+	 *
 	 * @returns number
 	 */
 	getTyreWidth(wheelId: number): number;
@@ -2886,7 +2888,7 @@ declare interface VehicleMp extends EntityMp {
 
 	 * @params wheelId - use 255 to apply all wheel
 	 * @params value
-	 * 
+	 *
 	 * @returns void
 	 */
 	setTyreWidth(wheelId: number, value: number): void;
@@ -2894,7 +2896,7 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params wheelId
-	 * 
+	 *
 	 * @returns number
 	 */
 	getTyreRadius(wheelId: number): number;
@@ -2903,7 +2905,7 @@ declare interface VehicleMp extends EntityMp {
 
 	 * @params wheelId - use 255 to apply all wheel
 	 * @params value
-	 * 
+	 *
 	 * @returns void
 	 */
 	setTyreRadius(wheelId: number, value: number): void;
@@ -2911,7 +2913,7 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params wheelId
-	 * 
+	 *
 	 * @returns number
 	 */
 	getRimRadius(wheelId: number): number;
@@ -2920,14 +2922,14 @@ declare interface VehicleMp extends EntityMp {
 
 	 * @params wheelId - use 255 to apply all wheel
 	 * @params value
-	 * 
+	 *
 	 * @returns void
 	 */
 	setRimRadius(wheelId: number, value: number): void;
 
 	/**
 
-	 * 
+	 *
 	 * @returns number
 	 */
 	getWheelRadius(): number;
@@ -2935,14 +2937,14 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params value
-	 * 
+	 *
 	 * @returns void
 	 */
 	setWheelRadius(value: number): void;
 
 	/**
 
-	 * 
+	 *
 	 * @returns number
 	 */
 	getWheelWidth(): number;
@@ -2950,7 +2952,7 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params value
-	 * 
+	 *
 	 * @returns void
 	 */
 	setWheelWidth(value: number): void;
@@ -2958,7 +2960,7 @@ declare interface VehicleMp extends EntityMp {
 	/**
 
 	 * @params height
-	 * 
+	 *
 	 * @returns void
 	 */
 	setSuspensionHeight(height: number): void;

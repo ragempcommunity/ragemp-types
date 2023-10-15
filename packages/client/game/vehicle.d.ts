@@ -318,7 +318,7 @@ declare interface GameVehicleUnk {
 
 declare interface GameVehicle extends GameVehicleLegacy {
 	/**
-	 * Lets you disable the default engine behaviour (when you enter a vehicle, the player automatically turns on the engine). Setting this to false will stop the player from turning the engine on.
+	 * Lets you disable the default engine behavior (when you enter a vehicle, the player automatically turns on the engine). Setting this to false will stop the player from turning the engine on.
 	 *
 	 * **NOTE**: It is best to set the config flag: [PED_FLAG_STOP_ENGINE_TURNING](https://wiki.rage.mp/index.php?title=Player_Config_Flags) - to ensure the player doesn't attempt to turn the engine resulting in a strange animation.
 	 */
