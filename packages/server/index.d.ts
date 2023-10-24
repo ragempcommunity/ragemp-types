@@ -195,14 +195,14 @@ declare class EntityMp {
 	 *
 	 * @param name The variabile name
 	 */
-	public getVariable<T = any>(name: string): T | undefined;
+	public getVariable<T = any>(name: string): T | null;
 
 	/**
 	 * Allows to get the value set with [entity.setOwnVariable(key, value)](https://wiki.rage.mp/index.php?title=Entity::setOwnVariable).
 	 *
 	 * @param name The variabile name
 	 */
-	public getOwnVariable<T = any>(name: string): T | undefined;
+	public getOwnVariable<T = any>(name: string): T | null;
 
 	/**
 	 * Set custom data to an entity.
