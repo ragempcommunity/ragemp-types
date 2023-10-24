@@ -1999,7 +1999,12 @@ declare interface PedMpBase extends EntityMp {
 		p13: number,
 		p14: number
 	): void;
-	taskJump(unused: boolean): void;
+	/**
+	 * @param unused
+	 * @param flag1 - super jump
+	 * @param flag2 - do nothing if flag1 is false and doubles super jump height if flag1 is true.
+	 */
+	taskJump(unused: boolean, flag1: boolean, flag2: boolean): void;
 	taskLeaveAnyVehicle(p1: number, p2: number): void;
 	taskLeaveVehicle(vehicle: Handle, flags: number): void;
 	taskLookAt(lookAt: Handle, duration: number, unknown1: number, unknown2: number): void;

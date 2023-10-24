@@ -351,14 +351,8 @@ declare class EntityMpPool<T> {
 	/**
 	 * Converts a pool to an array.
 	 *
-	 * If you don't need to create a new array every time, use [Pool::toArrayFast](https://wiki.rage.mp/index.php?title=Pool::toArrayFast).
 	 */
 	public toArray(): T[];
-
-	/**
-	 * Same as [Pool::toArray](https://wiki.rage.mp/index.php?title=Pool::toArray) except it doesn't create a new array each time and instead updates it and returns the same array.
-	 */
-	public toArrayFast(): T[];
 }
 
 declare class PlayerMp extends EntityMp {
