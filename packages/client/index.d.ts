@@ -3118,7 +3118,7 @@ declare interface VehicleMp extends EntityMp {
 	getHeliEngineHealth(): number;
 	getHeliMainRotorHealth(): number;
 	getHeliTailRotorHealth(): number;
-	getIsEngineRunning(): number;
+	getIsEngineRunning(): boolean;
 	getIsLeftHeadlightDamaged(): boolean;
 	getIsPrimaryColourCustom(): boolean;
 	getIsRightHeadlightDamaged(): boolean;
