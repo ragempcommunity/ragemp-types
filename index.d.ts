@@ -562,7 +562,7 @@ declare class EntityMp {
 	getSubmergedLevel(): number;
 	getType(): number;
 	getUprightValue(): number;
-	getVariable(value: string): any;
+	getVariable<T = any>(value: string): T | null;
 	getVehicleIndexFromIndex(): Handle;
 	getVelocity(): Vector3;
 	getWorldPositionOfBone(boneIndex: number): Vector3;
@@ -1249,7 +1249,7 @@ declare interface BlipMp {
 	getInfoIdType(): number;
 	getNextInfoId(): BlipMp;
 	getSprite(): number;
-	getVariable(value: string): any;
+	getVariable<T = any>(value: string): T | null;
 	hasVariable(value: string): boolean;
 	hideNumberOn(): void;
 	isFlashing(): boolean;
@@ -2995,7 +2995,7 @@ declare interface DummyEntityMp {
 	readonly remoteId: number;
 	readonly type: string;
 
-	getVariable(value: string): any;
+	getVariable<T = any>(value: string): T | null;
 }
 
 declare interface DummyEntityMpPool extends EntityMpPool<DummyEntityMp> {
