@@ -3034,6 +3034,21 @@ declare interface VehicleMp extends EntityMp {
 	rpm: number;
 	steeringAngle: number;
 
+	/**
+	 * Forces remote vehicles broken wheels map object removal
+	 */
+	deleteBrokenWheelObjects: boolean;
+	
+	/**
+	 * Forces remote vehicles generic broken parts map object removal, i.e. parts not specified separately
+	 */
+	deleteBrokenPartObjects: boolean;
+
+	/**
+	 * Forces remote vehicles broken vehicle door map object removal
+	 */
+	deleteBrokenDoorObjects: boolean;
+
 	addUpsidedownCheck(): void;
 	areAllWindowsIntact(): boolean;
 	attachToCargobob(cargobob: Handle, p1: number, x: number, y: number, z: number): void;
@@ -3379,6 +3394,7 @@ declare interface VehicleMp extends EntityMp {
 	toggleMod(modType: number, toggle: boolean): void;
 	trackVisibility(): void;
 	wasCounterActivated(p0: any): boolean;
+
 }
 
 declare interface VehicleMpPool extends EntityMpPool<VehicleMp> {

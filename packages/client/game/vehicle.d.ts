@@ -323,6 +323,7 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	 * **NOTE**: It is best to set the config flag: [PED_FLAG_STOP_ENGINE_TURNING](https://wiki.rage.mp/index.php?title=Player_Config_Flags) - to ensure the player doesn't attempt to turn the engine resulting in a strange animation.
 	 */
 	defaultEngineBehaviour: boolean;
+	
 
 	create(modelHash: number, x: number, y: number, z: number, heading: number, isNetwork: boolean, bScriptHostVeh: boolean, p7: boolean): number;
 	delete(vehicle: number): number;
