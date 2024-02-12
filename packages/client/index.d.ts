@@ -1057,10 +1057,19 @@ declare interface BrowserMp {
 	call(eventName: string, ...args: any[]): void;
 	callProc<T = any>(procName: string, ...args: any[]): Promise<T>;
 	executeCached(code: string): void;
+
+	/**
+ 	* Available on 11_test_1102_eXzHpHrWd2UfgUhdau6PDVJ88GG5aQY3 branch
+ 	*/
+	headlessTextureDict: string;
+	headlessTextureName: string;
+	headlessTextureHeightScale: number;
+	inputEnabled: boolean;
 }
 
 declare interface BrowserMpPool extends EntityMpPool<BrowserMp> {
 	'new'(url: string): BrowserMp;
+	newHeadless(url: string, width: number, height: number): BrowserMp;
 }
 
 declare interface CheckpointMp extends EntityMp {
@@ -2970,6 +2979,25 @@ declare interface VehicleMp extends EntityMp {
 	 */
 	setSuspensionHeight(height: number): void;
 
+	/**
+	 * 
+	 * Available on 11_test_1102_eXzHpHrWd2UfgUhdau6PDVJ88GG5aQY3 branch
+	 */
+
+	breakOffWheel(wheelId: number, deleteMapObject: boolean): void;
+	fixWheel(wheelId: number): void;
+	isWheelBrokenOff(wheelId: number): boolean;
+
+	// Use vehicle.isBumperBrokenOff() to get current state
+	breakOffBumper(front: boolean, deleteMapObject: boolean): void;
+	fixBumper(front: boolean): void;
+
+	// Forces remote vehicles broken wheels map object removal
+	deleteBrokenWheelObjects: boolean;
+	// Forces remote vehicles generic broken parts map object removal, i.e. parts not specified separately
+	deleteBrokenPartObjects: boolean;
+	// Forces remote vehicles broken vehicle door map object removal
+	deleteBrokenDoorObjects: boolean;
 }
 
 declare interface VehicleMpPool extends EntityMpPool<VehicleMp> {
