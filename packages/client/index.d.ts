@@ -562,8 +562,8 @@ declare class EntityMp {
 	getSubmergedLevel(): number;
 	getType(): number;
 	getUprightValue(): number;
-	getVariable(value: string): any;
 	hasVariable(value: string): boolean;
+	getVariable<T = any>(value: string): T | null;
 	getVehicleIndexFromIndex(): Handle;
 	getVelocity(): Vector3;
 	getWorldPositionOfBone(boneIndex: number): Vector3;
@@ -1254,7 +1254,7 @@ declare interface BlipMp {
 	getInfoIdType(): number;
 	getNextInfoId(): BlipMp;
 	getSprite(): number;
-	getVariable(value: string): any;
+	getVariable<T = any>(value: string): T | null;
 	hasVariable(value: string): boolean;
 	hideNumberOn(): void;
 	isFlashing(): boolean;
@@ -2004,7 +2004,12 @@ declare interface PedMpBase extends EntityMp {
 		p13: number,
 		p14: number
 	): void;
-	taskJump(unused: boolean): void;
+	/**
+	 * @param unused
+	 * @param flag1 - super jump
+	 * @param flag2 - do nothing if flag1 is false and doubles super jump height if flag1 is true.
+	 */
+	taskJump(unused: boolean, flag1: boolean, flag2: boolean): void;
 	taskLeaveAnyVehicle(p1: number, p2: number): void;
 	taskLeaveVehicle(vehicle: Handle, flags: number): void;
 	taskLookAt(lookAt: Handle, duration: number, unknown1: number, unknown2: number): void;
@@ -2996,7 +3001,7 @@ declare interface DummyEntityMp {
 	readonly remoteId: number;
 	readonly type: string;
 
-	getVariable(value: string): any;
+	getVariable<T = any>(value: string): T | null;
 }
 
 declare interface DummyEntityMpPool extends EntityMpPool<DummyEntityMp> {
@@ -3119,7 +3124,7 @@ declare interface VehicleMp extends EntityMp {
 	getHeliEngineHealth(): number;
 	getHeliMainRotorHealth(): number;
 	getHeliTailRotorHealth(): number;
-	getIsEngineRunning(): number;
+	getIsEngineRunning(): boolean;
 	getIsLeftHeadlightDamaged(): boolean;
 	getIsPrimaryColourCustom(): boolean;
 	getIsRightHeadlightDamaged(): boolean;
