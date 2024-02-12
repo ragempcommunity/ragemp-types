@@ -1031,6 +1031,26 @@ declare interface BrowserMp {
 	url: string;
 
 	/**
+	 * Property used to get headless browser's texture dictionary.
+	 */
+	headlessTextureDict: string;
+	
+	/**
+	 * Property used to get headless browser's texture name.
+	 */
+	headlessTextureName: string;
+
+	/**
+	 * Property used to get headless browser's texture dictionary.
+	 */
+	headlessTextureHeightScale: string;
+
+	/**
+	 * Property used to toggle browser's input.
+	 */
+	inputEnabled: boolean;
+
+	/**
 	 * Destroys browser instance.
 	 */
 	destroy(): void;
@@ -1061,6 +1081,14 @@ declare interface BrowserMp {
 
 declare interface BrowserMpPool extends EntityMpPool<BrowserMp> {
 	'new'(url: string): BrowserMp;
+
+	/**
+	 * Can be used with drawSprite using given texture dictionary, name and height scale multiplier (example 3D CEF with render target)
+	 * @param url URL of the website
+	 * @param width Width in pixels
+	 * @param height Height in pixels
+	 */
+	'newHeadless'(url: string, width: number, height: number): BrowserMp;
 }
 
 declare interface CheckpointMp extends EntityMp {
