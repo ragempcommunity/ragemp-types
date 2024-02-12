@@ -562,6 +562,7 @@ declare class EntityMp {
 	getSubmergedLevel(): number;
 	getType(): number;
 	getUprightValue(): number;
+	hasVariable(value: string): boolean;
 	getVariable<T = any>(value: string): T | null;
 	getVehicleIndexFromIndex(): Handle;
 	getVelocity(): Vector3;
@@ -620,6 +621,10 @@ declare class EntityMp {
 	playSynchronizedAnim(syncedScene: number, animation: string, propName: string, p3: number, p4: number, p5: any, p6: number): boolean;
 	processAttachments(): void;
 	resetAlpha(): void;
+	/**
+	 * - If you are applying alpha to an ObjectMp, use mp.game.entity.setAlpha
+	 * @param alphaLevel 
+	 */
 	setAlpha(alphaLevel: number): void;
 	setAlwaysPrerender(toggle: boolean): void;
 	setAnimCurrentTime(animDict: string, animName: string, time: number): void;
@@ -2109,13 +2114,13 @@ declare interface PedMpBase extends EntityMp {
 	taskShootAtCoord(x: number, y: number, z: number, duration: number, firingPattern: Hash): void;
 	taskShuffleToNextVehicleSeat(vehicle: Handle): void;
 	taskSkyDive(): void;
-	taskSlideToCoord(x: number, y: number, z: number, heading: number, p5: number): void;
-	taskSlideToCoordHdgRate(x: number, y: number, z: number, heading: number, p5: number, p6: number): void;
-	taskSmartFlee(fleeTarget: Handle, distance: number, fleeTime: any, p4: boolean, p5: boolean): void;
-	taskSmartFleeCoord(x: number, y: number, z: number, distance: number, time: number, p6: boolean, p7: boolean): void;
+	taskSlideToCoord(x: number, y: number, z: number, heading: number, speed: number): void;
+	taskSlideToCoordHdgRate(x: number, y: number, z: number, heading: number, speed: number, headingChangeRate: number): void;
+	taskSmartFlee(fleeTarget: Handle, distance: number, fleeTime: any, preferPavements: boolean, updateToNearestHatedPed: boolean): void;
+	taskSmartFleeCoord(x: number, y: number, z: number, distance: number, time: number, preferPavements: boolean, quitIfOutOfRange: boolean): void;
 	taskStandGuard(x: number, y: number, z: number, heading: number, scenarioName: string): void;
 	taskStandStill(time: number): void;
-	taskStartScenarioAtPosition(scenarioName: string, x: number, y: number, z: number, heading: number, p6: any, p7: boolean, p8: boolean): void;
+	taskStartScenarioAtPosition(scenarioName: string, x: number, y: number, z: number, heading: number, duration: number, sittingScenario: boolean, teleport: boolean): void;
 	taskStartScenarioInPlace(scenarioName: string, unkDelay: number, playEnterAnim: boolean): void;
 	taskStayInCover(): void;
 	taskStealthKill(target: Handle, killType: Hash, p3: number, p4: boolean): void;
@@ -2463,6 +2468,7 @@ declare interface PlayerMpPool extends EntityMpPool<PlayerMp> {
 }
 
 declare interface VehicleMp extends EntityMp {
+	readonly controller: PlayerMp;
 	gear: number;
 	rpm: number;
 	steeringAngle: number;
