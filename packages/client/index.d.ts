@@ -3038,7 +3038,7 @@ declare interface VehicleMp extends EntityMp {
 	 * Forces remote vehicles broken wheels map object removal
 	 */
 	deleteBrokenWheelObjects: boolean;
-	
+
 	/**
 	 * Forces remote vehicles generic broken parts map object removal, i.e. parts not specified separately
 	 */
@@ -3394,7 +3394,15 @@ declare interface VehicleMp extends EntityMp {
 	toggleMod(modType: number, toggle: boolean): void;
 	trackVisibility(): void;
 	wasCounterActivated(p0: any): boolean;
-
+	breakOffWheel(wheelId: number, deleteMapObject: boolean): void;
+	fixWheel(wheelId: number): void;
+	isWheelBrokenOff(wheelId: number): void;
+	
+	/**
+	 * Use vehicle.isBumperBrokenOff(front) to get current state
+	 */
+	breakOffBumper(front: boolean, deleteMapObject: boolean): void;
+	fixBumper(front: boolean): void;
 }
 
 declare interface VehicleMpPool extends EntityMpPool<VehicleMp> {
