@@ -1057,10 +1057,19 @@ declare interface BrowserMp {
 	call(eventName: string, ...args: any[]): void;
 	callProc<T = any>(procName: string, ...args: any[]): Promise<T>;
 	executeCached(code: string): void;
+
+	/**
+ 	* Available on 11_test_1102_eXzHpHrWd2UfgUhdau6PDVJ88GG5aQY3 branch
+ 	*/
+	headlessTextureDict: string;
+	headlessTextureName: string;
+	headlessTextureHeightScale: number;
+	inputEnabled: boolean;
 }
 
 declare interface BrowserMpPool extends EntityMpPool<BrowserMp> {
 	'new'(url: string): BrowserMp;
+	newHeadless(url: string, width: number, height: number): BrowserMp;
 }
 
 declare interface CheckpointMp extends EntityMp {
