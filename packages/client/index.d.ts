@@ -1059,8 +1059,8 @@ declare interface BrowserMp {
 	executeCached(code: string): void;
 
 	/**
- 	* Available on 11_test_1102_eXzHpHrWd2UfgUhdau6PDVJ88GG5aQY3 branch
- 	*/
+	  * Available on 11_test_1102_eXzHpHrWd2UfgUhdau6PDVJ88GG5aQY3 branch
+	  */
 	headlessTextureDict: string;
 	headlessTextureName: string;
 	headlessTextureHeightScale: number;
@@ -1671,6 +1671,7 @@ declare interface PedMpBase extends EntityMp {
 	setCanBeKnockedOffVehicle(state: number): void;
 	setCanBeShotInVehicle(toggle: boolean): void;
 	setCanBeTargetedWhenInjured(toggle: boolean): void;
+	setCanLosePropsOnDamage(enable: boolean, p0: number): void;
 	setCanBeTargetedWithoutLos(toggle: boolean): void;
 	setCanBeTargetted(toggle: boolean): void;
 	setCanBeTargettedByPlayer(player: Handle, toggle: boolean): void;
