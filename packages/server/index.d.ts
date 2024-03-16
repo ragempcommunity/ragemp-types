@@ -332,20 +332,20 @@ declare class EntityMpPool<T> {
 	 */
 	public getClosest(position: Vector3, limit: number): T[];
 
-	 /**
-	  * Gets the closest set of entities to a position in the defined dimension.
-	  *
-	  * @param position Vector3
-	  * @param dimension The Dimension
-	  * @param limit Limit of results
-	  * @returns Array of entities sorted by distance to given position
-	  *
-	  * @example
-	  * ```
-	  * const [closestVehicle] = mp.vehicles.getClosestInDimension(player.position, player.dimension, 1);
-	  * closestVehicle.locked = true;
-	  * ```
-	  */
+	/**
+	 * Gets the closest set of entities to a position in the defined dimension.
+	 *
+	 * @param position Vector3
+	 * @param dimension The Dimension
+	 * @param limit Limit of results
+	 * @returns Array of entities sorted by distance to given position
+	 *
+	 * @example
+	 * ```
+	 * const [closestVehicle] = mp.vehicles.getClosestInDimension(player.position, player.dimension, 1);
+	 * closestVehicle.locked = true;
+	 * ```
+	 */
 	public getClosestInDimension(position: Vector3, dimension: number, limit: number): T[];
 
 	/**
@@ -1309,7 +1309,7 @@ declare interface EventMpThis {
 declare interface IServerEvents {
 	entityCreated: (entity: EntityMp) => void;
 	/*
- 	 * @deprecated Broken/Removed in RageMP 1.1 DP1
+	   * @deprecated Broken/Removed in RageMP 1.1 DP1
 	 */
 	entityDestroyed: (entity: EntityMp) => void;
 	entityModelChange: (entity: EntityMp, oldModel: number) => void;
@@ -1437,6 +1437,11 @@ declare class EventMpPool {
 	public remove<K extends keyof IServerEvents>(eventName: K, callback?: IServerEvents[K]): void;
 	public remove(eventName: string, callback?: (...args: any[]) => void): void;
 	public remove(eventNames: string[]): void;
+
+	/**
+	 * Returns a list of binded events.
+	 */
+	readonly binded: { [key: string]: Function }[]
 
 	/**
 	 * Resets the whole event manager.
