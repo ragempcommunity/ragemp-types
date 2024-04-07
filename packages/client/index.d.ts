@@ -2345,7 +2345,6 @@ declare interface PlayerMp extends PedMpBase {
 	clearParachuteModelOverride(): void;
 	clearParachutePackModelOverride(): void;
 	clearParachuteVariationOverride(): void;
-	clearSecondaryTask(): void;
 	clearWantedLevel(): void;
 	explodeHead(weaponHash: Hash): void;
 	getCurrentStealthNoise(): number;
