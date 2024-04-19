@@ -1241,18 +1241,41 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 
 	/**
 	 * This function allows you to disable the state of an artificial lightId (granular control over lights instead of e.g. setBlackout turning all on/off)
-	 * 
+	 *
 	 * @param lightId The lightId (valid 0 through 16) to change the state of
 	 * @param disable true to disable; false to enable (defaults to false)
 	 */
-	setLightsState(lightId: number, disable: boolean): void
+	setLightsState(lightId: number, disable: boolean): void;
 
 	/**
 	 * @param layer Only layer 4 works
 	 */
-	set2dLayer(layer: number): void
+	set2dLayer(layer: number): void;
 
 	unk: GameGraphicsUnk;
+
+	/**
+	 * This function will create a texture swap in the world
+	 *
+	 * @param oldTextureDict The old texture dictionary
+	 * @param oldTextureName The old texture name
+	 * @param newTextureDict The new texture dictionary
+	 * @param newTextureName The new texture name
+	 */
+	createWorldTextureSwap(oldTextureDict: string, oldTextureName: string, newTextureDict: string, newTextureName: string): void;
+
+	/**
+	 * This function will remove the specified texture swap from the world
+	 *
+	 * @param oldTextureDict The old texture dictionary
+	 * @param oldTextureName The old texture name
+	 */
+	removeWorldTextureSwap(oldTextureDict: string, oldTextureName: string): void;
+
+	/**
+	 * This function will reset all texture swaps in the world
+	 */
+	resetWorldTextureSwaps(): void;
 }
 
 declare interface GameGraphicsMp extends GameGraphics {}

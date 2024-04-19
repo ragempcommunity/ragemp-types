@@ -623,7 +623,7 @@ declare class EntityMp {
 	resetAlpha(): void;
 	/**
 	 * - If you are applying alpha to an ObjectMp, use mp.game.entity.setAlpha
-	 * @param alphaLevel 
+	 * @param alphaLevel
 	 */
 	setAlpha(alphaLevel: number): void;
 	setAlwaysPrerender(toggle: boolean): void;
@@ -882,6 +882,11 @@ declare interface GuiCursorMp {
 	 * Show or hide the cursor on your screen
 	 */
 	show(freezeControls: boolean, state: boolean): void;
+
+	/**
+	 * Registers a custom cursor icon
+	 */
+	registerCustomIcon(type: string, packageFilePath: string, offsetX: number, offsetY: number): void;
 }
 
 declare interface UserMp {
@@ -1005,7 +1010,12 @@ declare interface RaycastingMp {
 	/**
 	 * Same as testPointToPoint but async
 	 */
-	testPointToPointAsync(startPos: Vector3, endPos: Vector3, ignoreEntity?: EntityMp | EntityMp[], flags?: number | number[]): Promise<RaycastResult>;
+	testPointToPointAsync(
+		startPos: Vector3,
+		endPos: Vector3,
+		ignoreEntity?: EntityMp | EntityMp[],
+		flags?: number | number[]
+	): Promise<RaycastResult>;
 
 	/**
 	 * Raycast from point to point, where the ray has a radius.
@@ -1059,17 +1069,32 @@ declare interface BrowserMp {
 	executeCached(code: string): void;
 
 	/**
-	  * Available on 11_test_1102_eXzHpHrWd2UfgUhdau6PDVJ88GG5aQY3 branch
-	  */
+	 * Available on 11_test_1102_eXzHpHrWd2UfgUhdau6PDVJ88GG5aQY3 branch
+	 */
 	headlessTextureDict: string;
 	headlessTextureName: string;
 	headlessTextureHeightScale: number;
 	inputEnabled: boolean;
+
+	/**
+	 * Send mouse move event
+	 */
+	sendMouseMoveEvent(x: number, y: number): void;
+
+	/**
+	 * Send mouse click event
+	 */
+	sendMouseClickEvent(buttonType: number, x: number, y: number, isUp: boolean): void;
+
+	/**
+	 * Property used to gets the mouse input state
+	 */
+	mouseInputEnabled: boolean;
 }
 
 declare interface BrowserMpPool extends EntityMpPool<BrowserMp> {
 	'new'(url: string): BrowserMp;
-	newHeadless(url: string, width: number, height: number): BrowserMp;
+	newHeadless(url: string, width: number, height: number, forceFlip?: boolean): BrowserMp;
 }
 
 declare interface CheckpointMp extends EntityMp {
@@ -1153,6 +1178,8 @@ declare interface IClientEvents {
 	playerExitColshape: (shape: ColshapeMp) => void;
 	explosion: (sourcePlayer: PlayerMp, type: RageEnums.Explosions, position: Vector3) => boolean;
 	projectile: (sourcePlayer: PlayerMp, weaponHash: number, ammoType: number, position: Vector3, direction: Vector3) => boolean;
+	uncaughtException: (exception: any) => void;
+	unhandledRejection: (promise: Promise<any>, error: any) => void;
 }
 
 declare class EventMp {
@@ -2130,7 +2157,16 @@ declare interface PedMpBase extends EntityMp {
 	taskSmartFleeCoord(x: number, y: number, z: number, distance: number, time: number, preferPavements: boolean, quitIfOutOfRange: boolean): void;
 	taskStandGuard(x: number, y: number, z: number, heading: number, scenarioName: string): void;
 	taskStandStill(time: number): void;
-	taskStartScenarioAtPosition(scenarioName: string, x: number, y: number, z: number, heading: number, duration: number, sittingScenario: boolean, teleport: boolean): void;
+	taskStartScenarioAtPosition(
+		scenarioName: string,
+		x: number,
+		y: number,
+		z: number,
+		heading: number,
+		duration: number,
+		sittingScenario: boolean,
+		teleport: boolean
+	): void;
 	taskStartScenarioInPlace(scenarioName: string, unkDelay: number, playEnterAnim: boolean): void;
 	taskStayInCover(): void;
 	taskStealthKill(target: Handle, killType: Hash, p3: number, p4: boolean): void;
@@ -2282,14 +2318,13 @@ declare interface PedMp extends PedMpBase {
 	 * @returns boolean
 	 */
 	isPositionFrozen: boolean;
-
 }
 
 declare interface PedMpPool extends EntityMpPool<PedMp> {
 	'new'(model: RageEnums.Hashes.Ped | Hash, position: Vector3, heading: number, dimension?: number): PedMp;
 }
 
-declare interface PickupMp extends EntityMp { }
+declare interface PickupMp extends EntityMp {}
 
 declare interface PickupMpPool extends EntityMpPool<PickupMp> {
 	'new'(...args: any[]): PickupMp;
@@ -2461,11 +2496,30 @@ declare interface PlayerMp extends PedMpBase {
 	resetVoiceFx(fxHandle: VoiceHandle): void;
 	setVoiceFxChorus(fxHandle: VoiceHandle, { fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase }: VoiceFxChorus): void;
 	setVoiceFxCompressor(fxHandle: VoiceHandle, { fGain, fAttack, fRelease, fThreshold, fRatio, fPredelay }: VoiceFxCompressor): void;
-	setVoiceFxDistortion(fxHandle: VoiceHandle, { fGain, fEdge, fPostEQCenterFrequency, fPostEQBandwidth, fPreLowpassCutoff }: VoiceFxDistortion): void;
+	setVoiceFxDistortion(
+		fxHandle: VoiceHandle,
+		{ fGain, fEdge, fPostEQCenterFrequency, fPostEQBandwidth, fPreLowpassCutoff }: VoiceFxDistortion
+	): void;
 	setVoiceFxEcho(fxHandle: VoiceHandle, { fWetDryMix, fFeedback, fLeftDelay, fRightDelay, lPanDelay }: VoiceFxEcho): void;
 	setVoiceFxFlanger(fxHandle: VoiceHandle, { fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase }: VoiceFxFlanger): void;
 	setVoiceFxGargle(fxHandle: VoiceHandle, { dwRateHz, dwWaveShape }: VoiceFxGargle): void;
-	setVoiceFxI3DL2Reverb(fxHandle: VoiceHandle, { lRoom, lRoomHF, flRoomRolloffFactor, flDecayTime, flDecayHFRatio, lReflections, flReflectionsDelay, lReverb, flReverbDelay, flDiffusion, flDensity, flHFReference }: VoiceFxI3DL2Reverb): void;
+	setVoiceFxI3DL2Reverb(
+		fxHandle: VoiceHandle,
+		{
+			lRoom,
+			lRoomHF,
+			flRoomRolloffFactor,
+			flDecayTime,
+			flDecayHFRatio,
+			lReflections,
+			flReflectionsDelay,
+			lReverb,
+			flReverbDelay,
+			flDiffusion,
+			flDensity,
+			flHFReference
+		}: VoiceFxI3DL2Reverb
+	): void;
 	setVoiceFxParamEq(fxHandle: VoiceHandle, { fCenter, fBandwidth, fGain }: VoiceFxParamEq): void;
 	setVoiceFxReverb(fxHandle: VoiceHandle, { fInGain, fReverbMix, fReverbTime, fHighFreqRTRatio }: VoiceFxReverb): void;
 	setVoiceFxVolume(fxHandle: VoiceHandle, { fTarget, fCurrent, fTime, lCurve }: VoiceFxVolume): void;
@@ -2843,9 +2897,9 @@ declare interface VehicleMp extends EntityMp {
 	wheelCount: number;
 
 	/**
-	* @params wheelId
-	* @returns number
-	*/
+	 * @params wheelId
+	 * @returns number
+	 */
 	getWheelCamber(wheelId: number): number;
 
 	/**
@@ -2981,7 +3035,7 @@ declare interface VehicleMp extends EntityMp {
 	setSuspensionHeight(height: number): void;
 
 	/**
-	 * 
+	 *
 	 * Available on 11_test_1102_eXzHpHrWd2UfgUhdau6PDVJ88GG5aQY3 branch
 	 */
 
@@ -3408,6 +3462,8 @@ declare interface VehicleMp extends EntityMp {
 	toggleMod(modType: number, toggle: boolean): void;
 	trackVisibility(): void;
 	wasCounterActivated(p0: any): boolean;
+	setLiveryTexture(textureDict: string, textureName: string): void;
+	setNumberPlateTexture(textureDict: string, textureName: string, textureDictNormal: string, textureNameNormal: string): void;
 }
 
 declare interface VehicleMpPool extends EntityMpPool<VehicleMp> {
