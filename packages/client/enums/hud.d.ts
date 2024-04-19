@@ -501,6 +501,12 @@ declare namespace RageEnums.Hud {
 		AVOID_OFF_ROAD = 64,
 		IGNORE_DESTINATION_Z = 128
 	}
+
+	enum PM_PedPosition {
+		LEFT = 0,
+		CENTER,
+		RIGHT
+	}
 }
 
 declare namespace RageEnums {

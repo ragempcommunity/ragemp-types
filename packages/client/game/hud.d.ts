@@ -806,7 +806,7 @@ declare interface GameHud extends GameHudLegacy {
 	getMenuPedFloatStat(p0: number): number;
 	getMenuPedBoolStat(p0: number): number;
 	clearPedInPauseMenu(): void;
-	givePedToPauseMenu(ped: number, p1: number): void;
+	givePedToPauseMenu(ped: number, position: RageEnums.Hud.PM_PedPosition): void;
 	setPauseMenuPedLighting(state: boolean): void;
 	setPauseMenuPedSleepState(state: boolean): void;
 	openOnlinePoliciesMenu(): void;
