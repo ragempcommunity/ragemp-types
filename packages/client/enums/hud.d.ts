@@ -475,6 +475,32 @@ declare namespace RageEnums.Hud {
 		WEAPON_WHEEL = 19,
 		WEAPON_WHEEL_STATS = 20
 	}
+
+	enum DisplayHelpId {
+		STANDARD = 0,
+		FLOATING_1,
+		FLOATING_2,
+		FLOATING_3,
+	}
+
+	enum ArrowDirection {
+		NORTH = 1,
+		EAST,
+		SOUTH,
+		WEST
+	}
+
+	enum GpsFlags {
+		NONE = 0,
+		IGNORE_ONE_WAY = 1,
+		FOLLOW_RULES = 2,
+		AVOID_HIGHWAY = 4,
+		NO_ROUTE_SHIFT = 8,
+		CUSTOM_PROXIMITY = 16,
+		NO_PULL_PATH_TO_RIGHT_LANE = 32,
+		AVOID_OFF_ROAD = 64,
+		IGNORE_DESTINATION_Z = 128
+	}
 }
 
 declare namespace RageEnums {
