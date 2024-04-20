@@ -1440,9 +1440,9 @@ declare interface CameraMp {
 		zRot: number,
 		fov: number,
 		duration: number,
-		p8: number,
-		p9: number,
-		p10: number
+		graphTypePos: RageEnums.Camera.GraphTypes | number,
+		graphTypeRot: RageEnums.Camera.GraphTypes | number,
+		rotOrder: number
 	): void;
 	setRot(rotX: number, rotY: number, rotZ: number, p3: number): void;
 	setShakeAmplitude(amplitude: number): void;
