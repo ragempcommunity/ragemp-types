@@ -2324,7 +2324,7 @@ declare interface PedMpPool extends EntityMpPool<PedMp> {
 	'new'(model: RageEnums.Hashes.Ped | Hash, position: Vector3, heading: number, dimension?: number): PedMp;
 }
 
-declare interface PickupMp extends EntityMp {}
+declare interface PickupMp extends EntityMp { }
 
 declare interface PickupMpPool extends EntityMpPool<PickupMp> {
 	'new'(...args: any[]): PickupMp;
@@ -2412,7 +2412,7 @@ declare interface PlayerMp extends PedMpBase {
 	isJumping(): boolean;
 	isInCover(exceptUseWeapon: boolean): boolean;
 	isControlOn(): boolean;
-	isFreeAiming(): boolean;
+	// isFreeAiming(): boolean;
 	isFreeForAmbientTask(): boolean;
 	isPlaying(): boolean;
 	isPressingHorn(): boolean;

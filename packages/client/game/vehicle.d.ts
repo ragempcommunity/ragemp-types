@@ -847,10 +847,10 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	setPlayersLast(vehicle: number): void;
 	setCanBeUsedByFleeingPeds(vehicle: number, toggle: boolean): void;
 	setDropsMoneyWhenBlownUp(vehicle: number, toggle: boolean): void;
-	setJetEngineOn(vehicle: number, toggle: boolean): void;
-	setHandlingHashForAi(vehicle: number, hash: number): void;
-	setExtendedRemovalRange(vehicle: number, range: number): void;
-	setSteeringBiasScalar(p0: number, p1: number): void;
+	setJetEngineOn(vehicle: Handle, toggle: boolean): void;
+	setHandlingHashForAi(vehicle: Handle, hash: number): void;
+	setExtendedRemovalRange(vehicle: Handle, range: number): void;
+	setSteeringBiasScalar(vehicle: Handle, scalar: number): void;
 	setHelicopterRollPitchYawMult(helicopter: number, multiplier: number): void;
 	setFrictionOverride(vehicle: number, friction: number): void;
 	setWheelsCanBreakOffWhenBlowUp(vehicle: number, toggle: boolean): void;
