@@ -4594,6 +4594,13 @@ declare namespace RageEnums.Vehicle {
 		 */
 		YOUGA3 = 0x6b73a9be
 	}
+
+	enum vStuckType {
+		STUCK_ON_ROOF = 0,
+		STUCK_ON_SIDE,
+		STUCK_HUNG_UP,
+		STUCK_JAMMED,
+	}
 }
 
 declare namespace RageEnums.Hashes {

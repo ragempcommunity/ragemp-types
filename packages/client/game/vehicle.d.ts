@@ -613,11 +613,11 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	setExtra(vehicle: number, extraId: number, disable: boolean): void;
 	doesExtraExist(vehicle: number, extraId: number): boolean;
 	doesTyreExist(vehicle: number, tyreIndex: number): boolean;
-	setConvertibleRoof(vehicle: number, p1: boolean): void;
+	setConvertibleRoof(vehicle: number, turnon: boolean): void;
 	lowerConvertibleRoof(vehicle: number, instantlyLower: boolean): void;
 	raiseConvertibleRoof(vehicle: number, instantlyRaise: boolean): void;
 	getConvertibleRoofState(vehicle: number): number;
-	isAConvertible(vehicle: number, p1: boolean): boolean;
+	isAConvertible(vehicle: number, checkRoofExtras: boolean): boolean;
 	transformToSubmarine(vehicle: number, noAnimation: boolean): void;
 	transformSubmarineTo(vehicle: number, noAnimation: boolean): void;
 	getIsSubmarineTransformed(vehicle: number): boolean;
@@ -628,7 +628,7 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	setPlaneEngineHealth(vehicle: number, health: number): void;
 	getPetrolTankHealth(vehicle: number): number;
 	setPetrolTankHealth(vehicle: number, health: number): void;
-	isStuckTimerUp(vehicle: number, p1: number, p2: number): boolean;
+	isStuckTimerUp(vehicle: number, stuckType: RageEnums.Vehicle.vStuckType, requiredTime: number): boolean;
 	resetStuckTimer(vehicle: number, nullAttributes: number): void;
 	isDriveable(vehicle: number, isOnFireCheck: boolean): boolean;
 	setHasBeenOwnedByPlayer(vehicle: number, owned: boolean): void;
@@ -950,4 +950,4 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	unk: GameVehicleUnk;
 }
 
-declare interface GameVehicleMp extends GameVehicle {}
+declare interface GameVehicleMp extends GameVehicle { }
