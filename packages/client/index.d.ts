@@ -1637,7 +1637,7 @@ declare interface PedMpBase extends EntityMp {
 	isRunningRagdollTask(): boolean;
 	isScriptedScenarioUsingConditionalAnim(animDict: string, anim: string): boolean;
 	isShooting(): boolean;
-	isShootingInArea(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, p7: boolean, p8: boolean): boolean;
+	isShootingInArea(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, highlightArea: boolean, threeDCheck: boolean): boolean;
 	isSittingInAnyVehicle(): boolean;
 	isSittingInVehicle(vehicle: Handle): boolean;
 	isSprinting(): boolean;
@@ -1655,7 +1655,7 @@ declare interface PedMpBase extends EntityMp {
 	isVaulting(): boolean;
 	isWalking(): boolean;
 	isWearingHelmet(): boolean;
-	knockOffProp(p1: boolean, p2: boolean, p3: boolean, p4: boolean): void;
+	knockOffProp(damaged: boolean, hats: boolean, glasses: boolean, helmets: boolean): void;
 	knockOffVehicle(): void;
 	playAnimOnRunningScenario(animDict: string, animName: string): void;
 	playFacialAnim(animName: string, animDict: string): void;
@@ -1683,7 +1683,7 @@ declare interface PedMpBase extends EntityMp {
 	setAllowVehiclesOverride(toggle: boolean): void;
 	setAlternateMovementAnim(stance: number, animDictionary: string, animationName: string, p4: number, p5: boolean): void;
 	setAmmoInClip(weapon: RageEnums.Hashes.Weapon | Hash, ammo: number): void;
-	setAngledDefensiveArea(p1: number, p2: number, p3: number, p4: number, p5: number, p6: number, p7: number, p8: boolean, p9: boolean): void;
+	setAngledDefensiveArea(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, fWidth: number, useCenterAsGoToPosition: boolean, applyToSecondaryDefensiveArea: boolean): void;
 	setArmour(amount: number): void;
 	setAsCop(toggle: boolean): void;
 	setAsEnemy(toggle: boolean): void;
