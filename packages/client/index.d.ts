@@ -1360,7 +1360,7 @@ declare interface ColshapeMpPool extends EntityMpPool<ColshapeMp> {
 declare interface CameraMp {
 	handle: Handle;
 
-	animatedShake(p0: string, p1: string, p2: string, p3: number): void;
+	animatedShake(animDict: string, animName: string, shakeName: string, amplitudeScalar: number): void;
 	attachTo(
 		entity: Handle,
 		boneIndex: number,
@@ -1389,7 +1389,7 @@ declare interface CameraMp {
 	getFarDof(): number;
 	getFov(): number;
 	getNearClip(): number;
-	getRot(p0: number): Vector3;
+	getRot(rotationOrder: number): Vector3;
 	getSplinePhase(): number;
 	isActive(): boolean;
 	isInterpolating(): boolean;
@@ -1418,11 +1418,11 @@ declare interface CameraMp {
 	setAnimCurrentPhase(phase: number): void;
 	setCoord(posX: number, posY: number, posZ: number): void;
 	setDebugName(name: string): void;
-	setDofFnumberOfLens(p1: number): void;
-	setDofFocusDistanceBias(p0: number): void;
-	setDofMaxNearInFocusDistance(p0: number): void;
-	setDofMaxNearInFocuxDistanceBlendLevel(p0: number): void;
-	setDofPlanes(p0: number, p1: number, p2: number, p3: number): void;
+	setDofFnumberOfLens(fnumber: number): void;
+	setDofFocusDistanceBias(distanceBias: number): void;
+	setDofMaxNearInFocusDistance(distance: number): void;
+	setDofMaxNearInFocuxDistanceBlendLevel(blendLevel: number): void;
+	setDofPlanes(nearOutOfFocusPlane: number, nearInFocusPlane: number, farInFocusPlane: number, farOutOfFocusPlane: number): void;
 	setDofStrength(dofStrength: number): void;
 	setFarClip(farClip: number): void;
 	setFarDof(farDof: number): void;
@@ -1449,7 +1449,7 @@ declare interface CameraMp {
 	setUseShallowDofMode(toggle: boolean): void;
 	shake(type: string, amplitude: number): void;
 	stopPointing(): void;
-	stopShaking(p0: boolean): void;
+	stopShaking(stopImmediately: boolean): void;
 }
 
 declare interface CameraMpPool extends EntityMpPool<CameraMp> {
