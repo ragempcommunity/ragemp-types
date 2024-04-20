@@ -1360,7 +1360,7 @@ declare interface ColshapeMpPool extends EntityMpPool<ColshapeMp> {
 declare interface CameraMp {
 	handle: Handle;
 
-	animatedShake(p0: string, p1: string, p2: string, p3: number): void;
+	animatedShake(animDict: string, animName: string, shakeName: string, amplitudeScalar: number): void;
 	attachTo(
 		entity: Handle,
 		boneIndex: number,
@@ -1389,7 +1389,7 @@ declare interface CameraMp {
 	getFarDof(): number;
 	getFov(): number;
 	getNearClip(): number;
-	getRot(p0: number): Vector3;
+	getRot(rotationOrder: number): Vector3;
 	getSplinePhase(): number;
 	isActive(): boolean;
 	isInterpolating(): boolean;
@@ -1418,11 +1418,11 @@ declare interface CameraMp {
 	setAnimCurrentPhase(phase: number): void;
 	setCoord(posX: number, posY: number, posZ: number): void;
 	setDebugName(name: string): void;
-	setDofFnumberOfLens(p1: number): void;
-	setDofFocusDistanceBias(p0: number): void;
-	setDofMaxNearInFocusDistance(p0: number): void;
-	setDofMaxNearInFocuxDistanceBlendLevel(p0: number): void;
-	setDofPlanes(p0: number, p1: number, p2: number, p3: number): void;
+	setDofFnumberOfLens(fnumber: number): void;
+	setDofFocusDistanceBias(distanceBias: number): void;
+	setDofMaxNearInFocusDistance(distance: number): void;
+	setDofMaxNearInFocuxDistanceBlendLevel(blendLevel: number): void;
+	setDofPlanes(nearOutOfFocusPlane: number, nearInFocusPlane: number, farInFocusPlane: number, farOutOfFocusPlane: number): void;
 	setDofStrength(dofStrength: number): void;
 	setFarClip(farClip: number): void;
 	setFarDof(farDof: number): void;
@@ -1449,7 +1449,7 @@ declare interface CameraMp {
 	setUseShallowDofMode(toggle: boolean): void;
 	shake(type: string, amplitude: number): void;
 	stopPointing(): void;
-	stopShaking(p0: boolean): void;
+	stopShaking(stopImmediately: boolean): void;
 }
 
 declare interface CameraMpPool extends EntityMpPool<CameraMp> {
@@ -1464,15 +1464,15 @@ declare interface PedMpBase extends EntityMp {
 	applyBloodSpecific(p1: any, p2: number, p3: number, p4: number, p5: number, p6: any, p7: number, p8: any): void;
 	applyDamageDecal(p1: number, p2: number, p3: number, p4: number, p5: number, p6: number, p7: number, p8: boolean, p9: string): void;
 	applyDamagePack(damagePack: string, damage: number, mult: number): void;
-	applyDamageTo(damageAmount: number, p2: boolean): void;
+	applyDamageTo(damageAmount: number, damageArmourFlag: boolean, instigatorHandle?: Handle): void;
 	canInCombatSeeTarget(target: Handle): boolean;
 	canKnockOffVehicle(): boolean;
 	canRagdoll(): boolean;
 	clearAllProps(): void;
-	clearAlternateMovementAnim(stance: number, p2: number): void;
+	clearAlternateMovementAnim(type: number, blendDelta: number): void;
 	clearBloodDamage(): void;
 	clearBloodDamageByZone(p1: number): void;
-	clearDamageDecalByZone(p1: number, p2: string): void;
+	clearDamageDecalByZone(zone: number, decalName: string): void;
 	clearDecorations(): void;
 	clearDriveByClipsetOverride(): void;
 	clearDrivebyTaskUnderneathDrivingTask(): void;
@@ -1637,7 +1637,7 @@ declare interface PedMpBase extends EntityMp {
 	isRunningRagdollTask(): boolean;
 	isScriptedScenarioUsingConditionalAnim(animDict: string, anim: string): boolean;
 	isShooting(): boolean;
-	isShootingInArea(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, p7: boolean, p8: boolean): boolean;
+	isShootingInArea(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, highlightArea: boolean, threeDCheck: boolean): boolean;
 	isSittingInAnyVehicle(): boolean;
 	isSittingInVehicle(vehicle: Handle): boolean;
 	isSprinting(): boolean;
@@ -1655,7 +1655,7 @@ declare interface PedMpBase extends EntityMp {
 	isVaulting(): boolean;
 	isWalking(): boolean;
 	isWearingHelmet(): boolean;
-	knockOffProp(p1: boolean, p2: boolean, p3: boolean, p4: boolean): void;
+	knockOffProp(damaged: boolean, hats: boolean, glasses: boolean, helmets: boolean): void;
 	knockOffVehicle(): void;
 	playAnimOnRunningScenario(animDict: string, animName: string): void;
 	playFacialAnim(animName: string, animDict: string): void;
@@ -1683,7 +1683,7 @@ declare interface PedMpBase extends EntityMp {
 	setAllowVehiclesOverride(toggle: boolean): void;
 	setAlternateMovementAnim(stance: number, animDictionary: string, animationName: string, p4: number, p5: boolean): void;
 	setAmmoInClip(weapon: RageEnums.Hashes.Weapon | Hash, ammo: number): void;
-	setAngledDefensiveArea(p1: number, p2: number, p3: number, p4: number, p5: number, p6: number, p7: number, p8: boolean, p9: boolean): void;
+	setAngledDefensiveArea(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, fWidth: number, useCenterAsGoToPosition: boolean, applyToSecondaryDefensiveArea: boolean): void;
 	setArmour(amount: number): void;
 	setAsCop(toggle: boolean): void;
 	setAsEnemy(toggle: boolean): void;
@@ -2324,7 +2324,7 @@ declare interface PedMpPool extends EntityMpPool<PedMp> {
 	'new'(model: RageEnums.Hashes.Ped | Hash, position: Vector3, heading: number, dimension?: number): PedMp;
 }
 
-declare interface PickupMp extends EntityMp {}
+declare interface PickupMp extends EntityMp { }
 
 declare interface PickupMpPool extends EntityMpPool<PickupMp> {
 	'new'(...args: any[]): PickupMp;
@@ -2412,7 +2412,7 @@ declare interface PlayerMp extends PedMpBase {
 	isJumping(): boolean;
 	isInCover(exceptUseWeapon: boolean): boolean;
 	isControlOn(): boolean;
-	isFreeAiming(): boolean;
+	// isFreeAiming(): boolean;
 	isFreeForAmbientTask(): boolean;
 	isPlaying(): boolean;
 	isPressingHorn(): boolean;

@@ -115,7 +115,7 @@ declare interface GameHudLegacy {
 	getHudColour(hudColorIndex: number): GetHudColourResult;
 	setHudColour(hudColorIndex: number, r: number, g: number, b: number, a: number): void;
 	getTextScaleHeight(size: number, font: number): number;
-	setMultiplayerHudCash(p0: number, p1: number): void;
+	setMultiplayerHudCash(cash: number, forever: boolean): void;
 	showWeaponWheel(show: boolean): void;
 	keyHudColour(toggle: boolean, ped: number): void;
 	setMinimapVisible(toggle: boolean): void;
@@ -357,9 +357,9 @@ declare interface GameHud extends GameHudLegacy {
 		iconType2: number,
 		p9: number
 	): number;
-	endTextCommandThefeedPostTicker(blink: boolean, p1: boolean): number;
-	endTextCommandThefeedPostTickerForced(blink: boolean, p1: boolean): number;
-	endTextCommandThefeedPostTickerWithTokens(blink: boolean, p1: boolean): number;
+	endTextCommandThefeedPostTicker(isImportant: boolean, cacheMessage: boolean): number;
+	endTextCommandThefeedPostTickerForced(isImportant: boolean, cacheMessage: boolean): number;
+	endTextCommandThefeedPostTickerWithTokens(isImportant: boolean, cacheMessage: boolean): number;
 	endTextCommandThefeedPostAward(textureDict: string, textureName: string, rpBonus: number, colorOverlay: number, titleLabel: string): number;
 	endTextCommandThefeedPostCrewtag(
 		p0: boolean,
@@ -403,7 +403,7 @@ declare interface GameHud extends GameHudLegacy {
 	beginTextCommandLineCount(entry: string): void;
 	endTextCommandLineCount(x: number, y: number): number;
 	beginTextCommandDisplayHelp(inputType: string): void;
-	endTextCommandDisplayHelp(p0: number, loop: boolean, beep: boolean, shape: number): void;
+	endTextCommandDisplayHelp(helpid: RageEnums.Hud.DisplayHelpId, loop: boolean, beep: boolean, shape: number): void;
 	beginTextCommandIsThisHelpMessageBeingDisplayed(labelName: string): void;
 	endTextCommandIsThisHelpMessageBeingDisplayed(p0: number): boolean;
 	beginTextCommandSetBlipName(textLabel: string): void;
@@ -439,8 +439,8 @@ declare interface GameHud extends GameHudLegacy {
 	requestAdditionalText(gxt: string, slot: number): void;
 	requestAdditionalTextForDlc(gxt: string, slot: number): void;
 	hasAdditionalTextLoaded(slot: number): boolean;
-	clearAdditionalText(p0: number, p1: boolean): void;
-	isStreamingAdditionalText(p0: number): boolean;
+	clearAdditionalText(slotNumber: number, clearPrevious: boolean): void;
+	isStreamingAdditionalText(slotNumber: number): boolean;
 	hasThisAdditionalTextLoaded(gxt: string, slot: number): boolean;
 	isMessageBeingDisplayed(): boolean;
 	doesTextLabelExist(gxt: string): boolean;
@@ -474,8 +474,8 @@ declare interface GameHud extends GameHudLegacy {
 	setAbilityBarVisibilityInMultiplayer(visible: boolean): void;
 	setAllowAbilityBarInMultiplayer(toggle: boolean): void;
 	flashAbilityBar(millisecondsToFlash: number): void;
-	setAbilityBarValue(p0: number, p1: number): void;
-	flashWantedDisplay(p0: boolean): void;
+	setAbilityBarValue(percentage: number, maxPercentage: number): void;
+	flashWantedDisplay(flashing: boolean): void;
 	getRenderedCharacterHeight(size: number, font: number): number;
 	setTextScale(scale: number, size: number): void;
 	setTextColour(red: number, green: number, blue: number, alpha: number): void;
@@ -489,10 +489,10 @@ declare interface GameHud extends GameHudLegacy {
 	setTextDropShadow(): void;
 	setTextDropshadow(distance: number, r: number, g: number, b: number, a: number): void;
 	setTextOutline(): void;
-	setTextEdge(p0: number, r: number, g: number, b: number, a: number): void;
+	setTextEdge(edge: number, r: number, g: number, b: number, a: number): void;
 	setTextRenderId(renderId: number): void;
 	getDefaultScriptRendertargetRenderId(): number;
-	registerNamedRendertarget(name: string, p1: boolean): boolean;
+	registerNamedRendertarget(name: string, delay: boolean): boolean;
 	isNamedRendertargetRegistered(name: string): boolean;
 	releaseNamedRendertarget(name: string): boolean;
 	linkNamedRendertarget(modelHash: number): void;
@@ -502,7 +502,7 @@ declare interface GameHud extends GameHudLegacy {
 	isHelpMessageOnScreen(): boolean;
 	isHelpMessageBeingDisplayed(): boolean;
 	isHelpMessageFadingOut(): boolean;
-	setHelpMessageTextStyle(style: number, hudColor: number, alpha: number, p3: number, p4: number): void;
+	setHelpMessageTextStyle(style: number, hudColor: number, alpha: number, direction: RageEnums.Hud.ArrowDirection, offset: number): void;
 	getStandardBlipEnumId(): boolean;
 	getWaypointBlipEnumId(): number;
 	getNumberOfActiveBlips(): number;
@@ -534,7 +534,7 @@ declare interface GameHud extends GameHudLegacy {
 	setBlipRotation(blip: number, rotation: number): void;
 	setBlipSquaredRotation(blip: number, heading: number): void;
 	setBlipFlashTimer(blip: number, duration: number): void;
-	setBlipFlashInterval(blip: number, p1: number): void;
+	setBlipFlashInterval(blip: number, ms: number): void;
 	setBlipColour(blip: number, color: number): void;
 	setBlipSecondaryColour(blip: number, r: number, g: number, b: number): void;
 	getBlipColour(blip: number): number;
@@ -579,7 +579,7 @@ declare interface GameHud extends GameHudLegacy {
 	isWaypointActive(): boolean;
 	setNewWaypoint(x: number, y: number): void;
 	setBlipBright(blip: number, toggle: boolean): void;
-	setBlipShowCone(blip: number, toggle: boolean, p2: number): void;
+	setBlipShowCone(blip: number, toggle: boolean, hudColor?: number): void;
 	setMinimapComponent(componentId: number, toggle: boolean, overrideColor: number): number;
 	setMinimapSonarEnabled(toggle: boolean): void;
 	showSigninUi(): void;
@@ -607,7 +607,7 @@ declare interface GameHud extends GameHudLegacy {
 	setMultiplayerCash(p0: number, p1: number): void;
 	removeMultiplayerCash(): void;
 	hideHelpTextThisFrame(): void;
-	displayHelpTextThisFrame(message: string, p1: boolean): void;
+	displayHelpTextThisFrame(message: string, curvedWindow: boolean): void;
 	forceWeaponWheel(show: boolean): void;
 	displayLoadingScreenTips(): void;
 	weaponWheelIgnoreSelection(): void;
@@ -615,7 +615,7 @@ declare interface GameHud extends GameHudLegacy {
 	setWeaponWheelTopSlot(weaponHash: number): void;
 	weaponWheelGetSlotHash(weaponTypeIndex: number): number;
 	weaponWheelIgnoreControlInput(toggle: boolean): void;
-	setGpsFlags(p0: number, p1: number): void;
+	setGpsFlags(flag: RageEnums.Hud.GpsFlags, blippedRouteDistance: number): void;
 	clearGpsFlags(): void;
 	setRaceTrackRender(toggle: boolean): void;
 	clearGpsRaceTrack(): void;
@@ -673,8 +673,8 @@ declare interface GameHud extends GameHudLegacy {
 	setFloatingHelpTextScreenPosition(hudIndex: number, x: number, y: number): void;
 	setFloatingHelpTextWorldPosition(hudIndex: number, x: number, y: number, z: number): void;
 	setFloatingHelpTextToEntity(hudIndex: number, entity: number, offsetX: number, offsetY: number): void;
-	setFloatingHelpTextStyle(hudIndex: number, p1: number, p2: number, p3: number, p4: number, p5: number): void;
-	clearFloatingHelp(hudIndex: number, p1: boolean): void;
+	setFloatingHelpTextStyle(helpIndex: number, style: number, color: number, alpha: number, direction: RageEnums.Hud.ArrowDirection, offset: number): void;
+	clearFloatingHelp(helpIndex: number, clearNow: boolean): void;
 	createMpGamerTagWithCrewColor(
 		player: number,
 		username: string,
@@ -779,7 +779,7 @@ declare interface GameHud extends GameHudLegacy {
 	getNorthRadarBlip(): number;
 	displayPlayerNameTagsOnBlips(toggle: boolean): void;
 	activateFrontendMenu(menuhash: number, togglePause: boolean, component: number): void;
-	restartFrontendMenu(menuHash: number, p1: number): void;
+	restartFrontendMenu(menuHash: number, highlightTab: number): void;
 	getCurrentFrontendMenuVersion(): number;
 	setPauseMenuActive(toggle: boolean): void;
 	disableFrontendThisFrame(): void;
@@ -806,7 +806,7 @@ declare interface GameHud extends GameHudLegacy {
 	getMenuPedFloatStat(p0: number): number;
 	getMenuPedBoolStat(p0: number): number;
 	clearPedInPauseMenu(): void;
-	givePedToPauseMenu(ped: number, p1: number): void;
+	givePedToPauseMenu(ped: number, position: RageEnums.Hud.PM_PedPosition): void;
 	setPauseMenuPedLighting(state: boolean): void;
 	setPauseMenuPedSleepState(state: boolean): void;
 	openOnlinePoliciesMenu(): void;
@@ -839,14 +839,14 @@ declare interface GameHud extends GameHudLegacy {
 	/**
 	 * Check frontend.xml for details
 	 */
-	setMinimapComponentValues(name: string, alignX: number, alignY: number, posX: number, posY: number, sizeX: number, sizeY: number): void; 
+	setMinimapComponentValues(name: string, alignX: number, alignY: number, posX: number, posY: number, sizeX: number, sizeY: number): void;
 	resetMinimapComponentValues(names: string[]): void;
 	getMinimapComponentValues(componentName: string): number | string;
 	getCurrentAreaNameString(): string;
 	getCurrentAreaNameHash(): number;
 	getCurrentAreaNameLabel(): string;
 	getCurrentStreetNameString(): string;
-	
+
 	/**
 	 * Way, way faster than GET_STREET_NAME_AT_COORD native function as it uses the street HUD component cached value.
 	 */
@@ -857,4 +857,4 @@ declare interface GameHud extends GameHudLegacy {
 	unk: GameHudUnk;
 }
 
-interface GameHudMp extends GameHud {}
+interface GameHudMp extends GameHud { }
