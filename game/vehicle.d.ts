@@ -613,11 +613,11 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	setExtra(vehicle: number, extraId: number, disable: boolean): void;
 	doesExtraExist(vehicle: number, extraId: number): boolean;
 	doesTyreExist(vehicle: number, tyreIndex: number): boolean;
-	setConvertibleRoof(vehicle: number, p1: boolean): void;
+	setConvertibleRoof(vehicle: number, turnon: boolean): void;
 	lowerConvertibleRoof(vehicle: number, instantlyLower: boolean): void;
 	raiseConvertibleRoof(vehicle: number, instantlyRaise: boolean): void;
 	getConvertibleRoofState(vehicle: number): number;
-	isAConvertible(vehicle: number, p1: boolean): boolean;
+	isAConvertible(vehicle: number, checkRoofExtras: boolean): boolean;
 	transformToSubmarine(vehicle: number, noAnimation: boolean): void;
 	transformSubmarineTo(vehicle: number, noAnimation: boolean): void;
 	getIsSubmarineTransformed(vehicle: number): boolean;
@@ -628,7 +628,7 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	setPlaneEngineHealth(vehicle: number, health: number): void;
 	getPetrolTankHealth(vehicle: number): number;
 	setPetrolTankHealth(vehicle: number, health: number): void;
-	isStuckTimerUp(vehicle: number, p1: number, p2: number): boolean;
+	isStuckTimerUp(vehicle: number, stuckType: RageEnums.Vehicle.vStuckType, requiredTime: number): boolean;
 	resetStuckTimer(vehicle: number, nullAttributes: number): void;
 	isDriveable(vehicle: number, isOnFireCheck: boolean): boolean;
 	setHasBeenOwnedByPlayer(vehicle: number, owned: boolean): void;
@@ -649,7 +649,7 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	areAllWindowsIntact(vehicle: number): boolean;
 	areAnySeatsFree(vehicle: number): boolean;
 	resetWheels(vehicle: number, toggle: boolean): void;
-	isHeliPartBroken(vehicle: number, p1: boolean, p2: boolean, p3: boolean): boolean;
+	isHeliPartBroken(vehicle: number, checkMainRotor: boolean, checkRearRotor: boolean, checkTailBoom: boolean): boolean;
 	getHeliMainRotorHealth(vehicle: number): number;
 	getHeliTailRotorHealth(vehicle: number): number;
 	getHeliTailBoomHealth(vehicle: number): number;
@@ -674,7 +674,7 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	detachFromAnyTowTruck(vehicle: number): boolean;
 	isAttachedToTowTruck(towTruck: number, vehicle: number): boolean;
 	getEntityAttachedToTowTruck(towTruck: number): number;
-	setAutomaticallyAttaches(vehicle: number, p1: boolean, p2: number): number;
+	setAutomaticallyAttaches(vehicle: number, autoAttach: boolean, scanWithNonPlayerDriver: boolean): number;
 	setBulldozerArmPosition(vehicle: number, position: number, p2: boolean): void;
 	setTankTurretPosition(vehicle: number, position: number, p2: boolean): void;
 	setTurretSpeedThisFrame(vehicle: number, speed: number): void;
@@ -731,12 +731,12 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	getModKitType(vehicle: number): number;
 	getWheelType(vehicle: number): number;
 	setWheelType(vehicle: number, WheelType: number): void;
-	getNumModColors(paintType: number, p1: boolean): number;
+	getNumModColors(colorType: number, base: boolean): number;
 	setModColor1(vehicle: number, paintType: number, color: number, pearlescentColor: number): void;
 	setModColor2(vehicle: number, paintType: number, color: number): void;
 	getModColor1(vehicle: number): GetVehicleModColor1Result;
 	getModColor2(vehicle: number): GetVehicleModColor2Result;
-	getModColor1Name(vehicle: number, p1: boolean): string;
+	getModColor1Name(vehicle: number, spec: boolean): string;
 	getModColor2Name(vehicle: number): string;
 	haveModsStreamedIn(vehicle: number): boolean;
 	setMod(vehicle: number, modType: number, modIndex: number, customTires: boolean): void;
@@ -775,7 +775,7 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	getBoatBoomPositionRatio2(vehicle: number, p1: boolean): void;
 	getBoatBoomPositionRatio3(vehicle: number, p1: boolean): void;
 	getBoatBoomPositionRatio(vehicle: number): number;
-	disablePlaneAileron(vehicle: number, p1: boolean, p2: boolean): void;
+	disablePlaneAileron(vehicle: number, leftSide: boolean, disable: boolean): void;
 	getIsEngineRunning(vehicle: number): boolean;
 	setUseAlternateHandling(vehicle: number, toggle: boolean): void;
 	setBikeOnStand(vehicle: number, x: number, y: number): void;
@@ -801,7 +801,7 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	getCurrentSlipstreamDraft(vehicle: number): number;
 	isSlipstreamLeader(vehicle: number): boolean;
 	setInactiveDuringPlayback(vehicle: number, toggle: boolean): void;
-	setActiveDuringPlayback(p0: number, p1: boolean): void;
+	setActiveDuringPlayback(p0: number, forceActive: boolean): void;
 	isSprayable(vehicle: number): boolean;
 	setEngineCanDegrade(vehicle: number, toggle: boolean): void;
 	setShadowEffect(vehicle: number, p1: number, p2: number): void;
@@ -820,24 +820,24 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	getAttachedToCargobob(cargobob: number): number;
 	getEntityAttachedToCargobob(p0: number): number;
 	attachToCargobob(vehicle: number, cargobob: number, p2: number, x: number, y: number, z: number): void;
-	attachEntityToCargobob(p0: number, p1: number, p2: number, p3: number, p4: number, p5: number): void;
+	attachEntityToCargobob(cargoHandle: number, vehicleHandle: number, boneIndex: number, x: number, y: number, z: number): void;
 	setCargobobHookCanDetach(cargobob: number, toggle: boolean): void;
 	getCargobobHookPosition(cargobob: number): Vector3;
 	doesCargobobHavePickUpRope(cargobob: number): boolean;
 	createPickUpRopeForCargobob(cargobob: number, state: number): void;
 	removePickUpRopeForCargobob(cargobob: number): void;
-	setPickupRopeLengthForCargobob(cargobob: number, length1: number, length2: number, p3: boolean): void;
-	setCargobobPickupRopeDampingMultiplier(p0: number, p1: number): void;
-	setCargobobPickupRopeType(p0: number, p1: number): void;
+	setPickupRopeLengthForCargobob(cargobob: Handle, length1: number, length2: number, p3: boolean): void;
+	setCargobobPickupRopeDampingMultiplier(cargoBob: Handle, dampingMultp: number): void;
+	setCargobobPickupRopeType(cargoBob: Handle, type: number): void;
 	doesCargobobHavePickupMagnet(cargobob: number): boolean;
 	setCargobobPickupMagnetActive(cargobob: number, isActive: boolean): void;
 	setCargobobPickupMagnetStrength(cargobob: number, strength: number): void;
-	setCargobobPickupMagnetEffectRadius(cargobob: number, p1: number): void;
-	setCargobobPickupMagnetReducedFalloff(cargobob: number, p1: number): void;
+	setCargobobPickupMagnetEffectRadius(cargobob: Handle, radius: number): void;
+	setCargobobPickupMagnetReducedFalloff(cargobob: Handle, magnetFalloff: number): void;
 	setCargobobPickupMagnetPullRopeLength(cargobob: number, p1: number): void;
 	setCargobobPickupMagnetPullStrength(cargobob: number, p1: number): void;
 	setCargobobPickupMagnetFalloff(vehicle: number, p1: number): void;
-	setCargobobPickupMagnetReducedStrength(vehicle: number, cargobob: number): void;
+	setCargobobPickupMagnetReducedStrength(cargoBob: Handle, magnetStrength: number): void;
 	doesHaveWeapons(vehicle: number): boolean;
 	disableWeapon(disabled: boolean, weaponHash: number, vehicle: number, owner: number): void;
 	isWeaponDisabled(weaponHash: number, vehicle: number, owner: number): boolean;
@@ -847,10 +847,10 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	setPlayersLast(vehicle: number): void;
 	setCanBeUsedByFleeingPeds(vehicle: number, toggle: boolean): void;
 	setDropsMoneyWhenBlownUp(vehicle: number, toggle: boolean): void;
-	setJetEngineOn(vehicle: number, toggle: boolean): void;
-	setHandlingHashForAi(vehicle: number, hash: number): void;
-	setExtendedRemovalRange(vehicle: number, range: number): void;
-	setSteeringBiasScalar(p0: number, p1: number): void;
+	setJetEngineOn(vehicle: Handle, toggle: boolean): void;
+	setHandlingHashForAi(vehicle: Handle, hash: number): void;
+	setExtendedRemovalRange(vehicle: Handle, range: number): void;
+	setSteeringBiasScalar(vehicle: Handle, scalar: number): void;
 	setHelicopterRollPitchYawMult(helicopter: number, multiplier: number): void;
 	setFrictionOverride(vehicle: number, friction: number): void;
 	setWheelsCanBreakOffWhenBlowUp(vehicle: number, toggle: boolean): void;
@@ -950,4 +950,4 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	unk: GameVehicleUnk;
 }
 
-declare interface GameVehicleMp extends GameVehicle {}
+declare interface GameVehicleMp extends GameVehicle { }
