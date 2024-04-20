@@ -1464,15 +1464,15 @@ declare interface PedMpBase extends EntityMp {
 	applyBloodSpecific(p1: any, p2: number, p3: number, p4: number, p5: number, p6: any, p7: number, p8: any): void;
 	applyDamageDecal(p1: number, p2: number, p3: number, p4: number, p5: number, p6: number, p7: number, p8: boolean, p9: string): void;
 	applyDamagePack(damagePack: string, damage: number, mult: number): void;
-	applyDamageTo(damageAmount: number, p2: boolean): void;
+	applyDamageTo(damageAmount: number, damageArmourFlag: boolean, instigatorHandle?: Handle): void;
 	canInCombatSeeTarget(target: Handle): boolean;
 	canKnockOffVehicle(): boolean;
 	canRagdoll(): boolean;
 	clearAllProps(): void;
-	clearAlternateMovementAnim(stance: number, p2: number): void;
+	clearAlternateMovementAnim(type: number, blendDelta: number): void;
 	clearBloodDamage(): void;
 	clearBloodDamageByZone(p1: number): void;
-	clearDamageDecalByZone(p1: number, p2: string): void;
+	clearDamageDecalByZone(zone: number, decalName: string): void;
 	clearDecorations(): void;
 	clearDriveByClipsetOverride(): void;
 	clearDrivebyTaskUnderneathDrivingTask(): void;
