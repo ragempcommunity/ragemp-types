@@ -674,7 +674,7 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	detachFromAnyTowTruck(vehicle: number): boolean;
 	isAttachedToTowTruck(towTruck: number, vehicle: number): boolean;
 	getEntityAttachedToTowTruck(towTruck: number): number;
-	setAutomaticallyAttaches(vehicle: number, p1: boolean, p2: number): number;
+	setAutomaticallyAttaches(vehicle: number, autoAttach: boolean, scanWithNonPlayerDriver: boolean): number;
 	setBulldozerArmPosition(vehicle: number, position: number, p2: boolean): void;
 	setTankTurretPosition(vehicle: number, position: number, p2: boolean): void;
 	setTurretSpeedThisFrame(vehicle: number, speed: number): void;
