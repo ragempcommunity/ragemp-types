@@ -649,7 +649,7 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	areAllWindowsIntact(vehicle: number): boolean;
 	areAnySeatsFree(vehicle: number): boolean;
 	resetWheels(vehicle: number, toggle: boolean): void;
-	isHeliPartBroken(vehicle: number, p1: boolean, p2: boolean, p3: boolean): boolean;
+	isHeliPartBroken(vehicle: number, checkMainRotor: boolean, checkRearRotor: boolean, checkTailBoom: boolean): boolean;
 	getHeliMainRotorHealth(vehicle: number): number;
 	getHeliTailRotorHealth(vehicle: number): number;
 	getHeliTailBoomHealth(vehicle: number): number;
