@@ -13,7 +13,7 @@ declare interface GamePedLegacy {
 	canCreateRandomPed(unk: boolean): boolean;
 	createRandomPed(posX: number, posY: number, posZ: number): number;
 	setPedDensityMultiplierThisFrame(multiplier: number): void;
-	setScenarioPedDensityMultiplierThisFrame(p0: number, p1: number): void;
+	setScenarioPedDensityMultiplierThisFrame(intMultiplier: number, extMultiplier: number): void;
 	setPedNonCreationArea(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number): void;
 	setPedReserveParachuteTintIndex(ped: number, p1: number): void;
 	isPedRespondingToEvent(ped: number, event: number): boolean;
@@ -223,7 +223,7 @@ declare interface GamePed extends GamePedLegacy {
 	getVehicleIsIn(ped: number, includeLastVehicle: boolean): number;
 	resetLastVehicle(ped: number): void;
 	setDensityMultiplierThisFrame(multiplier: number): void;
-	setScenarioDensityMultiplierThisFrame(p0: number, p1: number): void;
+	setScenarioDensityMultiplierThisFrame(intMultiplier: number, extMultiplier: number): void;
 	setScriptedConversionCoordThisFrame(x: number, y: number, z: number): void;
 	setNonCreationArea(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number): void;
 	clearNonCreationArea(): void;
@@ -234,7 +234,7 @@ declare interface GamePed extends GamePedLegacy {
 	isOnSpecificVehicle(ped: number, vehicle: number): boolean;
 	setMoney(ped: number, amount: number): void;
 	getMoney(ped: number): number;
-	setAmbientPedsDropMoney(p0: boolean): void;
+	setAmbientPedsDropMoney(dropMoney: boolean): void;
 	setSuffersCriticalHits(ped: number, toggle: boolean): void;
 	isSittingInVehicle(ped: number, vehicle: number): boolean;
 	isSittingInAnyVehicle(ped: number): boolean;
@@ -648,7 +648,7 @@ declare interface GamePed extends GamePedLegacy {
 		p9: boolean
 	): number;
 	removeScenarioBlockingAreas(): void;
-	removeScenarioBlockingArea(p0: number, p1: boolean): void;
+	removeScenarioBlockingArea(scenario: number, network: boolean): void;
 	setScenarioPedsSpawnInSphereArea(x: number, y: number, z: number, range: number, p4: number): void;
 	doesScenarioBlockingAreaExist(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number): boolean;
 	isUsingScenario(ped: number, scenario: string): boolean;
@@ -796,15 +796,15 @@ declare interface GamePed extends GamePedLegacy {
 	hasHeadshotImgUploadSucceeded(): boolean;
 	setHeatscaleOverride(ped: number, heatScale: number): void;
 	disableHeatscaleOverride(ped: number): void;
-	spawnpointsStartSearch(p0: number, p1: number, p2: number, p3: number, p4: number, interiorFlags: number, scale: number, duration: number): void;
+	spawnpointsStartSearch(x: number, y: number, z: number, radius: number, zmax: number, interiorFlags: number, scale: number, duration: number): void;
 	spawnpointsStartSearchInAngledArea(
 		x: number,
 		y: number,
 		z: number,
-		p3: number,
-		p4: number,
-		p5: number,
-		p6: number,
+		x1: number,
+		y1: number,
+		z1: number,
+		zmax: number,
 		interiorFlags: number,
 		scale: number,
 		duration: number
@@ -824,7 +824,7 @@ declare interface GamePed extends GamePedLegacy {
 		offsetX: number,
 		offsetY: number,
 		offsetZ: number,
-		p7: number,
+		ikflag: number,
 		blendInDuration: number,
 		blendOutDuration: number
 	): void;
@@ -847,4 +847,4 @@ declare interface GamePed extends GamePedLegacy {
 	unk: GamePedUnk;
 }
 
-declare interface GamePedMp extends GamePed {}
+declare interface GamePedMp extends GamePed { }
