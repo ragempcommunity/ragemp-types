@@ -32,4 +32,9 @@ declare namespace RageEnums {
 		 */
 		BRACELETS = 7
 	}
+
+	const enum PropDamage {
+		LOSE_ON_DAMAGE = 0,
+		LOSE_HELMET_ON_HS = 1
+	}
 }
