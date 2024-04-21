@@ -480,10 +480,10 @@ declare class EntityMp {
 	): void;
 	clearLastDamage(): void;
 	destroy(): void;
-	detach(p0: boolean, collision: boolean): void;
+	detach(applyVelocy: boolean, collision: boolean): void;
 	dist(position: Vector3): number;
 	distSquared(position: Vector3): number;
-	doesBelongToThisScript(p0: boolean): boolean;
+	doesBelongToThisScript(deadcheck: boolean): boolean;
 	doesExist(): boolean;
 	doesHaveDrawable(): boolean;
 	doesHavePhysics(): boolean;
@@ -629,9 +629,9 @@ declare class EntityMp {
 	setAlwaysPrerender(toggle: boolean): void;
 	setAnimCurrentTime(animDict: string, animName: string, time: number): void;
 	setAnimSpeed(animDict: string, animName: string, speedMultiplier: number): void;
-	setAsMission(p0: boolean, byThisScript: boolean): void;
+	setAsMission(scriptObject: boolean, byThisScript: boolean): void;
 	setCanBeDamaged(toggle: boolean): void;
-	setCanBeDamagedByRelationshipGroup(p0: boolean, p1: any): void;
+	setCanBeDamagedByRelationshipGroup(damageByGroup: boolean, groupHash: number): void;
 	setCanBeTargetedWithoutLos(toggle: boolean): void;
 	setCollision(toggle: boolean, keepPhysics: boolean): void;
 	setCoords(xPos: number, yPos: number, zPos: number, xAxis: boolean, yAxis: boolean, zAxis: boolean, clearArea: boolean): void;
@@ -642,7 +642,7 @@ declare class EntityMp {
 	setHeading(heading: number): void;
 	setHealth(health: number): void;
 	setInvincible(toggle: boolean): void;
-	setIsTargetPriority(p0: boolean, p1: number): void;
+	setIsTargetPriority(highPriority: boolean, distance: number): void;
 	setLights(toggle: boolean): void;
 	/**
 		 * Loads collision grid for an entity spawned outside a player's loaded area. This allows peds to execute tasks rather than sit dormant because of a lack of a physics grid.
@@ -660,7 +660,7 @@ declare class EntityMp {
 	setMotionBlur(toggle: boolean): void;
 	setNoCollision(entity: Handle, collision: boolean): void;
 	setOnlyDamagedByPlayer(toggle: boolean): void;
-	setOnlyDamagedByRelationshipGroup(p0: boolean, p1: any): void;
+	setOnlyDamagedByRelationshipGroup(damageGroup: boolean, groupHash: number): void;
 	setProofs(
 		bulletProof: boolean,
 		fireProof: boolean,
@@ -679,7 +679,7 @@ declare class EntityMp {
 	setVelocity(x: number, y: number, z: number): void;
 	setVisible(toggle: boolean, p1: boolean): void;
 	stopAnim(animation: string, animGroup: string, p2: number): void;
-	stopSynchronizedAnim(p0: number, p1: boolean): boolean;
+	stopSynchronizedAnim(delta: number, collision: boolean): boolean;
 }
 
 declare class EntityMpPool<T> {
@@ -1440,9 +1440,9 @@ declare interface CameraMp {
 		zRot: number,
 		fov: number,
 		duration: number,
-		p8: number,
-		p9: number,
-		p10: number
+		graphTypePos: RageEnums.Camera.GraphTypes | number,
+		graphTypeRot: RageEnums.Camera.GraphTypes | number,
+		rotOrder: number
 	): void;
 	setRot(rotX: number, rotY: number, rotZ: number, p3: number): void;
 	setShakeAmplitude(amplitude: number): void;
@@ -1698,7 +1698,7 @@ declare interface PedMpBase extends EntityMp {
 	setCanBeKnockedOffVehicle(state: number): void;
 	setCanBeShotInVehicle(toggle: boolean): void;
 	setCanBeTargetedWhenInjured(toggle: boolean): void;
-	setCanLosePropsOnDamage(enable: boolean, p0: number): void;
+	setCanLosePropsOnDamage(enable: boolean, flag: RageEnums.PropDamage): void;
 	setCanBeTargetedWithoutLos(toggle: boolean): void;
 	setCanBeTargetted(toggle: boolean): void;
 	setCanBeTargettedByPlayer(player: Handle, toggle: boolean): void;
@@ -2447,7 +2447,7 @@ declare interface PlayerMp extends PedMpBase {
 	setParachutePackModelOverride(model: Hash): void;
 	setParachutePackTintIndex(tintIndex: number): void;
 	setParachuteSmokeTrailColor(r: number, g: number, b: number): void;
-	setParachuteVariationOverride(p1: number, p2: any, p3: any, p4: boolean): void;
+	setParachuteVariationOverride(component: number, drawable: number, texture: number, p4: boolean): void;
 	setPoliceIgnore(toggle: boolean): void;
 	setReserveParachuteTintIndex(tintIndex: number): void;
 	setSimulateAiming(toggle: boolean): void;
@@ -2461,7 +2461,7 @@ declare interface PlayerMp extends PedMpBase {
 	setWantedCentrePosition(x: number, y: number, z: number): void;
 	setWantedLevel(wantedLevel: number, disableNoMission: boolean): void;
 	setWantedLevelNoDrop(wantedLevel: number, p2: boolean): void;
-	setWantedLevelNow(p1: boolean): void;
+	setWantedLevelNow(delayLawResponse: boolean): void;
 	setWeaponDamageModifier(damageAmount: number): void;
 	setWeaponDefenseModifier(modifier: number): void;
 	taskGotoOffset(p1: any, p2: any, x: number, y: number, z: number, duration: number): void;
@@ -2539,10 +2539,10 @@ declare interface VehicleMp extends EntityMp {
 
 	addUpsidedownCheck(): void;
 	areAllWindowsIntact(): boolean;
-	attachToCargobob(cargobob: Handle, p1: number, x: number, y: number, z: number): void;
+	attachToCargobob(cargobob: Handle, boneIndex: number, x: number, y: number, z: number): void;
 	attachToTowTruck(vehicle: Handle, rear: boolean, hookOffsetX: number, hookOffsetY: number, hookOffsetZ: number): void;
 	attachToTrailer(trailer: Handle, radius: number): void;
-	canShuffleSeat(p0: any): boolean;
+	canShuffleSeat(seatIndex: number): boolean;
 	cargobobMagnetGrab(toggle: boolean): void;
 	clearCustomPrimaryColour(): void;
 	clearCustomSecondaryColour(): void;
@@ -2554,7 +2554,7 @@ declare interface VehicleMp extends EntityMp {
 	detachFromTrailer(): void;
 	detachWindscreen(): void;
 	disableImpactExplosionActivation(toggle: boolean): void;
-	disablePlaneAileron(p0: boolean, p1: boolean): void;
+	disablePlaneAileron(leftSide: boolean, disable: boolean): void;
 	doesExtraExist(extraId: number): boolean;
 	doesHaveRoof(): boolean;
 	doesHaveStuckVehicleCheck(): boolean;
@@ -2562,7 +2562,7 @@ declare interface VehicleMp extends EntityMp {
 	ejectJb700Roof(x: number, y: number, z: number): void;
 	enableCargobobHook(state: number): void;
 	explode(isAudible: boolean, isInvisble: boolean): void;
-	explodeInCutscene(p0: boolean): void;
+	explodeInCutscene(explosion: boolean): void;
 	fixWindow(index: number): void;
 	getAcceleration(): number;
 	getAttachedToCargobob(): Handle;
@@ -2711,7 +2711,7 @@ declare interface VehicleMp extends EntityMp {
 	getVehicleTrailer(vehicle: Handle): Handle;
 	getWheelType(): number;
 	getWindowTint(): number;
-	isAConvertible(p0: boolean): boolean;
+	isAConvertible(checkRoofExtras: boolean): boolean;
 	isAlarmActivated(): boolean;
 	isAnySeatEmpty(): boolean;
 	isAttachedToCargobob(vehicleAttached: Handle): boolean;
@@ -2723,9 +2723,9 @@ declare interface VehicleMp extends EntityMp {
 	isCargobobMagnetActive(): boolean;
 	isDamaged(): boolean;
 	isDoorDamaged(doorId: number): boolean;
-	isDriveable(p0: boolean): boolean;
+	isDriveable(checkfire: boolean): boolean;
 	isExtraTurnedOn(extraId: number): boolean;
-	isHeliPartBroken(p0: boolean, p1: boolean, p2: boolean): boolean;
+	isHeliPartBroken(mainRotor: boolean, rearRotor: boolean, tailBoom: boolean): boolean;
 	isHighDetail(): boolean;
 	isInBurnout(): boolean;
 	isModel(model: Hash): boolean;
@@ -2739,7 +2739,7 @@ declare interface VehicleMp extends EntityMp {
 	isStopped(): boolean;
 	isStoppedAtTrafficLights(): boolean;
 	isStuckOnRoof(): boolean;
-	isStuckTimerUp(p0: number, p1: number): boolean;
+	isStuckTimerUp(type: RageEnums.Vehicle.vStuckType | number, requiredTime: number): boolean;
 	isTaxiLightOn(): boolean;
 	isToggleModOn(modType: number): boolean;
 	isTyreBurst(wheelId: number, completely: boolean): boolean;
@@ -2765,7 +2765,7 @@ declare interface VehicleMp extends EntityMp {
 	setAlarm(state: boolean): void;
 	setAllowNoPassengersLockon(toggle: boolean): void;
 	setAllsSpawns(p0: boolean, p1: boolean, p2: boolean): void;
-	setAutomaticallyAttaches(p0: any, p1: any): void;
+	setAutomaticallyAttaches(autoAttach: boolean, scanDriver: boolean): void;
 	setBikeLeanAngle(x: number, y: number): void;
 	setBoatAnchor(toggle: boolean): void;
 	setBodyHealth(value: number): void;
@@ -2776,10 +2776,10 @@ declare interface VehicleMp extends EntityMp {
 	setCanBeVisiblyDamaged(state: boolean): void;
 	setCanBreak(toggle: boolean): void;
 	setCanRespray(state: boolean): void;
-	setCeilingHeight(p0: number): void;
+	setCeilingHeight(height: number): void;
 	setColourCombination(numCombos: number): void;
 	setColours(colorPrimary: number, colorSecondary: number): void;
-	setConvertibleRoof(p0: boolean): void;
+	setConvertibleRoof(animated: boolean): void;
 	setCreatesMoneyPickupsWhenExploded(toggle: boolean): void;
 	setCustomPrimaryColour(r: number, g: number, b: number): void;
 	setCustomSecondaryColour(r: number, g: number, b: number): void;
@@ -2791,7 +2791,7 @@ declare interface VehicleMp extends EntityMp {
 	setDoorBreakable(doorIndex: number, isBreakable: boolean): void;
 	setDoorBroken(doorIndex: number, createDoorObject: boolean): void;
 	setDoorControl(doorIndex: number, speed: number, angle: number): void;
-	setDoorLatched(doorIndex: number, p1: boolean, p2: boolean, p3: boolean): void;
+	setDoorLatched(doorIndex: number, toggle: boolean, autoLatch: boolean, applyForce: boolean): void;
 	setDoorOpen(doorIndex: number, loose: boolean, openInstantly: boolean): void;
 	setDoorShut(doorIndex: number, closeInstantly: boolean): void;
 	setDoorsLocked(doorLockStatus: number): void;
@@ -2805,7 +2805,7 @@ declare interface VehicleMp extends EntityMp {
 	setEngineOn(value: boolean, instantly: boolean, otherwise: boolean): void;
 	setEnginePowerMultiplier(value: number): void;
 	setEngineTorqueMultiplier(value: number): void;
-	setExclusiveDriver(ped: Handle, p1: number): void;
+	setExclusiveDriver(ped: Handle, driverIndex: number): void;
 	setExplodesOnHighExplosionDamage(toggle: boolean): void;
 	setExtra(extraId: number, toggle: number): void;
 	setExtraColours(pearlescentColor: number, wheelColor: number): void;
@@ -2835,7 +2835,7 @@ declare interface VehicleMp extends EntityMp {
 	setLodMultiplier(multiplier: number): void;
 	setMissionTrainCoords(x: number, y: number, z: number): void;
 	setMod(modType: number, modIndex: number): void;
-	setModColor1(paintType: number, color: number, p2: number): void;
+	setModColor1(paintType: number, color: number, specColIndex: number): void;
 	setModColor2(paintType: number, color: number): void;
 	setModKit(modKit: number): void;
 	setNameDebug(name: string): void;
@@ -2856,7 +2856,7 @@ declare interface VehicleMp extends EntityMp {
 	setProvidesCover(toggle: boolean): void;
 	setReduceGrip(toggle: boolean): void;
 	setRenderTrainAsDerailed(toggle: boolean): void;
-	setRudderBroken(p0: boolean): void;
+	setRudderBroken(dissapear: boolean): void;
 	setSearchlight(toggle: boolean, canBeUsedByAI: boolean): void;
 	setSilent(toggle: boolean): void;
 	setSiren(toggle: boolean): void;
@@ -2868,7 +2868,7 @@ declare interface VehicleMp extends EntityMp {
 	setTowTruckCraneHeight(height: number): void;
 	setTrainCruiseSpeed(speed: number): void;
 	setTrainSpeed(speed: number): void;
-	setTyreBurst(tyreIndex: number, onRim: boolean, p2: number): void;
+	setTyreBurst(tyreIndex: number, instantBurst: boolean, damage: number): void;
 	setTyreFixed(tyreIndex: number): void;
 	setTyresCanBurst(toggle: boolean): void;
 	setTyreSmokeColor(r: number, g: number, b: number): void;
@@ -3119,10 +3119,10 @@ declare interface VehicleMp extends EntityMp {
 
 	addUpsidedownCheck(): void;
 	areAllWindowsIntact(): boolean;
-	attachToCargobob(cargobob: Handle, p1: number, x: number, y: number, z: number): void;
+	attachToCargobob(cargobob: Handle, boneIndex: number, x: number, y: number, z: number): void;
 	attachToTowTruck(vehicle: Handle, rear: boolean, hookOffsetX: number, hookOffsetY: number, hookOffsetZ: number): void;
 	attachToTrailer(trailer: Handle, radius: number): void;
-	canShuffleSeat(p0: any): boolean;
+	canShuffleSeat(seatIndex: number): boolean;
 	cargobobMagnetGrab(toggle: boolean): void;
 	clearCustomPrimaryColour(): void;
 	clearCustomSecondaryColour(): void;
@@ -3134,7 +3134,7 @@ declare interface VehicleMp extends EntityMp {
 	detachFromTrailer(): void;
 	detachWindscreen(): void;
 	disableImpactExplosionActivation(toggle: boolean): void;
-	disablePlaneAileron(p0: boolean, p1: boolean): void;
+	disablePlaneAileron(leftside: boolean, disable: boolean): void;
 	doesExtraExist(extraId: number): boolean;
 	doesHaveRoof(): boolean;
 	doesHaveStuckVehicleCheck(): boolean;
@@ -3142,7 +3142,7 @@ declare interface VehicleMp extends EntityMp {
 	ejectJb700Roof(x: number, y: number, z: number): void;
 	enableCargobobHook(state: number): void;
 	explode(isAudible: boolean, isInvisible: boolean): void;
-	explodeInCutscene(p0: boolean): void;
+	explodeInCutscene(addexplosion: boolean): void;
 	fixWindow(index: number): void;
 	getAcceleration(): number;
 	getAttachedToCargobob(): Handle;
@@ -3232,11 +3232,11 @@ declare interface VehicleMp extends EntityMp {
 	getModColor1(
 		paintType: number,
 		color: number,
-		p2: number
+		colorIndex: number
 	): {
 		paintType: number;
 		color: number;
-		p2: number;
+		colorIndex: number;
 	};
 	getModColor1TextLabel(p0: boolean): string;
 	getModColor2(
@@ -3291,7 +3291,7 @@ declare interface VehicleMp extends EntityMp {
 	getVehicleTrailer(vehicle: Handle): Handle;
 	getWheelType(): number;
 	getWindowTint(): number;
-	isAConvertible(p0: boolean): boolean;
+	isAConvertible(checkRoofExtras: boolean): boolean;
 	isAlarmActivated(): boolean;
 	isAnySeatEmpty(): boolean;
 	isAttachedToCargobob(vehicleAttached: Handle): boolean;
@@ -3303,9 +3303,9 @@ declare interface VehicleMp extends EntityMp {
 	isCargobobMagnetActive(): boolean;
 	isDamaged(): boolean;
 	isDoorDamaged(doorId: number): boolean;
-	isDriveable(p0: boolean): boolean;
+	isDriveable(checkFire: boolean): boolean;
 	isExtraTurnedOn(extraId: number): boolean;
-	isHeliPartBroken(p0: boolean, p1: boolean, p2: boolean): boolean;
+	isHeliPartBroken(checkMainRotor: boolean, checkRearRotor: boolean, checkTailBoom: boolean): boolean;
 	isHighDetail(): boolean;
 	isInBurnout(): boolean;
 	isModel(model: Hash): boolean;
@@ -3319,7 +3319,7 @@ declare interface VehicleMp extends EntityMp {
 	isStopped(): boolean;
 	isStoppedAtTrafficLights(): boolean;
 	isStuckOnRoof(): boolean;
-	isStuckTimerUp(p0: number, p1: number): boolean;
+	isStuckTimerUp(stuckType: RageEnums.Vehicle.vStuckType, requiredTime: number): boolean;
 	isTaxiLightOn(): boolean;
 	isToggleModOn(modType: number): boolean;
 	isTyreBurst(wheelId: number, completely: boolean): boolean;
@@ -3345,7 +3345,7 @@ declare interface VehicleMp extends EntityMp {
 	setAlarm(state: boolean): void;
 	setAllowNoPassengersLockon(toggle: boolean): void;
 	setAllsSpawns(p0: boolean, p1: boolean, p2: boolean): void;
-	setAutomaticallyAttaches(p0: any, p1: any): void;
+	setAutomaticallyAttaches(autoAttach: boolean, scanWithNonPlayerDriver: boolean): void;
 	setBikeLeanAngle(x: number, y: number): void;
 	setBoatAnchor(toggle: boolean): void;
 	setBodyHealth(value: number): void;
@@ -3356,10 +3356,10 @@ declare interface VehicleMp extends EntityMp {
 	setCanBeVisiblyDamaged(state: boolean): void;
 	setCanBreak(toggle: boolean): void;
 	setCanRespray(state: boolean): void;
-	setCeilingHeight(p0: number): void;
+	setCeilingHeight(height: number): void;
 	setColourCombination(numCombos: number): void;
 	setColours(colorPrimary: number, colorSecondary: number): void;
-	setConvertibleRoof(p0: boolean): void;
+	setConvertibleRoof(turnon: boolean): void;
 	setCreatesMoneyPickupsWhenExploded(toggle: boolean): void;
 	setCustomPrimaryColour(r: number, g: number, b: number): void;
 	setCustomSecondaryColour(r: number, g: number, b: number): void;
@@ -3371,7 +3371,7 @@ declare interface VehicleMp extends EntityMp {
 	setDoorBreakable(doorIndex: number, isBreakable: boolean): void;
 	setDoorBroken(doorIndex: number, createDoorObject: boolean): void;
 	setDoorControl(doorIndex: number, speed: number, angle: number): void;
-	setDoorLatched(doorIndex: number, p1: boolean, p2: boolean, p3: boolean): void;
+	setDoorLatched(doorIndex: number, setLatched: boolean, autoLatch: boolean, forceForClosedDoors: boolean): void;
 	setDoorOpen(doorIndex: number, loose: boolean, openInstantly: boolean): void;
 	setDoorShut(doorIndex: number, closeInstantly: boolean): void;
 	setDoorsLocked(doorLockStatus: number): void;
@@ -3384,7 +3384,7 @@ declare interface VehicleMp extends EntityMp {
 	setEngineOn(value: boolean, instantly: boolean, otherwise: boolean): void;
 	setEnginePowerMultiplier(value: number): void;
 	setEngineTorqueMultiplier(value: number): void;
-	setExclusiveDriver(ped: Handle, p1: number): void;
+	setExclusiveDriver(ped: Handle, driverIndex: number): void;
 	setExplodesOnHighExplosionDamage(toggle: boolean): void;
 	setExtra(extraId: number, toggle: number): void;
 	setExtraColours(pearlescentColor: number, wheelColor: number): void;
@@ -3435,7 +3435,7 @@ declare interface VehicleMp extends EntityMp {
 	setProvidesCover(toggle: boolean): void;
 	setReduceGrip(toggle: boolean): void;
 	setRenderTrainAsDerailed(toggle: boolean): void;
-	setRudderBroken(p0: boolean): void;
+	setRudderBroken(disappear: boolean): void;
 	setSearchlight(toggle: boolean, canBeUsedByAI: boolean): void;
 	setSilent(toggle: boolean): void;
 	setSiren(toggle: boolean): void;
@@ -3446,7 +3446,7 @@ declare interface VehicleMp extends EntityMp {
 	setTowTruckCraneHeight(height: number): void;
 	setTrainCruiseSpeed(speed: number): void;
 	setTrainSpeed(speed: number): void;
-	setTyreBurst(tyreIndex: number, onRim: boolean, p2: number): void;
+	setTyreBurst(tyreIndex: number, instant: boolean, damage: number): void;
 	setTyreFixed(tyreIndex: number): void;
 	setTyresCanBurst(toggle: boolean): void;
 	setTyreSmokeColor(r: number, g: number, b: number): void;

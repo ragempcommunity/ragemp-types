@@ -4,6 +4,7 @@
 /// <reference path="enums/console.d.ts" />
 /// <reference path="enums/controls.d.ts" />
 /// <reference path="enums/explosions.d.ts" />
+/// <reference path="enums/camera.d.ts" />
 /// <reference path="enums/hud.d.ts" />
 /// <reference path="enums/inputGroup.d.ts" />
 /// <reference path="enums/markers.d.ts" />
