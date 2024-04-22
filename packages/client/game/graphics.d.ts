@@ -1279,6 +1279,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	resetWorldTextureSwaps(): void;
 	doesLatestBriefStringExist(type: number): boolean;
 	registerTextFontId(fontname: string): void;
+	setNumberPlateTexture(txDict: string, txName: string, txDictNormal: string, txNameNorma: string): void;
 }
 
 declare interface GameGraphicsMp extends GameGraphics { }
