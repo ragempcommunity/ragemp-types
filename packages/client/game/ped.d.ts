@@ -844,6 +844,8 @@ declare interface GamePed extends GamePedLegacy {
 	isScubaGearLightEnabled(ped: number): boolean;
 	clearFacialClipsetOverride(ped: number): void;
 
+	getTaskCombatTarget(ped: Handle, losCheck: boolean): Handle;
+
 	unk: GamePedUnk;
 }
 
