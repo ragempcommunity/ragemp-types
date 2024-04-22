@@ -850,6 +850,7 @@ declare interface GamePed extends GamePedLegacy {
 	createSynchronizedSceneAtMapObject(x: number, y: number, z: number, radius: number, objectHash: Hash): number;
 	setCanLosePropsOnDamage(ped: Handle, enable: boolean, flag: RageEnums.PropDamage): void;
 	setCanPlayInCarIdles(ped: Handle, enable: boolean): void;
+	isTargetInPerceptionArea(ped: Handle, targetPed: Handle, focusAngle: number, focusDistance: number, peripheralAngle: number, peripheralDistance: number): boolean;
 	unk: GamePedUnk;
 }
 
