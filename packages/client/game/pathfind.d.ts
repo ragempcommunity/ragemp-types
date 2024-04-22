@@ -135,7 +135,7 @@ declare interface GamePathfind extends GamePathfindLegacy {
 	setAiGlobalPathNodesType(type: number): void;
 	areNodesLoadedForArea(x1: number, y1: number, x2: number, y2: number): boolean;
 	requestPathsPreferAccurateBoundingstruct(x1: number, y1: number, x2: number, y2: number): boolean;
-	setRoadsBackToOriginal(p0: number, p1: number, p2: number, p3: number, p4: number, p5: number, p6: number): void;
+	setRoadsBackToOriginal(minx: number, miny: number, minz: number, maxx: number, maxy: number, maxz: number, network: boolean): void;
 	setRoadsBackToOriginalInAngledArea(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, width: number, p7: number): void;
 	setAmbientPedRangeMultiplierThisFrame(multiplier: number): void;
 	setPedPathsBackToOriginal(p0: number, p1: number, p2: number, p3: number, p4: number, p5: number, p6: number): void;
@@ -172,4 +172,4 @@ declare interface GamePathfind extends GamePathfindLegacy {
 	unk: GamePathfindUnk;
 }
 
-declare interface GamePathfindMp extends GamePathfind {}
+declare interface GamePathfindMp extends GamePathfind { }
