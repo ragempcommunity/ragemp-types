@@ -946,6 +946,20 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	setTyreWearMultiplier(vehicle: number, wheelIndex: number, multiplier: number): void;
 	setTyreSoftnessMultiplier(vehicle: number, wheelIndex: number, multiplier: number): void;
 	setTyreTractionLossMultiplier(vehicle: number, wheelIndex: number, multiplier: number): void;
+	setRandomBoatsInMp(random: boolean): void;
+	isMissionTrain(vehicleHandle: Handle): boolean;
+	setHeliMainRotorHealth(heliHandle: Handle, health: number): void;
+	overrideOverheatHealth(handle: Handle, value: number): void;
+	setGeneratesEngineShockingEvents(vehicle: Handle, allowedEvents: boolean): void;
+	setPlanePropellersHealth(handle: Handle, health: number): boolean;
+	disableIndividualPlanePropeller(handle: Handle, index: number): void;
+	getHydraulicWheelValue(handle: Handle, wheelIndex: number): number;
+	setParachuteTextureVariation(handle: Handle, index: number): void;
+	setDriftTyresEnabled(handle: Handle, enable: boolean): void;
+	getDriftTyresEnabled(handle: Handle): boolean;
+	isCopVehicleInArea3d(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number): boolean;
+	setExperimentalAttachmentSyncEnabled(enable: boolean): void;
+	setExperimentalHornSyncEnabled(enable: boolean): void;
 
 	unk: GameVehicleUnk;
 }

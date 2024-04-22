@@ -207,6 +207,7 @@ declare interface GamePlayer extends GamePlayerLegacy {
 	isTeleportActive(): boolean;
 	getCurrentStealthNoise(): number;
 	getEntityIsFreeAimingAt(): EntityMp | number | undefined;
+	getEntityIsFreeAimingAtRaw(): Handle | undefined;
 	setHealthRechargeMultiplier(regenRate: number): void;
 	getHealthRechargeLimit(): number;
 	setHealthRechargeLimit(limit: number): void;
@@ -261,9 +262,19 @@ declare interface GamePlayer extends GamePlayerLegacy {
 	setBluetoothState(state: boolean): void;
 	isBluetoothEnable(): boolean;
 	getFakeWantedLevel(): number;
-	setHomingRocketDisabled(p0: number, p1: number): void;
-
+	setHomingRocketDisabled(player: Handle, disableHoming: number): void;
+	setReserveParachuteModelOverride(player: Handle, model: Hash): void;
+	getParachuteModelOverride(player: Handle): Hash;
+	getReserveParachuteModelOverride(player: Handle): number;
+	clearReserveParachuteModelOverride(player: Handle): void;
+	intToindex(args: number): Handle;
+	setAirDragMultiplierForsVehicle(player: Handle, multiplier: number): void;
+	setHudAnimStopLevel(player: Handle, toggle: boolean): void;
+	setAreasGeneratorOrientation(player: Handle): void;
+	getWantedLevelParoleDuration(): number;
+	setWantedLevelHiddenEvasionTime(player: Handle, wantedLevel: number, lossTime: number): void;
+	hasTeleportFinished(player: Handle): boolean;
 	unk: GamePlayerUnk;
 }
 
-declare interface GamePlayerMp extends GamePlayer {}
+declare interface GamePlayerMp extends GamePlayer { }
