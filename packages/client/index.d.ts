@@ -1021,36 +1021,6 @@ declare interface RaycastResult {
 
 declare interface BrowserMp {
 	/**
-	 * Property used to gets/sets the console's active state.
-	 */
-	active: boolean;
-
-	/**
-	 * Property used to gets/sets the browser's url.
-	 */
-	url: string;
-
-	/**
-	 * Property used to get headless browser's texture dictionary.
-	 */
-	headlessTextureDict: string;
-	
-	/**
-	 * Property used to get headless browser's texture name.
-	 */
-	headlessTextureName: string;
-
-	/**
-	 * Property used to get headless browser's texture dictionary.
-	 */
-	headlessTextureHeightScale: string;
-
-	/**
-	 * Property used to toggle browser's input.
-	 */
-	inputEnabled: boolean;
-
-	/**
 	 * Destroys browser instance.
 	 */
 	destroy(): void;
