@@ -273,6 +273,7 @@ declare interface GamePlayer extends GamePlayerLegacy {
 	setAreasGeneratorOrientation(player: Handle): void;
 	getWantedLevelParoleDuration(): number;
 	setWantedLevelHiddenEvasionTime(player: Handle, wantedLevel: number, lossTime: number): void;
+	hasTeleportFinished(player: Handle): boolean;
 	unk: GamePlayerUnk;
 }
 
