@@ -845,6 +845,7 @@ declare interface GamePed extends GamePedLegacy {
 	clearFacialClipsetOverride(ped: number): void;
 	getTaskCombatTarget(ped: Handle, losCheck: boolean): Handle;
 	getHeadBlendNumHeads(headType: number): number;
+	isMobilePhoneToEar(ped: Handle): boolean;
 
 
 	unk: GamePedUnk;
