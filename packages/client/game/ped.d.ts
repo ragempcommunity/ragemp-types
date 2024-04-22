@@ -852,6 +852,7 @@ declare interface GamePed extends GamePedLegacy {
 	setCanPlayInCarIdles(ped: Handle, enable: boolean): void;
 	isTargetInPerceptionArea(ped: Handle, targetPed: Handle, focusAngle: number, focusDistance: number, peripheralAngle: number, peripheralDistance: number): boolean;
 	setDisableFallDamage(ped: Handle, enable: boolean): void;
+	isCopPedInArea3d(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number): boolean;
 	unk: GamePedUnk;
 }
 
