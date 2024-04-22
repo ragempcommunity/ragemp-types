@@ -846,8 +846,7 @@ declare interface GamePed extends GamePedLegacy {
 	getTaskCombatTarget(ped: Handle, losCheck: boolean): Handle;
 	getHeadBlendNumHeads(headType: number): number;
 	isMobilePhoneToEar(ped: Handle): boolean;
-
-
+	setShouldPlayDirectedScenarioExit(ped: Handle, x: number, y: number, z: number): boolean;
 	unk: GamePedUnk;
 }
 
