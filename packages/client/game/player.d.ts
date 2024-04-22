@@ -262,7 +262,7 @@ declare interface GamePlayer extends GamePlayerLegacy {
 	setBluetoothState(state: boolean): void;
 	isBluetoothEnable(): boolean;
 	getFakeWantedLevel(): number;
-	setHomingRocketDisabled(p0: number, p1: number): void;
+	setHomingRocketDisabled(player: Handle, disableHoming: number): void;
 	setReserveParachuteModelOverride(player: Handle, model: Hash): void;
 	getParachuteModelOverride(player: Handle): Hash;
 	getReserveParachuteModelOverride(player: Handle): number;
