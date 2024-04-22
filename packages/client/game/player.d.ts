@@ -263,7 +263,16 @@ declare interface GamePlayer extends GamePlayerLegacy {
 	isBluetoothEnable(): boolean;
 	getFakeWantedLevel(): number;
 	setHomingRocketDisabled(p0: number, p1: number): void;
-
+	setReserveParachuteModelOverride(player: Handle, model: Hash): void;
+	getParachuteModelOverride(player: Handle): Hash;
+	getReserveParachuteModelOverride(player: Handle): number;
+	clearReserveParachuteModelOverride(player: Handle): void;
+	intToindex(args: number): Handle;
+	setAirDragMultiplierForsVehicle(player: Handle, multiplier: number): void;
+	setHudAnimStopLevel(player: Handle, toggle: boolean): void;
+	setAreasGeneratorOrientation(player: Handle): void;
+	getWantedLevelParoleDuration(): number;
+	setWantedLevelHiddenEvasionTime(player: Handle, wantedLevel: number, lossTime: number): void;
 	unk: GamePlayerUnk;
 }
 
