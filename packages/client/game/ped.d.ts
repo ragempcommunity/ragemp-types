@@ -851,6 +851,7 @@ declare interface GamePed extends GamePedLegacy {
 	setCanLosePropsOnDamage(ped: Handle, enable: boolean, flag: RageEnums.PropDamage): void;
 	setCanPlayInCarIdles(ped: Handle, enable: boolean): void;
 	isTargetInPerceptionArea(ped: Handle, targetPed: Handle, focusAngle: number, focusDistance: number, peripheralAngle: number, peripheralDistance: number): boolean;
+	setDisableFallDamage(ped: Handle, enable: boolean): void;
 	unk: GamePedUnk;
 }
 
