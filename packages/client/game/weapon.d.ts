@@ -184,6 +184,7 @@ declare interface GameWeapon extends GameWeaponLegacy {
 	doesAirDefenseZoneExist(zoneId: number): boolean;
 	setCanPedEquip(ped: number, weaponHash: number, toggle: boolean): void;
 	setCanPedEquipAllS(ped: number, toggle: boolean): void;
+	setExplosionRadiusMultiplier(weaponHash: Handle, multiplier: number): void;
 	getAllWeaponNames(): number[]
 
 	unk: GameWeaponUnk;
