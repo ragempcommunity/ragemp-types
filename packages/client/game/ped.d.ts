@@ -847,6 +847,7 @@ declare interface GamePed extends GamePedLegacy {
 	getHeadBlendNumHeads(headType: number): number;
 	isMobilePhoneToEar(ped: Handle): boolean;
 	setShouldPlayDirectedScenarioExit(ped: Handle, x: number, y: number, z: number): boolean;
+	createSynchronizedSceneAtMapObject(x: number, y: number, z: number, radius: number, objectHash: Hash): number;
 	unk: GamePedUnk;
 }
 
