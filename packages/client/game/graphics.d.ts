@@ -1201,6 +1201,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	animpostfxIsRunning(effectName: string): boolean;
 	animpostfxStopAll(): void;
 	animpostfxStopAndDoUnk(effectName: string): void;
+	togglePlayerDamageOverlay(enable: boolean): void;
 
 	/**
 	 * Convert a world coordinate into its relative screen coordinate. (WorldToScreen)
@@ -1276,6 +1277,8 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	 * This function will reset all texture swaps in the world
 	 */
 	resetWorldTextureSwaps(): void;
+	doesLatestBriefStringExist(type: number): boolean;
+	registerTextFontId(fontname: string): void;
 }
 
 declare interface GameGraphicsMp extends GameGraphics { }
