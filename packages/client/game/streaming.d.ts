@@ -163,8 +163,12 @@ declare interface GameStreaming extends GameStreamingLegacy {
 	removeModelFromCreatorBudget(modelHash: number): void;
 	getUsedCreatorModelMemoryPercentage(): number;
 	setIslandHopperEnabled(name: string, toggle: boolean): void;
-
+	/**
+	 * Gets all model hashes given by p1
+	 * @param p1 p1 seems to be entity type (unsure tho, use 5 to get all vehicle hashes as array) 
+	 */
+	getAllModelHashes(p1: number): number[];
 	unk: GameStreamingUnk;
 }
 
-declare interface GameStreamingMp extends GameStreaming {}
+declare interface GameStreamingMp extends GameStreaming { }
