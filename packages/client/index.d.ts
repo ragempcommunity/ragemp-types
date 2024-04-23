@@ -1253,8 +1253,8 @@ declare interface EventMpPool {
 	callRemoteProc<T = any>(procName: string, ...args: any[]): Promise<T>;
 
 	callRemoteUnreliable(eventName: string, ...args: any[]): void;
-	cancelPendingRpc(procName?: string): void;
-	hasPendingRpc(procName?: string): boolean;
+	cancelPendingProc(procName?: string): void;
+	hasPendingProc(procName?: string): boolean;
 
 	/**
 	 * Removes the specified event from events tree.
