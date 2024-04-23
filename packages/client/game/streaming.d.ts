@@ -168,6 +168,13 @@ declare interface GameStreaming extends GameStreamingLegacy {
 	 * @param p1 p1 seems to be entity type (unsure tho, use 5 to get all vehicle hashes as array) 
 	 */
 	getAllModelHashes(p1: number): number[];
+	streamvolCreateSphere(x: number, y: number, z: number, flag: number, lodFlag: number): Handle;
+	streamvolCreateFrustum(x: number, y: number, z: number, dirx: number, diry: number, dirz: number, flag: number, lodflag: number): Handle;
+	streamvolCreateLine(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, flag: number): void;
+	streamvolDelete(handle: Handle): void;
+	streamvolHasLoaded(handle: Handle): boolean;
+	streamvolIsValid(handle: Handle): boolean;
+	isStreamvolActive(): boolean;
 	unk: GameStreamingUnk;
 }
 
