@@ -350,8 +350,8 @@ declare interface GameAudio extends GameAudioLegacy {
 	hasMultiplayerDataUnloaded(): boolean;
 	getVehicleDefaultHornVariation(vehicle: number): number;
 	setVehicleHornVariation(vehicle: number, value: number): void;
-
+	playPoliceCrimeReport(position: Vector3, crimeIndex: number, playDelay: number, localPlayer: boolean): void;
 	unk: GameAudioUnk;
 }
 
-declare interface GameAudioMp extends GameAudio {}
+declare interface GameAudioMp extends GameAudio { }
