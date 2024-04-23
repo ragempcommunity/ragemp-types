@@ -176,6 +176,11 @@ declare interface GameStreaming extends GameStreamingLegacy {
 	streamvolIsValid(handle: Handle): boolean;
 	isStreamvolActive(): boolean;
 	getPlayerSwitchInterpOutCurrentTime(): number;
+	/**
+	 * Set the game to only render hd models
+	 * @param enable true = enable, false = disable
+	 */
+	setRenderHdOnly(enable: boolean): void;
 	unk: GameStreamingUnk;
 }
 
