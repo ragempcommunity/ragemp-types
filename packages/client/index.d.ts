@@ -1164,7 +1164,7 @@ declare interface IClientEvents {
 		boneIndex: number,
 		damage: number
 	) => void;
-	playerStartEnterVehicle: (vehicle: VehicleMp, seat: number) => void;
+	// playerStartEnterVehicle: (vehicle: VehicleMp, seat: number) => void;
 	playerEnterVehicle: (vehicle: VehicleMp, seat: number) => void;
 	playerLeaveVehicle: (vehicle: VehicleMp, seat: number) => void;
 	playerStartTalking: (player: PlayerMp) => void;
