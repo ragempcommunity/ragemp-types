@@ -175,6 +175,7 @@ declare interface GameStreaming extends GameStreamingLegacy {
 	streamvolHasLoaded(handle: Handle): boolean;
 	streamvolIsValid(handle: Handle): boolean;
 	isStreamvolActive(): boolean;
+	getPlayerSwitchInterpOutCurrentTime(): number;
 	unk: GameStreamingUnk;
 }
 
