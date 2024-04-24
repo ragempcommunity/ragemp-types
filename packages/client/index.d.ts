@@ -1664,13 +1664,18 @@ declare interface PedMpBase extends EntityMp {
 	registerTarget(target: Handle): void;
 	removeDefensiveArea(toggle: boolean): void;
 	removeFromGroup(): void;
-	removeHelmet(p2: boolean): void;
+	/**
+	 * Removes helmet from player
+	 * @param forceRemove whether to force remove it or not
+	 * @returns void
+	 */
+	removeHelmet(forceRemove: boolean): void;
 	removePreferredCoverSet(): void;
 	removeWeapon(weapon: RageEnums.Hashes.Weapon | Hash): void;
 	removeAllWeapons(): void;
 	resetInVehicleContext(): void;
 	resetLastVehicle(): void;
-	resetMovementClipset(p1: number): void;
+	resetMovementClipset(blendDuration: number): void;
 	resetRagdollTimer(): void;
 	resetStrafeClipset(): void;
 	resetVisibleDamage(): void;
@@ -1689,11 +1694,11 @@ declare interface PedMpBase extends EntityMp {
 	setAsEnemy(toggle: boolean): void;
 	setAsGroupLeader(groupId: number): void;
 	setAsGroupMember(groupId: number): void;
-	setBlendFromParents(p1: any, p2: any, p3: number, p4: number): void;
+	setBlendFromParents(firstPed: Handle, secondPed: Handle, blend: number, texBlend: number): void;
 	setBlockingOfNonTemporaryEvents(toggle: boolean): void;
-	setBoundsOrientation(p1: number, p2: number, p3: number, p4: number, p5: number): void;
+	setBoundsOrientation(pitch: number, heading: number, x: number, y: number, z: number): void;
 	setCanArmIk(toggle: boolean): void;
-	setCanAttackFriendly(toggle: boolean, p2: boolean): void;
+	setCanAttackFriendly(toggle: boolean, lockOnState: boolean): void;
 	setCanBeDraggedOut(toggle: boolean): void;
 	setCanBeKnockedOffVehicle(state: number): void;
 	setCanBeShotInVehicle(toggle: boolean): void;
@@ -1714,7 +1719,7 @@ declare interface PedMpBase extends EntityMp {
 	setCanPlayVisemeAnims(p1: boolean, p2: boolean): void;
 	setCanRagdoll(toggle: boolean): void;
 	setCanRagdollFromPlayerImpact(toggle: boolean): void;
-	setCanSmashGlass(p1: boolean, p2: boolean): void;
+	setCanSmashGlass(glassRagdoll: boolean, glassWeapon: boolean): void;
 	setCanSwitchWeapon(toggle: boolean): void;
 	setCanTeleportToGroupLeader(groupHandle: number, toggle: boolean): void;
 	setCanTorsoIk(toggle: boolean): void;
@@ -1722,7 +1727,7 @@ declare interface PedMpBase extends EntityMp {
 	setCapsule(value: number): void;
 	setCombatAbility(p1: number): void;
 	setCombatAttributes(attributeIndex: number, enabled: boolean): void;
-	setCombatFloat(combatType: number, p2: number): void;
+	setCombatFloat(combatType: number, attribute: number): void;
 	setCombatMovement(combatMovement: number): void;
 	setCombatRange(p1: number): void;
 	setComponentVariation(componentId: number, drawableId: number, textureId: number, paletteId: number): void;
@@ -1734,15 +1739,15 @@ declare interface PedMpBase extends EntityMp {
 	setDefaultComponentVariation(): void;
 	setDefensiveAreaAttachedToPed(
 		attachPed: Handle,
-		p2: number,
-		p3: number,
-		p4: number,
-		p5: number,
-		p6: number,
-		p7: number,
-		p8: number,
-		p9: boolean,
-		p10: boolean
+		x1: number,
+		y1: number,
+		z1: number,
+		x2: number,
+		y2: number,
+		z2: number,
+		width: number,
+		orientate: boolean,
+		applyToSecondaryDefensiveArea: boolean
 	): void;
 	setDefensiveAreaDirection(p1: number, p2: number, p3: number, p4: boolean): void;
 	setDefensiveSphereAttachedToPed(p1: any, p2: number, p3: number, p4: number, p5: number, p6: boolean): void;
