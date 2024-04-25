@@ -578,7 +578,7 @@ declare class PlayerMp extends EntityMp {
 	/**
 	 * TODO: docs
 	 */
-	public cancelPendingRpc(procName?: string): void;
+	public cancelPendingProc(procName?: string): void;
 
 	/**
 	 * TODO: docs
@@ -678,7 +678,7 @@ declare class PlayerMp extends EntityMp {
 	/**
 	 * TODO: docs
 	 */
-	public hasPendingRpc(procName?: string): boolean;
+	public hasPendingProc(procName?: string): boolean;
 
 	/**
 	 * Used for check, player is located in stream distance for another player or not.

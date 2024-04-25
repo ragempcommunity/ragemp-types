@@ -258,10 +258,14 @@ declare interface GameObject extends GameObjectLegacy {
 	 * [Number model, Vector3 position, Vector3 rotation, Number distanceSquared(if includeDistance is set to true)]
 	 * [RAGE:MP Wiki article](https://wiki.rage.mp/index.php?title=Object::getAllInRange)
 	 */
-	getAllInRange(position: Vector3, range?: number, includeDistance?: boolean, sortByDistance?: boolean) : [number, Vector3, Vector3, number?][] | undefined;
+	getAllInRange(position: Vector3, range?: number, includeDistance?: boolean, sortByDistance?: boolean): [number, Vector3, Vector3, number?][] | undefined;
 	getAllByHash(hash: number): Vector3[];
-
+	setForceVehiclesToAvoid(object: Handle, enable: boolean): void;
+	doorSystemGetAutomaticDistance(doorHash: Handle): number;
+	clearObjectsInsideGarage(garage: Handle, vehicles: boolean, peds: boolean, objects: boolean, broadcast?: boolean): void;
+	createNonNetworkedAmbientPickup(type: number, x: number, y: number, z: number, flags?: number, amount?: number, customModel?: number, scriptedObject?: boolean, hostObject?: boolean): Handle;
+	createNonNetworkedPortablePickup(type: number, x: number, y: number, z: number, snaptoGround?: boolean, customModel?: number): Handle;
 	unk: GameObjectUnk;
 }
 
-declare interface GameObjectMp extends GameObject {}
+declare interface GameObjectMp extends GameObject { }
