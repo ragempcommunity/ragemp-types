@@ -1290,6 +1290,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	doesLatestBriefStringExist(type: number): boolean;
 	registerTextFontId(fontname: string): void;
 	setNumberPlateTexture(txDict: string, txName: string, txDictNormal: string, txNameNorma: string): void;
+	setParticleFxBloodScale(scale: number): void;
 }
 
 declare interface GameGraphicsMp extends GameGraphics { }
