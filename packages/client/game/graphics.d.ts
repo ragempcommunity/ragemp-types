@@ -1247,6 +1247,10 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	 * @param disable true to disable; false to enable (defaults to false)
 	 */
 	setLightsState(lightId: number, disable: boolean): void;
+	/**
+	 * This function resets the light state back to default.
+	 */
+	resetLightsState(): void;
 
 	/**
 	 * @param layer Only layer 4 works
