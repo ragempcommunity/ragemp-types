@@ -1251,6 +1251,12 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	 * This function resets the light state back to default.
 	 */
 	resetLightsState(): void;
+	/**
+	 * This function allows you to get the state of a given light id, whether they're on or off.
+	 * 
+	 * @param lightId The lightId (valid 0 through 16) to get the state of.
+	 */
+	getLightsState(lightId: number): boolean;
 
 	/**
 	 * @param layer Only layer 4 works
