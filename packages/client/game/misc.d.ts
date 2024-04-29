@@ -208,6 +208,7 @@ interface GameMisc extends GameMiscLegacy {
 	setWeatherTypeOvertimePersist(weatherType: string, time: number): void;
 	setRandomWeatherType(): void;
 	clearWeatherTypePersist(): void;
+	clearWeatherTypeOvertimePersist(transitionTime: number): void;
 	getWeatherTypeTransition(): GetWeatherTypeTransitionResult;
 	setWeatherTypeTransition(weatherType1: number, weatherType2: number, percentWeather2: number): void;
 	setOverrideWeather(weatherType: string): void;
@@ -250,15 +251,19 @@ interface GameMisc extends GameMiscLegacy {
 	getRandomIntInRange(startRange: number, endRange: number): number;
 	getRandomIntInRange2(startRange: number, endRange: number): number;
 	getGroundZFor3dCoord(x: number, y: number, z: number, ignoreWater: boolean, p5: boolean): number;
+	getGroundZFor3DCoord(x: number, y: number, z: number, ignoreWater: boolean, p5: boolean): number;
 	getGroundZAndNormalFor3DCoord(x: number, y: number, z: number): GetGroundZAndNormalFor3DCoordResult;
 	getGroundZFor3dCoord2(x: number, y: number, z: number, p4: boolean, p5: boolean): number;
+	getGroundZFor3DCoord2(x: number, y: number, z: number, p4: boolean, p5: boolean): number;
 	asin(p0: number): number;
 	acos(p0: number): number;
 	tan(p0: number): number;
 	atan(p0: number): number;
 	atan2(p0: number, p1: number): number;
 	getDistanceBetweenCoords(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, useZ: boolean): number;
+	getAngleBetween2dVectors(x1: number, y1: number, x2: number, y2: number): number;
 	getAngleBetween2DVectors(x1: number, y1: number, x2: number, y2: number): number;
+	getHeadingFromVector2d(dx: number, dy: number): number;
 	getHeadingFromVector2D(dx: number, dy: number): number;
 	setBit(offset: number): number;
 	clearBit(offset: number): number;
@@ -548,6 +553,7 @@ interface GameMisc extends GameMiscLegacy {
 	populateNow(): void;
 	getIndexOfCurrentLevel(): number;
 	setGravityLevel(level: number): void;
+	getGravityLevel(): number;
 	startSaveData(p1: number, p2: boolean): number;
 	stopSaveData(): void;
 	getSizeOfSaveData(p0: boolean): number;
