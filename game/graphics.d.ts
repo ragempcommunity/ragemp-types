@@ -1247,6 +1247,16 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	 * @param disable true to disable; false to enable (defaults to false)
 	 */
 	setLightsState(lightId: number, disable: boolean): void;
+	/**
+	 * This function resets the light state back to default.
+	 */
+	resetLightsState(): void;
+	/**
+	 * This function allows you to get the state of a given light id, whether they're on or off.
+	 * 
+	 * @param lightId The lightId (valid 0 through 16) to get the state of.
+	 */
+	getLightsState(lightId: number): boolean;
 
 	/**
 	 * @param layer Only layer 4 works
@@ -1280,6 +1290,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	doesLatestBriefStringExist(type: number): boolean;
 	registerTextFontId(fontname: string): void;
 	setNumberPlateTexture(txDict: string, txName: string, txDictNormal: string, txNameNorma: string): void;
+	setParticleFxBloodScale(scale: number): void;
 }
 
 declare interface GameGraphicsMp extends GameGraphics { }
