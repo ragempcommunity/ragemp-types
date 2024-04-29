@@ -201,7 +201,7 @@ declare interface GamePlayer extends GamePlayerLegacy {
 	enableSpecialAbility(toggle: boolean, p2: number): void;
 	isSpecialAbilityEnabled(p1: number): boolean;
 	setSpecialAbilityMultiplier(multiplier: number): void;
-	startTeleport(x: number, y: number, z: number, heading: number, p5: boolean, findCollisionLand: boolean, p7: boolean): void;
+	startTeleport(x: number, y: number, z: number, heading: number, tpVehicle: boolean, setToGround: boolean, fadeOut: boolean): void;
 	updateTeleport(): boolean;
 	stopTeleport(): void;
 	isTeleportActive(): boolean;
