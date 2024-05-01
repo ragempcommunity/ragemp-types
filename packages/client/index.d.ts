@@ -570,6 +570,7 @@ declare class EntityMp {
 	hasAnimEventFired(actionHash: Hash): boolean;
 	hasAnimFinished(animDict: string, animName: string, p2: number): boolean;
 	hasBeenDamagedBy(entity: Handle, p1: boolean): boolean;
+	hasBeenDamagedByEntity(entity:Handle, p2:boolean): boolean;
 	hasBeenDamagedByAnyObject(): boolean;
 	hasBeenDamagedByAnyPed(): boolean;
 	hasBeenDamagedByAnyVehicle(): boolean;
