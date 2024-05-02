@@ -1459,6 +1459,9 @@ declare interface CameraMpPool extends EntityMpPool<CameraMp> {
 }
 
 declare interface PedMpBase extends EntityMp {
+	weapon: Hash;
+	weaponAmmo:number;
+
 	haveAllStreamingRequestsCompleted():boolean;
 	applyBlood(boneIndex: number, xRot: number, yRot: number, zRot: number, woundType: string): void;
 	applyBloodByZone(p1: any, p2: number, p3: number, p4: any): void;
@@ -2350,7 +2353,7 @@ declare interface PlayerMp extends PedMpBase {
 	voiceAutoVolume: boolean;
 	voiceVolume: number;
 	voice3d: any;
-	weapon: Hash;
+
 	readonly action: string;
 	readonly aimTarget: boolean;
 	readonly ip: string;
