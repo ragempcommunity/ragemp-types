@@ -1459,6 +1459,7 @@ declare interface CameraMpPool extends EntityMpPool<CameraMp> {
 }
 
 declare interface PedMpBase extends EntityMp {
+	haveAllStreamingRequestsCompleted():boolean;
 	applyBlood(boneIndex: number, xRot: number, yRot: number, zRot: number, woundType: string): void;
 	applyBloodByZone(p1: any, p2: number, p3: number, p4: any): void;
 	applyBloodDamageByZone(p1: any, p2: number, p3: number, p4: any): void;
