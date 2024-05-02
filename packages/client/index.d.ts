@@ -2286,6 +2286,10 @@ declare interface PedMpBase extends EntityMp {
 }
 
 declare interface PedMp extends PedMpBase {
+	/**
+	 * Returns whether ped is dynamic or not.
+	 */
+	readonly isDynamic: boolean;
 	spawnPosition: Vector3;
 	/**
 	 * Returns the player set as the ped's controller.
