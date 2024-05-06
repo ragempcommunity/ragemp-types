@@ -853,7 +853,18 @@ declare interface GameHud extends GameHudLegacy {
 	getCurrentStreetNameHash(): number;
 	setShowHudComponentsThisFrameBatch(show: boolean, hudComponents: RageEnums.Hud.Component[]): void;
 	applyShowHudComponentsThisFrameBatch(): void;
-
+	getBlipFadeStatus(blip: Handle): number;
+	getBlipRotation(blip: Handle): number;
+	setBlipAsMinimalOnEdge(blip: Handle, p1: boolean): void;
+	setInteriorZoomLevelIncreased(toggle: boolean): void;
+	setInteriorZoomLevelDecreased(toggle: boolean): void;
+	setMainPlayerBlipColour(color: number): void;
+	customMinimapSetActive(lock: boolean): void;
+	customMinimapSetBlipObject(spriteId: number): void;
+	customMinimapCreateBlip(x: number, y: number, z: number): Handle;
+	customMinimapClearBlips(): void;
+	enableDeathbloodSeethrough(p1: number): void;
+	endTextComponent(): void;
 	unk: GameHudUnk;
 }
 

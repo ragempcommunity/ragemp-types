@@ -570,6 +570,7 @@ declare class EntityMp {
 	hasAnimEventFired(actionHash: Hash): boolean;
 	hasAnimFinished(animDict: string, animName: string, p2: number): boolean;
 	hasBeenDamagedBy(entity: Handle, p1: boolean): boolean;
+	hasBeenDamagedByEntity(entity:Handle, p2:boolean): boolean;
 	hasBeenDamagedByAnyObject(): boolean;
 	hasBeenDamagedByAnyPed(): boolean;
 	hasBeenDamagedByAnyVehicle(): boolean;
@@ -1458,6 +1459,10 @@ declare interface CameraMpPool extends EntityMpPool<CameraMp> {
 }
 
 declare interface PedMpBase extends EntityMp {
+	weapon: Hash;
+	weaponAmmo:number;
+
+	haveAllStreamingRequestsCompleted():boolean;
 	applyBlood(boneIndex: number, xRot: number, yRot: number, zRot: number, woundType: string): void;
 	applyBloodByZone(p1: any, p2: number, p3: number, p4: any): void;
 	applyBloodDamageByZone(p1: any, p2: number, p3: number, p4: any): void;
@@ -2281,6 +2286,10 @@ declare interface PedMpBase extends EntityMp {
 }
 
 declare interface PedMp extends PedMpBase {
+	/**
+	 * Returns whether ped is dynamic or not.
+	 */
+	readonly isDynamic: boolean;
 	spawnPosition: Vector3;
 	/**
 	 * Returns the player set as the ped's controller.
@@ -2348,7 +2357,7 @@ declare interface PlayerMp extends PedMpBase {
 	voiceAutoVolume: boolean;
 	voiceVolume: number;
 	voice3d: any;
-	weapon: Hash;
+
 	readonly action: string;
 	readonly aimTarget: boolean;
 	readonly ip: string;

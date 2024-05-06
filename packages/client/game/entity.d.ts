@@ -351,6 +351,7 @@ declare interface GameEntity extends GameEntityLegacy {
 	setRotation(entity: number, pitch: number, roll: number, yaw: number, rotationOrder: number, p5: boolean): void;
 	setVisible(entity: number, toggle: boolean, unk: boolean): void;
 	setVelocity(entity: number, x: number, y: number, z: number): void;
+	setAngularVelocity(entity:number, x: number, y: number, z: number): void;
 	setHasGravity(entity: number, toggle: boolean): void;
 	setLodDist(entity: number, value: number): void;
 	getLodDist(entity: number): number;
