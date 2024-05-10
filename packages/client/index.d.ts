@@ -1165,6 +1165,7 @@ declare interface IClientEvents {
 		boneIndex: number,
 		damage: number
 	) => void;
+	meleeActionDamage: (source: PlayerMp, target: PlayerMp, weaponHash: Hash, damage: number, isCritical: boolean) => void;
 	// playerStartEnterVehicle: (vehicle: VehicleMp, seat: number) => void;
 	playerEnterVehicle: (vehicle: VehicleMp, seat: number) => void;
 	playerLeaveVehicle: (vehicle: VehicleMp, seat: number) => void;
