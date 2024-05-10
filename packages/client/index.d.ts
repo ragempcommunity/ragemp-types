@@ -2900,6 +2900,25 @@ declare interface VehicleMp extends EntityMp {
 	toggleMod(modType: number, toggle: boolean): void;
 	trackVisibility(): void;
 	wasCounterActivated(p0: any): boolean;
+	getHasKers(): boolean;
+	setKersAllowed(enable: boolean): void;
+	getNumberOfDoors(): number;
+	blipSiren(): void;
+	setVehHasRadioOverride(): void;
+	isVehicleRadioEnabled(): boolean;
+	setVehicleRadioLoud(toggle: boolean): void;
+	isVehicleRadioLoud(): boolean;
+	setVehicleRadioEnabled(enable: boolean): void;
+	overrideVehHorn(override: boolean, hornHash: number): void;
+	playStreamFromVehicle(): void;
+	setSirenWithNoDriver(enable: boolean): void;
+	setSirenKeepOn(enable: boolean): void;
+	triggerSiren(): void;
+	setVehiclePriority(p1: number): void;
+	setPedTargettableDestroy(doorId: number, doorLockStatus: number): void;
+	getEntityAttachedToTowTruck(towTruck: Handle): Handle;
+	setHornPermanentlyOnTime(time: number): void;
+	doesAllowRappel(): boolean;
 
 	/**
 
