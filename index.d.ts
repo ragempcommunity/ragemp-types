@@ -570,7 +570,7 @@ declare class EntityMp {
 	hasAnimEventFired(actionHash: Hash): boolean;
 	hasAnimFinished(animDict: string, animName: string, p2: number): boolean;
 	hasBeenDamagedBy(entity: Handle, p1: boolean): boolean;
-	hasBeenDamagedByEntity(entity:Handle, p2:boolean): boolean;
+	hasBeenDamagedByEntity(entity: Handle, p2: boolean): boolean;
 	hasBeenDamagedByAnyObject(): boolean;
 	hasBeenDamagedByAnyPed(): boolean;
 	hasBeenDamagedByAnyVehicle(): boolean;
@@ -1165,6 +1165,7 @@ declare interface IClientEvents {
 		boneIndex: number,
 		damage: number
 	) => void;
+	meleeActionDamage: (source: PlayerMp, target: PlayerMp, weaponHash: Hash, damage: number, isCritical: boolean) => void;
 	// playerStartEnterVehicle: (vehicle: VehicleMp, seat: number) => void;
 	playerEnterVehicle: (vehicle: VehicleMp, seat: number) => void;
 	playerLeaveVehicle: (vehicle: VehicleMp, seat: number) => void;
@@ -1460,9 +1461,9 @@ declare interface CameraMpPool extends EntityMpPool<CameraMp> {
 
 declare interface PedMpBase extends EntityMp {
 	weapon: Hash;
-	weaponAmmo:number;
+	weaponAmmo: number;
 
-	haveAllStreamingRequestsCompleted():boolean;
+	haveAllStreamingRequestsCompleted(): boolean;
 	applyBlood(boneIndex: number, xRot: number, yRot: number, zRot: number, woundType: string): void;
 	applyBloodByZone(p1: any, p2: number, p3: number, p4: any): void;
 	applyBloodDamageByZone(p1: any, p2: number, p3: number, p4: any): void;
@@ -2814,6 +2815,7 @@ declare interface VehicleMp extends EntityMp {
 	setDoorsLockedForTeam(team: number, toggle: boolean): void;
 	setDoorsShut(closeInstantly: boolean): void;
 	setDriftTyresEnabled(toggle: boolean): void;
+	getDriftTyresEnabled(): boolean;
 	setEngineCanDegrade(toggle: boolean): void;
 	setEngineHealth(health: number): void;
 	setEngineOn(value: boolean, instantly: boolean, otherwise: boolean): void;
@@ -2831,6 +2833,7 @@ declare interface VehicleMp extends EntityMp {
 	setHalt(distance: number, killEngine: number, unknown: boolean): void;
 	setHandbrake(toggle: boolean): void;
 	setHandling(typeName: string, value: number | string): void;
+	resetHandling(): void;
 	setHasBeenOwnedByPlayer(owned: boolean): void;
 	setHasStrongAxles(toggle: boolean): void;
 	setHeliBladesFullSpeed(): void;
@@ -2898,6 +2901,25 @@ declare interface VehicleMp extends EntityMp {
 	toggleMod(modType: number, toggle: boolean): void;
 	trackVisibility(): void;
 	wasCounterActivated(p0: any): boolean;
+	getHasKers(): boolean;
+	setKersAllowed(enable: boolean): void;
+	getNumberOfDoors(): number;
+	blipSiren(): void;
+	setVehHasRadioOverride(): void;
+	isVehicleRadioEnabled(): boolean;
+	setVehicleRadioLoud(toggle: boolean): void;
+	isVehicleRadioLoud(): boolean;
+	setVehicleRadioEnabled(enable: boolean): void;
+	overrideVehHorn(override: boolean, hornHash: number): void;
+	playStreamFromVehicle(): void;
+	setSirenWithNoDriver(enable: boolean): void;
+	setSirenKeepOn(enable: boolean): void;
+	triggerSiren(): void;
+	setVehiclePriority(p1: number): void;
+	setPedTargettableDestroy(doorId: number, doorLockStatus: number): void;
+	getEntityAttachedToTowTruck(towTruck: Handle): Handle;
+	setHornPermanentlyOnTime(time: number): void;
+	doesAllowRappel(): boolean;
 
 	/**
 
@@ -2909,6 +2931,10 @@ declare interface VehicleMp extends EntityMp {
 	 * @returns number
 	 */
 	wheelCount: number;
+
+	gravity: number;
+	nosActive: boolean;
+	nosAmount: number;
 
 	/**
 	 * @params wheelId
@@ -3393,6 +3419,15 @@ declare interface VehicleMp extends EntityMp {
 	setDoorsLockedForPlayer(player: Handle, toggle: boolean): void;
 	setDoorsLockedForTeam(team: number, toggle: boolean): void;
 	setDoorsShut(closeInstantly: boolean): void;
+	getMaxBraking(): number;
+	setInteriorlight(enable: boolean): void;
+	setHeliBladesSpeed(speed: number): void;
+	isHornActive(): boolean;
+	setHornEnabled(enable: boolean): void;
+	setHornPermanentlyOn(enable: boolean): void;
+	setVehRadioStation(radioStation: string): void;
+	isDoorFullyOpen(doorIndex: number): boolean;
+	doesHaveStuckCheck(): number;
 	setEngineCanDegrade(toggle: boolean): void;
 	setEngineHealth(health: number): void;
 	setEngineOn(value: boolean, instantly: boolean, otherwise: boolean): void;

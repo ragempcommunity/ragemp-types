@@ -1288,7 +1288,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	 */
 	resetWorldTextureSwaps(): void;
 	doesLatestBriefStringExist(type: number): boolean;
-	registerTextFontId(fontname: string): void;
+	registerTextFontId(fontname: string): number;
 	setNumberPlateTexture(txDict: string, txName: string, txDictNormal: string, txNameNorma: string): void;
 	setParticleFxBloodScale(scale: number): void;
 }
