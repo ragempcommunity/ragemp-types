@@ -887,7 +887,7 @@ declare interface GuiCursorMp {
 	/**
 	 * Registers a custom cursor icon
 	 */
-	registerCustomIcon(type: string, packageFilePath: string, offsetX: number, offsetY: number): void;
+	registerCustomIcon(type: number, packageFilePath: string, offsetX: number, offsetY: number): void;
 }
 
 declare interface UserMp {
