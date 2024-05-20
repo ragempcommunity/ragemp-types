@@ -294,7 +294,7 @@ declare interface GameGraphicsLegacy {
 
 declare interface GameGraphics extends GameGraphicsLegacy {
 	setDebugLinesAndSpheresDrawingActive(enabled: boolean): void;
-	drawDebugLine(p0: number, p1: number, p2: number, p3: number, p4: number, p5: number, p6: number, p7: number, p8: number, p9: number): void;
+	drawDebugLine(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, r: number, g: number, b: number, alpha: number): void;
 	drawDebugLineWithTwoColours(
 		x1: number,
 		y1: number,
@@ -312,7 +312,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 		alpha2: number
 	): void;
 	drawDebugSphere(x: number, y: number, z: number, radius: number, red: number, green: number, blue: number, alpha: number): void;
-	drawDebugBox(p0: number, p1: number, p2: number, p3: number, p4: number, p5: number, p6: number, p7: number, p8: number, p9: number): void;
+	drawDebugBox(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, r: number, g: number, b: number, alpha: number): void;
 	drawDebugCross(x: number, y: number, z: number, size: number, red: number, green: number, blue: number, alpha: number): void;
 	drawDebugText(text: string, x: number, y: number, z: number, red: number, green: number, blue: number, alpha: number): void;
 	drawDebugText2D(text: string, x: number, y: number, z: number, red: number, green: number, blue: number, alpha: number): void;
@@ -465,7 +465,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 		falloff: number,
 		shadowId: number
 	): void;
-	fadeUpPedLight(p0: number): void;
+	fadeUpPedLight(seconds: number): void;
 	updateLightsOnEntity(entity: number): void;
 	drawMarker(
 		type: number,
@@ -543,7 +543,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	setCheckpointRgba(checkpoint: number, red: number, green: number, blue: number, alpha: number): void;
 	setCheckpointRgba2(checkpoint: number, red: number, green: number, blue: number, alpha: number): void;
 	deleteCheckpoint(checkpoint: number): void;
-	dontRenderInGameUi(p0: boolean): void;
+	dontRenderInGameUi(val: boolean): void;
 	forceRenderInGameUi(toggle: boolean): void;
 	requestStreamedTextureDict(textureDict: string, p1: boolean): void;
 	hasStreamedTextureDictLoaded(textureDict: string): boolean;
@@ -619,7 +619,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	setBinkShouldSkip(binkMovie: number, bShouldSkip: boolean): void;
 	loadMovieMeshSet(movieMeshSetName: string): number;
 	releaseMovieMeshSet(movieMeshSet: number): void;
-	queryMovieMeshSetState(p0: number): number;
+	queryMovieMeshSetState(meshsetid: number): number;
 	getScreenResolution(): GetScreenResolutionResult;
 	getActiveScreenResolution(): GetActiveScreenResolutionResult;
 	getAspectRatio(b: boolean): number;
@@ -633,7 +633,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	getScreenCoordFromWorldCoord(worldX: number, worldY: number, worldZ: number): GetScreenCoordFromWorldCoordResult;
 	getTextureResolution(textureDict: string, textureName: string): Vector3;
 	overridePedBadgeTexture(ped: number, txd: string, txn: string): boolean;
-	setFlash(p0: number, p1: number, fadeIn: number, duration: number, fadeOut: number): void;
+	setFlash(minExposure: number, maxExposure: number, rampUpDuration: number, rampDownDuration: number, holdDuration: number): void;
 	disableOcclusionThisFrame(): void;
 	setArtificialLightsState(state: boolean): void;
 	setArtificialLightsStateAffectsVehicles(toggle: boolean): void;
@@ -644,17 +644,17 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	grassLodShrinkScriptAreas(x: number, y: number, z: number, radius: number, p4: number, p5: number, p6: number): void;
 	grassLodResetScriptAreas(): void;
 	cascadeShadowsInitSession(): void;
-	cascadeShadowsSetCascadeBounds(p0: number, p1: boolean, p2: number, p3: number, p4: number, p5: number, p6: boolean, p7: number): void;
-	cascadeShadowsSetCascadeBoundsScale(p0: number): void;
-	cascadeShadowsSetEntityTrackerScale(p0: number): void;
+	cascadeShadowsSetCascadeBounds(cascade: number, enabled: boolean, x: number, y: number, z: number, scale: number, interpolateToDisabled: boolean, interpolateTime: number): void;
+	cascadeShadowsSetCascadeBoundsScale(scale: number): void;
+	cascadeShadowsSetEntityTrackerScale(scale: number): void;
 	cascadeShadowsEnableEntityTracker(toggle: boolean): void;
 	cascadeShadowsSetShadowSampleType(type: string): void;
 	cascadeShadowsClearShadowSampleType(): void;
-	cascadeShadowsSetAircraftMode(p0: boolean): void;
-	cascadeShadowsSetDynamicDepthMode(p0: boolean): void;
-	cascadeShadowsSetDynamicDepthValue(p0: number): void;
+	cascadeShadowsSetAircraftMode(enable: boolean): void;
+	cascadeShadowsSetDynamicDepthMode(enable: boolean): void;
+	cascadeShadowsSetDynamicDepthValue(distance: number): void;
 	golfTrailSetEnabled(toggle: boolean): void;
-	golfTrailSetPath(p0: number, p1: number, p2: number, p3: number, p4: number, p5: number, p6: number, p7: number, p8: boolean): void;
+	golfTrailSetPath(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, scale: number, idx: number, ascending: boolean): void;
 	golfTrailSetRadius(p0: number, p1: number, p2: number): void;
 	golfTrailSetColour(
 		p0: number,
@@ -1201,6 +1201,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	animpostfxIsRunning(effectName: string): boolean;
 	animpostfxStopAll(): void;
 	animpostfxStopAndDoUnk(effectName: string): void;
+	togglePlayerDamageOverlay(enable: boolean): void;
 
 	/**
 	 * Convert a world coordinate into its relative screen coordinate. (WorldToScreen)
@@ -1241,18 +1242,55 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 
 	/**
 	 * This function allows you to disable the state of an artificial lightId (granular control over lights instead of e.g. setBlackout turning all on/off)
-	 * 
+	 *
 	 * @param lightId The lightId (valid 0 through 16) to change the state of
 	 * @param disable true to disable; false to enable (defaults to false)
 	 */
-	setLightsState(lightId: number, disable: boolean): void
+	setLightsState(lightId: number, disable: boolean): void;
+	/**
+	 * This function resets the light state back to default.
+	 */
+	resetLightsState(): void;
+	/**
+	 * This function allows you to get the state of a given light id, whether they're on or off.
+	 * 
+	 * @param lightId The lightId (valid 0 through 16) to get the state of.
+	 */
+	getLightsState(lightId: number): boolean;
 
 	/**
 	 * @param layer Only layer 4 works
 	 */
-	set2dLayer(layer: number): void
+	set2dLayer(layer: number): void;
 
 	unk: GameGraphicsUnk;
+
+	/**
+	 * This function will create a texture swap in the world
+	 *
+	 * @param oldTextureDict The old texture dictionary
+	 * @param oldTextureName The old texture name
+	 * @param newTextureDict The new texture dictionary
+	 * @param newTextureName The new texture name
+	 */
+	createWorldTextureSwap(oldTextureDict: string, oldTextureName: string, newTextureDict: string, newTextureName: string): void;
+
+	/**
+	 * This function will remove the specified texture swap from the world
+	 *
+	 * @param oldTextureDict The old texture dictionary
+	 * @param oldTextureName The old texture name
+	 */
+	removeWorldTextureSwap(oldTextureDict: string, oldTextureName: string): void;
+
+	/**
+	 * This function will reset all texture swaps in the world
+	 */
+	resetWorldTextureSwaps(): void;
+	doesLatestBriefStringExist(type: number): boolean;
+	registerTextFontId(fontname: string): number;
+	setNumberPlateTexture(txDict: string, txName: string, txDictNormal: string, txNameNorma: string): void;
+	setParticleFxBloodScale(scale: number): void;
 }
 
-declare interface GameGraphicsMp extends GameGraphics {}
+declare interface GameGraphicsMp extends GameGraphics { }
