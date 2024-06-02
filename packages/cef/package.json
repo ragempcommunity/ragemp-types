@@ -1,6 +1,6 @@
 {
 	"name": "@ragempcommunity/types-cef",
-	"version": "2.1.6",
+	"version": "2.1.8",
 	"description": "Types definitions for RAGE:MP CEF module",
 	"main": "index.d.ts",
 	"files": [
