@@ -1032,16 +1032,6 @@ declare interface RaycastResult {
 
 declare interface BrowserMp {
 	/**
-	 * Property used to gets/sets the console's active state.
-	 */
-	active: boolean;
-
-	/**
-	 * Property used to gets/sets the browser's url.
-	 */
-	url: string;
-
-	/**
 	 * Destroys browser instance.
 	 */
 	destroy(): void;
@@ -1068,29 +1058,6 @@ declare interface BrowserMp {
 	call(eventName: string, ...args: any[]): void;
 	callProc<T = any>(procName: string, ...args: any[]): Promise<T>;
 	executeCached(code: string): void;
-
-	/**
-	 * Available on 11_test_1102_eXzHpHrWd2UfgUhdau6PDVJ88GG5aQY3 branch
-	 */
-	headlessTextureDict: string;
-	headlessTextureName: string;
-	headlessTextureHeightScale: number;
-	inputEnabled: boolean;
-
-	/**
-	 * Send mouse move event
-	 */
-	sendMouseMoveEvent(x: number, y: number): void;
-
-	/**
-	 * Send mouse click event
-	 */
-	sendMouseClickEvent(buttonType: number, x: number, y: number, isUp: boolean): void;
-
-	/**
-	 * Property used to gets the mouse input state
-	 */
-	mouseInputEnabled: boolean;
 }
 
 declare interface BrowserMpPool extends EntityMpPool<BrowserMp> {
@@ -2377,7 +2344,6 @@ declare interface PlayerMp extends PedMpBase {
 	clearParachuteModelOverride(): void;
 	clearParachutePackModelOverride(): void;
 	clearParachuteVariationOverride(): void;
-	clearSecondaryTask(): void;
 	clearWantedLevel(): void;
 	explodeHead(weaponHash: Hash): void;
 	getCurrentStealthNoise(): number;
@@ -2733,7 +2699,6 @@ declare interface VehicleMp extends EntityMp {
 	isAttachedToTowTruck(vehicle: Handle): boolean;
 	isAttachedToTrailer(): boolean;
 	isBig(): boolean;
-	isBumperBrokenOff(front: boolean): boolean;
 	isCargobobHookActive(): boolean;
 	isCargobobMagnetActive(): boolean;
 	isDamaged(): boolean;
@@ -3157,6 +3122,21 @@ declare interface VehicleMp extends EntityMp {
 	rpm: number;
 	steeringAngle: number;
 
+	/**
+	 * Forces remote vehicles broken wheels map object removal
+	 */
+	deleteBrokenWheelObjects: boolean;
+
+	/**
+	 * Forces remote vehicles generic broken parts map object removal, i.e. parts not specified separately
+	 */
+	deleteBrokenPartObjects: boolean;
+
+	/**
+	 * Forces remote vehicles broken vehicle door map object removal
+	 */
+	deleteBrokenDoorObjects: boolean;
+
 	addUpsidedownCheck(): void;
 	areAllWindowsIntact(): boolean;
 	attachToCargobob(cargobob: Handle, boneIndex: number, x: number, y: number, z: number): void;
@@ -3511,8 +3491,6 @@ declare interface VehicleMp extends EntityMp {
 	toggleMod(modType: number, toggle: boolean): void;
 	trackVisibility(): void;
 	wasCounterActivated(p0: any): boolean;
-	setLiveryTexture(textureDict: string, textureName: string): void;
-	setNumberPlateTexture(textureDict: string, textureName: string, textureDictNormal: string, textureNameNormal: string): void;
 }
 
 declare interface VehicleMpPool extends EntityMpPool<VehicleMp> {
