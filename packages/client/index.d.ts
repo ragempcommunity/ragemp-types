@@ -344,7 +344,7 @@ declare interface KeysMp {
 }
 
 declare interface StorageMp {
-	/** Keeps data saved over resource reloads, but is cleared on reconnect.
+	/** Keeps data saved over resource reloads, and is persistent between reconnections to the same server during a single session.
 	 */
 	sessionData: unknown;
 
@@ -1149,6 +1149,7 @@ declare interface IClientEvents {
 	dummyEntityCreated: (dummyType: number, dummy: DummyEntityMp) => void;
 	dummyEntityDestroyed: (dummyType: number, dummy: DummyEntityMp) => void;
 	entityControllerChange: (entity: EntityMp, newController: PlayerMp) => void;
+	replayEditorRequest: () => void;
 	incomingDamage: (
 		sourceEntity: EntityMp,
 		sourcePlayer: PlayerMp,
