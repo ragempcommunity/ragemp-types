@@ -24,6 +24,139 @@ declare interface GetScreenCoordFromWorldCoordResult {
 	result: boolean;
 }
 
+declare interface EntityOverlayParams {
+	enableDepth: boolean,
+	deleteWhenUnused: boolean,
+	keepNonBlurred: boolean,
+	processAttachments: boolean,
+	fill: { enable: boolean, color: number },
+	noise: { enable: boolean, size: number, speed: number, intensity: number },
+	outline: { enable: boolean, color: number, width: number, blurRadius: number, blurIntensity: number },
+	wireframe: { enable: boolean }
+}
+
+declare interface EntityOverlayBatch {
+	/**
+	 * Update an existing entity overlay batch created with createEntityOverlayBatch
+	 * @param overlayParams 
+	 * 
+	 * @example
+	 * 
+	 * //update its fill color
+	 * let overlayParams =  { ... }
+	 * let batch = mp.game.graphics.createEntityOverlayBatch(overlayParams);
+	 * 
+	 * mp.events.add('updatebatchcolor', () => {
+	 *		overlayParams.fill.color = 0x00AA00FF;
+	 *		batch.update(overlayParams);
+	 * });
+	 * 
+	 */
+	update(overlayParams: EntityOverlayParams): void,
+
+	/**
+	 * This method will destroy an entity overlay batch.
+	 * @example
+		* // Enable entity overlay batch
+		* mp.game.graphics.setEntityOverlayPassEnabled(true);
+		* 
+		* // Create new entity overlay batch with specified parameters
+		* const overlayParams = { ... };
+		* let batch = mp.game.graphics.createEntityOverlayBatch(overlayParams);
+		* 
+		* // Add a vehicle to the overlay batch once the player enters it
+		* mp.events.add('playerEnterVehicle', (vehicle) => {
+		*     batch.add(vehicle);
+		* });
+		* 
+		* // Add an event to destroy the created batch
+		* mp.events.add("client_batch_destroy", () => {
+		*     batch.destroy();
+		*     mp.console.logInfo(`Entity overlay batch was destroyed successfully.`);
+		* });
+	 */
+	destroy(): void,
+
+	/**
+	 * This property will return whether an entity overlay is valid or not.
+	 * Note: This property is readonly.
+	 * @returns boolean
+	 */
+	valid: boolean,
+
+	/**
+	 * This method will add an entity to overlay batch.
+	 * @param entity 
+	 * 
+	 * @example
+	 * //Enable entity overlay batch.
+	 *	mp.game.graphics.setEntityOverlayPassEnabled(true);
+	 *	//Create a new entity overlay batch.
+	 *	let batch = mp.game.graphics.createEntityOverlayBatch(overlayParams);
+
+	 *	//Add a vehicle to overlay batch once the player enters in them.
+	 *	mp.events.add('playerEnterVehicle', (vehicle) => {
+	 *		batch.add(vehicle);
+	 *	});
+	 */
+	add(entity: number): void,
+
+	/**
+	 * This method will remove an entity from overlay batch.
+	 * @param entity 
+	 * 
+	 * @example
+	 * //Enable entity overlay batch
+	 *	mp.game.graphics.setEntityOverlayPassEnabled(true);
+
+	 *	//Create new entity overlay batch
+	 *	let batch = mp.game.graphics.createEntityOverlayBatch(overlayParams);
+
+	 *	//Add a vehicle to overlay batch once the player enters in them.
+	 *	mp.events.add('playerEnterVehicle', (vehicle) => {
+	 *		batch.add(vehicle);
+	 *	});
+
+	 *	//Remove vehicle from batch once the player leaves them.
+	 *	mp.events.add('playerLeaveVehicle', (vehicle) => {
+	 *		batch.remove(vehicle);
+	 *	})
+	 */
+	remove(entity: number): void,
+
+	/**
+	 * This method will add an entity to overlay batch only this frame.
+	 * @param entity
+	 * //Enable entity overlay batch
+	 * mp.game.graphics.setEntityOverlayPassEnabled(true);
+
+	 * //Create new entity overlay batch
+	 * let batch = mp.game.graphics.createEntityOverlayBatch(overlayParams);
+
+	 * //Add streamed vehicles to overlay batch.
+	 * mp.events.add('render', () => {
+	 * 	mp.vehicles.forEachInStreamRange((vehicle) => {
+				batch.addThisFrame(vehicle);
+	 * 	})
+	 * });
+	 */
+	addThisFrame(entity: number): void,
+
+	/**
+	 * This method will remove an entity from overlay batch only this frame.
+	 * @param entity 
+	 * 
+	 * @example
+	 *	let batch = mp.game.graphics.createEntityOverlayBatch(overlayParams);
+
+	 *	//Remove vehicle from batch once the player leaves them.
+	 *	mp.events.add('playerLeaveVehicle', (vehicle) => {
+	 *		batch.remove(vehicle);
+	 *	})
+	 */
+	removeThisFrame(entity: number): void,
+}
+
 declare interface GameGraphicsUnk {
 	_0xC5C8F970D4EDFF71(p0: number): void;
 	_0x7FA5D82B8F58EC06(): number;
@@ -1316,146 +1449,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	 *			batch.addThisFrame(mp.players.local);
 	 *	});
 	 */
-	createEntityOverlayBatch(overlayParams: {
-    enableDepth: boolean,
-    deleteWhenUnused: boolean,
-    keepNonBlurred: boolean,
-    processAttachments: boolean,
-    fill: { enable: boolean, color: number },
-    noise: { enable: boolean, size: number, speed: number, intensity: number },
-    outline: { enable: boolean, color: number, width: number, blurRadius: number, blurIntensity: number },
-    wireframe: { enable: boolean }
-	}): {
-
-		/**
-		 * Update an existing entity overlay batch created with createEntityOverlayBatch
-		 * @param overlayParams 
-		 * 
-		 * @example
-		 * 
-		 * //update its fill color
-		 * let overlayParams =  { ... }
-		 * let batch = mp.game.graphics.createEntityOverlayBatch(overlayParams);
-		 * 
-		 * mp.events.add('updatebatchcolor', () => {
-		 *		overlayParams.fill.color = 0x00AA00FF;
-		 *		batch.update(overlayParams);
-		 * });
-		 * 
-		 */
-		update(overlayParams: {
-			enableDepth: boolean,
-			deleteWhenUnused: boolean,
-			keepNonBlurred: boolean,
-			processAttachments: boolean,
-			fill: { enable: boolean, color: number },
-			noise: { enable: boolean, size: number, speed: number, intensity: number },
-			outline: { enable: boolean, color: number, width: number, blurRadius: number, blurIntensity: number },
-			wireframe: { enable: boolean }
-		}): void,
-
-		/**
-		 * This method will destroy an entity overlay batch.
-		 * @example
-		  * // Enable entity overlay batch
-			* mp.game.graphics.setEntityOverlayPassEnabled(true);
-			* 
-			* // Create new entity overlay batch with specified parameters
-			* const overlayParams = { ... };
-			* let batch = mp.game.graphics.createEntityOverlayBatch(overlayParams);
-			* 
-			* // Add a vehicle to the overlay batch once the player enters it
-			* mp.events.add('playerEnterVehicle', (vehicle) => {
-			*     batch.add(vehicle);
-			* });
-			* 
-			* // Add an event to destroy the created batch
-			* mp.events.add("client_batch_destroy", () => {
-			*     batch.destroy();
-			*     mp.console.logInfo(`Entity overlay batch was destroyed successfully.`);
-			* });
-		 */
-		destroy(): void,
-
-		/**
-		 * This property will return whether an entity overlay is valid or not.
-		 * Note: This property is readonly.
-		 * @returns boolean
-		 */
-		valid: boolean,
-
-		/**
-		 * This method will add an entity to overlay batch.
-		 * @param entity 
-		 * 
-		 * @example
-		 * //Enable entity overlay batch.
-		 *	mp.game.graphics.setEntityOverlayPassEnabled(true);
-		 *	//Create a new entity overlay batch.
-		 *	let batch = mp.game.graphics.createEntityOverlayBatch(overlayParams);
-
-		 *	//Add a vehicle to overlay batch once the player enters in them.
-		 *	mp.events.add('playerEnterVehicle', (vehicle) => {
-		 *		batch.add(vehicle);
-		 *	});
-		 */
-		add(entity: number): void,
-
-		/**
-		 * This method will remove an entity from overlay batch.
-		 * @param entity 
-		 * 
-		 * @example
-		 * //Enable entity overlay batch
-		 *	mp.game.graphics.setEntityOverlayPassEnabled(true);
-
-		 *	//Create new entity overlay batch
-		 *	let batch = mp.game.graphics.createEntityOverlayBatch(overlayParams);
-
-		 *	//Add a vehicle to overlay batch once the player enters in them.
-		 *	mp.events.add('playerEnterVehicle', (vehicle) => {
-		 *		batch.add(vehicle);
-		 *	});
-
-		 *	//Remove vehicle from batch once the player leaves them.
-		 *	mp.events.add('playerLeaveVehicle', (vehicle) => {
-		 *		batch.remove(vehicle);
-		 *	})
-		 */
-		remove(entity: number): void,
-
-		/**
-		 * This method will add an entity to overlay batch only this frame.
-		 * @param entity
-		 * //Enable entity overlay batch
-		 * mp.game.graphics.setEntityOverlayPassEnabled(true);
-
-     * //Create new entity overlay batch
-     * let batch = mp.game.graphics.createEntityOverlayBatch(overlayParams);
-
-		 * //Add streamed vehicles to overlay batch.
-		 * mp.events.add('render', () => {
-     * 	mp.vehicles.forEachInStreamRange((vehicle) => {
-      		batch.addThisFrame(vehicle);
-     * 	})
-		 * });
-		 */
-		addThisFrame(entity: number): void,
-
-		/**
-		 * This method will remove an entity from overlay batch only this frame.
-		 * @param entity 
-		 * 
-		 * @example
-		 *	let batch = mp.game.graphics.createEntityOverlayBatch(overlayParams);
-
-		 *	//Remove vehicle from batch once the player leaves them.
-		 *	mp.events.add('playerLeaveVehicle', (vehicle) => {
-		 *		batch.remove(vehicle);
-		 *	})
-		 */
-		removeThisFrame(entity: number): void,
-	}
+	createEntityOverlayBatch(overlayParams: EntityOverlayParams): EntityOverlayBatch;
 
 	/**
 	 * This method will enable or disable entity overlay feature.
