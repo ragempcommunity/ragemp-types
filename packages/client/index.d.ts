@@ -1008,6 +1008,12 @@ declare interface VoiceChatMp {
 	 * mp.voiceChat.gameOutputCategory = hash;
 	 */
 	gameOutputCategory: number;
+
+	advancedNoiseSuppression: boolean;
+
+	networkOptimisations: boolean;
+
+	bitrate: number;
 }
 
 declare interface RaycastingMp {
