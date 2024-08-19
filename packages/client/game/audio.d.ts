@@ -357,7 +357,6 @@ declare interface GameAudio extends GameAudioLegacy {
 	setCategoryVariable(categoryHash: number, fieldNameHash: number, value: any): void;
 	copyCategoryVariables(categoryTo: number, categoryFrom: number): void;
 	restoreCategoryVariables(categoryHash: number): void;
-
 }
 
 declare interface GameAudioMp extends GameAudio { }
