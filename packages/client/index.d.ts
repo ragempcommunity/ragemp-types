@@ -994,6 +994,20 @@ declare interface VoiceChatMp {
 	setPreprocessingParam(setting: number, value: any): void;
 
 	cleanupAndReload(p0: boolean, p1: boolean, p2: boolean): void;
+
+	/**
+	 * Disabled by default.
+	 * @example
+	 * mp.voiceChat.gameOutputEnabled = true;
+	 */
+	gameOutputEnabled: boolean;
+
+	/**
+	 * Default value is set to 'mp.game.joaat('SPEECH_SCRIPTED')'
+	 * @example
+	 * mp.voiceChat.gameOutputCategory = hash;
+	 */
+	gameOutputCategory: number;
 }
 
 declare interface RaycastingMp {
