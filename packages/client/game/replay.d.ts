@@ -10,6 +10,10 @@ declare interface GameReplay {
 	activateRockstarEditor(): void;
 
 	unk: GameReplayUnk;
+
+	continueTransition(): void;
+
+	isEditorAvailable(): boolean;
 }
 
 declare interface GameReplayMp extends GameReplay {}
