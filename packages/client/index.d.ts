@@ -2372,6 +2372,8 @@ declare interface PlayerMp extends PedMpBase {
 	voiceAutoVolume: boolean;
 	voiceVolume: number;
 	voice3d: any;
+	voiceGameOutputEnabled: boolean;
+	voiceGameOutputCategory: number;
 
 	readonly action: string;
 	readonly aimTarget: boolean;
@@ -2487,6 +2489,7 @@ declare interface PlayerMp extends PedMpBase {
 	setVehicleDamageModifier(damageAmount: number): void;
 	setVehicleDefenseModifier(modifier: number): void;
 	setVoiceAttribute(attribute: any, value: any): void; // TODO
+	closeVoiceStream(): void;
 	setWantedCentrePosition(x: number, y: number, z: number): void;
 	setWantedLevel(wantedLevel: number, disableNoMission: boolean): void;
 	setWantedLevelNoDrop(wantedLevel: number, p2: boolean): void;
