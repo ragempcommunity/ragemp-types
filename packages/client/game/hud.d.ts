@@ -867,7 +867,6 @@ declare interface GameHud extends GameHudLegacy {
 	endTextComponent(): void;
 	unk: GameHudUnk;
 
-
 	/**
 	 *  This method will set a blip category priority.
 	 * @param category 
@@ -905,8 +904,6 @@ declare interface GameHud extends GameHudLegacy {
 	 * mp.game.ui.setBlipCategoryGrouped(60, true);
 	 */
 	setBlipCategoryGrouped(category: number, priority: boolean): void;
-
-	
 }
 
 interface GameHudMp extends GameHud { }
