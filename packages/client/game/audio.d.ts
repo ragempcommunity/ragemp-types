@@ -352,6 +352,12 @@ declare interface GameAudio extends GameAudioLegacy {
 	setVehicleHornVariation(vehicle: number, value: number): void;
 	playPoliceCrimeReport(position: Vector3, crimeIndex: number, playDelay: number, localPlayer: boolean): void;
 	unk: GameAudioUnk;
+
+	getCategoryVariable(categoryHash: number, fieldNameHash: number): void;
+	setCategoryVariable(categoryHash: number, fieldNameHash: number, value: any): void;
+	copyCategoryVariables(categoryTo: number, categoryFrom: number): void;
+	restoreCategoryVariables(categoryHash: number): void;
+
 }
 
 declare interface GameAudioMp extends GameAudio { }
