@@ -866,6 +866,44 @@ declare interface GameHud extends GameHudLegacy {
 	enableDeathbloodSeethrough(p1: number): void;
 	endTextComponent(): void;
 	unk: GameHudUnk;
+
+	/**
+	 *  This method will set a blip category priority.
+	 * @param category 
+	 * @param priority 
+	 * @example 
+	 * //create a blip
+	 * let policeBlip = mp.blips.new(60, new mp.Vector3(427.95, -981.05, 0), {
+	 *     name: 'Los Santos Police Station',
+	 *     color: 3,
+	 *     shortRange: true,
+	 * });
+	 * //set blip category to 60
+	 * policeBlip.setCategory(60);
+	 * //make sure 60 is a grouped category.
+	 * mp.game.ui.setBlipCategoryGrouped(60, true);
+	 * //set blip category 60 priority to 0
+	 * mp.game.ui.setBlipCategoryPriority(60, 0);
+	 */
+	setBlipCategoryPriority(category: number, priority: number): void;
+
+	/**
+	 * This method will set a blip into a category.
+	 * @param category 
+	 * @param placeIn 
+	 * @example 
+	 * //create a blip
+	 * let policeBlip = mp.blips.new(60, new mp.Vector3(427.95, -981.05, 0), {
+	 *     name: 'Los Santos Police Station',
+	 *     color: 3,
+	 *     shortRange: true,
+	 * });
+	 * //set blip category to 60
+	 * policeBlip.setCategory(60);
+	 * //make sure 60 is a grouped category.
+	 * mp.game.ui.setBlipCategoryGrouped(60, true);
+	 */
+	setBlipCategoryGrouped(category: number, priority: boolean): void;
 }
 
 interface GameHudMp extends GameHud { }
