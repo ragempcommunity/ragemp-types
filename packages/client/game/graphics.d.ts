@@ -82,7 +82,7 @@ declare interface EntityOverlayBatch {
 	 * Note: This property is readonly.
 	 * @returns boolean
 	 */
-	valid: boolean,
+	readonly valid: boolean,
 
 	/**
 	 * This method will add an entity to overlay batch.
