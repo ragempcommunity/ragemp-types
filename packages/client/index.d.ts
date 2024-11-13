@@ -904,6 +904,11 @@ declare interface UserMpPreferences {
 	 * Gets the client's language settings (Set inside the RAGE:MP client)
 	 */
 	language: string;
+
+	/**
+	 * Get the FQDN/ip of the server player connected to.
+	 */
+	serverAddress: string;
 }
 
 declare interface NametagsMp {
@@ -1014,6 +1019,9 @@ declare interface VoiceChatMp {
 	networkOptimisations: boolean;
 
 	bitrate: number;
+
+	// Get/Set the default volume of the voice chat
+	defaultVolume: number
 }
 
 declare interface RaycastingMp {
@@ -1111,6 +1119,12 @@ declare interface BrowserMp {
 	 * Property used to gets the mouse input state
 	 */
 	mouseInputEnabled: boolean;
+
+	/** 
+	 *	Property used to gets/set the browser's order id.
+		*/
+	orderId: number
+
 }
 
 declare interface BrowserMpPool extends EntityMpPool<BrowserMp> {
@@ -3117,6 +3131,9 @@ declare interface VehicleMp extends EntityMp {
 	deleteBrokenPartObjects: boolean;
 	// Forces remote vehicles broken vehicle door map object removal
 	deleteBrokenDoorObjects: boolean;
+
+	// experimental
+	setTrailerAttachmentsUnbreakable(toggle: boolean): void;
 }
 
 declare interface VehicleMpPool extends EntityMpPool<VehicleMp> {
