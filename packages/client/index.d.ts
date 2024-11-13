@@ -908,7 +908,7 @@ declare interface UserMpPreferences {
 	/**
 	 * Get the FQDN/ip of the server player connected to.
 	 */
-	serverAddress: string;
+	readonly serverAddress: string;
 }
 
 declare interface NametagsMp {
