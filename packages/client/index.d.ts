@@ -261,6 +261,22 @@ declare interface DiscordMp {
 	 * ![DISCORD_RICH_PRESENCE](https://wiki.rage.mp/images/c/c4/UpdatedRichPresence.jpg),
 	 */
 	update(status: string, state: string): void;
+
+
+	/**
+	 * 
+	 * Ask user to authorize your application with Discord. Returns an authorization code.
+	 * 
+	 * @param applicationId Application ID
+	 * @returns Promise<string>
+	 * 
+	 * @example
+	 * ```js
+	 * const authorizationCode = await mp.discord.requestOAuth('123456789')
+	 * ```
+	 */
+
+	requestOAuth2(applicationId: string): Promise<string>;
 }
 
 declare interface ConsoleMp {
