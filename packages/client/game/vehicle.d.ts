@@ -961,6 +961,20 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	setExperimentalAttachmentSyncEnabled(enable: boolean): void;
 	setExperimentalHornSyncEnabled(enable: boolean): void;
 
+    /**
+     * 
+     * @param curveData [x, y, x2, y2, ...] where x is the input RPM and y is the output drive force
+     */
+    createDriveForceCurve(curveNameHash: number, curveData: Array<number>): void;
+    getDriveForceCurveValue(curveNameHash: number, input: number): number;
+    deleteDriveForceCurve(curveNameHash: number): void;
+    setModelDriveForceCurve(vehicleModelHash: number, curveNameHash: number): void;
+    setModelGearRatios(vehicleModelHash: number, ratios: Array<number>): void;
+    passengerMassMultiplier: number;
+    setGearRatios(ratios: Array<number>): void;
+    getWheelGroundSurfaceMaterial(wheelIndex: number): number;
+    setResetUnoccupiedSteerAngle(value: boolean): void;
+
 	unk: GameVehicleUnk;
 }
 
