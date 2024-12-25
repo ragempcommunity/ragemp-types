@@ -1233,6 +1233,8 @@ declare interface IClientEvents {
 	projectile: (sourcePlayer: PlayerMp, weaponHash: number, ammoType: number, position: Vector3, direction: Vector3) => boolean;
 	uncaughtException: (exception: any) => void;
 	unhandledRejection: (promise: Promise<any>, error: any) => void;
+    pauseMenuItemSelect: (itemHash: number) => void;
+    pauseMenuItemChange: (itemHash: number, value: number, oldValue: number) => void;
 }
 
 declare class EventMp {
