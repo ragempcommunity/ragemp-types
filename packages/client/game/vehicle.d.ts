@@ -976,6 +976,8 @@ declare interface GameVehicle extends GameVehicleLegacy {
     setResetUnoccupiedSteerAngle(value: boolean): void;
 
 	unk: GameVehicleUnk;
+
+    requestVehicleAssetAsync(vehicleHash: number, flags: number, timeout?: number): Promise<boolean>;
 }
 
 declare interface GameVehicleMp extends GameVehicle { }
