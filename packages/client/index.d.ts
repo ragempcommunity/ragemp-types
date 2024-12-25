@@ -1505,6 +1505,11 @@ declare interface CameraMp {
 	shake(type: string, amplitude: number): void;
 	stopPointing(): void;
 	stopShaking(stopImmediately: boolean): void;
+    /**
+     * To use the adaptive DOF, make sure to set setUseHiDof(false) and adjust FocusDistanceGridScaling to lower values, such as [0.001, 0.001]
+     */
+    getDofParam(paramHash: number): boolean | number | Array<any>;
+    setDofParam(paramHash: number, value: boolean | number | Array<any>): void;
 }
 
 declare interface CameraMpPool extends EntityMpPool<CameraMp> {
