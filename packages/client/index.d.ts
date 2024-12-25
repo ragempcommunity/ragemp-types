@@ -2601,6 +2601,22 @@ declare interface PlayerMp extends PedMpBase {
 	setVoiceFxVolume(fxHandle: VoiceHandle, { fTarget, fCurrent, fTime, lCurve }: VoiceFxVolume): void;
 	setVoiceFxPeakEq(fxHandle: VoiceHandle, { lBand, fBandwidth, fQ, fCenter, fGain, lChannel }: VoiceFxPeakEq): void;
 	setVoiceFxBQF(fxHandle: VoiceHandle, { lFilter, fCenter, fGain, fBandwidth, fQ, fS, lChannel }: VoiceFxBQF): void;
+
+    /**
+     * A new “bleed-out” state has been added to the player death system, allowing the player to continue a death animation while still retaining health and handling the damage.
+     */
+    taskBleedingDeath(): void;
+
+    /**
+     * You could revive players with a smooth getting up animation, blended from the death ragdoll.
+     */
+    taskRevive(): void;
+
+    /**
+     * The game's original crawling animation task, including the game's adjustments for player crawling collision
+     */
+    taskCrawl(isOnBack: boolean): void;
+    taskCrawlToCoords(position: Vector3, isOnBack: boolean, timeout: number): void;
 }
 
 declare interface PlayerMpPool extends EntityMpPool<PlayerMp> {
