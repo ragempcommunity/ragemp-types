@@ -1251,6 +1251,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 		stringParam4: string,
 		stringParam5: string
 	): void;
+    beginScaleformHudMovieMethod(hudComponent: number, methodName: string): boolean;
 	beginScaleformScriptHudMovieMethod(hudComponent: number, methodName: string): boolean;
 	beginScaleformMovieMethod(scaleform: number, methodName: string): boolean;
 	beginScaleformMovieMethodOnFrontend(methodName: string): boolean;
