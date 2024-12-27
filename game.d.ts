@@ -118,9 +118,16 @@ declare interface GameMp {
 
 	wait(ms: number): void;
 	waitAsync(ms: number): Promise<void>;
+    
+    /**
+     * @param timeout 5000 default
+     */
+    waitForAsync(callback: Function, timeout: number): Promise<boolean>;
+    //waitForAsync<T>(promise: Promise<T>): Promise<T>;
 
 	/**
 	 * Returns a BigInt pointer to be used with native invoker whenever you need to use it in ArrayBuffer
 	 */
 	allocateString(string: string): number;
+    
 }

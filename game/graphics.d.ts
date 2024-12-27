@@ -1251,6 +1251,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 		stringParam4: string,
 		stringParam5: string
 	): void;
+    beginScaleformHudMovieMethod(hudComponent: number, methodName: string): boolean;
 	beginScaleformScriptHudMovieMethod(hudComponent: number, methodName: string): boolean;
 	beginScaleformMovieMethod(scaleform: number, methodName: string): boolean;
 	beginScaleformMovieMethodOnFrontend(methodName: string): boolean;
@@ -1462,7 +1463,22 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	 * //disable entity overlay
 	 * mp.game.graphics.setEntityOverlayPassEnabled(false);
 	 */
-	setEntityOverlayPassEnabled(enable: boolean): void,
+	setEntityOverlayPassEnabled(enable: boolean): void;
+
+    /**
+     * @param timeout 5000 default
+     */
+    requestStreamedTextureDictAsync(textureDict: string, timeout?: number): Promise<boolean>;
+
+    /**
+     * @param timeout 5000 default
+     */
+    waitForScriptHudScaleformMovieLoadAsync(movieId: number, timeout?: number): Promise<boolean>;
+
+    /**
+     * @param timeout 5000 default
+     */
+    waitForScaleformMovieLoadAsync(movieId: number, timeout?: number): Promise<boolean>;
 }
 
 declare interface GameGraphicsMp extends GameGraphics { }

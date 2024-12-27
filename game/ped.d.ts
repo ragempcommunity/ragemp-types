@@ -855,6 +855,16 @@ declare interface GamePed extends GamePedLegacy {
 	isCopPedInArea3d(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number): boolean;
 	setTimeExclusiveDisplayTexture(ped: Handle, tog: boolean): void;
 	unk: GamePedUnk;
+
+    /**
+     * @param timeout 5000 default
+     */
+    requestActionModeAssetAsync(name: string, timeout?: number): Promise<boolean>;
+
+    /**
+     * @param timeout 5000 default
+     */
+    requestStealthModeAssetAsync(name: string, timeout?: number): Promise<boolean>;
 }
 
 declare interface GamePedMp extends GamePed { }

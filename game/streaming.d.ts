@@ -182,6 +182,37 @@ declare interface GameStreaming extends GameStreamingLegacy {
 	 */
 	setRenderHdOnly(enable: boolean): void;
 	unk: GameStreamingUnk;
+
+    /**
+     * @param timeout 5000 default
+     */
+    requestAnimDictAsync(name: string, timeout?: number): Promise<boolean>;
+
+    /**
+     * @param timeout 5000 default
+     */
+    requestClipSetAsync(name: string, timeout?: number): Promise<boolean>;
+
+    /**
+     * @param timeout 5000 default
+     */
+    requestAnimSetAsync(name: string, timeout?: number): Promise<boolean>;
+
+    /**
+     * @param timeout 5000 default
+     */
+    requestNamedPtfxAssetAsync(name: string, timeout?: number): Promise<boolean>;
+
+    /**
+     * @param timeout 5000 default
+     */
+    requestModelAsync(nameHash: number, timeout?: number): Promise<boolean>;
+
+    /**
+     * @param timeout 5000 default
+     */
+    requestCollisionForModelAsync(nameHash: number, timeout?: number): Promise<boolean>;
+
 }
 
 declare interface GameStreamingMp extends GameStreaming { }

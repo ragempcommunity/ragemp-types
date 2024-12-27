@@ -74,6 +74,16 @@ declare interface GameCutscene extends GameCutsceneLegacy {
 	hasCutThisFrame(): boolean;
 
 	unk: GameCutsceneUnk;
+
+    /**
+     * @param timeout 5000 default
+     */
+    requestCutsceneAsync(name: string, flags: number, timeout?: number): Promise<boolean>;
+
+    /**
+     * @param timeout 5000 default
+     */
+    requestCutFileAsync(name: string, timeout?: number): Promise<boolean>;
 }
 
-declare interface GameCutsceneMp extends GameCutscene {}
+declare interface GameCutsceneMp extends GameCutscene { }

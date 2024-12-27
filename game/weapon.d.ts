@@ -207,6 +207,7 @@ declare interface GameWeaponEventRelated {
 	 */
 	setEnableLocalOutgoingDamage(toggle: boolean): void;
 	setCurrentDamageEventCritical(toggle: boolean): void;
+    setSimulateLocalDamageImpacts(doSimulate: boolean): void;
 }
 
 declare interface GameWeaponMp extends GameWeapon, GameWeaponEventRelated { }
