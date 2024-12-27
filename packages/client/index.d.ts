@@ -1233,6 +1233,8 @@ declare interface IClientEvents {
 	projectile: (sourcePlayer: PlayerMp, weaponHash: number, ammoType: number, position: Vector3, direction: Vector3) => boolean;
 	uncaughtException: (exception: any) => void;
 	unhandledRejection: (promise: Promise<any>, error: any) => void;
+    pauseMenuItemSelect: (itemHash: number) => void;
+    pauseMenuItemChange: (itemHash: number, value: number, oldValue: number) => void;
 }
 
 declare class EventMp {
@@ -1503,6 +1505,11 @@ declare interface CameraMp {
 	shake(type: string, amplitude: number): void;
 	stopPointing(): void;
 	stopShaking(stopImmediately: boolean): void;
+    /**
+     * To use the adaptive DOF, make sure to set setUseHiDof(false) and adjust FocusDistanceGridScaling to lower values, such as [0.001, 0.001]
+     */
+    getDofParam(paramHash: number): boolean | number | Array<any>;
+    setDofParam(paramHash: number, value: boolean | number | Array<any>): void;
 }
 
 declare interface CameraMpPool extends EntityMpPool<CameraMp> {
@@ -2594,6 +2601,22 @@ declare interface PlayerMp extends PedMpBase {
 	setVoiceFxVolume(fxHandle: VoiceHandle, { fTarget, fCurrent, fTime, lCurve }: VoiceFxVolume): void;
 	setVoiceFxPeakEq(fxHandle: VoiceHandle, { lBand, fBandwidth, fQ, fCenter, fGain, lChannel }: VoiceFxPeakEq): void;
 	setVoiceFxBQF(fxHandle: VoiceHandle, { lFilter, fCenter, fGain, fBandwidth, fQ, fS, lChannel }: VoiceFxBQF): void;
+
+    /**
+     * A new “bleed-out” state has been added to the player death system, allowing the player to continue a death animation while still retaining health and handling the damage.
+     */
+    taskBleedingDeath(): void;
+
+    /**
+     * You could revive players with a smooth getting up animation, blended from the death ragdoll.
+     */
+    taskRevive(): void;
+
+    /**
+     * The game's original crawling animation task, including the game's adjustments for player crawling collision
+     */
+    taskCrawl(isOnBack: boolean): void;
+    taskCrawlToCoords(position: Vector3, isOnBack: boolean, timeout: number): void;
 }
 
 declare interface PlayerMpPool extends EntityMpPool<PlayerMp> {

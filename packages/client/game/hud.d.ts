@@ -62,6 +62,21 @@ declare interface GetPauseMenuSelectionDataResult {
 	selectedItemUniqueId: number;
 }
 
+declare interface PauseMenuItem {
+    setEnabled(toggle: boolean): void;
+    setValue(value: number): void;
+    setBarColor(colorIndex: number): void;
+    setBarTicks(ticksVisible: boolean): void;
+    setList(values: Array<string>): void;
+    getListDisplayValue(value: number): any;
+    setBarTicks(ticksVisible: boolean): void;
+    setRange(rangeMin: number, rangeMax: number): void;
+    getRangeDisplayValue(value: number): any;
+    setText(text: string): void;
+    onChange(): void;
+    onSelect(): void;
+}
+
 declare interface GameHudLegacy {
 	setLoadingPromptTextEntry(string: string): void;
 	showLoadingPrompt(busySpinnerType: number): void;
@@ -904,6 +919,20 @@ declare interface GameHud extends GameHudLegacy {
 	 * mp.game.ui.setBlipCategoryGrouped(60, true);
 	 */
 	setBlipCategoryGrouped(category: number, priority: boolean): void;
+    
+    getItem(itemNameOrHash: number): PauseMenuItem;
+    tryGetItem(itemNameOrHash: number): PauseMenuItem | undefined;
+    getItems(itemHashes: Array<number>): Array<PauseMenuItem>;
+    tryGetItems(itemHashes: Array<number>): Array<PauseMenuItem>;
+
+    setScreenHeader(screenHash: number, header: string): void;
+    setItemText(itemHash: number, text: string): void;
+    setItemRange(itemHash: number, rangeFrom: number, rangeTo: number): void;
+    setItemList(itemHash: number, values: Array<string>): void;
+    setItemTicksVisible(itemHash: number, isVisible: boolean): void;
+    setItemColor(itemHash: number, colorIndex: number): void;
+    setItemValue(itemHash: number, value: number): void;
+    setItemEnabled(itemHash: number, isEnabled: boolean): void;
 }
 
 interface GameHudMp extends GameHud { }

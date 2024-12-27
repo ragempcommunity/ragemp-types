@@ -79,5 +79,7 @@ declare interface GameShapetest {
 	getShapeTestResult(shapeTestHandle: number): GetShapeTestResultResult;
 	getShapeTestResultIncludingMaterial(shapeTestHandle: number): GetShapeTestResultIncludingMaterialResult;
 	releaseScriptGuidFromEntity(entityHit: number): void;
+
+    waitForCompletionAsync(raycastHandle: number, timeout?: number): Promise<boolean>;
 }
 declare interface GameShapetestMp extends GameShapetest {}
