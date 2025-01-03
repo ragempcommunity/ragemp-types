@@ -265,7 +265,7 @@ declare interface GameGraphicsUnk {
 
 declare interface GameGraphicsLegacy {
 	setScreenDrawPosition(horizontalAlign: number, verticalAlign: number): void;
-	getScreenActiveResolution(x: number, y: number): GetActiveScreenResolutionResult;
+	getScreenActiveResolution(): GetActiveScreenResolutionResult;
 	getScreenAspectRatio(b: boolean): number;
 	setBlackout(state: boolean): void;
 	setFarShadowsSuppressed(toggle: boolean): void;
@@ -1251,7 +1251,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 		stringParam4: string,
 		stringParam5: string
 	): void;
-    beginScaleformHudMovieMethod(hudComponent: number, methodName: string): boolean;
+	beginScaleformHudMovieMethod(hudComponent: number, methodName: string): boolean;
 	beginScaleformScriptHudMovieMethod(hudComponent: number, methodName: string): boolean;
 	beginScaleformMovieMethod(scaleform: number, methodName: string): boolean;
 	beginScaleformMovieMethodOnFrontend(methodName: string): boolean;
@@ -1445,7 +1445,7 @@ declare interface GameGraphics extends GameGraphicsLegacy {
    * 	mp.game.graphics.setEntityOverlayPassEnabled(true);
 	 *
 	 *	let batch = mp.game.graphics.createEntityOverlayBatch(overlayParams);
- 	 *
+	   *
 	 *	mp.events.add('render', () => {
 	 *			batch.addThisFrame(mp.players.local);
 	 *	});
@@ -1465,20 +1465,20 @@ declare interface GameGraphics extends GameGraphicsLegacy {
 	 */
 	setEntityOverlayPassEnabled(enable: boolean): void;
 
-    /**
-     * @param timeout 5000 default
-     */
-    requestStreamedTextureDictAsync(textureDict: string, timeout?: number): Promise<boolean>;
+	/**
+	 * @param timeout 5000 default
+	 */
+	requestStreamedTextureDictAsync(textureDict: string, timeout?: number): Promise<boolean>;
 
-    /**
-     * @param timeout 5000 default
-     */
-    waitForScriptHudScaleformMovieLoadAsync(movieId: number, timeout?: number): Promise<boolean>;
+	/**
+	 * @param timeout 5000 default
+	 */
+	waitForScriptHudScaleformMovieLoadAsync(movieId: number, timeout?: number): Promise<boolean>;
 
-    /**
-     * @param timeout 5000 default
-     */
-    waitForScaleformMovieLoadAsync(movieId: number, timeout?: number): Promise<boolean>;
+	/**
+	 * @param timeout 5000 default
+	 */
+	waitForScaleformMovieLoadAsync(movieId: number, timeout?: number): Promise<boolean>;
 }
 
 declare interface GameGraphicsMp extends GameGraphics { }
