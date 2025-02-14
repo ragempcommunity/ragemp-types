@@ -213,6 +213,11 @@ declare interface GameStreaming extends GameStreamingLegacy {
      */
     requestCollisionForModelAsync(nameHash: number, timeout?: number): Promise<boolean>;
 
+    /**
+     * Runtime assets can be replaced dynamically without restrictions, but the server-side game assets intended for replacements must include the "rta_" prefix in its name.
+     */
+    requestRuntimeAssetFromUrl(resourceName: string, url: string): Promise<boolean>;
+    releaseRuntimeAsset(resourceName: string | number): void;
 }
 
 declare interface GameStreamingMp extends GameStreaming { }
