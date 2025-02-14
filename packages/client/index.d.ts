@@ -851,6 +851,11 @@ declare interface GuiMp {
 	takeScreenshot(name: string, type: RageEnums.ScreenshotType | number, quality: number, compressionQuality: number): void;
 
 	execute(code: string): void;
+
+    /**
+     * If a non-empty list of allowed events is set, all incoming events (e.g., playerChat, playerCommand) and RPC calls will be checked against it before execution.
+     */
+    setAllowedEvents(allowedEvents: string[]): void;
 }
 
 declare interface GuiChatMp {
@@ -1066,6 +1071,20 @@ declare interface RaycastingMp {
 	 * Raycast from point to point, where the ray has a radius.
 	 */
 	testCapsule(startPos: Vector3, endPos: Vector3, radius: number, ignoreEntity?: EntityMp | EntityMp[], flags?: number | number[]): RaycastResult;
+
+    /**
+     * This feature supports most world entities (buildings, MLO, vehicles, props, etc.), but not pedestrians, yet.
+
+     * ⚠️ Use synchronous shapetests with caution to ensure smooth performance of your client-side scripts
+     */
+    testVisualDrawablePointToPoint(rayStart: Vector3, rayEnd: Vector3, flags?: number): RaycastResult;
+
+    /**
+     * This feature supports most world entities (buildings, MLO, vehicles, props, etc.), but not pedestrians, yet.
+     * 
+     * ⚠️ Use synchronous shapetests with caution to ensure smooth performance of your client-side scripts
+     */
+    testVisualDrawablePointToPointForEntity(rayStart: Vector3, rayEnd: Vector3, entityHandle: number): RaycastResult;
 }
 
 declare interface RaycastResult {
@@ -1138,9 +1157,13 @@ declare interface BrowserMp {
 
 	/** 
 	 *	Property used to gets/set the browser's order id.
-		*/
+	 */
 	orderId: number
 
+    /**
+     * If a non-empty list of allowed events is set, all incoming events (e.g., playerChat, playerCommand) and RPC calls will be checked against it before execution.
+     */
+    setAllowedEvents(allowedEvents: string[]): void;
 }
 
 declare interface BrowserMpPool extends EntityMpPool<BrowserMp> {
@@ -2342,6 +2365,9 @@ declare interface PedMpBase extends EntityMp {
 	wasKilledByStealth(): boolean;
 	wasKilledByTakedown(): boolean;
 	wasSkeletonUpdated(): boolean;
+    stopTaskByType(taskType: number, force: boolean): void;   
+    addDecorationEx(collection: number, overlay: number, zone: number, uvPosX: number, uvPosY: number, rotation: number, scaleX: number, scaleY: number, alpha: number): void;
+    voiceGameOutputSound: number;
 }
 
 declare interface PedMp extends PedMpBase {
