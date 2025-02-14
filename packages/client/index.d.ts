@@ -851,6 +851,11 @@ declare interface GuiMp {
 	takeScreenshot(name: string, type: RageEnums.ScreenshotType | number, quality: number, compressionQuality: number): void;
 
 	execute(code: string): void;
+
+    /**
+     * If a non-empty list of allowed events is set, all incoming events (e.g., playerChat, playerCommand) and RPC calls will be checked against it before execution.
+     */
+    setAllowedEvents(allowedEvents: string[]): void;
 }
 
 declare interface GuiChatMp {
@@ -1152,9 +1157,13 @@ declare interface BrowserMp {
 
 	/** 
 	 *	Property used to gets/set the browser's order id.
-		*/
+	 */
 	orderId: number
 
+    /**
+     * If a non-empty list of allowed events is set, all incoming events (e.g., playerChat, playerCommand) and RPC calls will be checked against it before execution.
+     */
+    setAllowedEvents(allowedEvents: string[]): void;
 }
 
 declare interface BrowserMpPool extends EntityMpPool<BrowserMp> {
