@@ -1066,6 +1066,20 @@ declare interface RaycastingMp {
 	 * Raycast from point to point, where the ray has a radius.
 	 */
 	testCapsule(startPos: Vector3, endPos: Vector3, radius: number, ignoreEntity?: EntityMp | EntityMp[], flags?: number | number[]): RaycastResult;
+
+    /**
+     * This feature supports most world entities (buildings, MLO, vehicles, props, etc.), but not pedestrians, yet.
+
+     * ⚠️ Use synchronous shapetests with caution to ensure smooth performance of your client-side scripts
+     */
+    testVisualDrawablePointToPoint(rayStart: Vector3, rayEnd: Vector3, flags?: number): RaycastResult;
+
+    /**
+     * This feature supports most world entities (buildings, MLO, vehicles, props, etc.), but not pedestrians, yet.
+     * 
+     * ⚠️ Use synchronous shapetests with caution to ensure smooth performance of your client-side scripts
+     */
+    testVisualDrawablePointToPointForEntity(rayStart: Vector3, rayEnd: Vector3, entityHandle: number): RaycastResult;
 }
 
 declare interface RaycastResult {
