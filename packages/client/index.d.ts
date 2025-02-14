@@ -2367,6 +2367,7 @@ declare interface PedMpBase extends EntityMp {
 	wasSkeletonUpdated(): boolean;
     stopTaskByType(taskType: number, force: boolean): void;   
     addDecorationEx(collection: number, overlay: number, zone: number, uvPosX: number, uvPosY: number, rotation: number, scaleX: number, scaleY: number, alpha: number): void;
+    voiceGameOutputSound: number;
 }
 
 declare interface PedMp extends PedMpBase {
