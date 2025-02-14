@@ -978,6 +978,11 @@ declare interface GameVehicle extends GameVehicleLegacy {
 	unk: GameVehicleUnk;
 
     requestVehicleAssetAsync(vehicleHash: number, flags: number, timeout?: number): Promise<boolean>;
+    
+    /**
+     * Default is 0.7
+     */
+    spoilerDownforceMultiplier: number;
 }
 
 declare interface GameVehicleMp extends GameVehicle { }
