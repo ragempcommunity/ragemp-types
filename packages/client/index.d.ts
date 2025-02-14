@@ -2365,6 +2365,8 @@ declare interface PedMpBase extends EntityMp {
 	wasKilledByStealth(): boolean;
 	wasKilledByTakedown(): boolean;
 	wasSkeletonUpdated(): boolean;
+    stopTaskByType(taskType: number, force: boolean): void;   
+    addDecorationEx(collection: number, overlay: number, zone: number, uvPosX: number, uvPosY: number, rotation: number, scaleX: number, scaleY: number, alpha: number): void;
 }
 
 declare interface PedMp extends PedMpBase {
