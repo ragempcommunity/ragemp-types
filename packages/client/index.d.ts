@@ -596,7 +596,7 @@ declare class EntityMp {
 	hasCollisionLoadedAround(): boolean;
 	isAMission(): boolean;
 	isAnObject(): boolean;
-	isAPed(): boolean;
+	isAPed(): this is PedMp;
 	isAt(entity: Handle, xSize: number, ySize: number, zSize: number, p4: boolean, p5: boolean, p6: number): boolean;
 	isAtCoord(xPos: number, yPos: number, zPos: number, xSize: number, ySize: number, zSize: number, p6: boolean, p7: boolean, p8: number): boolean;
 	isAttached(): boolean;
