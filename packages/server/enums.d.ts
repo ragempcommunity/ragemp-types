@@ -1,18 +1,17 @@
 declare namespace RageEnums {
 	const enum ClothesComponent {
 		HEAD = 0,
-		BEARD = 1,
+		MASK = 1,
 		HAIR = 2,
 		TORSO = 3,
 		LEGS = 4,
-		HANDS = 5,
-		FOOT = 6,
-		NONE = 7,
-		ACCESSORIES_1 = 8,
-		ACCESSORIES_2 = 9,
-		MASK = 10,
-		DECALS = 11,
-		AUXILIARY = 12
+		BAGS = 5,
+		SHOES = 6,
+		ACCESSORIES_1 = 7,
+		ACCESSORIES_2 = 8,
+		BODY_ARMORS = 9,
+		DECALS = 10,
+		AUXILIARY = 11
 	}
 
 	const enum ColshapeType {
