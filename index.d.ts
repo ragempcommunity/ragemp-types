@@ -1234,7 +1234,7 @@ declare interface IClientEvents {
 	outgoingDamage: (
 		sourceEntity: EntityMp,
 		targetEntity: EntityMp,
-		targetPlayer: PlayerMp,
+		sourcePlayer: PlayerMp,
 		weapon: number,
 		boneIndex: number,
 		damage: number
