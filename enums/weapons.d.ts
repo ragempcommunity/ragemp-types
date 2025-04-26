@@ -217,8 +217,9 @@ declare namespace RageEnums {
 			/** RailgunXM3 - Has no image */
 			RAILGUNXM3 = 'weapon_railgunxm3',
 			/** TecPistol - Has no image */
-			TECPISTOL = 'weapon_tecpistol'
-
+			TECPISTOL = 'weapon_tecpistol',
+                        /** ![Fertilizer Can](https://wiki.rage.mp/w/images/thumb/2/2b/Petrolcan-icon.png/94px-Petrolcan-icon.png) */
+			FERTILIZER_CAN = 'weapon_fertilizercan'
 		}
 
 		const enum Hash {
