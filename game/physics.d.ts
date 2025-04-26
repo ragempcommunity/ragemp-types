@@ -59,7 +59,7 @@ declare interface GamePhysics extends GamePhysicsLegacy {
 	): AddRopeResult;
 	deleteRope(ropeId: number): void;
 	deleteChildRope(ropeId: number): void;
-	doesRopeExist(): number;
+	doesRopeExist(ropeId: number): number;
 	ropeDrawShadowEnabled(toggle: boolean): number;
 	loadRopeData(ropeId: number, rope_preset: string): void;
 	pinRopeVertex(ropeId: number, vertex: number, x: number, y: number, z: number): void;
