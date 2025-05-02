@@ -719,7 +719,7 @@ declare interface GameTask extends GameTaskLegacy {
 	closeSequence(taskSequenceId: number): void;
 	performSequence(ped: number, taskSequenceId: number): void;
 	performSequenceLocally(ped: number, taskSequenceId: number): void;
-	clearSequence(): number;
+	clearSequence(taskSequenceId: number): number;
 	setSequenceToRepeat(taskSequenceId: number, repeat: boolean): void;
 	getSequenceProgress(ped: number): number;
 	getIsActive(ped: number, taskIndex: number): boolean;
