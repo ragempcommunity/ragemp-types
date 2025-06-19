@@ -371,7 +371,7 @@ declare class PlayerMp extends EntityMp {
 	/**
 	 * Property used for getting the player's weapon hash and ammo.
 	 */
-	public readonly allWeapons: number[];
+	public readonly allWeapons: Record<number, number>;
 
 	/**
 	 * Property used for getting the player's ip address.
