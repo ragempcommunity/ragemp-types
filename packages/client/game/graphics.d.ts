@@ -140,7 +140,7 @@ declare interface EntityOverlayBatch {
 	 * 	})
 	 * });
 	 */
-	addThisFrame(entity: number): void,
+	addThisFrame(entity: EntityMp): void,
 
 	/**
 	 * This method will remove an entity from overlay batch only this frame.
