@@ -3642,6 +3642,12 @@ declare interface MarkerMp extends EntityMp {
 	 * This property gets/sets the marker visibility.
 	 */
 	visible: boolean;
+
+	setColor(r: number, g: number, b: number, a: number): void;
+	getColor(): [number, number, number, number];
+
+	scale: number;
+	direction: number;
 }
 
 declare interface MarkerMpPool extends EntityMpPool<MarkerMp> {
