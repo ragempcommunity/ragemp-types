@@ -985,15 +985,15 @@ declare interface GameVehicle extends GameVehicleLegacy {
     spoilerDownforceMultiplier: number;
 	
 	/**
-		 * Modifies the wheel bone transform.
-		 * @param wheelId Wheel index (use 255 to apply to all wheels)
-		 * @param rotationX Rotation X (radians)
-		 * @param rotationY Rotation Y (radians)
-		 * @param rotationZ Rotation Z (radians)
-		 * @param offsetX Offset X
-		 * @param offsetY Offset Y
-		 * @param offsetZ Offset Z
-	*/
+	 * Modifies the wheel bone transform.
+	 * @param wheelId Wheel index (use 255 to apply to all wheels)
+	 * @param rotationX Rotation X (radians)
+	 * @param rotationY Rotation Y (radians)
+	 * @param rotationZ Rotation Z (radians)
+	 * @param offsetX Offset X
+	 * @param offsetY Offset Y
+	 * @param offsetZ Offset Z
+	 */
 	modifyWheelBoneTransform(
 		wheelId: number,
 		rotationX: number,

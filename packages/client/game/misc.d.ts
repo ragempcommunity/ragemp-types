@@ -6,6 +6,13 @@ interface _0xA4A0065E39C9F25CResult {
 	result: boolean;
 }
 
+interface PerformanceTimer {
+	getElapsedSec(): number;
+	getElapsedMs(): number;
+	getElapsedUs(): number;
+	reset(): void;
+}
+
 interface GameMiscUnk {
 	_0x4DCDF92BF64236CD(p0: string, p1: string): void;
 	_0x31125FD509D9043F(p0: string): void;
@@ -690,6 +697,10 @@ interface GameMisc extends GameMiscLegacy {
 	enableSnow: boolean;
 
 	unk: GameMiscUnk;
+	/**
+     * Starts a new performance timer.
+     */
+	startPerformanceTimer(): PerformanceTimer;
 }
 
 interface GameMiscMp extends GameMisc {}
