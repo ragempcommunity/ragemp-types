@@ -3214,6 +3214,26 @@ declare interface VehicleMp extends EntityMp {
 
   // experimental
   setTrailerAttachmentsUnbreakable(toggle: boolean): void;
+
+  /**
+   * Modifies the wheel bone transform.
+   * @param wheelId Wheel index (use 255 to apply to all wheels)
+   * @param rotationX Rotation X (radians)
+   * @param rotationY Rotation Y (radians)
+   * @param rotationZ Rotation Z (radians)
+   * @param offsetX Offset X
+   * @param offsetY Offset Y
+   * @param offsetZ Offset Z
+  */
+  modifyWheelBoneTransform(
+    wheelId: number,
+    rotationX: number,
+    rotationY: number,
+    rotationZ: number,
+    offsetX: number,
+    offsetY: number,
+    offsetZ: number
+  ): void;
 }
 
 declare interface VehicleMpPool extends EntityMpPool<VehicleMp> {
