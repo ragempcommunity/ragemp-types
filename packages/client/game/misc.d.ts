@@ -702,7 +702,7 @@ interface GameMisc extends GameMiscLegacy {
      */
 	startPerformanceTimer(): PerformanceTimer;
 
-  isGen9: boolean;
+  readonly isGen9: boolean;
 }
 
 interface GameMiscMp extends GameMisc {}
