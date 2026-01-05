@@ -492,6 +492,7 @@ interface GameMisc extends GameMiscLegacy {
 	isXbox360Version(): boolean;
 	isPs3Version(): boolean;
 	isPcVersion(): boolean;
+	isGen9(): boolean;
 	isAussieVersion(): boolean;
 	isStringNull(string: string): boolean;
 	isStringNullOrEmpty(string: string): boolean;
