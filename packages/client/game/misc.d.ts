@@ -701,6 +701,8 @@ interface GameMisc extends GameMiscLegacy {
      * Starts a new performance timer.
      */
 	startPerformanceTimer(): PerformanceTimer;
+
+	readonly isGen9: boolean;
 }
 
 interface GameMiscMp extends GameMisc {}
