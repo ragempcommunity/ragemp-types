@@ -265,6 +265,11 @@ declare interface GameObject extends GameObjectLegacy {
 	clearObjectsInsideGarage(garage: Handle, vehicles: boolean, peds: boolean, objects: boolean, broadcast?: boolean): void;
 	createNonNetworkedAmbientPickup(type: number, x: number, y: number, z: number, flags?: number, amount?: number, customModel?: number, scriptedObject?: boolean, hostObject?: boolean): Handle;
 	createNonNetworkedPortablePickup(type: number, x: number, y: number, z: number, snaptoGround?: boolean, customModel?: number): Handle;
+	createGlowStyle(freq: number, minIntensity: number, maxIntensity: number): number;
+    releaseGlowStyle(glowStyle: number): void;
+    modifyGlowStyle(glowStyle: number, freq: number, minIntensity: number, maxIntensity: number): void;
+    enableGlow(handle: number, glowStyle: number): void;
+    disableGlow(handle: number): void;
 	unk: GameObjectUnk;
 }
 
