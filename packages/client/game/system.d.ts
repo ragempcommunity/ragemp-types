@@ -40,6 +40,8 @@ declare interface GameSystem extends GameSystemLegacy {
 	round(value: number): number;
 	toFloat(value: number): number;
 	setThreadPriority(priority: number): void;
+	setConnectableServers(serverIps: string[]): void;
+    connectToServer(ip: string, port: number, sessionData?: string): void;
 }
 
 declare interface GameSystemMp extends GameSystem {}
